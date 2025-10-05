@@ -117,6 +117,7 @@ export default function PortfolioFilters({
               {(p["public-url"] || "").includes("github.com") && (
                 <div className="absolute left-3 bottom-3 w-8 h-8 rounded-full bg-white/90 dark:bg-gray-800/90 flex items-center justify-center shadow-md">
                   <Image
+                    // https://github.com/edent/SuperTinyIcons?tab=readme-ov-file
                     src={
                       "https://edent.github.io/SuperTinyIcons/images/svg/github.svg"
                     }
