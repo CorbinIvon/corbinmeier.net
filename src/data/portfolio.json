@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Vehicles Management",
+    "slug": "vehicles-management",
+    "year": 2023,
+    "skills": ["PHP", "MySQL", "On-Premise"],
+    "description": "Tracks vehicle essential information, documents, and live/recorded locations. On-premise deployment for internal fleet management.",
+    "images": []
+  },
+  {
+    "title": "Employees HR Portal",
+    "slug": "employees-hr-portal",
+    "year": 2023,
+    "skills": ["PHP", "MySQL", "On-Premise"],
+    "description": "Human Resources system that digitizes and stores employee records, documents, and history. Built for secure on-premise hosting.",
+    "images": []
+  },
+  {
+    "title": "Buildings & Sites Manager",
+    "slug": "buildings-sites-manager",
+    "year": 2023,
+    "skills": ["PHP", "MySQL", "On-Premise"],
+    "description": "Real-estate and site management system tracking building files, time-sensitive reminders, and location-specific metadata.",
+    "images": []
+  },
+  {
+    "title": "Night&Day (Mobile App)",
+    "slug": "night-and-day",
+    "year": 2025,
+    "skills": ["Flutter", "iOS", "Android"],
+    "description": "A mobile app currently in development for both Android and iOS. Work in progress.",
+    "images": []
+  },
+  {
+    "title": "Inventory & Asset System",
+    "slug": "inventory-asset-system",
+    "year": 2024,
+    "skills": ["GraphQL", "Next.js", "MySQL", "WebSockets"],
+    "description": "College inventory system using a GraphQL API and MySQL with WebSocket-based live updates for real-time inventory and asset tracking.",
+    "images": []
+  },
+  {
+    "title": "Gestational Diabetes Tracking Assistant",
+    "slug": "gestational-diabetes-assistant",
+    "year": 2024,
+    "skills": ["Flutter", "Dart", "CSV Export", "Data Filtering"],
+    "description": "A Flutter app for quick number tracking, CSV exporting, and filtered data views to assist gestational diabetes monitoring (college project).",
+    "images": []
+  },
+  {
+    "title": "Media Control API",
+    "slug": "media-control-api",
+    "year": 2024,
+    "skills": ["Python", "API"],
+    "description": "Python-based API for programmatic media control and device management, built as a college project.",
+    "images": []
+  },
+  {
+    "title": "Windows Toast LAN Messenger",
+    "slug": "windows-toast-lan-messenger",
+    "year": 2023,
+    "skills": ["Windows Notifications", "LAN Messaging"],
+    "description": "Windows Toast and notification system enabling LAN messaging between devices for quick local notifications.",
+    "images": []
+  }
+]
