@@ -36,6 +36,7 @@
     "slug": "inventory-asset-system",
     "year": 2024,
     "skills": ["GraphQL", "Next.js", "MySQL", "WebSockets"],
+    "public-url": "https://github.com/CorbinIvon/2024fa-csci-36-inventory-system",
     "description": "College inventory system using a GraphQL API and MySQL with WebSocket-based live updates for real-time inventory and asset tracking.",
     "images": []
   },
@@ -44,6 +45,7 @@
     "slug": "gestational-diabetes-assistant",
     "year": 2024,
     "skills": ["Flutter", "Dart", "CSV Export", "Data Filtering"],
+    "public-url": "https://github.com/CorbinIvon/gestational_diabetes_tracking_assistant",
     "description": "A Flutter app for quick number tracking, CSV exporting, and filtered data views to assist gestational diabetes monitoring (college project).",
     "images": []
   },
@@ -52,6 +54,7 @@
     "slug": "media-control-api",
     "year": 2024,
     "skills": ["Python", "API"],
+    "public-url": "https://github.com/CorbinIvon/python-media-control-api",
     "description": "Python-based API for programmatic media control and device management, built as a college project.",
     "images": []
   },
@@ -60,6 +63,7 @@
     "slug": "windows-toast-lan-messenger",
     "year": 2023,
     "skills": ["Windows Notifications", "LAN Messaging"],
+    "public-url": "https://github.com/CorbinIvon/toaster",
     "description": "Windows Toast and notification system enabling LAN messaging between devices for quick local notifications.",
     "images": []
   }
