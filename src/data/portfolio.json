@@ -66,5 +66,28 @@
     "public-url": "https://github.com/CorbinIvon/toaster",
     "description": "Windows Toast and notification system enabling LAN messaging between devices for quick local notifications.",
     "images": []
+  },
+  {
+    "title": "Public College Courses Projects",
+    "slug": "butte-csci-projects",
+    "year": 2024,
+    "skills": [
+      "Next.js",
+      "Vercel",
+      "Supabase",
+      "Analytics",
+      "monorepo",
+      "Turborepo",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "docker-compose",
+      "prisma",
+      "Fastify"
+    ],
+    "public-url": "https://github.com/CorbinIvon/React-Lab-CSCI-031",
+    "description": "A collection of public projects from my college courses, including web apps and tools built with modern technologies.",
+    "images": []
   }
 ]
