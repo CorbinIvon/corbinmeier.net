@@ -1,24 +1,6 @@
-import projects from "@/data/portfolio.json";
 import Image from "next/image";
 
-type Project = {
-  title: string;
-  slug: string;
-  year?: number;
-  description?: string;
-  "public-url"?: string;
-};
-
 export default function AboutPage() {
-  // pull some projects for personal anecdotes
-  const inventory = projects.find((p) => p.slug === "inventory-asset-system");
-  const diabetes = projects.find(
-    (p) => p.slug === "gestational-diabetes-assistant"
-  );
-  const media = projects.find((p) => p.slug === "media-control-api");
-
-  const items = [diabetes, inventory, media].filter(Boolean) as Project[];
-
   return (
     <div className="font-sans min-h-screen px-4 py-8 sm:px-8 sm:py-20">
       <main className="w-full max-w-3xl mx-auto flex flex-col gap-8">
