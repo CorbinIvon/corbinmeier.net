@@ -65,6 +65,15 @@ export default function AboutPage() {
                 with others who share my passion and graduated by the end of
                 2024.
               </p>
+
+              <div className="mt-6 text-white">
+                See the{" "}
+                <a href="/global-clicks" className="decoration underline">
+                  global click counter
+                </a>{" "}
+                for a small project demo demonstrating a simple API with Next.js
+                and serverless functions.
+              </div>
             </div>
           </div>
         </section>
