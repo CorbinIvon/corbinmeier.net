@@ -65,25 +65,6 @@ export default function AboutPage() {
                 with others who share my passion and graduated by the end of
                 2024.
               </p>
-              {items.length > 0 && (
-                <div className="mt-4">
-                  <h2 className="text-lg font-medium mb-2">
-                    Selected projects
-                  </h2>
-                  <ul className="text-sm list-disc list-inside space-y-1">
-                    {items.map((it) => (
-                      <li key={it.slug}>
-                        <a
-                          href={`/portfolio/${it.slug}`}
-                          className="text-blue-600 hover:underline"
-                        >
-                          {it.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
             </div>
           </div>
         </section>
