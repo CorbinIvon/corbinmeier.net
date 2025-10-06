@@ -57,7 +57,7 @@ export default function AboutPage() {
                 far.
               </p>
               <p className="mt-3 text-sm text-muted-foreground">
-                In 2023, I discovered the Computer Programming Associates
+                In 2023, I learned about the Computer Programming Associates
                 program at Butte College and jumped at the opportunity to enroll
                 in 2024. Driven by curiosity and a desire to sharpen my craft, I
                 decided to pursue my associates degree in computer programming —
@@ -65,69 +65,26 @@ export default function AboutPage() {
                 with others who share my passion and graduated by the end of
                 2024.
               </p>
+              {items.length > 0 && (
+                <div className="mt-4">
+                  <h2 className="text-lg font-medium mb-2">
+                    Selected projects
+                  </h2>
+                  <ul className="text-sm list-disc list-inside space-y-1">
+                    {items.map((it) => (
+                      <li key={it.slug}>
+                        <a
+                          href={`/portfolio/${it.slug}`}
+                          className="text-blue-600 hover:underline"
+                        >
+                          {it.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-          </div>
-        </section>
-
-        {/* Projects section - staggered layout */}
-        <section className="py-6">
-          <h2 className="text-2xl font-semibold mb-4">Selected Projects</h2>
-          <div className="flex flex-col gap-8">
-            {items.map((p, idx) => {
-              const isOdd = idx % 2 === 1;
-              // image path convention: /images/portfolio/<slug>/hero.jpg
-              const imgSrc = `/images/portfolio/${p.slug}/hero.jpg`;
-
-              return (
-                <article
-                  key={p.slug}
-                  className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center"
-                >
-                  {/* Image column */}
-                  <div
-                    className={
-                      isOdd
-                        ? "sm:col-span-5 sm:order-2"
-                        : "sm:col-span-5 sm:order-1"
-                    }
-                  >
-                    <div className="w-full h-40 relative rounded overflow-hidden bg-slate-100">
-                      <Image
-                        src={imgSrc}
-                        alt={p.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Text column */}
-                  <div
-                    className={
-                      isOdd
-                        ? "sm:col-span-7 sm:order-1"
-                        : "sm:col-span-7 sm:order-2"
-                    }
-                  >
-                    <h3 className="font-semibold text-lg mb-1">{p.title}</h3>
-                    <div className="text-sm text-muted-foreground mb-2">
-                      {p.year}
-                    </div>
-                    <p className="text-sm mb-2">{p.description}</p>
-                    {p["public-url"] && (
-                      <a
-                        href={p["public-url"]}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-sm text-primary underline"
-                      >
-                        View repo
-                      </a>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
           </div>
         </section>
       </main>

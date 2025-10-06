@@ -3,7 +3,6 @@ import EducationStrip from "@/components/EducationStrip";
 import Services from "@/components/Services";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
         <FeaturedProjects />
         <CTA />
       </main>
-      <Footer />
     </div>
   );
 }
