@@ -1,18 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import ProjectCard, { Project as CardProject } from "./ProjectCard";
+import { useProjectModal } from "./ProjectModalProvider";
 
-type Project = {
-  title: string;
-  slug: string;
-  year: number;
-  skills?: string[];
-  "public-url"?: string;
-  description?: string;
-  images?: string[];
-};
+type Project = CardProject;
 
 export default function PortfolioFilters({
   projects,
@@ -22,6 +14,7 @@ export default function PortfolioFilters({
   const [query, setQuery] = useState("");
   const [year, setYear] = useState<string>("all");
   const [skill, setSkill] = useState<string>("all");
+  const { open } = useProjectModal();
 
   const years = useMemo(() => {
     const set = new Set<number>();
@@ -50,6 +43,9 @@ export default function PortfolioFilters({
       return true;
     });
   }, [projects, query, year, skill]);
+
+  // close modal on ESC
+  // Modal close handling is provided by ProjectModalProvider
 
   return (
     <div className="w-full">
@@ -100,42 +96,16 @@ export default function PortfolioFilters({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {filtered.map((p) => (
-          <Link
-            key={p.slug}
-            href={`/portfolio/${p.slug}`}
-            className="group block border rounded-lg overflow-hidden"
-          >
-            <div className="relative h-40 bg-gray-100 dark:bg-gray-900">
-              <Image
-                src={p.images?.[0] ?? "/next.svg"}
-                alt={p.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              {/* GitHub icon overlay when project's public-url points to GitHub */}
-              {(p["public-url"] || "").includes("github.com") && (
-                <div className="absolute left-3 bottom-3 w-8 h-8 rounded-full bg-white/90 dark:bg-gray-800/90 flex items-center justify-center shadow-md">
-                  <Image
-                    // https://github.com/edent/SuperTinyIcons?tab=readme-ov-file
-                    src={
-                      "https://edent.github.io/SuperTinyIcons/images/svg/github.svg"
-                    }
-                    alt={`${p.title} GitHub`}
-                    width={16}
-                    height={16}
-                    className="object-contain"
-                  />
-                </div>
-              )}
-            </div>
-            <div className="p-4">
-              <h3 className="font-semibold mb-1">{p.title}</h3>
-              <p className="text-sm text-muted-foreground">{p.description}</p>
-            </div>
-          </Link>
+          <div key={p.slug}>
+            <ProjectCard
+              project={p}
+              onClick={() => open(p)}
+              className="w-full"
+            />
+          </div>
         ))}
       </div>
+      {/* Modal is handled globally by ProjectModalProvider */}
     </div>
   );
 }

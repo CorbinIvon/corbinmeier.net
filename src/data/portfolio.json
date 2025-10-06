@@ -5,6 +5,7 @@
     "year": 2023,
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Tracks vehicle essential information, documents, and live/recorded locations. On-premise deployment for internal fleet management.",
+    "body": "<p>This on-premise fleet management system centralizes vehicle information, including registration, service history, documentation, and location logs. Designed for businesses that require internal hosting and strict data controls.</p><ul><li>Document uploads and versioning</li><li>Location logging (live & recorded)</li><li>Role-based access and audit logs</li></ul>",
     "images": []
   },
   {
@@ -13,6 +14,7 @@
     "year": 2023,
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Human Resources system that digitizes and stores employee records, documents, and history. Built for secure on-premise hosting.",
+    "body": "<p>An HR portal that digitizes personnel records, stores signed documents, and tracks employment history. Emphasis on privacy and on-premise deployment for organizations with internal-only data policies.</p><p>Features include secure document storage, custom reporting, and role-based workflows for approvals.</p>",
     "images": []
   },
   {
@@ -21,6 +23,7 @@
     "year": 2023,
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Real-estate and site management system tracking building files, time-sensitive reminders, and location-specific metadata.",
+    "body": "<p>A property and site management tool for maintaining building records, lease documents, and maintenance schedules. Includes reminder notifications for inspections and lease renewals.</p>",
     "images": []
   },
   {
@@ -29,6 +32,7 @@
     "year": 2025,
     "skills": ["Flutter", "iOS", "Android"],
     "description": "A mobile app currently in development for both Android and iOS. Work in progress.",
+    "body": "<p>Night&Day is a cross-platform Flutter app designed for seamless experiences on iOS and Android. Current work includes authentication, local state syncing, and responsive UI tuned for mobile interactions.</p>",
     "images": []
   },
   {
@@ -38,6 +42,7 @@
     "skills": ["GraphQL", "Next.js", "MySQL", "WebSockets"],
     "public-url": "https://github.com/CorbinIvon/2024fa-csci-36-inventory-system",
     "description": "College inventory system using a GraphQL API and MySQL with WebSocket-based live updates for real-time inventory and asset tracking.",
+    "body": "<p>Built as a college project, this inventory and asset management app uses a GraphQL backend and WebSocket-powered live updates for changes to inventory counts, checkouts, and reservations.</p><p>It demonstrates real-time collaboration patterns and efficient querying with GraphQL.</p>",
     "images": []
   },
   {
@@ -47,6 +52,7 @@
     "skills": ["Flutter", "Dart", "CSV Export", "Data Filtering"],
     "public-url": "https://github.com/CorbinIvon/gestational_diabetes_tracking_assistant",
     "description": "A Flutter app for quick number tracking, CSV exporting, and filtered data views to assist gestational diabetes monitoring (college project).",
+    "body": "<p>This tool helps users log blood glucose readings quickly, export sessions as CSV for sharing with clinicians, and filter/view trends over time. Built with usability and quick data entry in mind.</p>",
     "images": []
   },
   {
@@ -56,6 +62,7 @@
     "skills": ["Python", "API"],
     "public-url": "https://github.com/CorbinIvon/python-media-control-api",
     "description": "Python-based API for programmatic media control and device management, built as a college project.",
+    "body": "<p>A lightweight Python API that exposes programmatic controls for media playback and device discovery on local networks. Useful as a centralized control layer for automation scripts and integrations.</p>",
     "images": []
   },
   {
@@ -65,6 +72,7 @@
     "skills": ["Windows Notifications", "LAN Messaging"],
     "public-url": "https://github.com/CorbinIvon/toaster",
     "description": "Windows Toast and notification system enabling LAN messaging between devices for quick local notifications.",
+    "body": "<p>A small utility that sends Windows toast notifications across a LAN. Designed for quick local messaging without a centralized server—great for internal team alerts or small office broadcasts.</p>",
     "images": []
   },
   {
@@ -88,6 +96,7 @@
     ],
     "public-url": "https://github.com/CorbinIvon/React-Lab-CSCI-031",
     "description": "A collection of public projects from my college courses, including web apps and tools built with modern technologies.",
+    "body": "<p>Aggregated course work showcasing web apps, tooling, and experiments. Includes examples using modern stacks like Next.js, Supabase, Prisma, and Turborepo monorepos.</p>",
     "images": []
   }
 ]
