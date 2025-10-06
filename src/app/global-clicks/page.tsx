@@ -44,19 +44,7 @@ export default function GlobalClicksPage() {
   return (
     <div className="font-sans min-h-screen px-4 py-8 sm:px-8 sm:py-20">
       <main className="w-full max-w-3xl mx-auto flex flex-col gap-8 items-center">
-        <h1 className="text-3xl font-semibold">Global Clicks</h1>
-
-        <p className="text-muted-foreground">
-          A single global counter stored on the server. Click the button to
-          increment it.
-        </p>
-        <p className="text-sm mt-2">
-          API docs:{" "}
-          <a href="/api" className="text-indigo-600 hover:underline">
-            /api
-          </a>
-        </p>
-
+        {/* Counter first for quick visibility */}
         <div className="flex flex-col items-center gap-4 mt-6">
           <div className="text-6xl font-bold">{count ?? "—"}</div>
 
@@ -68,6 +56,59 @@ export default function GlobalClicksPage() {
             {loading ? "..." : "Give a Global Click"}
           </button>
         </div>
+
+        <h1 className="text-3xl font-semibold">Global Clicks</h1>
+
+        <p className="text-muted-foreground">
+          A single global counter stored on the server. Click the button to
+          increment it.
+        </p>
+
+        <p className="text-sm mt-2">
+          API docs:{" "}
+          <a href="/api" className="text-indigo-600 hover:underline">
+            /api
+          </a>
+        </p>
+
+        {/* Tools section describing Supabase and Prisma */}
+        <section className="w-full max-w-2xl bg-surface/30 rounded-lg p-4 mt-6">
+          <h2 className="text-lg font-medium">Tools</h2>
+          <p className="text-sm text-muted-foreground mt-2">
+            This demo uses a hosted Postgres database (Supabase) and Prisma as
+            the ORM layer.
+          </p>
+          <ul className="list-disc list-inside mt-3 text-sm space-y-2">
+            <li>
+              <strong>Supabase</strong> — a hosted backend-as-a-service that
+              provides Postgres databases, authentication, and realtime APIs.
+              Learn more at{" "}
+              <a
+                href="https://supabase.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-indigo-600 hover:underline"
+              >
+                https://supabase.com
+              </a>
+              .
+            </li>
+            <li>
+              <strong>Prisma</strong> — a TypeScript-friendly ORM (database
+              toolkit) that generates a typed client to query your database.
+              Learn more at{" "}
+              <a
+                href="https://prisma.io"
+                target="_blank"
+                rel="noreferrer"
+                className="text-indigo-600 hover:underline"
+              >
+                https://prisma.io
+              </a>
+              .
+            </li>
+          </ul>
+        </section>
       </main>
     </div>
   );
