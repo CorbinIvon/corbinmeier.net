@@ -5,10 +5,9 @@ import { useEffect, useState, useRef } from "react";
 type DigitProps = {
   value: number;
   prevValue: number | null;
-  index: number;
 };
 
-function Digit({ value, prevValue, index }: DigitProps) {
+function Digit({ value, prevValue }: DigitProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [digitHeight, setDigitHeight] = useState(0);
   const [appeared, setAppeared] = useState(prevValue !== null);
@@ -50,7 +49,7 @@ function Digit({ value, prevValue, index }: DigitProps) {
         className="transition-transform duration-300 ease-in-out"
         style={{ transform: `translateY(${translateY}px)` }}
       >
-        {Array.from({ length: 10 }).map((_, i) => (
+        {Array.from({ length: 10 }, (_, i) => i).map((i) => (
           <div
             key={i}
             className="digit-item text-center"
@@ -88,15 +87,15 @@ function AnimatedCounter({ value }: { value: number | null }) {
           .map((d) => Number(d));
 
   useEffect(() => {
-    if (digits)
+    if (value !== null && digits)
       setPrevDigits((p) => p ?? digits.map(() => null as unknown as number));
-  }, []);
+  }, [value]);
 
   useEffect(() => {
-    if (digits) {
+    if (value !== null && digits) {
       setPrevDigits((prev) => {
         // keep previous array for comparison; if prev shorter, pad with nulls
-        if (!prev) return digits.map((_, i) => null as unknown as number);
+        if (!prev) return digits.map(() => null as unknown as number);
         const newPrev = [...prev];
         // adjust length
         if (newPrev.length < digits.length) {
@@ -118,15 +117,12 @@ function AnimatedCounter({ value }: { value: number | null }) {
   const prev =
     prevDigits ?? Array(digits.length).fill(null as unknown as number);
 
-  // align digits right (least significant on the right)
-  const padLeft = Math.max(0, digits.length - prev.length);
-
   return (
     <span className="inline-flex items-end" aria-live="polite">
       {digits.map((d, i) => {
         const prevIndex = prev.length - digits.length + i;
         const prevValue = prevIndex >= 0 ? (prev[prevIndex] ?? null) : null;
-        return <Digit key={i} value={d} prevValue={prevValue} index={i} />;
+        return <Digit key={i} value={d} prevValue={prevValue} />;
       })}
     </span>
   );
@@ -134,9 +130,11 @@ function AnimatedCounter({ value }: { value: number | null }) {
 
 export default function GlobalClicksPage() {
   const [count, setCount] = useState<number | null>(null);
+  const [lastClick, setLastClick] = useState<string | null>(null);
+  const [lastHourCount, setLastHourCount] = useState<number | null>(null);
+  const [last24hCount, setLast24hCount] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
-  // Keep a ref of previous digits to help each Digit decide how to animate
-  const prevDigitsRef = useRef<number[] | null>(null);
+  // (previous digits ref removed; state handles previous digits)
 
   async function fetchCount() {
     try {
@@ -144,6 +142,9 @@ export default function GlobalClicksPage() {
       if (res.ok) {
         const data = await res.json();
         setCount(data.count ?? 0);
+        if (data.lastClick) setLastClick(data.lastClick as string);
+        if (typeof data.lastHourCount === "number")
+          setLastHourCount(data.lastHourCount);
       }
     } catch (e) {
       console.error(e);
@@ -152,6 +153,20 @@ export default function GlobalClicksPage() {
 
   useEffect(() => {
     fetchCount();
+
+    // Fetch last 24h count once on init
+    (async function fetch24h() {
+      try {
+        const res = await fetch("/api/clicks");
+        if (res.ok) {
+          const data = await res.json();
+          if (typeof data.last24hCount === "number")
+            setLast24hCount(data.last24hCount);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    })();
 
     // Poll the count every 2 seconds
     const id = setInterval(() => {
@@ -172,6 +187,11 @@ export default function GlobalClicksPage() {
       if (res.ok) {
         const data = await res.json();
         setCount(data.count ?? 0);
+        if (data.lastClick) setLastClick(data.lastClick as string);
+        if (typeof data.lastHourCount === "number")
+          setLastHourCount(data.lastHourCount);
+        if (typeof data.last24hCount === "number")
+          setLast24hCount(data.last24hCount);
       }
     } catch (e) {
       console.error(e);
@@ -189,13 +209,25 @@ export default function GlobalClicksPage() {
             <AnimatedCounter value={count ?? null} />
           </div>
 
-          <button
-            onClick={handleClick}
-            disabled={loading}
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow-lg hover:opacity-95 disabled:opacity-60 transition"
-          >
-            {loading ? "..." : "Give a Global Click"}
-          </button>
+          <div className="relative">
+            <button
+              onClick={handleClick}
+              disabled={loading}
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow-lg hover:opacity-95 disabled:opacity-60 transition relative z-10 overflow-hidden"
+            >
+              {loading ? "..." : "Give a Global Click"}
+            </button>
+
+            {/* flame overlay when hot */}
+            {typeof lastHourCount === "number" && lastHourCount > 1000 && (
+              <span
+                aria-hidden
+                className="absolute inset-0 flex items-center justify-center pointer-events-none z-20"
+              >
+                <span className="animate-pulse text-2xl">🔥</span>
+              </span>
+            )}
+          </div>
         </div>
 
         <h1 className="text-3xl font-semibold">Global Clicks</h1>
@@ -210,6 +242,34 @@ export default function GlobalClicksPage() {
             /api
           </a>
         </p>
+
+        {/* Analytics display */}
+        <section className="w-full max-w-2xl bg-surface/10 rounded-lg p-4 mt-4 text-sm">
+          <h3 className="font-medium">Analytics</h3>
+          <div className="mt-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <div className="text-xs text-muted-foreground">Last Click</div>
+              <div className="font-medium">
+                {lastClick ? new Date(lastClick).toLocaleString() : "—"}
+              </div>
+            </div>
+
+            <div>
+              <div className="text-xs text-muted-foreground">Clicks (1h)</div>
+              <div className="font-medium">{lastHourCount ?? "—"}</div>
+            </div>
+
+            <div>
+              <div className="text-xs text-muted-foreground">Clicks (24h)</div>
+              <div className="font-medium">{last24hCount ?? "—"}</div>
+            </div>
+          </div>
+          {typeof lastHourCount === "number" && lastHourCount > 1000 && (
+            <div className="mt-3 text-sm text-amber-600">
+              You&apos;re on fire! 🔥
+            </div>
+          )}
+        </section>
 
         {/* Tools section describing Supabase and Prisma */}
         <section className="w-full max-w-2xl bg-surface/30 rounded-lg p-4 mt-6">
