@@ -20,6 +20,13 @@ export default function GlobalClicksPage() {
 
   useEffect(() => {
     fetchCount();
+
+    // Poll the count every 2 seconds
+    const id = setInterval(() => {
+      fetchCount();
+    }, 2000);
+
+    return () => clearInterval(id);
   }, []);
 
   async function handleClick() {
@@ -60,8 +67,7 @@ export default function GlobalClicksPage() {
         <h1 className="text-3xl font-semibold">Global Clicks</h1>
 
         <p className="text-muted-foreground">
-          A single global counter stored on the server. Click the button to
-          increment it.
+          Every click is recorded as a timestamp in a database. Give it a try!
         </p>
 
         <p className="text-sm mt-2">
