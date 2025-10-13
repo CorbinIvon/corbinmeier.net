@@ -73,7 +73,9 @@
     "public-url": "https://github.com/CorbinIvon/toaster",
     "description": "Windows Toast and notification system enabling LAN messaging between devices for quick local notifications.",
     "body": "<p>A small utility that sends Windows toast notifications across a LAN. Designed for quick local messaging without a centralized server—great for internal team alerts or small office broadcasts.</p>",
-    "images": []
+    "images": [
+      "https://github.com/CorbinIvon/toaster/assets/20233488/ca8a8c67-9aa0-4dbe-91b6-cb2f077f842a"
+    ]
   },
   {
     "title": "Public College Courses Projects",
