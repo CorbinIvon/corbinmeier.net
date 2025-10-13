@@ -16,7 +16,13 @@ export default function ApiLandingPage() {
             Request: GET /api/clicks
           </p>
           <p className="text-sm mt-1">Response (200):</p>
-          <pre className="font-mono bg-slate-900 text-slate-100 p-3 rounded-md text-sm overflow-auto shadow-sm border border-slate-800">{`{ "count": 42 }`}</pre>
+          <pre className="font-mono bg-slate-900 text-slate-100 p-3 rounded-md text-sm overflow-auto shadow-sm border border-slate-800">{`{
+  "count": 42,
+  "lastClick": "2025-10-07T15:13:00.000Z",
+  "lastHourCount": 128,
+  "last24hCount": 2345,
+  "source": "db"
+}`}</pre>
 
           <h3 className="mt-4 font-semibold">POST</h3>
           <p className="text-sm text-muted-foreground">
@@ -36,7 +42,12 @@ export default function ApiLandingPage() {
           <pre className="font-mono bg-slate-900 text-slate-100 p-3 rounded-md text-sm overflow-auto shadow-sm border border-slate-800">{`// read
 fetch('/api/clicks')
   .then(r => r.json())
-  .then(data => console.log(data.count))
+  .then(data => {
+    console.log('total:', data.count);
+    console.log('last click:', data.lastClick);
+    console.log('last hour:', data.lastHourCount);
+    console.log('last 24h:', data.last24hCount);
+  })
 
 // increment
 fetch('/api/clicks', {
@@ -45,7 +56,7 @@ fetch('/api/clicks', {
   body: JSON.stringify({ action: 'Increment-Count' }),
 })
   .then(r => r.json())
-  .then(data => console.log(data.count));`}</pre>
+  .then(data => console.log('updated total:', data.count));`}</pre>
         </section>
       </main>
     </div>
