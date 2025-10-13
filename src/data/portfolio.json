@@ -95,8 +95,10 @@
       "Fastify"
     ],
     "public-url": "https://github.com/CorbinIvon/React-Lab-CSCI-031",
-    "description": "A collection of public projects from my college courses, including web apps and tools built with modern technologies.",
+    "description": "The work from my CSCI 031 college course, including web apps and tools built with modern technologies.",
     "body": "<p>Aggregated course work showcasing web apps, tooling, and experiments. Includes examples using modern stacks like Next.js, Supabase, Prisma, and Turborepo monorepos.</p>",
-    "images": []
+    "images": [
+      "https://private-user-images.githubusercontent.com/20233488/500307795-61ab2d26-86b0-41c5-9383-c4fa3dab6100.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjAzMDQyNDQsIm5iZiI6MTc2MDMwMzk0NCwicGF0aCI6Ii8yMDIzMzQ4OC81MDAzMDc3OTUtNjFhYjJkMjYtODZiMC00MWM1LTkzODMtYzRmYTNkYWI2MTAwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTEwMTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMDEyVDIxMTkwNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTA2MTc2ZDdjZDU2NWViMTcyZmU5YzQ2NDIyOTA4MjIxYjkwNmMwZmViMDQ1YTExYjIwYTFiNzBkMDNiNDIxNWYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.E_H31mlswJweQ5V0zId3hPddZJHa2A1XgZtPtcvsNH0"
+    ]
   }
 ]
