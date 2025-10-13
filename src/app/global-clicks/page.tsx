@@ -89,7 +89,7 @@ function AnimatedCounter({ value }: { value: number | null }) {
   useEffect(() => {
     if (value !== null && digits)
       setPrevDigits((p) => p ?? digits.map(() => null as unknown as number));
-  }, [value]);
+  }, [value, digits]);
 
   useEffect(() => {
     if (value !== null && digits) {
@@ -109,7 +109,7 @@ function AnimatedCounter({ value }: { value: number | null }) {
         return newPrev;
       });
     }
-  }, [value]);
+  }, [value, digits]);
 
   if (digits === null) return <span>—</span>;
 
