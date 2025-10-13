@@ -6,8 +6,8 @@ const nextConfig: NextConfig = {
       "www.parchment.com",
       "www.butte.edu",
       "edent.github.io",
+      "github.com",
       // allow private user images from GitHubusercontent (used by some project images)
-      "private-user-images.githubusercontent.com",
     ],
     // Or use remotePatterns if you prefer a pattern-based allow list:
     // remotePatterns: [
