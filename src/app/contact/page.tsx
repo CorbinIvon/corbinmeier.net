@@ -72,14 +72,26 @@ export default function ContactPage() {
 
   return (
     <main className="mx-auto max-w-xl px-6 py-12">
-      <h1 className="text-3xl font-semibold mb-6">Contact</h1>
+      <h1 className="text-3xl font-semibold mb-6 text-slate-900 dark:text-slate-100">Contact</h1>
+
+      <div className="mb-8 p-4 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-lg">
+        <p className="text-sm text-slate-700 dark:text-slate-200 mb-2">
+          <strong>Phone:</strong> (530) 487-8104
+        </p>
+        <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
+          I typically respond within 24 hours.
+        </p>
+        <p className="text-sm text-slate-600 dark:text-slate-400">
+          No commitment needed — let&apos;s just talk about your project.
+        </p>
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium">First Name</label>
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">First Name</label>
             <input
-              className="mt-1 block w-full rounded border px-3 py-2"
+              className="mt-1 block w-full rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3 py-2"
               value={form.firstName}
               onChange={(e) => update("firstName", e.target.value)}
               required
@@ -87,9 +99,9 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium">Last Name</label>
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">Last Name</label>
             <input
-              className="mt-1 block w-full rounded border px-3 py-2"
+              className="mt-1 block w-full rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3 py-2"
               value={form.lastName}
               onChange={(e) => update("lastName", e.target.value)}
             />
@@ -97,19 +109,19 @@ export default function ContactPage() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Phone</label>
+          <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">Phone</label>
           <input
-            className="mt-1 block w-full rounded border px-3 py-2"
+            className="mt-1 block w-full rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3 py-2"
             value={form.phone}
             onChange={(e) => update("phone", e.target.value)}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Email</label>
+          <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">Email</label>
           <input
             type="email"
-            className="mt-1 block w-full rounded border px-3 py-2"
+            className="mt-1 block w-full rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3 py-2"
             value={form.email}
             onChange={(e) => update("email", e.target.value)}
             required
@@ -117,9 +129,9 @@ export default function ContactPage() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Subject</label>
+          <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">Subject</label>
           <input
-            className="mt-1 block w-full rounded border px-3 py-2"
+            className="mt-1 block w-full rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3 py-2"
             value={form.subject}
             onChange={(e) => update("subject", e.target.value)}
             required
@@ -127,9 +139,9 @@ export default function ContactPage() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Message</label>
+          <label className="block text-sm font-medium text-slate-700 dark:text-slate-200">Message</label>
           <textarea
-            className="mt-1 block w-full rounded border px-3 py-2"
+            className="mt-1 block w-full rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 px-3 py-2"
             value={form.message}
             onChange={(e) => update("message", e.target.value)}
             rows={4}
@@ -140,7 +152,7 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-60"
+            className="inline-flex items-center rounded-full bg-indigo-600 hover:bg-indigo-700 px-5 py-2 text-white font-medium shadow-sm transition-colors disabled:opacity-60"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>

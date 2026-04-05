@@ -4,8 +4,8 @@
     "slug": "vehicles-management",
     "year": 2023,
     "skills": ["PHP", "MySQL", "On-Premise"],
-    "description": "Tracks vehicle essential information, documents, and live/recorded locations. On-premise deployment for internal fleet management.",
-    "body": "<p>This on-premise fleet management system centralizes vehicle information, including registration, service history, documentation, and location logs. Designed for businesses that require internal hosting and strict data controls.</p><ul><li>Document uploads and versioning</li><li>Location logging (live & recorded)</li><li>Role-based access and audit logs</li></ul>",
+    "description": "Complete fleet management solution that keeps track of every vehicle, their paperwork, and where they are. Eliminates spreadsheets and lost documents.",
+    "body": "<p>Stop losing track of vehicle registrations, service records, and locations. This fleet management system puts everything in one secure place on your own servers. Perfect for businesses that need complete control over their vehicle data.</p><ul><li>All vehicle documents stored and organized</li><li>Real-time and historical location tracking</li><li>Secure access controls and activity logging</li></ul>",
     "images": []
   },
   {
@@ -13,8 +13,8 @@
     "slug": "employees-hr-portal",
     "year": 2023,
     "skills": ["PHP", "MySQL", "On-Premise"],
-    "description": "Human Resources system that digitizes and stores employee records, documents, and history. Built for secure on-premise hosting.",
-    "body": "<p>An HR portal that digitizes personnel records, stores signed documents, and tracks employment history. Emphasis on privacy and on-premise deployment for organizations with internal-only data policies.</p><p>Features include secure document storage, custom reporting, and role-based workflows for approvals.</p>",
+    "description": "Digital employee records system that replaces filing cabinets and paperwork. Secure, organized, and always available when you need it.",
+    "body": "<p>Transform stacks of employee files into a clean, searchable digital system. Store contracts, performance reviews, and employment history securely on your own servers. Built for businesses that value privacy and control.</p><p>Features automated workflows for approvals and generates custom reports instantly.</p>",
     "images": []
   },
   {
@@ -22,8 +22,8 @@
     "slug": "buildings-sites-manager",
     "year": 2023,
     "skills": ["PHP", "MySQL", "On-Premise"],
-    "description": "Real-estate and site management system tracking building files, time-sensitive reminders, and location-specific metadata.",
-    "body": "<p>A property and site management tool for maintaining building records, lease documents, and maintenance schedules. Includes reminder notifications for inspections and lease renewals.</p>",
+    "description": "Property management system that never lets important dates slip through the cracks. Automatic reminders for inspections, renewals, and maintenance.",
+    "body": "<p>Keep every property organized with automatic reminders for lease renewals, inspections, and maintenance deadlines. Store all building documents in one place and never miss a critical date again.</p>",
     "images": []
   },
   {
@@ -31,8 +31,8 @@
     "slug": "night-and-day",
     "year": 2025,
     "skills": ["Flutter", "iOS", "Android"],
-    "description": "A mobile app currently in development for both Android and iOS. Work in progress.",
-    "body": "<p>Night&Day is a cross-platform Flutter app designed for seamless experiences on iOS and Android. Current work includes authentication, local state syncing, and responsive UI tuned for mobile interactions.</p>",
+    "description": "Mobile app in development for iPhone and Android. Designed for seamless user experience across both platforms.",
+    "body": "<p>Night&Day brings native mobile experiences to both iPhone and Android users. Currently under development with focus on intuitive design and reliable performance across devices.</p>",
     "images": []
   },
   {
@@ -41,8 +41,8 @@
     "year": 2024,
     "skills": ["GraphQL", "Next.js", "MySQL", "WebSockets"],
     "public-url": "https://github.com/CorbinIvon/2024fa-csci-36-inventory-system",
-    "description": "College inventory system using a GraphQL API and MySQL with WebSocket-based live updates for real-time inventory and asset tracking.",
-    "body": "<p>Built as a college project, this inventory and asset management app uses a GraphQL backend and WebSocket-powered live updates for changes to inventory counts, checkouts, and reservations.</p><p>It demonstrates real-time collaboration patterns and efficient querying with GraphQL.</p>",
+    "description": "Real-time inventory tracking that updates instantly when items are moved, checked out, or returned. No more counting errors or missing equipment.",
+    "body": "<p>See inventory changes as they happen with live updates across all devices. Perfect for tracking equipment loans, managing stock levels, and coordinating team access to shared resources.</p><p>Built as a college project demonstrating modern web application patterns.</p>",
     "images": []
   },
   {
@@ -51,8 +51,8 @@
     "year": 2024,
     "skills": ["Flutter", "Dart", "CSV Export", "Data Filtering"],
     "public-url": "https://github.com/CorbinIvon/gestational_diabetes_tracking_assistant",
-    "description": "A Flutter app for quick number tracking, CSV exporting, and filtered data views to assist gestational diabetes monitoring (college project).",
-    "body": "<p>This tool helps users log blood glucose readings quickly, export sessions as CSV for sharing with clinicians, and filter/view trends over time. Built with usability and quick data entry in mind.</p>",
+    "description": "Health tracking app that makes logging blood sugar readings quick and easy. Export your data to share with doctors and see trends over time.",
+    "body": "<p>Simplifies daily health tracking with fast data entry and clear trend visualization. Export your readings to share with your healthcare team and identify patterns in your health data.</p>",
     "images": []
   },
   {
@@ -61,8 +61,8 @@
     "year": 2024,
     "skills": ["Python", "API"],
     "public-url": "https://github.com/CorbinIvon/python-media-control-api",
-    "description": "Python-based API for programmatic media control and device management, built as a college project.",
-    "body": "<p>A lightweight Python API that exposes programmatic controls for media playback and device discovery on local networks. Useful as a centralized control layer for automation scripts and integrations.</p>",
+    "description": "Centralized control system for media devices across your network. Control multiple devices from one interface.",
+    "body": "<p>Control all your media devices from a single interface. Perfect for offices, homes, or venues that need coordinated media management without juggling multiple remotes or apps.</p>",
     "images": []
   },
   {
@@ -71,8 +71,8 @@
     "year": 2023,
     "skills": ["Windows Notifications", "LAN Messaging"],
     "public-url": "https://github.com/CorbinIvon/toaster",
-    "description": "Windows Toast and notification system enabling LAN messaging between devices for quick local notifications.",
-    "body": "<p>A small utility that sends Windows toast notifications across a LAN. Designed for quick local messaging without a centralized server—great for internal team alerts or small office broadcasts.</p>",
+    "description": "Instant team notifications that appear directly on everyone's desktop. Perfect for quick announcements across your office network.",
+    "body": "<p>Send instant notifications that pop up on every team member's screen. Great for urgent announcements, meeting reminders, or quick updates that everyone needs to see immediately.</p>",
     "images": [
       "https://github.com/CorbinIvon/toaster/assets/20233488/ca8a8c67-9aa0-4dbe-91b6-cb2f077f842a"
     ]
@@ -97,8 +97,8 @@
       "Fastify"
     ],
     "public-url": "https://github.com/CorbinIvon/React-Lab-CSCI-031",
-    "description": "The work from my CSCI 031 college course, including web apps and tools built with modern technologies.",
-    "body": "<p>Aggregated course work showcasing web apps, tooling, and experiments. Includes examples using modern stacks like Next.js, Supabase, Prisma, and Turborepo monorepos.</p>",
+    "description": "Collection of web applications and tools from computer programming coursework, showcasing modern development practices and problem-solving skills.",
+    "body": "<p>Academic projects demonstrating proficiency in modern web development. Includes working applications that solve real problems using current industry tools and best practices.</p>",
     "images": [
       "https://github.com/user-attachments/assets/61ab2d26-86b0-41c5-9383-c4fa3dab6100"
     ]

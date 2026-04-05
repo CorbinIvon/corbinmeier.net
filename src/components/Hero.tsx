@@ -1,30 +1,28 @@
+"use client";
+
+import { Hero as FrameworkHero } from "react-tailwind-framework";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { heroStyles } from "@/styles/theme";
+
 export default function Hero() {
   return (
-    <section className="w-full max-w-4xl mx-auto text-center sm:text-left">
-      <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-4">
-        Build a better web presence for your business — fast, scalable, and
-        custom.
-      </h1>
-      <p className="text-lg text-muted-foreground mb-6">
-        I design and build accessible, high-performance websites and web apps
-        tailored for startups and small businesses. More capability than a
-        WYSIWYG site — professional layouts, integrations, and growth-ready
-        code.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-3 justify-center sm:justify-start">
-        <a
-          className="inline-flex items-center justify-center rounded-full bg-foreground text-background px-5 py-3 font-semibold"
-          href="/contact"
-        >
-          Start a project
-        </a>
-        <a
-          className="inline-flex items-center justify-center rounded-full border border-solid border-foreground px-5 py-3 font-medium"
-          href="/portfolio"
-        >
-          View portfolio
-        </a>
-      </div>
-    </section>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <FrameworkHero
+        title="Your Chico business deserves more than a template."
+        subtitle="I help local startups and small businesses get online fast, look credible from day one, and attract customers — without the tech headaches. You focus on your business. I'll handle the rest."
+        backgroundImage=""
+        ctaText="Let's get started"
+        ctaLink="/contact"
+        secondaryCtaText="See my work"
+        secondaryCtaLink="/portfolio"
+        LinkComponent={Link as React.ComponentType<any>}
+        styles={heroStyles}
+      />
+    </motion.div>
   );
 }

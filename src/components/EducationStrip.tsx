@@ -1,17 +1,19 @@
 import Image from "next/image";
 import associates from "@/data/associates.json";
+import { Section, Card } from "react-tailwind-framework";
+import { educationStripStyles } from "@/styles/theme";
 
 export default function EducationStrip() {
   const butte = associates.find((a) => a.name.toLowerCase().includes("butte"));
   if (!butte) return null;
 
   return (
-    <section className="w-full max-w-4xl mx-auto py-6">
-      <div className="border rounded-lg p-4">
-        <div className="grid grid-cols-2 sm:grid-cols-[56px_minmax(0,1fr)_112px] gap-4 items-center">
+    <Section styles={{ base: educationStripStyles.section }}>
+      <Card styles={{ base: educationStripStyles.card }}>
+        <div className={educationStripStyles.grid}>
           {/* Logo (left on all sizes) */}
-          <div className="order-1 flex items-center justify-start">
-            <div className="w-10 h-10 sm:w-14 sm:h-14 relative">
+          <div className={educationStripStyles.logoCol}>
+            <div className={educationStripStyles.logoWrapper}>
               <Image
                 src={butte.logo}
                 alt={`${butte.name} logo`}
@@ -22,12 +24,12 @@ export default function EducationStrip() {
           </div>
 
           {/* Diploma (on mobile sits next to logo; on sm+ moves to third column) */}
-          <div className="order-2 sm:order-3 flex items-center justify-end">
+          <div className={educationStripStyles.diplomaCol}>
             <a
               href="https://www.parchment.com/u/award/e84ced0798b2ee4710bd18d2a5da3634"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-20 h-16 sm:w-28 sm:h-20 rounded-sm overflow-hidden border"
+              className={educationStripStyles.diplomaLink}
               aria-label="View official diploma on Parchment.com"
               title="Official diploma (opens in new tab)"
             >
@@ -42,11 +44,11 @@ export default function EducationStrip() {
           </div>
 
           {/* Text (on mobile spans two columns below logo/diploma; on sm+ sits in middle column) */}
-          <div className="order-3 sm:order-2 col-span-2 sm:col-span-1 min-w-0">
-            <div className="font-semibold">
+          <div className={educationStripStyles.textCol}>
+            <div className={educationStripStyles.degreeName}>
               Associate in Science - Computer Programming
             </div>
-            <div className="text-sm text-muted-foreground">
+            <div className={educationStripStyles.schoolName}>
               {butte.name} —{" "}
               <a
                 href="https://programs.butte.edu/ProgramInfo/15/3188"
@@ -57,12 +59,12 @@ export default function EducationStrip() {
                 Degree map
               </a>
             </div>
-            <div className="text-sm text-muted-foreground mt-1">
+            <div className={educationStripStyles.gradDate}>
               Graduated Jan 2025
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </Card>
+    </Section>
   );
 }

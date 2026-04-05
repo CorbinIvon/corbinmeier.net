@@ -1,16 +1,20 @@
 import AssociateCard from "@/components/AssociateCard";
 import associates from "@/data/associates.json";
+import { Section, Grid, Typography } from "react-tailwind-framework";
+import { associatesGridStyles } from "@/styles/theme";
 
 export default function AssociatesGrid() {
   const list = associates.slice(0, 6);
   return (
-    <section className="w-full max-w-4xl mx-auto py-12">
-      <h2 className="text-2xl font-semibold mb-6">College Associates</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <Section styles={{ base: associatesGridStyles.section }}>
+      <Typography as="h2" styles={{ h2: associatesGridStyles.title }}>
+        College Associates
+      </Typography>
+      <Grid styles={{ base: associatesGridStyles.grid }}>
         {list.map((a) => (
           <AssociateCard key={a.id} associate={a} />
         ))}
-      </div>
-    </section>
+      </Grid>
+    </Section>
   );
 }

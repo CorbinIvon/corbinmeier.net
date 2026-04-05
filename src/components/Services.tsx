@@ -1,63 +1,57 @@
-export default function Services() {
-  const services = [
-    {
-      id: "websites",
-      title: "Custom Websites",
-      desc: "Bespoke marketing and sales sites with accessible designs and fast performance.",
-    },
-    {
-      id: "apps",
-      title: "Web Apps & Integrations",
-      desc: "Custom dashboards, booking systems, or integrations with tools like Stripe and Zapier.",
-    },
-    {
-      id: "growth",
-      title: "Growth & Support",
-      desc: "Ongoing support, optimization, and feature work as your business scales.",
-    },
-    {
-      id: "seo",
-      title: "SEO",
-      desc: "Technical SEO audits, on-page optimization, and content recommendations to improve discoverability.",
-    },
-    {
-      id: "automations",
-      title: "Text & Email Automations",
-      desc: "Automated onboarding, reminders, and marketing flows to keep customers engaged and reduce manual work.",
-    },
-    {
-      id: "payments",
-      title: "Payment Processing",
-      desc: "Secure checkout flows, subscription billing, and Stripe integrations for reliable payments.",
-    },
-    {
-      id: "email-domains",
-      title: "Custom Email Domains",
-      desc: "Setup and DNS configuration for professional email addresses that match your brand.",
-    },
-    {
-      id: "performance",
-      title: "Fast Performance & Analytics",
-      desc: "Performance tuning, caching strategies, and lightweight analytics to measure growth without slowing the site.",
-    },
-  ];
+"use client";
 
+import { Features } from "react-tailwind-framework";
+import { servicesStyles } from "@/styles/theme";
+
+const services = [
+  {
+    title: "Win Customers at First Glance",
+    description:
+      "Your website is often a customer's first impression. I build sites that look professional, load fast, and turn visitors into real leads — no tech knowledge required on your end.",
+  },
+  {
+    title: "Save Hours Every Week",
+    description:
+      "Stop doing the same tasks over and over. I automate booking, follow-ups, invoicing, and more so you can spend more time on the work you actually love.",
+  },
+  {
+    title: "Grow Without the Growing Pains",
+    description:
+      "As your business picks up, I'm there to keep your tech running smoothly, add new features, and make sure you never outgrow your own website.",
+  },
+  {
+    title: "Get Found by Chico Customers",
+    description:
+      "When locals search for what you offer, your business shows up. I handle the behind-the-scenes work so the right people find you — not your competitors.",
+  },
+  {
+    title: "Never Lose a Lead Again",
+    description:
+      "Automated follow-up messages keep potential customers warm even when you're swamped or off the clock. Set it once, and it works for you every day.",
+  },
+  {
+    title: "Get Paid Faster, With Less Friction",
+    description:
+      "Accept cards, deposits, or subscriptions online — securely and reliably. Getting paid should be the easiest part of running your business.",
+  },
+  {
+    title: "Look Legit From Day One",
+    description:
+      "A professional email at your own domain (you@yourbusiness.com) builds instant trust with customers and sets you apart before they even read your pitch.",
+  },
+  {
+    title: "Know What's Working",
+    description:
+      "Simple, clear insights into how customers find and use your site — so you can make smarter decisions and stop guessing what's actually driving growth.",
+  },
+];
+
+export default function Services() {
   return (
-    <section className="w-full max-w-4xl mx-auto py-12">
-      <h2 className="text-2xl font-semibold mb-6">
-        Services tailored to startups
-      </h2>
-      <div className="flex flex-wrap justify-center gap-6">
-        {services.map((s) => (
-          <div
-            key={s.id}
-            className="w-full sm:w-[48%] md:w-[30%] p-4 border rounded-lg"
-          >
-            <h3 className="font-semibold mb-2">{s.title}</h3>
-            <p className="text-sm text-muted-foreground">{s.desc}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <Features
+      title="What you get when you work with me"
+      features={services}
+      styles={servicesStyles}
+    />
   );
 }

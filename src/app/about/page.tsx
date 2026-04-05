@@ -1,4 +1,10 @@
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Corbin Meier — Chico Developer & Small Business Tech Partner",
+  description: "Learn about Corbin Meier, a Chico-based developer with expertise in web development and software solutions for local small businesses. Computer Science background from Chico State and Butte College.",
+};
 
 export default function AboutPage() {
   return (
@@ -18,44 +24,24 @@ export default function AboutPage() {
 
             <div className="text-sm text-neutral-800">
               <p className="mb-3 text-muted-foreground">
-                I&apos;m passionate about programming — building thoughtful,
-                performant experiences and useful tools. I like projects that
-                solve real problems and make people&apos;s lives a bit easier,
-                whether that&apos;s an internal tool, a mobile app, or a weekend
-                project.
+                I&apos;m a Chico-based developer who helps small businesses get online, look professional, and grow their customer base. You focus on running your business — I handle the technology that makes it all work seamlessly.
               </p>
 
               <p className="mt-3 text-sm text-muted-foreground">
-                I initially attended Chico State University in 2016 pursuing a
-                Bachelor&apos;s in Science for Computer Science in hopes that I
-                would be able to hone in on my interests in programming and
-                algorithms. Little did I know that Computer Science was more
-                about theory and mathematics than practical software
-                development. After three years, and another 4 to go, the bills
-                from loans and initial outbreak of Covid lead to financial
-                insecurity and forced me to stop attending college. However, the
-                experience provided a solid foundation in problem-solving and
-                critical thinking, which has been invaluable in my career thus
-                far.
-              </p>
-              <p className="mt-3 text-sm text-muted-foreground">
-                In 2023, I learned about the Computer Programming Associates
-                program at Butte College and jumped at the opportunity to enroll
-                in 2024. Driven by curiosity and a desire to sharpen my craft, I
-                decided to pursue my associates degree in computer programming —
-                excited to dive deeper into hands-on development and collaborate
-                with others who share my passion and graduated by the end of
-                2024.
+                When you work with me, you get direct access to someone who understands local business challenges. No account managers, no confusing processes — just clear communication and solutions that actually work for your specific needs.
               </p>
 
-              <div className="mt-6 text-white">
-                See the{" "}
-                <a href="/global-clicks" className="decoration underline">
-                  global click counter
-                </a>{" "}
-                for a small project demo demonstrating a simple API with Next.js
-                and serverless functions.
-              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                I&apos;ve built fleet management systems that eliminated paperwork headaches, employee portals that replaced filing cabinets, and websites that turn visitors into customers. My approach is simple: understand what you need, build it right, and make sure you can use it confidently.
+              </p>
+
+              <p className="mt-3 text-sm text-muted-foreground">
+                I know what it&apos;s like to start something from scratch. I&apos;ve been in Chico most of my life, and I&apos;ve seen how hard local business owners work. Whether you&apos;re just getting started or your current website isn&apos;t bringing in customers, I&apos;d love to help.
+              </p>
+
+              <p className="mt-4 text-sm text-muted-foreground border-t pt-4">
+                <strong>Background:</strong> I started at Chico State studying Computer Science, built a foundation in problem-solving and systems thinking, and earned my Associate&apos;s in Computer Programming from Butte College in 2024. I typically respond to new inquiries within 24 hours.
+              </p>
             </div>
           </div>
         </section>

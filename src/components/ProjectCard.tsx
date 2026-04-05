@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Card } from "react-tailwind-framework";
+import { projectCardStyles } from "@/styles/theme";
 
 export type Project = {
   title: string;
@@ -28,20 +30,18 @@ export default function ProjectCard({
 }) {
   const content = (
     <>
-      <div className="relative h-40 bg-gray-100 dark:bg-gray-900">
+      <div className={projectCardStyles.imageWrapper}>
         <Image
           src={project.images?.[0] ?? "/next.svg"}
           alt={project.title}
           fill
-          className="object-cover"
+          className={projectCardStyles.image}
           sizes="(max-width: 768px) 100vw, 33vw"
         />
         {(project["public-url"] || "").includes("github.com") && (
-          <div className="absolute left-3 bottom-3 w-8 h-8 rounded-full bg-white/90 dark:bg-gray-800/90 flex items-center justify-center shadow-md">
+          <div className={projectCardStyles.githubBadge}>
             <Image
-              src={
-                "https://edent.github.io/SuperTinyIcons/images/svg/github.svg"
-              }
+              src="https://edent.github.io/SuperTinyIcons/images/svg/github.svg"
               alt={`${project.title} GitHub`}
               width={16}
               height={16}
@@ -50,28 +50,30 @@ export default function ProjectCard({
           </div>
         )}
       </div>
-      <div className="p-4">
-        <h3 className="font-semibold mb-1">{project.title}</h3>
-        <p className="text-sm text-muted-foreground">{project.description}</p>
+      <div className={projectCardStyles.body}>
+        <h3 className={projectCardStyles.title}>{project.title}</h3>
+        <p className={projectCardStyles.description}>{project.description}</p>
       </div>
     </>
   );
 
-  const baseClass =
-    (className ?? "") +
-    " group block text-left border rounded-lg overflow-hidden p-0 bg-transparent";
+  const baseClass = (className ?? "") + " " + projectCardStyles.base;
 
   if (href) {
     return (
-      <Link href={href} className={baseClass}>
-        {content}
-      </Link>
+      <Card styles={{ base: baseClass }}>
+        <Link href={href} className="block">
+          {content}
+        </Link>
+      </Card>
     );
   }
 
   return (
-    <button onClick={onClick} type="button" className={baseClass}>
-      {content}
-    </button>
+    <Card styles={{ base: baseClass }}>
+      <button onClick={onClick} type="button" className="block text-left w-full">
+        {content}
+      </button>
+    </Card>
   );
 }
