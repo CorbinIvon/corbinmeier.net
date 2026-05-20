@@ -2,7 +2,7 @@
   {
     "title": "Janus Advisor Inc. - Funeral Home Network",
     "slug": "janus-advisor-network",
-    "year": 2025,
+    "year": 2026,
     "skills": ["React", "Vite", "Cloudflare Pages", "Infrastructure"],
     "public-url": "https://cremation-simplicity.com/",
     "description": "Enterprise-scale digital modernization for a leading equity firm managing multiple funeral home properties.",
@@ -22,7 +22,7 @@
   {
     "title": "Amazing Grace Media",
     "slug": "amazing-grace-media",
-    "year": 2024,
+    "year": 2026,
     "skills": ["React", "Vite", "Cloudflare Pages", "Node.js"],
     "public-url": "https://amzinggracemedia-com.pages.dev/",
     "original-url": "https://amzinggracemedia.com",
@@ -43,7 +43,7 @@
   {
     "title": "Red Bluff Church of Christ",
     "slug": "red-bluff-cofc",
-    "year": 2024,
+    "year": 2026,
     "skills": ["React", "Vite", "Cloudflare", "Node.js", "Custom CMS"],
     "public-url": "http://redbluffcofc.com/",
     "description": "A comprehensive digital transformation featuring a custom-built member portal and CMS.",
@@ -63,7 +63,7 @@
   {
     "title": "CorbinMeier.net",
     "slug": "corbinmeier-net",
-    "year": 2025,
+    "year": 2026,
     "skills": ["React", "Vite", "Cloudflare Pages", "TypeScript"],
     "public-url": "https://corbinmeier.net/",
     "description": "The portfolio you are currently viewing, built with a focus on speed and security.",
@@ -83,7 +83,7 @@
   {
     "title": "Chuck the Painter",
     "slug": "chuck-the-painter",
-    "year": 2024,
+    "year": 2026,
     "skills": ["React", "Vite", "SEO", "Cloudflare"],
     "public-url": "http://chuck-the-painter.com/",
     "description": "A professional portfolio and SEO-focused site that reached over 1,500 unique visitors in its first month.",
@@ -103,7 +103,7 @@
   {
     "title": "Atlas Energy Consulting",
     "slug": "atlas-energy-consulting",
-    "year": 2024,
+    "year": 2026,
     "skills": ["React", "Vite", "Cloudflare"],
     "public-url": "https://atlasenergyconsulting-com.pages.dev/",
     "original-url": "https://atlasenergyconsulting.com",
@@ -124,7 +124,7 @@
   {
     "title": "Johnsons Turboclean",
     "slug": "johnsons-turboclean",
-    "year": 2025,
+    "year": 2026,
     "skills": ["React", "Vite", "Cloudflare", "Branding"],
     "public-url": "https://johnsonsturboclean-com.pages.dev/",
     "original-url": "https://johnsonsturboclean.com",
@@ -145,7 +145,7 @@
   {
     "title": "Envee Hair Studio",
     "slug": "envee-hair-studio",
-    "year": 2025,
+    "year": 2026,
     "skills": ["React", "Vite", "Cloudflare", "UI/UX"],
     "public-url": "https://enveehairstudio-com.pages.dev/",
     "original-url": "https://enveehairstudio.com",
@@ -193,7 +193,7 @@
   {
     "title": "Night&Day (Mobile App)",
     "slug": "night-and-day",
-    "year": 2025,
+    "year": 2026,
     "skills": ["Flutter", "iOS", "Android"],
     "description": "A mobile app currently in development for both Android and iOS. Work in progress.",
     "body": "<p>Night&Day is a cross-platform Flutter app designed for seamless experiences on iOS and Android. Current work includes authentication, local state syncing, and responsive UI tuned for mobile interactions.</p>",
@@ -202,7 +202,7 @@
   {
     "title": "Inventory & Asset System",
     "slug": "inventory-asset-system",
-    "year": 2024,
+    "year": 2026,
     "skills": ["GraphQL", "Next.js", "MySQL", "WebSockets"],
     "public-url": "https://github.com/CorbinIvon/2024fa-csci-36-inventory-system",
     "description": "College inventory system using a GraphQL API and MySQL with WebSocket-based live updates for real-time inventory and asset tracking.",
@@ -212,7 +212,7 @@
   {
     "title": "Gestational Diabetes Tracking Assistant",
     "slug": "gestational-diabetes-assistant",
-    "year": 2024,
+    "year": 2026,
     "skills": ["Flutter", "Dart", "CSV Export", "Data Filtering"],
     "public-url": "https://github.com/CorbinIvon/gestational_diabetes_tracking_assistant",
     "description": "A Flutter app for quick number tracking, CSV exporting, and filtered data views to assist gestational diabetes monitoring (college project).",
@@ -222,7 +222,7 @@
   {
     "title": "Media Control API",
     "slug": "media-control-api",
-    "year": 2024,
+    "year": 2026,
     "skills": ["Python", "API"],
     "public-url": "https://github.com/CorbinIvon/python-media-control-api",
     "description": "Python-based API for programmatic media control and device management, built as a college project.",
@@ -244,7 +244,7 @@
   {
     "title": "Public College Courses Projects",
     "slug": "butte-csci-projects",
-    "year": 2024,
+    "year": 2026,
     "skills": [
       "Next.js",
       "Vercel",
