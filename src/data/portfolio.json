@@ -179,7 +179,7 @@
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Human Resources system that digitizes and stores employee records, documents, and history. Built for secure on-premise hosting.",
     "body": "<p>An HR portal that digitizes personnel records, stores signed documents, and tracks employment history. Emphasis on privacy and on-premise deployment for organizations with internal-only data policies.</p><p>Features include secure document storage, custom reporting, and role-based workflows for approvals.</p>",
-    "images": []
+    "images": ["/projects/employees-hr-portal.png"]
   },
   {
     "title": "Buildings & Sites Manager",
