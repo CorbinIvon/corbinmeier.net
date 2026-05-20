@@ -11,9 +11,22 @@ export type Project = {
   year: number;
   skills?: string[];
   "public-url"?: string;
+  "original-url"?: string;
   description?: string;
   body?: string;
   images?: string[];
+  beforeAfter?: {
+    before: {
+      title: string;
+      description: string;
+      image?: string;
+    };
+    after: {
+      title: string;
+      description: string;
+      image?: string;
+    };
+  };
 };
 
 export default function ProjectCard({

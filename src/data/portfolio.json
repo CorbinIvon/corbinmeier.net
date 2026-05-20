@@ -1,5 +1,169 @@
 [
   {
+    "title": "Janus Advisor Inc. - Funeral Home Network",
+    "slug": "janus-advisor-network",
+    "year": 2025,
+    "skills": ["React", "Vite", "Cloudflare Pages", "Infrastructure"],
+    "public-url": "https://cremation-simplicity.com/",
+    "description": "Enterprise-scale digital modernization for a leading equity firm managing multiple funeral home properties.",
+    "body": "<p>Serving as the IT lead for Janus Advisor Inc., I am executing a massive digital overhaul for their network of funeral home properties. This initiative involves migrating a fleet of over 20 legacy sites from restrictive, high-premium Squarespace plans to a custom, high-performance React + Vite framework. This transition not only provides a significantly more premium aesthetic but also delivers substantial operational efficiency, saving the firm between $240 and $1,200 annually per property in hosting fees alone.</p><p>A critical technical objective was achieving granular control over the UI that out-of-the-box templates couldn't provide. A prime example is the 'Available 24/7' Call Now button integrated directly into the site headers—a high-converting feature essential for the industry that Squarespace's rigid template system could not accommodate. Current successful migrations include Cremation Simplicity, with Blair's Cremation, McNary's Woodland, and Chapel by the Sea currently under review for final deployment.</p>",
+    "images": [],
+    "beforeAfter": {
+      "before": {
+        "title": "Rigid SaaS (Squarespace)",
+        "description": "High hosting premiums ($20-$100/mo per site) and restrictive templates that blocked essential UI features like enhanced header CTAs."
+      },
+      "after": {
+        "title": "Custom Enterprise Edge",
+        "description": "Zero-cost Cloudflare hosting with a 20+ site roadmap, featuring custom 'Available 24/7' CTAs and a premium, bespoke aesthetic."
+      }
+    }
+  },
+  {
+    "title": "Amazing Grace Media",
+    "slug": "amazing-grace-media",
+    "year": 2024,
+    "skills": ["React", "Vite", "Cloudflare Pages", "Node.js"],
+    "public-url": "https://amzinggracemedia-com.pages.dev/",
+    "original-url": "https://amzinggracemedia.com",
+    "description": "A high-performance videographer portfolio replacing a bloated Wix site.",
+    "body": "<p>A videographer's work demands a platform as sharp as their lens. This project involved migrating a media-heavy portfolio from Wix to a custom React + Vite architecture. By stripping away the computational bloat and pervasive script errors inherent in the original platform, I achieved near-instantaneous load times and a fluid scrolling experience that lets the cinematography take center stage.</p><p>The transition to Cloudflare Pages ensured global edge delivery, providing a rock-solid, high-bandwidth experience for potential clients regardless of their location.</p>",
+    "images": [],
+    "beforeAfter": {
+      "before": {
+        "title": "Legacy Wix Build",
+        "description": "Littered with HTML/JS errors and sluggish performance. Computational bloat obscured the high-quality media content."
+      },
+      "after": {
+        "title": "Artisan React Site",
+        "description": "Blazing fast, error-free delivery with a fresh design optimized for high-definition video presentation."
+      }
+    }
+  },
+  {
+    "title": "Red Bluff Church of Christ",
+    "slug": "red-bluff-cofc",
+    "year": 2024,
+    "skills": ["React", "Vite", "Cloudflare", "Node.js", "Custom CMS"],
+    "public-url": "http://redbluffcofc.com/",
+    "description": "A comprehensive digital transformation featuring a custom-built member portal and CMS.",
+    "body": "<p>Moving beyond a brittle HostGator setup, I engineered a robust digital ecosystem for this community. The highlight is a custom-built CMS that empowers leadership with full CRUD operations for announcements, Bible studies, and weekly devotionals. The Bible study module includes a sophisticated text editor and live preview tool, while the Devotional section features an elegant text-over-image experience.</p><p>To protect sensitive community information, I implemented a multi-tiered user hierarchy (Registered, Member, Admin, Owner) with an approval-based onboarding flow. Announcements can be flagged for 'Member Only' visibility, ensuring privacy for the congregation while maintaining a public-facing ministry.</p>",
+    "images": [],
+    "beforeAfter": {
+      "before": {
+        "title": "Brittle Legacy Hosting",
+        "description": "Unbearable maintenance on HostGator; updates frequently broke functionality, and manual rollbacks were common."
+      },
+      "after": {
+        "title": "Empowered Community Portal",
+        "description": "A secure, multi-role backend with custom editing tools, achieving faster load times and zero maintenance friction."
+      }
+    }
+  },
+  {
+    "title": "CorbinMeier.net",
+    "slug": "corbinmeier-net",
+    "year": 2025,
+    "skills": ["React", "Vite", "Cloudflare Pages", "TypeScript"],
+    "public-url": "https://corbinmeier.net/",
+    "description": "The portfolio you are currently viewing, built with a focus on speed and security.",
+    "body": "<p>This site represents my personal standard for web architecture. I migrated from a heavy Next.js + Vercel + Supabase stack to a streamlined React + Vite implementation on Cloudflare Pages. This shift eliminated unnecessary runtime overhead and consolidated the infrastructure into a zero-cost, high-performance static delivery model.</p><p>By leveraging TypeScript for structural integrity and Cloudflare's edge network for security, I've created a platform that is not only fast but virtually impenetrable and infinitely scalable.</p>",
+    "images": [],
+    "beforeAfter": {
+      "before": {
+        "title": "Next.js / Supabase Stack",
+        "description": "Heavier framework dependencies and reliance on external database services for relatively static data."
+      },
+      "after": {
+        "title": "Streamlined Static Edge",
+        "description": "Minimal runtime, maximum security, and high performance with zero-cost infrastructure."
+      }
+    }
+  },
+  {
+    "title": "Chuck the Painter",
+    "slug": "chuck-the-painter",
+    "year": 2024,
+    "skills": ["React", "Vite", "SEO", "Cloudflare"],
+    "public-url": "http://chuck-the-painter.com/",
+    "description": "A professional portfolio and SEO-focused site that reached over 1,500 unique visitors in its first month.",
+    "body": "<p>Digital confidence is the cornerstone of local business growth. For this project, I transformed a word-of-mouth operation into a searchable digital powerhouse. The new site focuses on high-visibility project showcases and aggressive SEO optimization.</p><p>In its first month of operation, the site successfully handled over 16,000 requests from 1,500 unique visitors, with a 40% cache hit rate. By implementing clean, bot-friendly markup and structured data, the site is now actively crawled, steadily climbing the ranks to connect Chuck with new potential clients.</p>",
+    "images": [],
+    "beforeAfter": {
+      "before": {
+        "title": "No Digital Presence",
+        "description": "Relying entirely on word-of-mouth with no central portfolio for prospective clients to verify quality."
+      },
+      "after": {
+        "title": "Search-Optimized Hub",
+        "description": "1,500+ monthly unique visitors and 40% cached traffic, building immediate trust through a professional gallery."
+      }
+    }
+  },
+  {
+    "title": "Atlas Energy Consulting",
+    "slug": "atlas-energy-consulting",
+    "year": 2024,
+    "skills": ["React", "Vite", "Cloudflare"],
+    "public-url": "https://atlasenergyconsulting-com.pages.dev/",
+    "original-url": "https://atlasenergyconsulting.com",
+    "description": "A high-performance recreation of a WordPress site to lower costs and improve design.",
+    "body": "<p>WordPress often imposes rigid design constraints and high operational costs. For Atlas Energy, I provided a complete architectural escape, recreating their entire digital presence in a custom React framework. This move eliminated the need for expensive managed hosting and the constant headache of plugin security updates.</p><p>The result is a pixel-perfect, lightning-fast site that gives the client full design freedom while slashing their monthly overhead to a fraction of the previous cost.</p>",
+    "images": [],
+    "beforeAfter": {
+      "before": {
+        "title": "Rigid WordPress Build",
+        "description": "Hard limits on layout and high hosting fees. Constant maintenance overhead for plugin security."
+      },
+      "after": {
+        "title": "Custom Edge Framework",
+        "description": "Infinite design flexibility, superior performance, and significantly reduced operational expenses."
+      }
+    }
+  },
+  {
+    "title": "Johnsons Turboclean",
+    "slug": "johnsons-turboclean",
+    "year": 2025,
+    "skills": ["React", "Vite", "Cloudflare", "Branding"],
+    "public-url": "https://johnsonsturboclean-com.pages.dev/",
+    "original-url": "https://johnsonsturboclean.com",
+    "description": "Professionalizing a DIY effort into a cohesive, high-performance brand portal.",
+    "body": "<p>A potential client reached out to bridge the gap between their manual DIY efforts and a professional digital presence. This project focuses on building a cohesive brand identity from the ground up, paired with a modern web experience that reflects the precision of their services.</p><p>The new architecture moves away from consumer-grade builders to a custom professional stack, ensuring that as the business scales, the website remains a robust and reliable asset.</p>",
+    "images": [],
+    "beforeAfter": {
+      "before": {
+        "title": "DIY Builder Effort",
+        "description": "The client struggled with the limitations of DIY tools, resulting in a site that lacked professional polish."
+      },
+      "after": {
+        "title": "Professional Brand Hub",
+        "description": "A unified identity and high-performance site that allows the business to scale with authority."
+      }
+    }
+  },
+  {
+    "title": "Envee Hair Studio",
+    "slug": "envee-hair-studio",
+    "year": 2025,
+    "skills": ["React", "Vite", "Cloudflare", "UI/UX"],
+    "public-url": "https://enveehairstudio-com.pages.dev/",
+    "original-url": "https://enveehairstudio.com",
+    "description": "A high-fidelity site migration completed in a single day after a previous developer failed to deliver.",
+    "body": "<p>This project was a critical rescue mission. Nichole already had a functioning site, but a third-party developer offered to recreate it with the promise of modernization. After months of waiting with no progress to show, the third party eventually dropped the ball, leaving Nichole to revert to her original, outdated setup in frustration.</p><p>Leveraging my streamlined React + Vite framework, I was able to step in and deliver a high-fidelity modernization—a complete recreation of the desired design—in just a single day of work. The focus was on capturing the boutique's aesthetic while implementing modern performance optimizations, proving that high-quality delivery doesn't require months of development time.</p>",
+    "images": [],
+    "beforeAfter": {
+      "before": {
+        "title": "Failed Recreation Attempt",
+        "description": "A third party promised a new site but failed to deliver after months, forcing the client back to her original legacy setup."
+      },
+      "after": {
+        "title": "24-Hour Modernization",
+        "description": "A complete, high-fidelity recreation delivered in a single day, providing the professional digital home the salon deserved."
+      }
+    }
+  },
+  {
     "title": "Vehicles Management",
     "slug": "vehicles-management",
     "year": 2023,

@@ -116,9 +116,28 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                    {project.body && (
                      <div>
                         <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground mb-4">Context</h4>
-                        <p className="text-sm text-muted leading-relaxed">
-                           {project.body}
-                        </p>
+                        <div 
+                           className="text-sm text-muted leading-relaxed prose prose-invert prose-sm max-w-none"
+                           dangerouslySetInnerHTML={{ __html: project.body }}
+                        />
+                     </div>
+                   )}
+
+                   {project.beforeAfter && (
+                     <div className="space-y-6">
+                        <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground mb-4">Transformation</h4>
+                        <div className="grid grid-cols-1 gap-4">
+                           <div className="p-4 rounded-2xl bg-muted/5 border border-border/50">
+                              <span className="text-[9px] font-bold uppercase tracking-widest text-red-500/80 mb-2 block">Before</span>
+                              <h5 className="text-sm font-medium mb-1">{project.beforeAfter.before.title}</h5>
+                              <p className="text-xs text-muted leading-relaxed">{project.beforeAfter.before.description}</p>
+                           </div>
+                           <div className="p-4 rounded-2xl bg-accent/5 border border-accent/20">
+                              <span className="text-[9px] font-bold uppercase tracking-widest text-accent mb-2 block">After</span>
+                              <h5 className="text-sm font-medium mb-1">{project.beforeAfter.after.title}</h5>
+                              <p className="text-xs text-muted leading-relaxed">{project.beforeAfter.after.description}</p>
+                           </div>
+                        </div>
                      </div>
                    )}
                 </div>
@@ -132,8 +151,19 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                         rel="noopener noreferrer"
                         className="btn-artisan py-3 px-8 text-sm"
                       >
-                        Visit Project
+                        {project["original-url"] ? "Visit Live Site" : "Visit Project"}
                         <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                    {project["original-url"] && (
+                      <a 
+                        href={project["original-url"]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-8 py-3 rounded-full border border-border/50 hover:bg-muted/10 transition-colors text-sm font-medium text-muted"
+                      >
+                        View Original
+                        <ExternalLink className="w-3 h-3" />
                       </a>
                     )}
                     {project["public-url"]?.includes("github.com") && (
