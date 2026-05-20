@@ -41,17 +41,10 @@ yarn-error.log*
 .wrangler
 .dev.vars
 
-# drizzle & database
-*.sqlite
-*.sqlite-journal
-*.db
-*.db-journal
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
 # project specific
-/src/generated/prisma
 .project_map.txt
 .tags

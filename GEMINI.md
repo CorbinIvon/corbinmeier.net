@@ -1,24 +1,15 @@
-# Project Notes: Cloudflare Pages & Drizzle Transition
+# Project Notes: Cloudflare Pages Transition
 
 ## Overview
-The project has been migrated to use **OpenNext** for Cloudflare Pages deployment, **Drizzle ORM**, and **Cloudflare D1** (SQLite). Supabase and Prisma have been removed.
+The project has been migrated to use **OpenNext** for Cloudflare Pages deployment. The architecture is pure static, with data managed via JSON files.
 
 ## Key Changes
 - **Framework:** Next.js `15.5.18`.
 - **Adapter:** `@opennextjs/cloudflare`.
-- **Database:** Cloudflare D1 (bound as `DB`).
-- **ORM:** Drizzle ORM (replacing Prisma).
-- **Schema:** Defined in `src/db/schema/index.ts`.
-- **Migrations:** Managed via `drizzle-kit` and stored in `/drizzle`.
-
-## Database Workflow
-1. Modify schema in `src/db/schema/index.ts`.
-2. Run `npx drizzle-kit generate` to create migrations.
-3. Run `npx wrangler d1 migrations apply corbinmeier-net-db --local` for local dev.
-4. Run `npx wrangler d1 migrations apply corbinmeier-net-db --remote` for production.
+- **UI:** 'Artisan Engineer' aesthetic with Instrument Serif and Framer Motion.
+- **Service Model:** Partnership-driven, $0 up-front infrastructure cost for small businesses.
 
 ## Critical Files
-- `src/db/index.ts`: Drizzle initialization helper.
-- `wrangler.jsonc`: Cloudflare D1 and Pages configuration.
-- `CLOUDFLARE.md`: Updated deployment and migration guide.
+- `wrangler.jsonc`: Cloudflare Pages configuration.
+- `CLOUDFLARE.md`: Detailed deployment guide.
 - `env.d.ts`: TypeScript definitions for Cloudflare environment bindings.
