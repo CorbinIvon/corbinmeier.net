@@ -166,7 +166,7 @@
   {
     "title": "Vehicles Management",
     "slug": "vehicles-management",
-    "year": 2026,
+    "year": 2023,
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Tracks vehicle essential information, documents, and live/recorded locations. On-premise deployment for internal fleet management.",
     "body": "<p>This on-premise fleet management system centralizes vehicle information, including registration, service history, documentation, and location logs. Designed for businesses that require internal hosting and strict data controls.</p><ul><li>Document uploads and versioning</li><li>Location logging (live & recorded)</li><li>Role-based access and audit logs</li></ul>",
@@ -175,7 +175,7 @@
   {
     "title": "Employees HR Portal",
     "slug": "employees-hr-portal",
-    "year": 2026,
+    "year": 2023,
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Human Resources system that digitizes and stores employee records, documents, and history. Built for secure on-premise hosting.",
     "body": "<p>An HR portal that digitizes personnel records, stores signed documents, and tracks employment history. Emphasis on privacy and on-premise deployment for organizations with internal-only data policies.</p><p>Features include secure document storage, custom reporting, and role-based workflows for approvals.</p>",
@@ -184,7 +184,7 @@
   {
     "title": "Buildings & Sites Manager",
     "slug": "buildings-sites-manager",
-    "year": 2026,
+    "year": 2023,
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Real-estate and site management system tracking building files, time-sensitive reminders, and location-specific metadata.",
     "body": "<p>A property and site management tool for maintaining building records, lease documents, and maintenance schedules. Includes reminder notifications for inspections and lease renewals.</p>",
@@ -198,7 +198,7 @@
   {
     "title": "Night&Day (Mobile App)",
     "slug": "night-and-day",
-    "year": 2026,
+    "year": 2025,
     "skills": ["Flutter", "iOS", "Android"],
     "description": "A mobile app currently in development for both Android and iOS. Work in progress.",
     "body": "<p>Night&Day is a cross-platform Flutter app designed for seamless experiences on iOS and Android. Current work includes authentication, local state syncing, and responsive UI tuned for mobile interactions.</p>",
@@ -217,7 +217,7 @@
   {
     "title": "Gestational Diabetes Tracking Assistant",
     "slug": "gestational-diabetes-assistant",
-    "year": 2026,
+    "year": 2024,
     "skills": ["Flutter", "Dart", "CSV Export", "Data Filtering"],
     "public-url": "https://github.com/CorbinIvon/gestational_diabetes_tracking_assistant",
     "description": "A Flutter app for quick number tracking, CSV exporting, and filtered data views to assist gestational diabetes monitoring (college project).",
@@ -227,7 +227,7 @@
   {
     "title": "Media Control API",
     "slug": "media-control-api",
-    "year": 2026,
+    "year": 2024,
     "skills": ["Python", "API"],
     "public-url": "https://github.com/CorbinIvon/python-media-control-api",
     "description": "Python-based API for programmatic media control and device management, built as a college project.",
@@ -237,7 +237,7 @@
   {
     "title": "Windows Toast LAN Messenger",
     "slug": "windows-toast-lan-messenger",
-    "year": 2026,
+    "year": 2023,
     "skills": ["Windows Notifications", "LAN Messaging"],
     "public-url": "https://github.com/CorbinIvon/toaster",
     "description": "Windows Toast and notification system enabling LAN messaging between devices for quick local notifications.",
