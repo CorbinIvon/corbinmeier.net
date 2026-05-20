@@ -1,16 +1,20 @@
 import projects from "@/data/portfolio.json";
 import PortfolioFilters from "@/components/portfolio-filters";
+import BackgroundMotion from "@/components/BackgroundMotion";
 
 export default function PortfolioPage() {
   return (
-    <div className="font-sans min-h-screen px-4 py-8 sm:px-8 sm:py-20">
-      <main className="w-full max-w-4xl mx-auto flex flex-col gap-8">
-        <section className="py-6">
-          <h1 className="text-3xl font-semibold mb-2">Portfolio</h1>
-          <p className="text-sm text-muted-foreground">
-            Selected projects and case studies.
+    <div className="relative min-h-screen pt-24 pb-20">
+      <BackgroundMotion />
+      <main className="section-container">
+        <header className="max-w-3xl mb-16">
+          <h1 className="text-5xl sm:text-7xl font-serif mb-6 tracking-tight">Portfolio</h1>
+          <p className="text-narrative">
+            A deep dive into the systems, applications, and digital experiences 
+            I&apos;ve built. Each project represents a unique challenge solved through 
+            meticulous engineering and user-centric design.
           </p>
-        </section>
+        </header>
 
         <section className="w-full">
           <PortfolioFilters projects={projects} />

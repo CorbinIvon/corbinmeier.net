@@ -3,15 +3,17 @@ import EducationStrip from "@/components/EducationStrip";
 import Services from "@/components/Services";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import CTA from "@/components/CTA";
+import BackgroundMotion from "@/components/BackgroundMotion";
 
 export default function Home() {
   return (
-    <div className="font-sans min-h-screen px-4 py-8 sm:px-8 sm:py-20">
-      <main className="w-full max-w-3xl mx-auto flex flex-col gap-8">
+    <div className="relative min-h-screen pt-24 pb-20">
+      <BackgroundMotion />
+      <main className="flex flex-col">
         <Hero />
         <EducationStrip />
-        <Services />
         <FeaturedProjects />
+        <Services />
         <CTA />
       </main>
     </div>

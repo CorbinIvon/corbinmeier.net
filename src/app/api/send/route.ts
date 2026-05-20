@@ -1,8 +1,6 @@
 import { EmailTemplate } from "@/components/EmailTemplateContactConfirmation";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 type FormBody = {
   firstName?: string;
   lastName?: string;
@@ -14,6 +12,7 @@ type FormBody = {
 
 export async function POST(req: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const body: FormBody = await req.json();
 
     // Basic validation to match client-side checks

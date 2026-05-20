@@ -1,64 +1,114 @@
 import Image from "next/image";
+import Link from "next/link";
+import BackgroundMotion from "@/components/BackgroundMotion";
+import { ArrowRight, Terminal } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <div className="font-sans min-h-screen px-4 py-8 sm:px-8 sm:py-20">
-      <main className="w-full max-w-3xl mx-auto flex flex-col gap-8">
-        <section className="py-6">
-          <h1 className="text-3xl font-semibold mb-2">About</h1>
-          <div className="flex flex-col sm:flex-row gap-6 items-start">
-            <div className="w-36 h-36 relative flex-shrink-0 rounded-full overflow-hidden">
+    <div className="relative min-h-screen pt-24 pb-20">
+      <BackgroundMotion />
+      <main className="section-container">
+        <header className="max-w-3xl mb-16">
+          <h1 className="text-5xl sm:text-7xl font-serif mb-6 tracking-tight">The Engineer</h1>
+          <p className="text-narrative">
+            A journey from theoretical computer science to hands-on software 
+            architecture, driven by a relentless pursuit of digital craftsmanship.
+          </p>
+        </header>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <div className="lg:col-span-4 sticky top-32">
+            <div className="relative aspect-square rounded-3xl overflow-hidden border border-border shadow-2xl">
               <Image
                 src="/corbin.jpg"
-                alt="Corbin"
+                alt="Corbin Meier"
                 fill
                 className="object-cover"
+                priority
               />
             </div>
-
-            <div className="text-sm text-neutral-800">
-              <p className="mb-3 text-muted-foreground">
-                I&apos;m passionate about programming — building thoughtful,
-                performant experiences and useful tools. I like projects that
-                solve real problems and make people&apos;s lives a bit easier,
-                whether that&apos;s an internal tool, a mobile app, or a weekend
-                project.
-              </p>
-
-              <p className="mt-3 text-sm text-muted-foreground">
-                I initially attended Chico State University in 2016 pursuing a
-                Bachelor&apos;s in Science for Computer Science in hopes that I
-                would be able to hone in on my interests in programming and
-                algorithms. Little did I know that Computer Science was more
-                about theory and mathematics than practical software
-                development. After three years, and another 4 to go, the bills
-                from loans and initial outbreak of Covid lead to financial
-                insecurity and forced me to stop attending college. However, the
-                experience provided a solid foundation in problem-solving and
-                critical thinking, which has been invaluable in my career thus
-                far.
-              </p>
-              <p className="mt-3 text-sm text-muted-foreground">
-                In 2023, I learned about the Computer Programming Associates
-                program at Butte College and jumped at the opportunity to enroll
-                in 2024. Driven by curiosity and a desire to sharpen my craft, I
-                decided to pursue my associates degree in computer programming —
-                excited to dive deeper into hands-on development and collaborate
-                with others who share my passion and graduated by the end of
-                2024.
-              </p>
-
-              <div className="mt-6 text-white">
-                See the{" "}
-                <a href="/global-clicks" className="decoration underline">
-                  global click counter
-                </a>{" "}
-                for a small project demo demonstrating a simple API with Next.js
-                and serverless functions.
-              </div>
+            <div className="mt-8 flex flex-col gap-4">
+               <div className="flex items-center gap-3 text-muted">
+                 <Terminal className="w-4 h-4 text-accent" />
+                 <span className="text-sm font-mono uppercase tracking-widest">Est. 2016</span>
+               </div>
+               <div className="h-px bg-border w-full" />
+               <p className="text-sm text-muted leading-relaxed italic">
+                 &quot;I build for the future, ensuring every line of code adds long-term value.&quot;
+               </p>
             </div>
           </div>
-        </section>
+
+          <div className="lg:col-span-8 prose prose-slate dark:prose-invert max-w-none">
+            <section className="mb-12">
+              <h2 className="text-3xl font-serif mb-6">Origins & Philosophy</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                My path in technology began at Chico State University in 2016. While the curriculum 
+                focused heavily on theory and advanced mathematics, I found myself increasingly 
+                drawn to the practical application of these concepts—the act of building 
+                real-world systems that solve tangible problems.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                I believe that software engineering is a craft. It requires a balance of 
+                technical rigor and creative problem-solving. Whether I&apos;m architecting 
+                a high-performance API or fine-tuning a user interface, my goal is always 
+                the same: to create something that is both beautiful and built to last.
+              </p>
+            </section>
+
+            <section className="mb-12 glass-panel p-8 border-accent/10">
+              <h2 className="text-3xl font-serif mb-6">The Human Element</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                I started this business to support two things: my passion for engineering and my 
+                growing family. As a father of two, I understand the value of time and the 
+                importance of building something stable for the future.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                In a world of &quot;do-it-yourself&quot; platforms, I offer something different: 
+                a partnership. Interfacing with a human is always more efficient than struggling 
+                with a new tool. Think of me as your digital contractor—someone who takes the 
+                complexity off your plate so you can focus on what you do best.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                My core values are rooted in my faith and my community. I don&apos;t measure success 
+                in transactions, but in the success of the people I serve. When your business 
+                grows, my mission is fulfilled. Your success truly is my success.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-3xl font-serif mb-6">Refining the Craft</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                In 2024, I completed the Computer Programming program at Butte College. 
+                This period was a pivotal &quot;deep dive&quot; into hands-on development, where I 
+                honed my skills in modern tech stacks, collaborative workflows, and 
+                performance engineering.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Today, I specialize in building sophisticated web applications for 
+                startups and scaling businesses. I bridge the gap between complex 
+                backend logic and elegant, user-centric frontend experiences.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-serif mb-4 italic text-accent">Strategic Partnership</h2>
+              <p className="text-muted-foreground mb-6">
+                I specialize in providing high-performance, custom-engineered solutions for 
+                local businesses with a <span className="font-bold text-foreground underline decoration-accent decoration-2 underline-offset-4">$0 up-front hosting/infrastructure model.</span>{" "}
+                By leveraging modern edge-computing, I remove the financial barrier to 
+                premium digital infrastructure.
+              </p>
+              <Link 
+                href="/contact" 
+                className="group inline-flex items-center gap-2 bg-primary text-background px-8 py-4 rounded-full font-bold transition-all hover:scale-105"
+              >
+                Start Your Journey
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </section>
+          </div>
+        </div>
       </main>
     </div>
   );

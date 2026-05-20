@@ -1,63 +1,117 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { 
+  Globe, 
+  Code2, 
+  TrendingUp, 
+  Search, 
+  Mail, 
+  CreditCard, 
+  AtSign, 
+  Zap 
+} from "lucide-react";
+
+const services = [
+  {
+    id: "websites",
+    title: "The Foundation",
+    desc: "Custom high-performance websites with a $0 up-front hosting model. Outperforms Wix/Squarespace in speed, SEO, and flexibility.",
+    icon: Globe,
+  },
+  {
+    id: "apps",
+    title: "Growth Tier",
+    desc: "Bespoke booking systems, client portals, and custom lead-capture flows designed to automate your specific business operations.",
+    icon: Code2,
+  },
+  {
+    id: "growth",
+    title: "Automation Tier",
+    desc: "Connect your digital presence to your real-world operations with custom API integrations, POS sync, and reporting dashboards.",
+    icon: TrendingUp,
+  },
+  {
+    id: "seo",
+    title: "Search Authority",
+    desc: "Data-driven SEO auditing and keyword strategy. Leveraging Next.js for superior crawlability and local search dominance.",
+    icon: Search,
+  },
+  {
+    id: "automations",
+    title: "Email & Lead Flow",
+    desc: "Robust, reliable communication channels with custom automation. Turn anonymous visitors into loyal clients automatically.",
+    icon: Mail,
+  },
+  {
+    id: "payments",
+    title: "Global Commerce",
+    desc: "Scale without limits. Secure, custom-integrated payment processing and subscription billing tailored to your workflow.",
+    icon: CreditCard,
+  },
+  {
+    id: "performance",
+    title: "Digital Infrastructure",
+    desc: "Deep tech-stack advisory and consulting. Environment provisioning and troubleshooting for systems that cannot afford to fail.",
+    icon: Zap,
+  },
+  {
+    id: "it-support",
+    title: "Managed Evolution",
+    desc: "Professional management and maintenance. I handle the complexity so you can focus on running your business.",
+    icon: AtSign,
+  },
+];
+
 export default function Services() {
-  const services = [
-    {
-      id: "websites",
-      title: "Custom Websites",
-      desc: "Bespoke marketing and sales sites with accessible designs and fast performance.",
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
     },
-    {
-      id: "apps",
-      title: "Web Apps & Integrations",
-      desc: "Custom dashboards, booking systems, or integrations with tools like Stripe and Zapier.",
-    },
-    {
-      id: "growth",
-      title: "Growth & Support",
-      desc: "Ongoing support, optimization, and feature work as your business scales.",
-    },
-    {
-      id: "seo",
-      title: "SEO",
-      desc: "Technical SEO audits, on-page optimization, and content recommendations to improve discoverability.",
-    },
-    {
-      id: "automations",
-      title: "Text & Email Automations",
-      desc: "Automated onboarding, reminders, and marketing flows to keep customers engaged and reduce manual work.",
-    },
-    {
-      id: "payments",
-      title: "Payment Processing",
-      desc: "Secure checkout flows, subscription billing, and Stripe integrations for reliable payments.",
-    },
-    {
-      id: "email-domains",
-      title: "Custom Email Domains",
-      desc: "Setup and DNS configuration for professional email addresses that match your brand.",
-    },
-    {
-      id: "performance",
-      title: "Fast Performance & Analytics",
-      desc: "Performance tuning, caching strategies, and lightweight analytics to measure growth without slowing the site.",
-    },
-  ];
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const item: any = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
 
   return (
-    <section className="w-full max-w-4xl mx-auto py-12">
-      <h2 className="text-2xl font-semibold mb-6">
-        Services tailored to startups
-      </h2>
-      <div className="flex flex-wrap justify-center gap-6">
-        {services.map((s) => (
-          <div
-            key={s.id}
-            className="w-full sm:w-[48%] md:w-[30%] p-4 border rounded-lg"
-          >
-            <h3 className="font-semibold mb-2">{s.title}</h3>
-            <p className="text-sm text-muted-foreground">{s.desc}</p>
-          </div>
-        ))}
+    <section className="section-container bg-muted/30">
+      <div className="max-w-3xl mb-16">
+        <h2 className="text-4xl sm:text-5xl font-serif mb-6">A Tiered Strategy for <span className="text-accent italic">Success.</span></h2>
+        <p className="text-narrative">
+          Stop fighting complex tools alone. I serve as your dedicated digital contractor, 
+          handling the engineering so you can focus on your business. My mission is simple: 
+          to support my family by ensuring your business succeeds.
+        </p>
       </div>
+
+      <motion.div 
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+      >
+        {services.map((s) => (
+          <motion.div
+            key={s.id}
+            variants={item}
+            className="glass-panel p-8 group hover:border-accent/30 transition-all duration-300"
+          >
+            <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <s.icon className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-serif font-medium mb-3">{s.title}</h3>
+            <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }
