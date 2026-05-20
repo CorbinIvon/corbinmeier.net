@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npx @opennextjs/cloudflare build --skip-build",
+    "build": "next build && npx @opennextjs/cloudflare build --skip-build && rm -rf dist && cp -r .open-next/assets dist && cp .open-next/worker.js dist/_worker.js",
     "build:cf": "npx @opennextjs/cloudflare build",
     "deploy": "npx @opennextjs/cloudflare deploy",
     "preview": "npx @opennextjs/cloudflare preview",

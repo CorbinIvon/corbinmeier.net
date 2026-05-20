@@ -11,8 +11,7 @@ This project is configured to deploy to Cloudflare Pages using the `@opennextjs/
 
 ## Build Scripts
 
-- `npm run build`: Standard Next.js build.
-- `npm run build:cf`: Builds the project for Cloudflare using OpenNext.
+- `npm run build`: Builds the project for Cloudflare using OpenNext and outputs to `dist/`.
 - `npm run preview`: Preview the Cloudflare build locally using Wrangler.
 - `npm run deploy`: Deploy the build to Cloudflare.
 
