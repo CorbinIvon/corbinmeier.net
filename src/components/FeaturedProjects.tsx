@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import projects from "@/data/portfolio.json";
 import ProjectCard from "./ProjectCard";
@@ -38,7 +38,7 @@ export default function FeaturedProjects() {
           </p>
         </div>
         <Link 
-          href="/portfolio" 
+          to="/portfolio" 
           className="group flex items-center gap-2 text-accent font-medium hover:underline decoration-accent underline-offset-4"
         >
           View all work

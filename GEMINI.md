@@ -1,21 +1,24 @@
-# Project Notes: Cloudflare Pages Transition
+# Project Notes: React + Vite (Pure Static)
 
 ## Overview
-The project has been migrated to use **OpenNext** for Cloudflare Pages deployment. The architecture is **pure static**, with all data managed via JSON files in `src/data/`.
+The project has been migrated from Next.js to a **React + Vite** architecture for simplicity and reliable deployment on Cloudflare Pages.
 
-## Architectural Decision: No Database
-**IMPORTANT:** This project intentionally excludes any database integration (SQL, NoSQL, ORM, etc.). 
-- All project, associate, and site data MUST be stored in the static JSON files.
-- This decision aligns with a low-maintenance, $0 up-front infrastructure model.
-- Future AI agents: **DO NOT** suggest or implement database layers (Prisma, Drizzle, Supabase, etc.). Maintain the static JSON-based data model.
+## Architecture
+- **Framework:** React 19 + Vite 6
+- **Routing:** React Router 7
+- **Deployment:** Cloudflare Pages (Pure Static Assets)
+- **API:** Cloudflare Pages Functions (located in `/functions`)
+- **Data Model:** Static JSON files in `src/data/`
+- **Infrastructure:** $0 up-front cost model.
 
 ## Key Changes
-- **Framework:** Next.js `15.5.18`.
-- **Adapter:** `@opennextjs/cloudflare`.
-- **UI:** 'Artisan Engineer' aesthetic with Instrument Serif and Framer Motion.
-- **Service Model:** Partnership-driven, $0 up-front infrastructure cost for small businesses.
+- Removed Next.js, OpenNext, and related complexities.
+- Moved pages to `src/pages/` and set up declarative routing in `src/App.tsx`.
+- API logic migrated to `functions/api/send.ts`.
+- Simple build process: `npm run build` outputs to `dist/`.
 
-## Critical Files
-- `wrangler.jsonc`: Cloudflare Pages configuration.
-- `CLOUDFLARE.md`: Detailed deployment guide.
-- `env.d.ts`: TypeScript definitions for Cloudflare environment bindings.
+## Deployment
+Cloudflare Pages should be configured to:
+1. **Build command:** `npm run build`
+2. **Build output directory:** `dist`
+3. **Compatibility flag:** `nodejs_compat` (required for Resend in Functions)

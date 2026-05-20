@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
@@ -12,20 +10,19 @@ const navItems = [
 ];
 
 export default function Header() {
-  const pathname = usePathname();
+  const { pathname } = useLocation();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
       <div className="max-w-7xl mx-auto">
         <nav className="glass-panel px-6 py-3 flex items-center justify-between border-white/10 shadow-2xl shadow-black/5">
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 overflow-hidden rounded-full border border-border transition-transform group-hover:scale-105">
-              <Image
+              <img
                 src="/corbin.jpg"
                 alt="Corbin Meier"
-                fill
-                className="object-cover"
-                priority
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="eager"
               />
             </div>
             <span className="font-serif text-lg tracking-tight hidden sm:block">Corbin Meier</span>
@@ -36,7 +33,7 @@ export default function Header() {
               {navItems.map((item) => (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   className={cn(
                     "relative text-sm font-medium transition-colors hover:text-accent",
                     pathname === item.href ? "text-accent" : "text-muted"
@@ -54,7 +51,7 @@ export default function Header() {
             </div>
 
             <Link
-              href="/contact"
+              to="/contact"
               className="bg-primary text-background px-6 py-2 rounded-full text-sm font-bold transition-transform hover:scale-105 active:scale-95"
             >
               Contact

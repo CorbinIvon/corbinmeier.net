@@ -1,9 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
 import BackgroundMotion from "@/components/BackgroundMotion";
 import { ArrowRight, Terminal } from "lucide-react";
+import { Link } from "react-router-dom";
 
-export default function AboutPage() {
+export default function About() {
   return (
     <div className="relative min-h-screen pt-24 pb-20">
       <BackgroundMotion />
@@ -19,12 +18,11 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-4 sticky top-32">
             <div className="relative aspect-square rounded-3xl overflow-hidden border border-border shadow-2xl">
-              <Image
+              <img
                 src="/corbin.jpg"
                 alt="Corbin Meier"
-                fill
-                className="object-cover"
-                priority
+                className="w-full h-full object-cover"
+                loading="eager"
               />
             </div>
             <div className="mt-8 flex flex-col gap-4">
@@ -39,7 +37,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-8 prose prose-slate dark:prose-invert max-w-none">
+          <div className="lg:col-span-8 prose prose-slate dark:prose-invert max-w-none text-foreground">
             <section className="mb-12">
               <h2 className="text-3xl font-serif mb-6">Origins & Philosophy</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -100,7 +98,7 @@ export default function AboutPage() {
                 premium digital infrastructure.
               </p>
               <Link 
-                href="/contact" 
+                to="/contact" 
                 className="group inline-flex items-center gap-2 bg-primary text-background px-8 py-4 rounded-full font-bold transition-all hover:scale-105"
               >
                 Start Your Journey

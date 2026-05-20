@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 export default function CTA() {
@@ -27,7 +27,7 @@ export default function CTA() {
             web solutions that outperform generic templates.
           </p>
           <Link
-            href="/contact"
+            to="/contact"
             className="group inline-flex items-center gap-2 bg-[#fafaf9] text-[#1c1917] px-10 py-5 rounded-full font-bold text-lg transition-all hover:scale-105 hover:bg-accent hover:text-white"
           >
             Get in touch

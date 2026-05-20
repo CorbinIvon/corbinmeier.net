@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type Associate = {
   id?: string;
   name: string;
@@ -16,11 +14,10 @@ export default function AssociateCard({ associate }: { associate: Associate }) {
       className="group block p-3 border rounded-lg flex items-center gap-3"
     >
       <div className="w-12 h-12 relative flex-shrink-0">
-        <Image
+        <img
           src={associate.logo}
           alt={associate.name}
-          fill
-          className="object-contain"
+          className="absolute inset-0 w-full h-full object-contain"
         />
       </div>
       <div>

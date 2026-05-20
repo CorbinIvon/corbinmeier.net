@@ -2,7 +2,7 @@ import projects from "@/data/portfolio.json";
 import PortfolioFilters from "@/components/portfolio-filters";
 import BackgroundMotion from "@/components/BackgroundMotion";
 
-export default function PortfolioPage() {
+export default function Portfolio() {
   return (
     <div className="relative min-h-screen pt-24 pb-20">
       <BackgroundMotion />

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
@@ -63,14 +63,14 @@ export default function Hero() {
           className="flex flex-wrap gap-8"
         >
           <Link
-            href="/contact"
+            to="/contact"
             className="btn-artisan"
           >
             Start a project
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
-            href="/portfolio"
+            to="/portfolio"
             className="inline-flex items-center justify-center px-10 py-5 rounded-full border border-border hover:bg-muted/5 transition-all font-bold text-lg"
           >
             View portfolio

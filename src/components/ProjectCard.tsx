@@ -1,8 +1,5 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
 import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ExternalLink, Code2 } from "lucide-react";
 import { IconBrandGithub } from "@tabler/icons-react";
@@ -65,12 +62,11 @@ export default function ProjectCard({
 
       <div className="relative aspect-video overflow-hidden bg-muted/20 flex items-center justify-center">
         {project.images?.[0] ? (
-          <Image
+          <img
             src={project.images[0]}
             alt={project.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, 33vw"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
           />
         ) : (
           <div className="flex flex-col items-center gap-2 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
@@ -117,7 +113,7 @@ export default function ProjectCard({
 
   if (href) {
     return (
-      <Link href={href} className={baseClass}>
+      <Link to={href} className={baseClass}>
         {content}
       </Link>
     );

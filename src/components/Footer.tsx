@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Mail } from "lucide-react";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 
@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="section-container !py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <Link href="/" className="font-serif text-2xl tracking-tight mb-6 block">
+            <Link to="/" className="font-serif text-2xl tracking-tight mb-6 block">
               Corbin Meier
             </Link>
             <p className="text-muted max-w-sm mb-8">
@@ -35,9 +35,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-xs uppercase tracking-widest mb-6">Navigation</h4>
             <ul className="space-y-4">
-              <li><Link href="/portfolio" className="text-muted hover:text-accent transition-colors">Portfolio</Link></li>
-              <li><Link href="/about" className="text-muted hover:text-accent transition-colors">About</Link></li>
-              <li><Link href="/contact" className="text-muted hover:text-accent transition-colors">Contact</Link></li>
+              <li><Link to="/portfolio" className="text-muted hover:text-accent transition-colors">Portfolio</Link></li>
+              <li><Link to="/about" className="text-muted hover:text-accent transition-colors">About</Link></li>
+              <li><Link to="/contact" className="text-muted hover:text-accent transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -52,7 +52,7 @@ export default function Footer() {
         
         <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground uppercase tracking-widest font-mono">
-            Built with Next.js, Cloudflare, and Drizzle.
+            Built with React, Vite, and Cloudflare.
           </p>
           <div className="flex items-center gap-2 grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100">
              <span className="text-[10px] font-bold text-muted-foreground uppercase">Verified Professional</span>

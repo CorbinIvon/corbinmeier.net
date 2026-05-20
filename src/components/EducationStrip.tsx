@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import associates from "@/data/associates.json";
 import { GraduationCap, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
@@ -19,11 +18,10 @@ export default function EducationStrip() {
       >
         <div className="flex-shrink-0">
           <div className="w-16 h-16 sm:w-20 sm:h-20 relative p-2 bg-white rounded-2xl shadow-sm border border-border">
-            <Image
+            <img
               src={butte.logo}
               alt={`${butte.name} logo`}
-              fill
-              className="object-contain p-2"
+              className="absolute inset-0 w-full h-full object-contain p-2"
             />
           </div>
         </div>
@@ -60,11 +58,10 @@ export default function EducationStrip() {
             aria-label="View official diploma on Parchment.com"
             title="Official diploma (opens in new tab)"
           >
-            <Image
+            <img
               src="https://www.parchment.com/u/award/e84ced0798b2ee4710bd18d2a5da3634/preview-md.jpg"
               alt="Diploma preview"
-              fill
-              className="object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
               <span className="text-white text-xs font-bold uppercase">View Diploma</span>

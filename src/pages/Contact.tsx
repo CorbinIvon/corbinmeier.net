@@ -1,12 +1,10 @@
-"use client";
-
 import React, { useState } from "react";
 import BackgroundMotion from "@/components/BackgroundMotion";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export default function ContactPage() {
+export default function Contact() {
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
