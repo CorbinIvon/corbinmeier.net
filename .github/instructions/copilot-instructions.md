@@ -140,8 +140,9 @@ Component guidance:
 
 ## Non-goals / constraints
 
+- **Pure Static Constraint:** This project is intentionally architected to be pure static. **DO NOT** implement or suggest database integrations (SQL, NoSQL, ORMs). All data must remain in `src/data/*.json`.
 - This repo is intentionally minimal. Don't add heavy frameworks or CMS unless requested.
-- Keep server usage minimal — prefer static or incremental generation for portfolio pages.
+- Keep server usage minimal — favor static generation for all pages.
 
 ## How to add a new portfolio item (quick checklist)
 
