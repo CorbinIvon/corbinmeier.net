@@ -48,3 +48,4 @@ next-env.d.ts
 # project specific
 .project_map.txt
 .tags
+dist/
