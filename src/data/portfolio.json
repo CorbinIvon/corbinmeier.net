@@ -188,7 +188,12 @@
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Real-estate and site management system tracking building files, time-sensitive reminders, and location-specific metadata.",
     "body": "<p>A property and site management tool for maintaining building records, lease documents, and maintenance schedules. Includes reminder notifications for inspections and lease renewals.</p>",
-    "images": []
+    "images": [
+      "/projects/buildings-sites-manager-dashboard.png",
+      "/projects/buildings-sites-manager-audit.png",
+      "/projects/buildings-sites-manager-registration.png",
+      "/projects/buildings-sites-manager-search.png"
+    ]
   },
   {
     "title": "Night&Day (Mobile App)",
