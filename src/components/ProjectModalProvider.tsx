@@ -24,10 +24,12 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
   const [project, setProject] = useState<Project | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [direction, setDirection] = useState(0);
 
   const open = (p: Project) => {
     setProject(p);
     setActiveIndex(0);
+    setDirection(0);
     setIsOpen(true);
     document.body.style.overflow = "hidden";
   };
@@ -38,14 +40,15 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
     document.body.style.overflow = "unset";
   };
 
-  const nextImage = useCallback(() => {
+  const paginate = useCallback((newDirection: number) => {
     if (!project?.images?.length) return;
-    setActiveIndex((prev) => (prev + 1) % project.images!.length);
-  }, [project]);
-
-  const prevImage = useCallback(() => {
-    if (!project?.images?.length) return;
-    setActiveIndex((prev) => (prev - 1 + project.images!.length) % project.images!.length);
+    setDirection(newDirection);
+    setActiveIndex((prev) => {
+      const next = prev + newDirection;
+      if (next < 0) return project.images!.length - 1;
+      if (next >= project.images!.length) return 0;
+      return next;
+    });
   }, [project]);
 
   useEffect(() => {
@@ -55,13 +58,30 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
         if (isFullscreen) setIsFullscreen(false);
         else close();
       }
-      if (e.key === "ArrowRight") nextImage();
-      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") paginate(1);
+      if (e.key === "ArrowLeft") paginate(-1);
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, isFullscreen, nextImage, prevImage]);
+  }, [isOpen, isFullscreen, paginate]);
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 100 : -100,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 100 : -100,
+      opacity: 0
+    })
+  };
 
   return (
     <ProjectModalContext.Provider value={{ isOpen, project, open, close }}>
@@ -94,19 +114,25 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
               {/* Image Section */}
               <div className="md:w-3/5 bg-muted/20 relative overflow-hidden flex flex-col border-r border-border">
                 <div className="flex-1 relative overflow-hidden group">
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence initial={false} custom={direction}>
                     <motion.div
                       key={activeIndex}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.3 }}
-                      className="w-full h-full"
+                      custom={direction}
+                      variants={variants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{
+                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        opacity: { duration: 0.2 }
+                      }}
+                      className="absolute inset-0"
                     >
                       {project.images?.[activeIndex] ? (
                         <div className="w-full h-full relative cursor-zoom-in" onClick={() => setIsFullscreen(true)}>
+                          {/* We only use layoutId for the image that is NOT currently being animated out */}
                           <motion.img
-                            layoutId={`project-image-${project.slug}-${activeIndex}`}
+                            layoutId={!isFullscreen ? `project-image-${project.slug}-${activeIndex}` : undefined}
                             src={project.images[activeIndex]}
                             alt={project.title}
                             className="w-full h-full object-cover"
@@ -136,14 +162,14 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                   {project.images && project.images.length > 1 && (
                     <>
                       <button 
-                        onClick={(e) => { e.stopPropagation(); prevImage(); }}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-background/20 hover:bg-background/40 backdrop-blur-xl border border-white/10 rounded-full transition-all opacity-0 group-hover:opacity-100"
+                        onClick={(e) => { e.stopPropagation(); paginate(-1); }}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/20 hover:bg-background/40 backdrop-blur-xl border border-white/10 rounded-full transition-all opacity-0 group-hover:opacity-100"
                       >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <button 
-                        onClick={(e) => { e.stopPropagation(); nextImage(); }}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-background/20 hover:bg-background/40 backdrop-blur-xl border border-white/10 rounded-full transition-all opacity-0 group-hover:opacity-100"
+                        onClick={(e) => { e.stopPropagation(); paginate(1); }}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/20 hover:bg-background/40 backdrop-blur-xl border border-white/10 rounded-full transition-all opacity-0 group-hover:opacity-100"
                       >
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -157,7 +183,10 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                     {project.images.map((img, idx) => (
                       <button
                         key={idx}
-                        onClick={() => setActiveIndex(idx)}
+                        onClick={() => {
+                          setDirection(idx > activeIndex ? 1 : -1);
+                          setActiveIndex(idx);
+                        }}
                         className={`relative w-16 h-12 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
                           idx === activeIndex ? "border-accent scale-105 shadow-lg" : "border-transparent opacity-50 hover:opacity-100"
                         }`}
