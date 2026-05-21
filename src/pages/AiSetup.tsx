@@ -41,7 +41,7 @@ export default function AiSetup() {
             className="text-5xl sm:text-7xl font-serif mb-8 leading-[0.9]"
           >
             Your own AI. <br />
-            <span className="text-accent italic">Zero subscriptions.</span>
+            <span className="text-accent italic">Direct Cloud Ownership.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -49,10 +49,9 @@ export default function AiSetup() {
             transition={{ delay: 0.2 }}
             className="text-xl text-narrative max-w-2xl"
           >
-            Take control of your data and your workflow. I specialize in deploying 
-            private, uncensored AI environments like **Hermes** on dedicated cloud 
-            infrastructure. Professional setup for businesses that value privacy 
-            and long-term cost efficiency.
+            Take control of your data and your workflow. I provide the professional 
+            setup to deploy private, uncensored AI environments like **Hermes** 
+            directly on your own cloud infrastructure. 
           </motion.p>
         </div>
 
@@ -66,17 +65,17 @@ export default function AiSetup() {
           <motion.div variants={item} className="glass-panel p-8">
             <ShieldCheck className="w-10 h-10 text-accent mb-6" />
             <h3 className="text-xl font-serif mb-3">Total Privacy</h3>
-            <p className="text-sm text-muted">Your data never leaves your server. No corporate logging, no training on your sensitive business information.</p>
+            <p className="text-sm text-muted">Your data stays on your server. No corporate logging or external training on your sensitive business information.</p>
           </motion.div>
           <motion.div variants={item} className="glass-panel p-8">
             <DollarSign className="w-10 h-10 text-accent mb-6" />
-            <h3 className="text-xl font-serif mb-3">No Monthly Fees</h3>
-            <p className="text-sm text-muted">Stop paying $20/mo per user. Pay for your server and the setup, and own your intelligence engine forever.</p>
+            <h3 className="text-xl font-serif mb-3">Direct Infrastructure</h3>
+            <p className="text-sm text-muted">Avoid per-user markups. You own the access and pay only for the underlying cloud or hardware subscriptions you choose.</p>
           </motion.div>
           <motion.div variants={item} className="glass-panel p-8">
             <Zap className="w-10 h-10 text-accent mb-6" />
             <h3 className="text-xl font-serif mb-3">Uncensored Power</h3>
-            <p className="text-sm text-muted">Access the full potential of open-source models like Hermes without artificial constraints or filters.</p>
+            <p className="text-sm text-muted">Access the full potential of open-weights models like Hermes without artificial constraints or corporate filters.</p>
           </motion.div>
         </motion.div>
 

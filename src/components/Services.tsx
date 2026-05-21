@@ -23,7 +23,7 @@ const services = [
   {
     id: "ai-setup",
     title: "Private AI Deployment",
-    desc: "Deploy your own private, uncensored AI (Hermes) on dedicated cloud infrastructure. Total data sovereignty with zero monthly subscriptions.",
+    desc: "Professional deployment of private, uncensored AI (Hermes) on your own cloud infrastructure. Total data sovereignty without per-user markups.",
     icon: Brain,
     link: "/ai-setup",
   },
