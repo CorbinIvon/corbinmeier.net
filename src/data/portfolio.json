@@ -42,12 +42,21 @@
   },
   {
     "title": "Red Bluff Church of Christ",
-    "slug": "red-bluff-cofc",
+    "slug": "red-bluff-church-of-christ",
     "year": 2026,
-    "skills": ["React", "Vite", "Cloudflare", "Node.js", "Custom CMS"],
-    "public-url": "http://redbluffcofc.com/",
-    "description": "A comprehensive digital transformation featuring a custom-built member portal and CMS.",
-    "body": "<p>Moving beyond a brittle HostGator setup, I engineered a robust digital ecosystem for this community. The highlight is a custom-built CMS that empowers leadership with full CRUD operations for announcements, Bible studies, and weekly devotionals. The Bible study module includes a sophisticated text editor and live preview tool, while the Devotional section features an elegant text-over-image experience.</p><p>To protect sensitive community information, I implemented a multi-tiered user hierarchy (Registered, Member, Admin, Owner) with an approval-based onboarding flow. Announcements can be flagged for 'Member Only' visibility, ensuring privacy for the congregation while maintaining a public-facing ministry.</p>",
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages",
+      "Cloudflare Functions",
+      "D1",
+      "Auth",
+      "Newsletter",
+      "Custom CMS"
+    ],
+    "public-url": "https://redbluffcofc.com",
+    "description": "Comprehensive church website with an admin portal, user authentication, and an automated newsletter system.",
+    "body": "<p>A full-featured community platform for the Red Bluff Church of Christ. While the public-facing site remains highly performant and static-first, the backend leverages Cloudflare Pages Functions and D1 for dynamic content management. Features include a secure admin portal for content updates, user authentication for members, and a newsletter subscription service with automated email notifications for new posts.</p><p>Moving beyond a brittle HostGator setup, I engineered a robust digital ecosystem for this community. The highlight is a custom-built CMS that empowers leadership with full CRUD operations for announcements, Bible studies, and weekly devotionals. The Bible study module includes a sophisticated text editor and live preview tool, while the Devotional section features an elegant text-over-image experience.</p>",
     "images": [],
     "beforeAfter": {
       "before": {
@@ -84,10 +93,10 @@
     "title": "Chuck the Painter",
     "slug": "chuck-the-painter",
     "year": 2026,
-    "skills": ["React", "Vite", "SEO", "Cloudflare"],
-    "public-url": "http://chuck-the-painter.com/",
-    "description": "A professional portfolio and SEO-focused site that reached over 1,500 unique visitors in its first month.",
-    "body": "<p>Digital confidence is the cornerstone of local business growth. For this project, I transformed a word-of-mouth operation into a searchable digital powerhouse. The new site focuses on high-visibility project showcases and aggressive SEO optimization.</p><p>In its first month of operation, the site successfully handled over 16,000 requests from 1,500 unique visitors, with a 40% cache hit rate. By implementing clean, bot-friendly markup and structured data, the site is now actively crawled, steadily climbing the ranks to connect Chuck with new potential clients.</p>",
+    "skills": ["React", "Vite", "SEO", "Cloudflare Pages", "Vanilla CSS"],
+    "public-url": "https://chuck-the-painter.com",
+    "description": "Professional painter's business website featuring a clean, static design and a functional contact form.",
+    "body": "<p>A high-performance business website for a professional painting service. Built with React and Vite, the site is deployed as static assets on Cloudflare Pages for maximum speed and reliability. It includes a custom contact form integrated with Cloudflare Pages Functions for lead generation.</p><p>Digital confidence is the cornerstone of local business growth. For this project, I transformed a word-of-mouth operation into a searchable digital powerhouse. The new site focuses on high-visibility project showcases and aggressive SEO optimization.</p><p>In its first month of operation, the site successfully handled over 16,000 requests from 1,500 unique visitors, with a 40% cache hit rate. By implementing clean, bot-friendly markup and structured data, the site is now actively crawled, steadily climbing the ranks to connect Chuck with new potential clients.</p>",
     "images": [],
     "beforeAfter": {
       "before": {
@@ -240,7 +249,7 @@
     "year": 2023,
     "skills": ["Windows Notifications", "LAN Messaging"],
     "public-url": "https://github.com/CorbinIvon/toaster",
-    "description": "Windows Toast and notification system enabling LAN messaging between devices for quick local notifications.",
+    "description": "Windows Toast and notification system enabling LAN messenger between devices for quick local notifications.",
     "body": "<p>A small utility that sends Windows toast notifications across a LAN. Designed for quick local messaging without a centralized server—great for internal team alerts or small office broadcasts.</p>",
     "images": [
       "https://github.com/CorbinIvon/toaster/assets/20233488/ca8a8c67-9aa0-4dbe-91b6-cb2f077f842a"

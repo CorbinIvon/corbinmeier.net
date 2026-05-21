@@ -83,10 +83,11 @@ ${body.message ? `Message preview:\n${body.message}\n\n` : ""}— Corbin`;
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
-  } catch (error: any) {
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Internal Server Error";
     console.error("API Error:", error);
     return new Response(
-      JSON.stringify({ error: error.message || "Internal Server Error" }),
+      JSON.stringify({ error: message }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }

@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Portfolio from "@/pages/Portfolio";
+import AiSetup from "@/pages/AiSetup";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/ai-setup" element={<AiSetup />} />
             <Route path="*" element={<div className="section-container text-center py-40">Page Not Found</div>} />
           </Routes>
         </div>
