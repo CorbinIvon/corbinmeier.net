@@ -27,6 +27,7 @@ export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
       EmailTemplate({
         firstName: body.firstName || "",
         lastName: body.lastName || "",
+        phone: body.phone || undefined,
         subject: body.subject || "",
         messagePreview: body.message || undefined,
       })

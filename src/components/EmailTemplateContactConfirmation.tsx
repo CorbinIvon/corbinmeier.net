@@ -48,6 +48,12 @@ export function EmailTemplate({
           </p>
         )}
 
+        {phone && (
+          <p style={{ marginTop: 4, color: "#374151", fontSize: 14 }}>
+            <strong>Phone:</strong> {phone}
+          </p>
+        )}
+
         {messagePreview && (
           <div
             style={{
