@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 import ProjectModalProvider from "@/components/ProjectModalProvider";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
@@ -12,6 +13,7 @@ import AiSetup from "@/pages/AiSetup";
 function App() {
   return (
     <div className="antialiased font-sans">
+      <ScrollToTop />
       <Header />
       <ProjectModalProvider>
         <div className="content-wrapper">
