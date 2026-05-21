@@ -54,9 +54,13 @@ ${body.message ? `Message preview:\n${body.message}\n\n` : ""}— Corbin`;
     });
 
     // Send notification to site owner
+    if (!env.PERSONAL_EMAIL) {
+      console.error("PERSONAL_EMAIL is not defined in the environment.");
+    }
+
     const ownerNotificationPromise = resend.emails.send({
       from: "corbinmeier.net <contact@corbinmeier.net>",
-      to: [env.PERSONAL_EMAIL],
+      to: [env.PERSONAL_EMAIL || "contact@corbinmeier.net"], // Fallback to avoid crash if missing
       subject: `New contact: ${body.subject}`,
       text: `New contact submission:\n\nName: ${body.firstName || ""} ${
         body.lastName || ""
@@ -65,16 +69,24 @@ ${body.message ? `Message preview:\n${body.message}\n\n` : ""}— Corbin`;
       }\n\nMessage:\n${body.message || "(no message)"}`,
     });
 
-    const results = await Promise.allSettled([
+    const [confRes, ownerRes] = await Promise.all([
       confirmationPromise,
       ownerNotificationPromise,
     ]);
 
-    const rejected = results.filter((r) => r.status === "rejected");
-    if (rejected.length > 0) {
-      console.error("Email sending failed:", rejected);
+    if (confRes.error || ownerRes.error) {
+      console.error("Email sending failed:", {
+        confirmation: confRes.error,
+        owner: ownerRes.error,
+      });
       return new Response(
-        JSON.stringify({ error: "Failed to send one or more emails." }),
+        JSON.stringify({ 
+          error: "Failed to send one or more emails.",
+          details: {
+            visitor: confRes.error ? "Failed" : "Sent",
+            owner: ownerRes.error ? "Failed" : "Sent"
+          }
+        }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
     }
