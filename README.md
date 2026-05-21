@@ -6,10 +6,11 @@ The professional portfolio and business hub for Corbin Meier, a Digital Contract
 
 This site is built with **React 19 + Vite 6** and deployed to **Cloudflare Pages**.
 
-### Core Decision: Pure Static
-To maintain a **$0 up-front hosting model**, this project is architected as a **pure static site**. 
-- **Data Source:** All content is managed via JSON files in `src/data/`.
-- **No Database:** There is no SQL/ORM layer. This is an intentional constraint for simplicity and cost-efficiency.
+### Core Decision: Modern Cloud Architecture
+To maintain **no monthly infrastructure fees**, this project is architected to run entirely on modern cloud infrastructure without traditional server overhead.
+- **Dynamic Logic:** Contact form and interactions are handled by Cloudflare Functions.
+- **JSON-First Data:** Content is managed via structured JSON files in `src/data/`. This approach ensures information is easily updatable, version-trackable, and extremely fast.
+- **No Database:** No SQL/ORM layer is used. This keeps the site lightweight, secure, and focused on performance.
 - **API:** Contact form logic is handled via Cloudflare Pages Functions in `/functions`.
 
 ## Redesign: The Artisan Engineer

@@ -17,7 +17,7 @@ const services = [
   {
     id: "websites",
     title: "The Foundation",
-    desc: "Custom high-performance websites with a $0 up-front hosting model. Outperforms Wix/Squarespace in speed, SEO, and flexibility.",
+    desc: "Custom high-performance websites with no monthly infrastructure fees. Outperforms Wix/Squarespace in speed, SEO, and flexibility.",
     icon: Globe,
   },
   {

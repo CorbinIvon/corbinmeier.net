@@ -1,4 +1,4 @@
-# CorbinMeier.net - Cloudflare Pages (Pure Static)
+# CorbinMeier.net - Cloudflare Pages (Edge-Native)
 
 This project is configured to deploy to Cloudflare Pages as a static application with Functions support.
 

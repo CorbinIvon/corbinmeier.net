@@ -1,15 +1,15 @@
-# Project Notes: React + Vite (Pure Static)
+# Project Notes: React + Vite (Edge-Native)
 
 ## Overview
-The project has been migrated from Next.js to a **React + Vite** architecture for simplicity and reliable deployment on Cloudflare Pages.
+The project is built on an **Edge-Native** architecture for simplicity and reliable deployment on Cloudflare Pages.
 
 ## Architecture
 - **Framework:** React 19 + Vite 6
 - **Routing:** React Router 7
-- **Deployment:** Cloudflare Pages (Pure Static Assets)
+- **Deployment:** Cloudflare Pages (Edge-Native Assets + Functions)
 - **API:** Cloudflare Pages Functions (located in `/functions`)
-- **Data Model:** Static JSON files in `src/data/`
-- **Infrastructure:** $0 up-front cost model.
+- **Data Model:** Pure JSON files in `src/data/` (Mandated for static, non-mutable, easily updatable, and trackable information. No database unless explicitly required).
+- **Infrastructure:** No monthly infrastructure fees (Cloudflare Free Tier model).
 
 ## Key Changes
 - Removed Next.js, OpenNext, and related complexities.

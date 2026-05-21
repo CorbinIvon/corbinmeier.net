@@ -53,7 +53,7 @@ export default function Hero() {
           className="text-narrative mb-14"
         >
           I build high-performance, growth-focused digital infrastructure for 
-          local businesses with <span className="text-foreground font-medium underline decoration-accent/30 decoration-4 underline-offset-8">$0 initial hosting costs.</span>{" "}
+          local businesses with <span className="text-foreground font-medium underline decoration-accent/30 decoration-4 underline-offset-8">no monthly infrastructure fees.</span>{" "}
           Professional engineering that scales only when you do.
         </motion.p>
         
