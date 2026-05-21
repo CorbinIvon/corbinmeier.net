@@ -55,7 +55,7 @@ ${body.message ? `Message preview:\n${body.message}\n\n` : ""}— Corbin`;
 
     // Send notification to site owner
     const ownerNotificationPromise = resend.emails.send({
-      from: "corbinmeier.net <no-reply@corbinmeier.net>",
+      from: "corbinmeier.net <contact@corbinmeier.net>",
       to: [env.PERSONAL_EMAIL],
       subject: `New contact: ${body.subject}`,
       text: `New contact submission:\n\nName: ${body.firstName || ""} ${

@@ -73,7 +73,7 @@ export default function Contact() {
   }
 
   const infoItems = [
-    { icon: Mail, label: "Email", value: "hello@corbinmeier.net" },
+    { icon: Mail, label: "Email", value: "contact@corbinmeier.net" },
     { icon: MapPin, label: "Location", value: "California, USA" },
     { icon: Clock, label: "Response Time", value: "< 24 Hours" },
   ];
