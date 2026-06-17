@@ -22,15 +22,21 @@ export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
 
   try {
     const body: any = await request.json();
+    const { turnstileToken } = body;
 
     // Turnstile verification
     if (env.TURNSTILE_SECRET_KEY) {
-      const token = body.turnstileToken;
-      const ip = request.headers.get("CF-Connecting-IP");
+      if (!turnstileToken) {
+        return new Response(
+          JSON.stringify({ error: "Security check token missing." }),
+          { status: 403, headers: { "Content-Type": "application/json" } }
+        );
+      }
 
       const formData = new FormData();
       formData.append("secret", env.TURNSTILE_SECRET_KEY);
-      formData.append("response", token);
+      formData.append("response", turnstileToken);
+      const ip = request.headers.get("CF-Connecting-IP");
       if (ip) formData.append("remoteip", ip);
 
       const url = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
@@ -39,7 +45,7 @@ export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
         method: "POST",
       });
 
-      const outcome: any = await result.json();
+      const outcome = (await result.json()) as { success: boolean };
       if (!outcome.success) {
         return new Response(
           JSON.stringify({ error: "Security check failed. Please try again." }),

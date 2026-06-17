@@ -3,9 +3,10 @@ import BackgroundMotion from "@/components/BackgroundMotion";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Turnstile } from "@/components/Turnstile";
+import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
 
-const TURNSTILE_SITE_KEY = "0x4AAAAAAA97_1NlJ0X3p87X"; // Using testing site key by default or from user
+// Official Cloudflare Turnstile "Always Passes" test key
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -17,7 +18,7 @@ export default function Contact() {
     message: "",
   });
 
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
   const [status, setStatus] = useState<null | { ok: boolean; message: string }>(
     null
   );
@@ -193,10 +194,12 @@ export default function Contact() {
                 </div>
 
                 <div className="pt-2">
-                   <Turnstile 
-                     sitekey={TURNSTILE_SITE_KEY} 
-                     onVerify={(token) => setTurnstileToken(token)} 
-                   />
+                   {TURNSTILE_SITE_KEY && (
+                     <CloudflareTurnstile 
+                       siteKey={TURNSTILE_SITE_KEY} 
+                       onVerify={(token) => setTurnstileToken(token)} 
+                     />
+                   )}
                 </div>
 
                 <div className="pt-4">
