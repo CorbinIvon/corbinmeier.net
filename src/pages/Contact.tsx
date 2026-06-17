@@ -3,6 +3,9 @@ import BackgroundMotion from "@/components/BackgroundMotion";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Turnstile } from "@/components/Turnstile";
+
+const TURNSTILE_SITE_KEY = "0x4AAAAAAA97_1NlJ0X3p87X"; // Using testing site key by default or from user
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -14,6 +17,7 @@ export default function Contact() {
     message: "",
   });
 
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [status, setStatus] = useState<null | { ok: boolean; message: string }>(
     null
   );
@@ -35,12 +39,20 @@ export default function Contact() {
       return;
     }
 
+    if (!turnstileToken) {
+      setStatus({
+        ok: false,
+        message: "Please complete the security check.",
+      });
+      return;
+    }
+
     setLoading(true);
     try {
       const res = await fetch("/api/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
 
       const data = (await res.json()) as { error?: string; ok?: boolean };
@@ -178,6 +190,13 @@ export default function Contact() {
                     onChange={(e) => update("message", e.target.value)}
                     rows={5}
                   />
+                </div>
+
+                <div className="pt-2">
+                   <Turnstile 
+                     sitekey={TURNSTILE_SITE_KEY} 
+                     onVerify={(token) => setTurnstileToken(token)} 
+                   />
                 </div>
 
                 <div className="pt-4">

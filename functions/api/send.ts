@@ -6,6 +6,7 @@ import { Resend } from "resend";
 interface CloudflareEnv {
   RESEND_API_KEY: string;
   PERSONAL_EMAIL: string;
+  TURNSTILE_SECRET_KEY: string;
 }
 
 export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
@@ -20,8 +21,34 @@ export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
   }
 
   try {
-    const resend = new Resend(env.RESEND_API_KEY);
     const body: any = await request.json();
+
+    // Turnstile verification
+    if (env.TURNSTILE_SECRET_KEY) {
+      const token = body.turnstileToken;
+      const ip = request.headers.get("CF-Connecting-IP");
+
+      const formData = new FormData();
+      formData.append("secret", env.TURNSTILE_SECRET_KEY);
+      formData.append("response", token);
+      if (ip) formData.append("remoteip", ip);
+
+      const url = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+      const result = await fetch(url, {
+        body: formData,
+        method: "POST",
+      });
+
+      const outcome: any = await result.json();
+      if (!outcome.success) {
+        return new Response(
+          JSON.stringify({ error: "Security check failed. Please try again." }),
+          { status: 403, headers: { "Content-Type": "application/json" } }
+        );
+      }
+    }
+
+    const resend = new Resend(env.RESEND_API_KEY);
 
     // Basic validation
     if (!body.firstName || !body.email || !body.subject) {
