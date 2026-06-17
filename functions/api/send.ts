@@ -1,3 +1,4 @@
+import React from "react";
 import { render } from "@react-email/render";
 import { EmailTemplate } from "../../src/components/EmailTemplateContactConfirmation";
 import { Resend } from "resend";
@@ -9,6 +10,14 @@ interface CloudflareEnv {
 
 export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
   const { request, env } = context;
+
+  if (!env.RESEND_API_KEY) {
+    console.error("RESEND_API_KEY is not defined in the environment.");
+    return new Response(
+      JSON.stringify({ error: "Email service is not configured." }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
+  }
 
   try {
     const resend = new Resend(env.RESEND_API_KEY);
@@ -24,7 +33,7 @@ export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
 
     // Render email template
     const emailHtml = await render(
-      EmailTemplate({
+      React.createElement(EmailTemplate, {
         firstName: body.firstName || "",
         lastName: body.lastName || "",
         phone: body.phone || undefined,
