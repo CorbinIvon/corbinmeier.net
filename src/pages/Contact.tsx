@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import BackgroundMotion from "@/components/BackgroundMotion";
+import SeoHead from "@/components/SeoHead";
 import { motion } from "framer-motion";
-import { Send, Mail, MapPin, Clock } from "lucide-react";
+import { Send, Mail, MapPin, Clock, Mailbox } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Contact() {
@@ -73,13 +74,19 @@ export default function Contact() {
   }
 
   const infoItems = [
-    { icon: Mail, label: "Email", value: "hello@corbinmeier.net" },
+    { icon: Mail, label: "Email", value: "contact@corbinmeier.net" },
     { icon: MapPin, label: "Location", value: "California, USA" },
+    { icon: Mailbox, label: "Mailing Address", value: "P.O. Box 1433, Chico, CA" },
     { icon: Clock, label: "Response Time", value: "< 24 Hours" },
   ];
 
   return (
     <div className="relative min-h-screen pt-24 pb-20">
+      <SeoHead
+        title="Contact | Corbin Meier"
+        description="Ready to bring your project to life? Get in touch with Corbin Meier to discuss your next software engineering project."
+        path="/contact"
+      />
       <BackgroundMotion />
       <main className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">

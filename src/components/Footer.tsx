@@ -44,20 +44,18 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-xs uppercase tracking-widest mb-6">Legal</h4>
             <ul className="space-y-4">
+              <li><Link to="/privacy-policy" className="text-muted hover:text-accent transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="text-muted hover:text-accent transition-colors">Terms of Service</Link></li>
               <li><span className="text-muted">© {currentYear} Corbin Meier</span></li>
               <li><span className="text-muted">All rights reserved</span></li>
             </ul>
           </div>
         </div>
         
-        <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="mt-16 pt-8 border-t border-border flex items-center justify-center">
           <p className="text-xs text-muted-foreground uppercase tracking-widest font-mono">
             Built with React, Vite, and Cloudflare.
           </p>
-          <div className="flex items-center gap-2 grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100">
-             <span className="text-[10px] font-bold text-muted-foreground uppercase">Verified Professional</span>
-             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          </div>
         </div>
       </div>
     </footer>

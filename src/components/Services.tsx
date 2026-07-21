@@ -15,7 +15,7 @@ const services = [
   {
     id: "websites",
     title: "The Foundation",
-    desc: "Custom high-performance websites with a $0 up-front hosting model. Outperforms Wix/Squarespace in speed, SEO, and flexibility.",
+    desc: "Custom high-performance websites, quoted to your project, that outperform Wix/Squarespace in speed, SEO, and flexibility. Once live, a static site with a contact form is free to host — you only pay for your domain, no monthly fee unless you add a database or premium feature.",
     icon: Globe,
   },
   {
@@ -33,7 +33,7 @@ const services = [
   {
     id: "seo",
     title: "Search Authority",
-    desc: "Data-driven SEO auditing and keyword strategy. Leveraging Next.js for superior crawlability and local search dominance.",
+    desc: "Data-driven SEO auditing and keyword strategy, built on a high-performance React and Cloudflare foundation for superior crawlability and local search dominance.",
     icon: Search,
   },
   {
@@ -81,7 +81,7 @@ export default function Services() {
 
   return (
     <section className="section-container bg-muted/30">
-      <div className="max-w-3xl mb-16">
+      <div className="max-w-3xl mb-10 sm:mb-16">
         <h2 className="text-4xl sm:text-5xl font-serif mb-6">A Tiered Strategy for <span className="text-accent italic">Success.</span></h2>
         <p className="text-narrative">
           Stop fighting complex tools alone. I serve as your dedicated digital contractor, 

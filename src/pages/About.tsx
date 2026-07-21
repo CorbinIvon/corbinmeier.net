@@ -83,7 +83,7 @@ export default function About() {
             <section className="mb-12">
               <h2 className="text-3xl font-serif mb-6">Refining the Craft</h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                In 2024, I completed the Computer Programming program at Butte College. 
+                In 2025, I completed the Computer Programming program at Butte College.
                 This period was a pivotal &quot;deep dive&quot; into hands-on development, where I 
                 honed my skills in modern tech stacks, collaborative workflows, and 
                 performance engineering.
