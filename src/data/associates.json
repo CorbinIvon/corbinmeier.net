@@ -2,7 +2,7 @@
   {
     "id": "1",
     "name": "Butte College",
-    "logo": "https://www.butte.edu//img/logos/bc_logo.svg",
+    "logo": "/butte-logo.png",
     "role": "Alumni",
     "link": "https://www.butte.edu/",
     "description": ""

@@ -3,6 +3,7 @@ import * as React from "react";
 interface EmailTemplateProps {
   firstName: string;
   lastName?: string;
+  phone?: string;
   subject?: string;
   messagePreview?: string;
 }
@@ -10,6 +11,7 @@ interface EmailTemplateProps {
 export function EmailTemplate({
   firstName,
   lastName,
+  phone,
   subject,
   messagePreview,
 }: EmailTemplateProps) {
@@ -45,6 +47,12 @@ export function EmailTemplate({
         {subject && (
           <p style={{ marginTop: 8, color: "#374151", fontSize: 14 }}>
             <strong>Subject:</strong> {subject}
+          </p>
+        )}
+
+        {phone && (
+          <p style={{ marginTop: 4, color: "#374151", fontSize: 14 }}>
+            <strong>Phone:</strong> {phone}
           </p>
         )}
 

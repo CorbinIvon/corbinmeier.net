@@ -4,6 +4,10 @@ import SeoHead from "@/components/SeoHead";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Clock, Mailbox } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
+
+// Official Cloudflare Turnstile "Always Passes" test key
+const TURNSTILE_SITE_KEY = import.meta.env.TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -15,6 +19,7 @@ export default function Contact() {
     message: "",
   });
 
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
   const [status, setStatus] = useState<null | { ok: boolean; message: string }>(
     null
   );
@@ -36,12 +41,20 @@ export default function Contact() {
       return;
     }
 
+    if (!turnstileToken) {
+      setStatus({
+        ok: false,
+        message: "Please complete the security check.",
+      });
+      return;
+    }
+
     setLoading(true);
     try {
       const res = await fetch("/api/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
 
       const data = (await res.json()) as { error?: string; ok?: boolean };
@@ -144,15 +157,27 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-muted">Email Address</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
-                    value={form.email}
-                    onChange={(e) => update("email", e.target.value)}
-                    required
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-widest text-muted">Email Address</label>
+                    <input
+                      type="email"
+                      className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
+                      value={form.email}
+                      onChange={(e) => update("email", e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-widest text-muted">Phone Number (Optional)</label>
+                    <input
+                      type="tel"
+                      className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
+                      value={form.phone}
+                      onChange={(e) => update("phone", e.target.value)}
+                    />
+                  </div>
                 </div>
 
                 <div className="space-y-2">
@@ -173,6 +198,15 @@ export default function Contact() {
                     onChange={(e) => update("message", e.target.value)}
                     rows={5}
                   />
+                </div>
+
+                <div className="pt-2">
+                   {TURNSTILE_SITE_KEY && (
+                     <CloudflareTurnstile 
+                       siteKey={TURNSTILE_SITE_KEY} 
+                       onVerify={(token) => setTurnstileToken(token)} 
+                     />
+                   )}
                 </div>
 
                 <div className="pt-4">

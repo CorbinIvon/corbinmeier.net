@@ -17,11 +17,11 @@ export default function EducationStrip() {
         className="glass-panel p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-8 border-accent/10"
       >
         <div className="flex-shrink-0">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 relative p-2 bg-white rounded-2xl shadow-sm border border-border">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 relative bg-white rounded-full shadow-sm border border-border overflow-hidden m-0.5 p-px">
             <img
               src={butte.logo}
               alt={`${butte.name} logo`}
-              className="absolute inset-0 w-full h-full object-contain p-2"
+              className="absolute inset-px w-[calc(100%-2px)] h-[calc(100%-2px)] object-cover rounded-full"
             />
           </div>
         </div>

@@ -99,8 +99,8 @@ export default function About() {
               <h2 className="text-2xl font-serif mb-4 italic text-accent">Strategic Partnership</h2>
               <p className="text-muted-foreground mb-6">
                 I specialize in providing high-performance, custom-engineered solutions for 
-                local businesses with a <span className="font-bold text-foreground underline decoration-accent decoration-2 underline-offset-4">$0 up-front hosting/infrastructure model.</span>{" "}
-                By leveraging modern edge-computing, I remove the financial barrier to 
+                local businesses with <span className="font-bold text-foreground underline decoration-accent decoration-2 underline-offset-4">no monthly infrastructure fees.</span>{" "}
+                By leveraging modern cloud technology, I remove the financial barrier to 
                 premium digital infrastructure.
               </p>
               <Link 

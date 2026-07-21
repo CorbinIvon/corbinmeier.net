@@ -1,3 +1,4 @@
+import React from "react";
 import { render } from "@react-email/render";
 import { EmailTemplate } from "../../src/components/EmailTemplateContactConfirmation";
 import { Resend } from "resend";
@@ -5,14 +6,55 @@ import { Resend } from "resend";
 interface CloudflareEnv {
   RESEND_API_KEY: string;
   PERSONAL_EMAIL: string;
+  TURNSTILE_SECRET_KEY: string;
 }
 
 export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
   const { request, env } = context;
 
+  if (!env.RESEND_API_KEY) {
+    console.error("RESEND_API_KEY is not defined in the environment.");
+    return new Response(
+      JSON.stringify({ error: "Email service is not configured." }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
+  }
+
   try {
-    const resend = new Resend(env.RESEND_API_KEY);
     const body: any = await request.json();
+    const { turnstileToken } = body;
+
+    // Turnstile verification
+    if (env.TURNSTILE_SECRET_KEY) {
+      if (!turnstileToken) {
+        return new Response(
+          JSON.stringify({ error: "Security check token missing." }),
+          { status: 403, headers: { "Content-Type": "application/json" } }
+        );
+      }
+
+      const formData = new FormData();
+      formData.append("secret", env.TURNSTILE_SECRET_KEY);
+      formData.append("response", turnstileToken);
+      const ip = request.headers.get("CF-Connecting-IP");
+      if (ip) formData.append("remoteip", ip);
+
+      const url = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+      const result = await fetch(url, {
+        body: formData,
+        method: "POST",
+      });
+
+      const outcome = (await result.json()) as { success: boolean };
+      if (!outcome.success) {
+        return new Response(
+          JSON.stringify({ error: "Security check failed. Please try again." }),
+          { status: 403, headers: { "Content-Type": "application/json" } }
+        );
+      }
+    }
+
+    const resend = new Resend(env.RESEND_API_KEY);
 
     // Basic validation
     if (!body.firstName || !body.email || !body.subject) {
@@ -24,9 +66,10 @@ export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
 
     // Render email template
     const emailHtml = await render(
-      EmailTemplate({
+      React.createElement(EmailTemplate, {
         firstName: body.firstName || "",
         lastName: body.lastName || "",
+        phone: body.phone || undefined,
         subject: body.subject || "",
         messagePreview: body.message || undefined,
       })
@@ -54,9 +97,13 @@ ${body.message ? `Message preview:\n${body.message}\n\n` : ""}— Corbin`;
     });
 
     // Send notification to site owner
+    if (!env.PERSONAL_EMAIL) {
+      console.error("PERSONAL_EMAIL is not defined in the environment.");
+    }
+
     const ownerNotificationPromise = resend.emails.send({
-      from: "corbinmeier.net <no-reply@corbinmeier.net>",
-      to: [env.PERSONAL_EMAIL],
+      from: "corbinmeier.net <contact@corbinmeier.net>",
+      to: [env.PERSONAL_EMAIL || "contact@corbinmeier.net"], // Fallback to avoid crash if missing
       subject: `New contact: ${body.subject}`,
       text: `New contact submission:\n\nName: ${body.firstName || ""} ${
         body.lastName || ""
@@ -65,16 +112,24 @@ ${body.message ? `Message preview:\n${body.message}\n\n` : ""}— Corbin`;
       }\n\nMessage:\n${body.message || "(no message)"}`,
     });
 
-    const results = await Promise.allSettled([
+    const [confRes, ownerRes] = await Promise.all([
       confirmationPromise,
       ownerNotificationPromise,
     ]);
 
-    const rejected = results.filter((r) => r.status === "rejected");
-    if (rejected.length > 0) {
-      console.error("Email sending failed:", rejected);
+    if (confRes.error || ownerRes.error) {
+      console.error("Email sending failed:", {
+        confirmation: confRes.error,
+        owner: ownerRes.error,
+      });
       return new Response(
-        JSON.stringify({ error: "Failed to send one or more emails." }),
+        JSON.stringify({ 
+          error: "Failed to send one or more emails.",
+          details: {
+            visitor: confRes.error ? "Failed" : "Sent",
+            owner: ownerRes.error ? "Failed" : "Sent"
+          }
+        }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
     }
@@ -83,10 +138,11 @@ ${body.message ? `Message preview:\n${body.message}\n\n` : ""}— Corbin`;
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
-  } catch (error: any) {
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Internal Server Error";
     console.error("API Error:", error);
     return new Response(
-      JSON.stringify({ error: error.message || "Internal Server Error" }),
+      JSON.stringify({ error: message }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }

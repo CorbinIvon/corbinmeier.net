@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -16,8 +16,7 @@ export default function Hero() {
     },
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const item: any = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
@@ -54,7 +53,7 @@ export default function Hero() {
           className="text-narrative mb-14"
         >
           I build high-performance, growth-focused digital infrastructure for 
-          local businesses with <span className="text-foreground font-medium underline decoration-accent/30 decoration-4 underline-offset-8">$0 initial hosting costs.</span>{" "}
+          local businesses with <span className="text-foreground font-medium underline decoration-accent/30 decoration-4 underline-offset-8">no monthly infrastructure fees.</span>{" "}
           Professional engineering that scales only when you do.
         </motion.p>
         

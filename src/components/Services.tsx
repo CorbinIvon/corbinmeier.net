@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { 
   Globe, 
   Code2, 
@@ -8,15 +9,23 @@ import {
   Mail, 
   CreditCard, 
   AtSign, 
-  Zap 
+  Zap,
+  Brain
 } from "lucide-react";
 
 const services = [
   {
     id: "websites",
     title: "The Foundation",
-    desc: "Custom high-performance websites, quoted to your project, that outperform Wix/Squarespace in speed, SEO, and flexibility. Once live, a static site with a contact form is free to host — you only pay for your domain, no monthly fee unless you add a database or premium feature.",
+    desc: "Custom high-performance websites with no monthly infrastructure fees. Outperforms Wix/Squarespace in speed, SEO, and flexibility.",
     icon: Globe,
+  },
+  {
+    id: "ai-setup",
+    title: "Private AI Deployment",
+    desc: "Professional deployment of private, uncensored AI (Hermes) on your own cloud infrastructure. Total data sovereignty without per-user markups.",
+    icon: Brain,
+    link: "/ai-setup",
   },
   {
     id: "apps",
@@ -33,7 +42,7 @@ const services = [
   {
     id: "seo",
     title: "Search Authority",
-    desc: "Data-driven SEO auditing and keyword strategy, built on a high-performance React and Cloudflare foundation for superior crawlability and local search dominance.",
+    desc: "Data-driven SEO auditing and keyword strategy. Leveraging high-performance architecture for superior crawlability and local search dominance.",
     icon: Search,
   },
   {
@@ -53,12 +62,6 @@ const services = [
     title: "Digital Infrastructure",
     desc: "Deep tech-stack advisory and consulting. Environment provisioning and troubleshooting for systems that cannot afford to fail.",
     icon: Zap,
-  },
-  {
-    id: "it-support",
-    title: "Managed Evolution",
-    desc: "Professional management and maintenance. I handle the complexity so you can focus on running your business.",
-    icon: AtSign,
   },
 ];
 
@@ -97,20 +100,69 @@ export default function Services() {
         viewport={{ once: true }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
       >
-        {services.map((s) => (
-          <motion.div
-            key={s.id}
-            variants={item}
-            className="glass-panel p-8 group hover:border-accent/30 transition-all duration-300"
-          >
-            <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <s.icon className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-serif font-medium mb-3">{s.title}</h3>
-            <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
-          </motion.div>
-        ))}
+        {services.map((s) => {
+          const Content = (
+            <>
+              <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <s.icon className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-serif font-medium mb-3">{s.title}</h3>
+              <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
+              {s.link && (
+                <div className="mt-6 flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest">
+                  Learn more
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              )}
+            </>
+          );
+
+          if (s.link) {
+            return (
+              <motion.div
+                key={s.id}
+                variants={item}
+              >
+                <Link
+                  to={s.link}
+                  className="glass-panel p-8 group hover:border-accent/30 transition-all duration-300 block h-full"
+                >
+                  {Content}
+                </Link>
+              </motion.div>
+            );
+          }
+
+          return (
+            <motion.div
+              key={s.id}
+              variants={item}
+              className="glass-panel p-8 group hover:border-accent/30 transition-all duration-300"
+            >
+              {Content}
+            </motion.div>
+          );
+        })}
       </motion.div>
     </section>
+  );
+}
+
+function ArrowRight({ className }: { className?: string }) {
+  return (
+    <svg 
+      className={className} 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </svg>
   );
 }
