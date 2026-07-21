@@ -1,10 +1,16 @@
 import BackgroundMotion from "@/components/BackgroundMotion";
+import SeoHead from "@/components/SeoHead";
 import { ArrowRight, Terminal } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function About() {
   return (
     <div className="relative min-h-screen pt-24 pb-20">
+      <SeoHead
+        title="About | Corbin Meier"
+        description="A journey from theoretical computer science to hands-on software architecture, driven by a relentless pursuit of digital craftsmanship."
+        path="/about"
+      />
       <BackgroundMotion />
       <main className="section-container">
         <header className="max-w-3xl mb-16">
@@ -16,7 +22,7 @@ export default function About() {
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          <div className="lg:col-span-4 sticky top-32">
+          <div className="lg:col-span-4 lg:sticky lg:top-32">
             <div className="relative aspect-square rounded-3xl overflow-hidden border border-border shadow-2xl">
               <img
                 src="/corbin.jpg"
