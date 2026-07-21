@@ -338,14 +338,14 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
               {/* Navigation Arrows Fullscreen */}
               {project.images.length > 1 && (
                 <>
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                  <button
+                    onClick={(e) => { e.stopPropagation(); paginate(-1); }}
                     className="absolute left-0 top-1/2 -translate-y-1/2 p-6 text-white/20 hover:text-white transition-colors"
                   >
                     <ChevronLeft className="w-12 h-12" />
                   </button>
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                  <button
+                    onClick={(e) => { e.stopPropagation(); paginate(1); }}
                     className="absolute right-0 top-1/2 -translate-y-1/2 p-6 text-white/20 hover:text-white transition-colors"
                   >
                     <ChevronRight className="w-12 h-12" />

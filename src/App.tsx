@@ -4,15 +4,19 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ProjectModalProvider from "@/components/ProjectModalProvider";
+import PersonJsonLd from "@/components/PersonJsonLd";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Portfolio from "@/pages/Portfolio";
 import AiSetup from "@/pages/AiSetup";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
 
 function App() {
   return (
     <div className="antialiased font-sans">
+      <PersonJsonLd />
       <ScrollToTop />
       <Header />
       <ProjectModalProvider>
@@ -23,6 +27,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/ai-setup" element={<AiSetup />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="*" element={<div className="section-container text-center py-40">Page Not Found</div>} />
           </Routes>
         </div>

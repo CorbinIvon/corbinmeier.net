@@ -2,7 +2,6 @@
 
 import { motion, Variants } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const container: Variants = {
@@ -22,16 +21,16 @@ export default function Hero() {
   };
 
   return (
-    <section className="section-container min-h-[85vh] flex flex-col justify-center relative blueprint-bg">
+    <section className="max-w-7xl mx-auto px-6 sm:px-12 pt-8 pb-16 sm:py-32 min-h-[60vh] sm:min-h-[85vh] flex flex-col justify-center items-center sm:items-start relative blueprint-bg">
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="max-w-5xl relative z-10"
+        className="max-w-5xl relative z-10 text-center sm:text-left"
       >
-        <motion.div 
+        <motion.div
           variants={item}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-[0.2em] mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-[0.2em] mb-8 mx-auto sm:mx-0"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
@@ -40,33 +39,35 @@ export default function Hero() {
           Digital Contractor
         </motion.div>
 
-        <motion.h1 
+        <motion.h1
           variants={item}
           className="text-6xl sm:text-8xl lg:text-[10rem] mb-10 leading-[0.8] font-serif tracking-tighter"
         >
-          Zero up-front <br />
-          <span className="text-accent italic">infrastructure.</span>
+          Custom websites, <br />
+          <span className="text-accent italic">free to host.</span>
         </motion.h1>
-        
-        <motion.p 
+
+        <motion.p
           variants={item}
           className="text-narrative mb-14"
         >
-          I build high-performance, growth-focused digital infrastructure for 
-          local businesses with <span className="text-foreground font-medium underline decoration-accent/30 decoration-4 underline-offset-8">no monthly infrastructure fees.</span>{" "}
-          Professional engineering that scales only when you do.
+          I design and build custom, high-performance websites for local
+          businesses, quoted to your project. Once it's live, a static site
+          with a simple contact form is{" "}
+          <span className="text-foreground font-medium underline decoration-accent/30 decoration-4 underline-offset-8">free to host — the only ongoing cost is your domain.</span>{" "}
+          Need a database for bookings, logins, or online orders? That's a
+          premium feature, and it's the only thing that adds a monthly fee.
         </motion.p>
         
-        <motion.div 
+        <motion.div
           variants={item}
-          className="flex flex-wrap gap-8"
+          className="flex flex-wrap justify-center sm:justify-start gap-8"
         >
           <Link
             to="/contact"
             className="btn-artisan"
           >
             Start a project
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
             to="/portfolio"

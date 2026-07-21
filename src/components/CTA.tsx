@@ -12,7 +12,7 @@ export default function CTA() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative overflow-hidden rounded-[3rem] bg-[#1c1917] text-[#fafaf9] px-8 py-20 text-center sm:px-16 border border-white/5 shadow-2xl"
+        className="relative overflow-hidden rounded-[3rem] bg-[#1c1917] text-[#fafaf9] px-8 py-12 sm:py-20 text-center sm:px-16 border border-white/5 shadow-2xl"
       >
         {/* Subtle background circles */}
         <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/30 rounded-full blur-[100px]" />

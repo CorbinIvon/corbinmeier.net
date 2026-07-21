@@ -18,6 +18,7 @@ export default function AssociateCard({ associate }: { associate: Associate }) {
           src={associate.logo}
           alt={associate.name}
           className="absolute inset-0 w-full h-full object-contain"
+          loading="lazy"
         />
       </div>
       <div>

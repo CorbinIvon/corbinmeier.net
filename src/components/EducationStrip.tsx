@@ -22,6 +22,7 @@ export default function EducationStrip() {
               src={butte.logo}
               alt={`${butte.name} logo`}
               className="absolute inset-px w-[calc(100%-2px)] h-[calc(100%-2px)] object-cover rounded-full"
+              loading="lazy"
             />
           </div>
         </div>
@@ -62,6 +63,7 @@ export default function EducationStrip() {
               src="https://www.parchment.com/u/award/e84ced0798b2ee4710bd18d2a5da3634/preview-md.jpg"
               alt="Diploma preview"
               className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
               <span className="text-white text-xs font-bold uppercase">View Diploma</span>

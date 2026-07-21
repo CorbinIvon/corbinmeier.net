@@ -111,8 +111,14 @@ export default function PortfolioFilters({
         </div>
       </div>
 
+      {/* Result count */}
+      <p className="text-xs font-bold uppercase tracking-widest text-muted">
+        Showing {filtered.length} of {projects.length}{" "}
+        {projects.length === 1 ? "project" : "projects"}
+      </p>
+
       {/* Grid */}
-      <motion.div 
+      <motion.div
         layout
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       >

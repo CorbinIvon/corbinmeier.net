@@ -90,7 +90,7 @@
   }
 
   .section-container {
-    @apply max-w-7xl mx-auto px-6 sm:px-12 py-32;
+    @apply max-w-7xl mx-auto px-6 sm:px-12 py-16 sm:py-32;
   }
 
   .text-narrative {

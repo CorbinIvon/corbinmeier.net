@@ -29,7 +29,7 @@ export default function FeaturedProjects() {
 
   return (
     <section className="section-container border-y border-border/50 blueprint-bg">
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-8">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 sm:mb-20 gap-8">
         <div className="max-w-2xl">
           <h2 className="text-5xl sm:text-7xl font-serif mb-6">Selected Works</h2>
           <p className="text-narrative">

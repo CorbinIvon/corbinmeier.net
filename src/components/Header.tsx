@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Portfolio", href: "/portfolio" },
@@ -11,6 +13,22 @@ const navItems = [
 
 export default function Header() {
   const { pathname } = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close mobile menu on route change.
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  // Close on Escape for keyboard users.
+  useEffect(() => {
+    if (!menuOpen) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setMenuOpen(false);
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
@@ -52,12 +70,55 @@ export default function Header() {
 
             <Link
               to="/contact"
-              className="bg-primary text-background px-6 py-2 rounded-full text-sm font-bold transition-transform hover:scale-105 active:scale-95"
+              className="hidden md:inline-flex bg-primary text-background px-6 py-2 rounded-full text-sm font-bold transition-transform hover:scale-105 active:scale-95"
             >
               Contact
             </Link>
+
+            <button
+              type="button"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-controls="mobile-nav-menu"
+              className="md:hidden flex items-center justify-center w-11 h-11 -mr-2 rounded-full hover:bg-muted/10 transition-colors"
+            >
+              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </nav>
+
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              id="mobile-nav-menu"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.15 }}
+              className="md:hidden glass-panel mt-3 px-6 py-4 flex flex-col gap-1 border-white/10 shadow-2xl shadow-black/5"
+            >
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={cn(
+                    "py-3 text-base font-medium transition-colors",
+                    pathname === item.href ? "text-accent" : "text-muted hover:text-accent"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <Link
+                to="/contact"
+                className="mt-2 bg-primary text-background px-6 py-3 rounded-full text-sm font-bold text-center transition-transform hover:scale-105 active:scale-95"
+              >
+                Contact
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
