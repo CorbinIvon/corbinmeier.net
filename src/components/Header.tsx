@@ -43,7 +43,7 @@ export default function Header() {
                 loading="eager"
               />
             </div>
-            <span className="font-serif text-lg tracking-tight hidden sm:block">Corbin Meier</span>
+            <span className="font-serif text-lg tracking-tight block">Corbin Meier</span>
           </Link>
 
           <div className="flex items-center gap-8">

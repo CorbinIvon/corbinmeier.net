@@ -25,8 +25,8 @@ export default function AiSetup() {
       
       <div className="section-container relative z-10">
         {/* Hero Section */}
-        <div className="max-w-4xl mb-20">
-          <motion.div 
+        <div className="max-w-4xl mb-20 mx-auto sm:mx-0 text-center sm:text-left">
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-[0.2em] mb-8"
@@ -34,7 +34,7 @@ export default function AiSetup() {
             <BrainCircuit className="w-4 h-4" />
             Next-Gen Infrastructure
           </motion.div>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -43,15 +43,15 @@ export default function AiSetup() {
             Your own AI. <br />
             <span className="text-accent italic">Direct Cloud Ownership.</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-narrative max-w-2xl"
+            className="text-xl text-narrative max-w-2xl mx-auto sm:mx-0"
           >
-            Take control of your data and your workflow. I provide the professional 
-            setup to deploy private, uncensored AI environments like **Hermes** 
-            directly on your own cloud infrastructure. 
+            Take control of your data and your workflow. I provide the professional
+            setup to deploy private, uncensored AI environments like **Hermes**
+            directly on your own cloud infrastructure.
           </motion.p>
         </div>
 

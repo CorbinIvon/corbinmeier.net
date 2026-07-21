@@ -84,11 +84,11 @@ export default function Services() {
 
   return (
     <section className="section-container bg-muted/30">
-      <div className="max-w-3xl mb-10 sm:mb-16">
+      <div className="max-w-3xl mb-10 sm:mb-16 mx-auto sm:mx-0 text-center sm:text-left">
         <h2 className="text-4xl sm:text-5xl font-serif mb-6">A Tiered Strategy for <span className="text-accent italic">Success.</span></h2>
         <p className="text-narrative">
-          Stop fighting complex tools alone. I serve as your dedicated digital contractor, 
-          handling the engineering so you can focus on your business. My mission is simple: 
+          Stop fighting complex tools alone. I serve as your dedicated digital contractor,
+          handling the engineering so you can focus on your business. My mission is simple:
           to support my family by ensuring your business succeeds.
         </p>
       </div>

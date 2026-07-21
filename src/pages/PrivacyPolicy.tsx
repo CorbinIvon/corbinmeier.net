@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
       />
       <BackgroundMotion />
       <main className="section-container">
-        <header className="max-w-3xl mb-16">
+        <header className="max-w-3xl mb-16 mx-auto sm:mx-0 text-center sm:text-left">
           <h1 className="text-5xl sm:text-6xl font-serif mb-6 tracking-tight">Privacy Policy</h1>
           <p className="text-narrative">Last updated: {LAST_UPDATED}</p>
           <p className="text-sm text-muted mt-2">

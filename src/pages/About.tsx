@@ -13,10 +13,10 @@ export default function About() {
       />
       <BackgroundMotion />
       <main className="section-container">
-        <header className="max-w-3xl mb-16">
+        <header className="max-w-3xl mb-16 mx-auto sm:mx-0 text-center sm:text-left">
           <h1 className="text-5xl sm:text-7xl font-serif mb-6 tracking-tight">The Engineer</h1>
           <p className="text-narrative">
-            A journey from theoretical computer science to hands-on software 
+            A journey from theoretical computer science to hands-on software
             architecture, driven by a relentless pursuit of digital craftsmanship.
           </p>
         </header>
@@ -95,21 +95,23 @@ export default function About() {
               </p>
             </section>
 
-            <section>
+            <section className="text-center sm:text-left">
               <h2 className="text-2xl font-serif mb-4 italic text-accent">Strategic Partnership</h2>
               <p className="text-muted-foreground mb-6">
-                I specialize in providing high-performance, custom-engineered solutions for 
+                I specialize in providing high-performance, custom-engineered solutions for
                 local businesses with <span className="font-bold text-foreground underline decoration-accent decoration-2 underline-offset-4">no monthly infrastructure fees.</span>{" "}
-                By leveraging modern cloud technology, I remove the financial barrier to 
+                By leveraging modern cloud technology, I remove the financial barrier to
                 premium digital infrastructure.
               </p>
-              <Link 
-                to="/contact" 
-                className="group inline-flex items-center gap-2 bg-primary text-background px-8 py-4 rounded-full font-bold transition-all hover:scale-105"
-              >
-                Start Your Journey
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              <div className="flex justify-center sm:justify-start">
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center gap-2 bg-primary text-background px-8 py-4 rounded-full font-bold transition-all hover:scale-105"
+                >
+                  Start Your Journey
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
             </section>
           </div>
         </div>

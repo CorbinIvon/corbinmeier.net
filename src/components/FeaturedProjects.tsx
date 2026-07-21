@@ -29,16 +29,16 @@ export default function FeaturedProjects() {
 
   return (
     <section className="section-container border-y border-border/50 blueprint-bg">
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 sm:mb-20 gap-8">
-        <div className="max-w-2xl">
+      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end mb-10 sm:mb-20 gap-8">
+        <div className="max-w-2xl text-center lg:text-left">
           <h2 className="text-5xl sm:text-7xl font-serif mb-6">Selected Works</h2>
           <p className="text-narrative">
-            A curated selection of digital infrastructure and performance-critical systems 
+            A curated selection of digital infrastructure and performance-critical systems
             built with precision and purpose.
           </p>
         </div>
-        <Link 
-          to="/portfolio" 
+        <Link
+          to="/portfolio"
           className="group flex items-center gap-2 text-accent font-medium hover:underline decoration-accent underline-offset-4"
         >
           View all work

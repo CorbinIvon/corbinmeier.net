@@ -105,10 +105,10 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Header & Info */}
           <div className="lg:col-span-5">
-            <header className="mb-12">
+            <header className="mb-12 text-center sm:text-left">
               <h1 className="text-5xl sm:text-7xl font-serif mb-6 tracking-tight">Contact</h1>
               <p className="text-narrative">
-                Ready to bring your project to life? Whether you have a specific 
+                Ready to bring your project to life? Whether you have a specific
                 requirement or just want to explore possibilities, I&apos;m here to help.
               </p>
             </header>

@@ -112,7 +112,7 @@ export default function PortfolioFilters({
       </div>
 
       {/* Result count */}
-      <p className="text-xs font-bold uppercase tracking-widest text-muted">
+      <p className="text-xs font-bold uppercase tracking-widest text-muted text-center sm:text-left">
         Showing {filtered.length} of {projects.length}{" "}
         {projects.length === 1 ? "project" : "projects"}
       </p>
