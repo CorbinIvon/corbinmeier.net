@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Mail } from "lucide-react";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import { site } from "@/data/site";
+import { CyberCodeSocialLink } from "@/components/cybercode/CyberCodeUIKit";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,16 +20,10 @@ export default function Footer() {
             <p className="text-muted max-w-sm mb-8">
               {site.footerTagline}
             </p>
-            <div className="flex gap-5">
-              <a href={site.footerSocial.github} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors" title="GitHub">
-                <IconBrandGithub className="w-5 h-5" />
-              </a>
-              <a href={site.footerSocial.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors" title="LinkedIn">
-                <IconBrandLinkedin className="w-5 h-5" />
-              </a>
-              <a href={site.footerSocial.email} className="text-muted hover:text-accent transition-colors" title="Email">
-                <Mail className="w-5 h-5" />
-              </a>
+            <div className="flex gap-3">
+              <CyberCodeSocialLink href={site.footerSocial.github} target="_blank" rel="noopener noreferrer" icon={<IconBrandGithub className="w-5 h-5" />} label="GitHub" />
+              <CyberCodeSocialLink href={site.footerSocial.linkedin} target="_blank" rel="noopener noreferrer" icon={<IconBrandLinkedin className="w-5 h-5" />} label="LinkedIn" />
+              <CyberCodeSocialLink href={site.footerSocial.email} icon={<Mail className="w-5 h-5" />} label="Email" />
             </div>
           </div>
 

@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ProjectModalProvider from "@/components/ProjectModalProvider";
 import PersonJsonLd from "@/components/PersonJsonLd";
+import CrtNotFound from "@/components/CrtNotFound";
+import { CyberCodeStyles } from "@/components/cybercode/CyberCodeUIKit";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
@@ -16,6 +18,7 @@ import TermsOfService from "@/pages/TermsOfService";
 function App() {
   return (
     <div className="antialiased font-sans">
+      <CyberCodeStyles />
       <PersonJsonLd />
       <ScrollToTop />
       <Header />
@@ -29,7 +32,7 @@ function App() {
             <Route path="/ai-setup" element={<AiSetup />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="*" element={<div className="section-container text-center py-40">Page Not Found</div>} />
+            <Route path="*" element={<CrtNotFound />} />
           </Routes>
         </div>
       </ProjectModalProvider>

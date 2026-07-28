@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
 import { contact } from "@/data/contact";
 import type { ContactInfoItem } from "@/data/types";
+import { CyberCodeFormField, CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
 
 const CONTACT_ICONS: Record<ContactInfoItem["icon"], LucideIcon> = {
   Mail,
@@ -143,8 +144,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.firstName}</label>
-                    <input
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
+                    <CyberCodeFormField
                       value={form.firstName}
                       onChange={(e) => update("firstName", e.target.value)}
                       required
@@ -153,8 +153,7 @@ export default function Contact() {
 
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.lastName}</label>
-                    <input
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
+                    <CyberCodeFormField
                       value={form.lastName}
                       onChange={(e) => update("lastName", e.target.value)}
                     />
@@ -164,9 +163,8 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.email}</label>
-                    <input
+                    <CyberCodeFormField
                       type="email"
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
                       value={form.email}
                       onChange={(e) => update("email", e.target.value)}
                       required
@@ -175,9 +173,8 @@ export default function Contact() {
 
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.phone}</label>
-                    <input
+                    <CyberCodeFormField
                       type="tel"
-                      className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
                       value={form.phone}
                       onChange={(e) => update("phone", e.target.value)}
                     />
@@ -186,8 +183,7 @@ export default function Contact() {
 
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.subject}</label>
-                  <input
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
+                  <CyberCodeFormField
                     value={form.subject}
                     onChange={(e) => update("subject", e.target.value)}
                     required
@@ -196,8 +192,8 @@ export default function Contact() {
 
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.projectDetails}</label>
-                  <textarea
-                    className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
+                  <CyberCodeFormField
+                    multiline
                     value={form.message}
                     onChange={(e) => update("message", e.target.value)}
                     rows={5}
@@ -214,27 +210,25 @@ export default function Contact() {
                 </div>
 
                 <div className="pt-4">
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary text-background px-10 py-4 font-bold text-lg transition-all hover:scale-105 hover:bg-accent hover:text-white disabled:opacity-60"
-                  >
+                  <CyberCodeButton type="submit" disabled={loading} className="w-full sm:w-auto disabled:opacity-60">
                     {loading ? contact.formLabels.submitting : (
                       <>
                         {contact.formLabels.submit}
                         <Send className="w-4 h-4" />
                       </>
                     )}
-                  </button>
+                  </CyberCodeButton>
                 </div>
 
                 {status && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className={cn(
-                      "p-4 rounded-xl text-sm font-medium",
-                      status.ok ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20" : "bg-red-500/10 text-red-500 border border-red-500/20"
+                      "p-4 rounded-xl text-sm font-medium border",
+                      status.ok
+                        ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"
+                        : "bg-[var(--danger-soft)] text-[var(--danger)] border-[rgba(var(--danger-rgb),0.35)]"
                     )}
                   >
                     {status.message}
