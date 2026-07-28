@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { Link } from "react-router-dom";
+import { homeHero } from "@/data/home";
 
 export default function Hero() {
   const container: Variants = {
@@ -36,44 +37,41 @@ export default function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
           </span>
-          Digital Contractor
+          {homeHero.eyebrow}
         </motion.div>
 
         <motion.h1
           variants={item}
           className="text-6xl sm:text-8xl lg:text-[10rem] mb-10 leading-[0.8] font-serif tracking-tighter"
         >
-          Custom websites, <br />
-          <span className="text-accent italic">free to host.</span>
+          {homeHero.headingLine1} <br />
+          <span className="text-accent italic">{homeHero.headingAccent}</span>
         </motion.h1>
 
         <motion.p
           variants={item}
           className="text-narrative mb-14"
         >
-          I design and build custom, high-performance websites for local
-          businesses, quoted to your project. Once it's live, a static site
-          with a simple contact form is{" "}
-          <span className="text-foreground font-medium underline decoration-accent/30 decoration-4 underline-offset-8">free to host — the only ongoing cost is your domain.</span>{" "}
-          Need a database for bookings, logins, or online orders? That's a
-          premium feature, and it's the only thing that adds a monthly fee.
+          {homeHero.paragraphPre}{" "}
+          <span className="text-foreground font-medium underline decoration-accent/30 decoration-4 underline-offset-8">{homeHero.paragraphEmphasis}</span>{" "}
+          {homeHero.paragraphPost}
         </motion.p>
-        
+
         <motion.div
           variants={item}
           className="flex flex-wrap justify-center sm:justify-start gap-8"
         >
           <Link
-            to="/contact"
+            to={homeHero.primaryCta.href}
             className="btn-artisan"
           >
-            Start a project
+            {homeHero.primaryCta.label}
           </Link>
           <Link
-            to="/portfolio"
+            to={homeHero.secondaryCta.href}
             className="inline-flex items-center justify-center px-10 py-5 rounded-full border border-border hover:bg-muted/5 transition-all font-bold text-lg"
           >
-            View portfolio
+            {homeHero.secondaryCta.label}
           </Link>
         </motion.div>
       </motion.div>

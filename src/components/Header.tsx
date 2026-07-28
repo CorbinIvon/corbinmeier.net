@@ -5,11 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
-const navItems = [
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "About", href: "/about" },
-];
+import { site } from "@/data/site";
 
 export default function Header() {
   const { pathname } = useLocation();
@@ -43,12 +39,12 @@ export default function Header() {
                 loading="eager"
               />
             </div>
-            <span className="font-serif text-lg tracking-tight block">Corbin Meier</span>
+            <span className="font-serif text-lg tracking-tight block">{site.brandName}</span>
           </Link>
 
           <div className="flex items-center gap-8">
             <div className="hidden md:flex items-center gap-6">
-              {navItems.map((item) => (
+              {site.navItems.map((item) => (
                 <Link
                   key={item.href}
                   to={item.href}
@@ -72,7 +68,7 @@ export default function Header() {
               to="/contact"
               className="hidden md:inline-flex bg-primary text-background px-6 py-2 rounded-full text-sm font-bold transition-transform hover:scale-105 active:scale-95"
             >
-              Contact
+              {site.contactCtaLabel}
             </Link>
 
             <button
@@ -98,7 +94,7 @@ export default function Header() {
               transition={{ duration: 0.15 }}
               className="md:hidden glass-panel mt-3 px-6 py-4 flex flex-col gap-1 border-white/10 shadow-2xl shadow-black/5"
             >
-              {navItems.map((item) => (
+              {site.navItems.map((item) => (
                 <Link
                   key={item.href}
                   to={item.href}
@@ -114,7 +110,7 @@ export default function Header() {
                 to="/contact"
                 className="mt-2 bg-primary text-background px-6 py-3 rounded-full text-sm font-bold text-center transition-transform hover:scale-105 active:scale-95"
               >
-                Contact
+                {site.contactCtaLabel}
               </Link>
             </motion.div>
           )}

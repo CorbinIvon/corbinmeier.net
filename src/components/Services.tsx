@@ -1,69 +1,32 @@
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { 
-  Globe, 
-  Code2, 
-  TrendingUp, 
-  Search, 
-  Mail, 
-  CreditCard, 
-  AtSign, 
+import {
+  Globe,
+  Code2,
+  TrendingUp,
+  Search,
+  Mail,
+  CreditCard,
+  AtSign,
   Zap,
-  Brain
+  Brain,
+  type LucideIcon,
 } from "lucide-react";
+import { servicesSection } from "@/data/services";
+import type { ServiceItem } from "@/data/types";
 
-const services = [
-  {
-    id: "websites",
-    title: "The Foundation",
-    desc: "Custom high-performance websites with no monthly infrastructure fees. Outperforms Wix/Squarespace in speed, SEO, and flexibility.",
-    icon: Globe,
-  },
-  {
-    id: "ai-setup",
-    title: "Private AI Deployment",
-    desc: "Professional deployment of private, uncensored AI (Hermes) on your own cloud infrastructure. Total data sovereignty without per-user markups.",
-    icon: Brain,
-    link: "/ai-setup",
-  },
-  {
-    id: "apps",
-    title: "Growth Tier",
-    desc: "Bespoke booking systems, client portals, and custom lead-capture flows designed to automate your specific business operations.",
-    icon: Code2,
-  },
-  {
-    id: "growth",
-    title: "Automation Tier",
-    desc: "Connect your digital presence to your real-world operations with custom API integrations, POS sync, and reporting dashboards.",
-    icon: TrendingUp,
-  },
-  {
-    id: "seo",
-    title: "Search Authority",
-    desc: "Data-driven SEO auditing and keyword strategy. Leveraging high-performance architecture for superior crawlability and local search dominance.",
-    icon: Search,
-  },
-  {
-    id: "automations",
-    title: "Email & Lead Flow",
-    desc: "Robust, reliable communication channels with custom automation. Turn anonymous visitors into loyal clients automatically.",
-    icon: Mail,
-  },
-  {
-    id: "payments",
-    title: "Global Commerce",
-    desc: "Scale without limits. Secure, custom-integrated payment processing and subscription billing tailored to your workflow.",
-    icon: CreditCard,
-  },
-  {
-    id: "performance",
-    title: "Digital Infrastructure",
-    desc: "Deep tech-stack advisory and consulting. Environment provisioning and troubleshooting for systems that cannot afford to fail.",
-    icon: Zap,
-  },
-];
+const ICONS: Record<ServiceItem["icon"], LucideIcon> = {
+  Globe,
+  Code2,
+  TrendingUp,
+  Search,
+  Mail,
+  CreditCard,
+  AtSign,
+  Zap,
+  Brain,
+};
 
 export default function Services() {
   const container = {
@@ -85,26 +48,25 @@ export default function Services() {
   return (
     <section className="section-container bg-muted/30">
       <div className="max-w-3xl mb-10 sm:mb-16 mx-auto sm:mx-0 text-center sm:text-left">
-        <h2 className="text-4xl sm:text-5xl font-serif mb-6">A Tiered Strategy for <span className="text-accent italic">Success.</span></h2>
+        <h2 className="text-4xl sm:text-5xl font-serif mb-6">{servicesSection.headingPre} <span className="text-accent italic">{servicesSection.headingAccent}</span></h2>
         <p className="text-narrative">
-          Stop fighting complex tools alone. I serve as your dedicated digital contractor,
-          handling the engineering so you can focus on your business. My mission is simple:
-          to support my family by ensuring your business succeeds.
+          {servicesSection.intro}
         </p>
       </div>
 
-      <motion.div 
+      <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
       >
-        {services.map((s) => {
+        {servicesSection.items.map((s) => {
+          const Icon = ICONS[s.icon];
           const Content = (
             <>
               <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <s.icon className="w-6 h-6" />
+                <Icon className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-serif font-medium mb-3">{s.title}</h3>
               <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
