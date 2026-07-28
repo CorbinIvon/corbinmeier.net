@@ -10,7 +10,7 @@ export const homeHero: HomeHeroContent = {
   paragraphPost:
     "Need a database for bookings, logins, or online orders? That's a premium feature, and it's the only thing that adds a monthly fee.",
   primaryCta: { label: "Start a project", href: "/contact" },
-  secondaryCta: { label: "View portfolio", href: "/portfolio" },
+  secondaryCta: { label: "View projects", href: "/projects" },
 };
 
 export const homeCta: HomeCtaContent = {

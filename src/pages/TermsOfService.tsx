@@ -53,9 +53,9 @@ export default function TermsOfService() {
               All content on this site — including text, design, layout, graphics, and
               source code authored by Corbin Meier — is the property of Corbin Meier
               unless otherwise noted, and may not be reproduced, distributed, or used
-              commercially without prior written permission. Portfolio project names,
+              commercially without prior written permission. Project names,
               logos, and screenshots may be the property of their respective owners and
-              are shown for portfolio/demonstration purposes only.
+              are shown for project/demonstration purposes only.
             </p>
           </section>
 
@@ -78,7 +78,7 @@ export default function TermsOfService() {
             <p>
               This site and its content are provided "as is," without warranties of any
               kind, express or implied, including but not limited to accuracy,
-              availability, or fitness for a particular purpose. Portfolio descriptions
+              availability, or fitness for a particular purpose. Project descriptions
               reflect Corbin Meier's own account of work performed and are provided for
               informational purposes.
             </p>

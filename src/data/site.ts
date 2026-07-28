@@ -3,7 +3,7 @@ import type { SiteContent } from "./types";
 export const site: SiteContent = {
   brandName: "Corbin Meier",
   navItems: [
-    { name: "Portfolio", href: "/portfolio" },
+    { name: "Projects", href: "/projects" },
     { name: "About", href: "/about" },
   ],
   contactCtaLabel: "Contact",

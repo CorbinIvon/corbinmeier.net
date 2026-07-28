@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import projects from "@/data/portfolio.json";
+import projects from "@/data/projects.json";
 import ProjectCard from "./ProjectCard";
 import { useProjectModal } from "./ProjectModalProvider";
 
@@ -38,7 +38,7 @@ export default function FeaturedProjects() {
           </p>
         </div>
         <Link
-          to="/portfolio"
+          to="/projects"
           className="group flex items-center gap-2 text-accent font-medium hover:underline decoration-accent underline-offset-4"
         >
           View all work
