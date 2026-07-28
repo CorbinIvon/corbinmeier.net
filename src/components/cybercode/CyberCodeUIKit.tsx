@@ -19,26 +19,27 @@ import { useRevealOnScroll } from "./useCyberCodeEffects";
  * `CyberCodeBackdrops.tsx` for canvas/cursor decorations.
  */
 
-export type CyberAccent = "green" | "blue" | "purple";
+/**
+ * Only two channels: "primary" (Signal Blue, the site's sole accent — used
+ * for nearly everything) and "danger" (Alert Red, reserved for genuine error
+ * states only — see docs/style_guide.md). Both read from the global theme
+ * tokens in globals.css, so a future palette change propagates automatically
+ * instead of drifting out of sync with a second hardcoded palette.
+ */
+export type CyberAccent = "primary" | "danger";
 
 const ACCENT: Record<CyberAccent, { text: string; border: string; glow: string; soft: string }> = {
-  green: {
-    text: "#00ff88",
-    border: "rgba(0,255,136,0.35)",
-    glow: "0 0 16px rgba(0,255,136,0.35)",
-    soft: "rgba(0,255,136,0.08)",
+  primary: {
+    text: "var(--accent)",
+    border: "rgba(var(--accent-rgb), 0.35)",
+    glow: "var(--accent-glow)",
+    soft: "var(--accent-soft)",
   },
-  blue: {
-    text: "#22d3ee",
-    border: "rgba(34,211,238,0.35)",
-    glow: "0 0 16px rgba(34,211,238,0.35)",
-    soft: "rgba(34,211,238,0.08)",
-  },
-  purple: {
-    text: "#c084fc",
-    border: "rgba(192,132,252,0.35)",
-    glow: "0 0 16px rgba(192,132,252,0.35)",
-    soft: "rgba(192,132,252,0.08)",
+  danger: {
+    text: "var(--danger)",
+    border: "rgba(var(--danger-rgb), 0.35)",
+    glow: "var(--danger-glow)",
+    soft: "var(--danger-soft)",
   },
 };
 
@@ -93,7 +94,7 @@ export function CyberCodeWindowChrome({
         <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
       </div>
-      <span className="flex items-center gap-2 truncate font-mono text-xs text-zinc-400">
+      <span className="flex items-center gap-2 truncate font-mono text-xs text-muted">
         {icon}
         {title}
       </span>
@@ -108,7 +109,7 @@ export function CyberCodeWindowChrome({
 export function CyberCodeTerminalWindow({
   title,
   icon,
-  accent = "green",
+  accent = "primary",
   className,
   children,
 }: {
@@ -121,7 +122,7 @@ export function CyberCodeTerminalWindow({
   return (
     <div
       className={cx(
-        "overflow-hidden rounded-xl border border-white/10 bg-zinc-950/80 shadow-[0_20px_60px_rgba(0,0,0,0.5)]",
+        "overflow-hidden rounded-xl border border-white/10 bg-background/80 shadow-[0_20px_60px_rgba(0,0,0,0.5)]",
         className
       )}
       style={accentVars(accent)}
@@ -144,7 +145,7 @@ export function CyberCodeTerminalLine({
   children: ReactNode;
 }) {
   return (
-    <div className={cx("mb-3 font-mono text-sm leading-relaxed", output ? "pl-6 text-zinc-300" : "text-zinc-200", className)}>
+    <div className={cx("mb-3 font-mono text-sm leading-relaxed", output ? "pl-6 text-muted" : "text-foreground", className)}>
       {!output && (
         <span className="mr-2.5 text-[var(--cc-text)]" style={{ textShadow: "var(--cc-glow)" }}>
           {prompt}
@@ -156,7 +157,7 @@ export function CyberCodeTerminalLine({
 }
 
 /** Blinking text cursor, e.g. trailing a typewriter effect. */
-export function CyberCodeBlinkCursor({ accent = "green", className }: { accent?: CyberAccent; className?: string }) {
+export function CyberCodeBlinkCursor({ accent = "primary", className }: { accent?: CyberAccent; className?: string }) {
   return (
     <span
       aria-hidden="true"
@@ -175,7 +176,7 @@ export function CyberCodeBlinkCursor({ accent = "green", className }: { accent?:
 export function CyberCodeGlitchHeading({
   as = "h2",
   text,
-  accent = "green",
+  accent = "primary",
   className,
 }: {
   as?: "h1" | "h2" | "h3";
@@ -211,7 +212,7 @@ export function CyberCodeEditorWindow({
   tabs,
   activeTab = 0,
   lineCount,
-  accent = "green",
+  accent = "primary",
   className,
   children,
 }: {
@@ -224,7 +225,7 @@ export function CyberCodeEditorWindow({
 }) {
   return (
     <div
-      className={cx("overflow-hidden rounded-xl border border-white/10 bg-zinc-950/80 shadow-[0_10px_40px_rgba(0,0,0,0.3)]", className)}
+      className={cx("overflow-hidden rounded-xl border border-white/10 bg-background/80 shadow-[0_10px_40px_rgba(0,0,0,0.3)]", className)}
       style={accentVars(accent)}
     >
       <div className="flex gap-0.5 border-b border-white/10 bg-white/5 px-2 pt-2">
@@ -233,7 +234,7 @@ export function CyberCodeEditorWindow({
             key={index}
             className={cx(
               "rounded-t-md px-4 py-1.5 font-mono text-xs",
-              index === activeTab ? "border-t-2 border-[var(--cc-text)] bg-zinc-950/80 text-zinc-200" : "text-zinc-500"
+              index === activeTab ? "border-t-2 border-[var(--cc-text)] bg-background/80 text-foreground" : "text-muted"
             )}
           >
             {tab}
@@ -244,14 +245,14 @@ export function CyberCodeEditorWindow({
         {lineCount !== undefined && (
           <div
             aria-hidden="true"
-            className="mr-5 select-none border-r border-white/10 pr-5 font-mono text-xs leading-7 text-zinc-600"
+            className="mr-5 select-none border-r border-white/10 pr-5 font-mono text-xs leading-7 text-muted"
           >
             {Array.from({ length: lineCount }, (_, i) => (
               <div key={i}>{i + 1}</div>
             ))}
           </div>
         )}
-        <div className="overflow-x-auto font-mono text-sm leading-7 text-zinc-200">{children}</div>
+        <div className="overflow-x-auto font-mono text-sm leading-7 text-foreground">{children}</div>
       </div>
     </div>
   );
@@ -266,7 +267,7 @@ export function CyberCodeStatCard({
   value,
   suffix = "",
   label,
-  accent = "green",
+  accent = "primary",
   className,
 }: {
   icon?: ReactNode;
@@ -296,7 +297,7 @@ export function CyberCodeStatCard({
         {value}
         {suffix}
       </div>
-      <div className="mt-2 text-xs text-zinc-500">{label}</div>
+      <div className="mt-2 text-xs text-muted">{label}</div>
     </div>
   );
 }
@@ -308,7 +309,7 @@ export function CyberCodeStatCard({
 export function CyberCodeSkillBar({
   name,
   level,
-  accent = "green",
+  accent = "primary",
   className,
 }: {
   name: string;
@@ -319,7 +320,7 @@ export function CyberCodeSkillBar({
   const [ref, visible] = useRevealOnScroll<HTMLDivElement>();
   return (
     <div ref={ref} className={cx("grid grid-cols-[minmax(86px,110px)_1fr_42px] items-center gap-3", className)} style={accentVars(accent)}>
-      <span className="truncate text-xs text-zinc-400">{name}</span>
+      <span className="truncate text-xs text-muted">{name}</span>
       <div className="h-1 overflow-hidden rounded-full bg-white/10">
         <div
           className="h-full rounded-full bg-[var(--cc-text)] transition-[width] duration-1000 ease-out"
@@ -340,7 +341,7 @@ export function CyberCodeProjectCard({
   fileIcon,
   tags = [],
   links,
-  accent = "purple",
+  accent = "primary",
   className,
   children,
 }: {
@@ -361,7 +362,7 @@ export function CyberCodeProjectCard({
       style={accentVars(accent)}
     >
       <CyberCodeWindowChrome title={fileName} icon={fileIcon} />
-      <div className="max-h-[250px] overflow-hidden p-5 font-mono text-xs leading-relaxed text-zinc-300">{children}</div>
+      <div className="max-h-[250px] overflow-hidden p-5 font-mono text-xs leading-relaxed text-muted">{children}</div>
       <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 px-5 py-4">
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
@@ -377,7 +378,7 @@ export function CyberCodeProjectCard({
 }
 
 export function CyberCodeTag({
-  accent = "green",
+  accent = "primary",
   className,
   children,
 }: {
@@ -400,7 +401,7 @@ export function CyberCodeTag({
 /* ------------------------------------------------------------------------ */
 
 export function CyberCodeButton({
-  accent = "green",
+  accent = "primary",
   className,
   type = "button",
   children,
@@ -430,7 +431,7 @@ export function CyberCodeButton({
 }
 
 export function CyberCodeLinkButton({
-  accent = "blue",
+  accent = "primary",
   className,
   children,
   ...rest
@@ -442,7 +443,7 @@ export function CyberCodeLinkButton({
   return (
     <a
       className={cx(
-        "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border px-3.5 py-2.5 text-xs text-zinc-300 no-underline transition-colors hover:text-[var(--cc-text)]",
+        "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border px-3.5 py-2.5 text-xs text-muted no-underline transition-colors hover:text-[var(--cc-text)]",
         className
       )}
       style={{ ...accentVars(accent), borderColor: "var(--cc-border)", background: "var(--cc-soft)" }}
@@ -465,7 +466,7 @@ type FormFieldBase = {
 
 export function CyberCodeFormField({
   promptIcon,
-  accent = "green",
+  accent = "primary",
   className,
   multiline,
   ...rest
@@ -479,12 +480,12 @@ export function CyberCodeFormField({
       <span className="flex min-w-11 items-center justify-center pt-2 text-[var(--cc-text)]">{promptIcon ?? ">"}</span>
       {multiline ? (
         <textarea
-          className="min-h-[100px] flex-1 resize-y rounded-md border border-white/10 bg-white/5 p-2.5 font-mono text-sm text-zinc-100 outline-none focus:border-[var(--cc-text)]"
+          className="min-h-[100px] flex-1 resize-y rounded-md border border-white/10 bg-white/5 p-2.5 font-mono text-sm text-foreground outline-none focus:border-[var(--cc-text)]"
           {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
         />
       ) : (
         <input
-          className="flex-1 rounded-md border border-white/10 bg-white/5 p-2.5 font-mono text-sm text-zinc-100 outline-none focus:border-[var(--cc-text)]"
+          className="flex-1 rounded-md border border-white/10 bg-white/5 p-2.5 font-mono text-sm text-foreground outline-none focus:border-[var(--cc-text)]"
           {...(rest as InputHTMLAttributes<HTMLInputElement>)}
         />
       )}
@@ -499,7 +500,7 @@ export function CyberCodeFormField({
 export function CyberCodeSocialLink({
   icon,
   label,
-  accent = "purple",
+  accent = "primary",
   className,
   ...rest
 }: {
@@ -512,14 +513,14 @@ export function CyberCodeSocialLink({
     <a
       aria-label={label}
       className={cx(
-        "group relative flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg text-zinc-400 transition-all hover:-translate-y-1 hover:text-[var(--cc-text)]",
+        "group relative flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg text-muted transition-all hover:-translate-y-1 hover:text-[var(--cc-text)]",
         className
       )}
       style={{ ...accentVars(accent), ["--tw-hover-border" as string]: "var(--cc-border)" }}
       {...rest}
     >
       {icon}
-      <span className="pointer-events-none absolute -bottom-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-white/10 bg-zinc-900 px-2 py-1 text-[0.7rem] text-zinc-300 opacity-0 transition-opacity group-hover:opacity-100">
+      <span className="pointer-events-none absolute -bottom-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-white/10 bg-background px-2 py-1 text-[0.7rem] text-muted opacity-0 transition-opacity group-hover:opacity-100">
         {label}
       </span>
     </a>
@@ -533,7 +534,7 @@ export function CyberCodeSocialLink({
 export function CyberCodeStatusPill({
   online = true,
   label = "online",
-  accent = "green",
+  accent = "primary",
   className,
 }: {
   online?: boolean;
@@ -564,7 +565,7 @@ export function CyberCodeFeatureLinkCard({
   eyebrow,
   title,
   subtitle,
-  accent = "blue",
+  accent = "primary",
   className,
   ...rest
 }: {
@@ -597,9 +598,9 @@ export function CyberCodeFeatureLinkCard({
         </span>
       )}
       <span className="flex flex-col gap-1">
-        {eyebrow && <span className="text-xs text-zinc-400">{eyebrow}</span>}
-        <strong className="text-base text-zinc-100">{title}</strong>
-        {subtitle && <small className="text-xs text-zinc-500">{subtitle}</small>}
+        {eyebrow && <span className="text-xs text-muted">{eyebrow}</span>}
+        <strong className="text-base text-foreground">{title}</strong>
+        {subtitle && <small className="text-xs text-muted">{subtitle}</small>}
       </span>
       <span aria-hidden="true" className="text-lg text-[var(--cc-text)]">
         &#8599;
