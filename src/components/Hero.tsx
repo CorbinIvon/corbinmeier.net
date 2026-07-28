@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Link } from "react-router-dom";
 import { homeHero } from "@/data/home";
+import { CyberCodeButton, CyberCodeLinkButton, CyberCodeGlitchHeading } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeMatrixRain } from "@/components/cybercode/CyberCodeBackdrops";
 
 export default function Hero() {
   const container: Variants = {
@@ -23,6 +24,7 @@ export default function Hero() {
 
   return (
     <section className="max-w-7xl mx-auto px-6 sm:px-12 pt-8 pb-16 sm:py-32 min-h-[60vh] sm:min-h-[85vh] flex flex-col justify-center items-center sm:items-start relative blueprint-bg">
+      <CyberCodeMatrixRain className="pointer-events-none absolute inset-0 z-0 opacity-10" />
       <motion.div
         variants={container}
         initial="hidden"
@@ -40,13 +42,15 @@ export default function Hero() {
           {homeHero.eyebrow}
         </motion.div>
 
-        <motion.h1
-          variants={item}
-          className="text-6xl sm:text-8xl lg:text-[10rem] mb-10 leading-[0.8] font-serif tracking-tighter"
-        >
-          {homeHero.headingLine1} <br />
-          <span className="text-accent italic">{homeHero.headingAccent}</span>
-        </motion.h1>
+        <motion.div variants={item}>
+          <CyberCodeGlitchHeading
+            as="h1"
+            className="text-6xl sm:text-8xl lg:text-[10rem] mb-10 leading-[0.8] font-serif tracking-tighter"
+          >
+            {homeHero.headingLine1} <br />
+            <span className="text-accent italic">{homeHero.headingAccent}</span>
+          </CyberCodeGlitchHeading>
+        </motion.div>
 
         <motion.p
           variants={item}
@@ -61,18 +65,12 @@ export default function Hero() {
           variants={item}
           className="flex flex-wrap justify-center sm:justify-start gap-8"
         >
-          <Link
-            to={homeHero.primaryCta.href}
-            className="btn-artisan"
-          >
+          <CyberCodeButton to={homeHero.primaryCta.href}>
             {homeHero.primaryCta.label}
-          </Link>
-          <Link
-            to={homeHero.secondaryCta.href}
-            className="inline-flex items-center justify-center px-10 py-5 rounded-full border border-border hover:bg-muted/5 transition-all font-bold text-lg"
-          >
+          </CyberCodeButton>
+          <CyberCodeLinkButton to={homeHero.secondaryCta.href}>
             {homeHero.secondaryCta.label}
-          </Link>
+          </CyberCodeLinkButton>
         </motion.div>
       </motion.div>
     </section>

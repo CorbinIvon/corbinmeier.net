@@ -7,6 +7,7 @@ import type {
   ReactNode,
   TextareaHTMLAttributes,
 } from "react";
+import { Link } from "react-router-dom";
 import { useRevealOnScroll } from "./useCyberCodeEffects";
 
 /**
@@ -175,12 +176,12 @@ export function CyberCodeBlinkCursor({ accent = "primary", className }: { accent
 
 export function CyberCodeGlitchHeading({
   as = "h2",
-  text,
+  children,
   accent = "primary",
   className,
 }: {
   as?: "h1" | "h2" | "h3";
-  text: string;
+  children: ReactNode;
   accent?: CyberAccent;
   className?: string;
 }) {
@@ -188,17 +189,17 @@ export function CyberCodeGlitchHeading({
   return (
     <As
       className={cx(
-        "relative inline-block font-black text-white [animation:cc-glitch-skew_4s_infinite_linear_alternate-reverse]",
+        "relative inline-block font-black text-foreground [animation:cc-glitch-skew_4s_infinite_linear_alternate-reverse]",
         className
       )}
       style={accentVars(accent)}
     >
-      {text}
+      {children}
       <span
         aria-hidden="true"
         className="absolute inset-0 text-[var(--cc-text)] opacity-70 [animation:cc-glitch-slice-a_3s_infinite_linear_alternate-reverse] [clip-path:polygon(0_0,100%_0,100%_35%,0_35%)]"
       >
-        {text}
+        {children}
       </span>
     </As>
   );
@@ -400,55 +401,77 @@ export function CyberCodeTag({
 /* Button                                                                    */
 /* ------------------------------------------------------------------------ */
 
+const BUTTON_CLASSNAME =
+  "inline-flex items-center justify-center gap-2 rounded-md border px-6 py-3 font-mono text-sm text-[var(--cc-text)] transition-all hover:-translate-y-0.5 hover:[text-shadow:var(--cc-glow)]";
+
+/**
+ * `to` renders a react-router `Link` styled as this button (for internal
+ * navigation CTAs); omit it for an actual `<button type="...">` form action.
+ */
 export function CyberCodeButton({
   accent = "primary",
   className,
   type = "button",
   children,
+  to,
   ...rest
 }: {
   accent?: CyberAccent;
   className?: string;
   children: ReactNode;
+  to?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>) {
+  const sharedClassName = cx(BUTTON_CLASSNAME, className);
+  const sharedStyle = { ...accentVars(accent), borderColor: "var(--cc-text)" };
+
+  if (to) {
+    return (
+      <Link to={to} className={sharedClassName} style={sharedStyle}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <button
-      type={type}
-      className={cx(
-        "inline-flex items-center justify-center gap-2 rounded-md border px-6 py-3 font-mono text-sm text-[var(--cc-text)] transition-all hover:-translate-y-0.5",
-        className
-      )}
-      style={{
-        ...accentVars(accent),
-        borderColor: "var(--cc-text)",
-        textShadow: "var(--cc-glow)",
-      }}
-      {...rest}
-    >
+    <button type={type} className={sharedClassName} style={sharedStyle} {...rest}>
       {children}
     </button>
   );
 }
 
+/**
+ * `to` renders a react-router `Link` (client-side navigation, internal
+ * routes); omit it and pass `href` for external links, which render a plain
+ * `<a>`.
+ */
 export function CyberCodeLinkButton({
   accent = "primary",
   className,
   children,
+  to,
   ...rest
 }: {
   accent?: CyberAccent;
   className?: string;
   children: ReactNode;
+  to?: string;
 } & AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const sharedClassName = cx(
+    "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border px-3.5 py-2.5 text-xs text-muted no-underline transition-colors hover:text-[var(--cc-text)]",
+    className
+  );
+  const sharedStyle = { ...accentVars(accent), borderColor: "var(--cc-border)", background: "var(--cc-soft)" };
+
+  if (to) {
+    return (
+      <Link to={to} className={sharedClassName} style={sharedStyle} {...rest}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <a
-      className={cx(
-        "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border px-3.5 py-2.5 text-xs text-muted no-underline transition-colors hover:text-[var(--cc-text)]",
-        className
-      )}
-      style={{ ...accentVars(accent), borderColor: "var(--cc-border)", background: "var(--cc-soft)" }}
-      {...rest}
-    >
+    <a className={sharedClassName} style={sharedStyle} {...rest}>
       {children}
     </a>
   );
@@ -567,6 +590,7 @@ export function CyberCodeFeatureLinkCard({
   subtitle,
   accent = "primary",
   className,
+  to,
   ...rest
 }: {
   icon?: ReactNode;
@@ -575,20 +599,19 @@ export function CyberCodeFeatureLinkCard({
   subtitle?: ReactNode;
   accent?: CyberAccent;
   className?: string;
+  to?: string;
 } & AnchorHTMLAttributes<HTMLAnchorElement>) {
-  return (
-    <a
-      className={cx(
-        "grid grid-cols-[auto_1fr_auto] items-center gap-4 rounded-2xl border p-4.5 no-underline transition-transform hover:-translate-y-1",
-        className
-      )}
-      style={{
-        ...accentVars(accent),
-        borderColor: "var(--cc-border)",
-        background: "var(--cc-soft)",
-      }}
-      {...rest}
-    >
+  const sharedClassName = cx(
+    "grid grid-cols-[auto_1fr_auto] items-center gap-4 rounded-2xl border p-4.5 no-underline transition-transform hover:-translate-y-1",
+    className
+  );
+  const sharedStyle = {
+    ...accentVars(accent),
+    borderColor: "var(--cc-border)",
+    background: "var(--cc-soft)",
+  };
+  const content = (
+    <>
       {icon && (
         <span
           className="flex h-13.5 w-13.5 items-center justify-center rounded-2xl border text-2xl text-[var(--cc-text)]"
@@ -605,6 +628,20 @@ export function CyberCodeFeatureLinkCard({
       <span aria-hidden="true" className="text-lg text-[var(--cc-text)]">
         &#8599;
       </span>
+    </>
+  );
+
+  if (to) {
+    return (
+      <Link to={to} className={sharedClassName} style={sharedStyle} {...rest}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <a className={sharedClassName} style={sharedStyle} {...rest}>
+      {content}
     </a>
   );
 }
