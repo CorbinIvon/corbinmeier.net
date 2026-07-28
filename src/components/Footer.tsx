@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import { Mail } from "lucide-react";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
+import { site } from "@/data/site";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,48 +14,49 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <Link to="/" className="font-serif text-2xl tracking-tight mb-6 block">
-              Corbin Meier
+              {site.brandName}
             </Link>
             <p className="text-muted max-w-sm mb-8">
-              Providing high-performance, custom-engineered digital infrastructure 
-              for local businesses with a zero up-front hosting model.
+              {site.footerTagline}
             </p>
             <div className="flex gap-5">
-              <a href="https://github.com/CorbinMeier" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors" title="GitHub">
+              <a href={site.footerSocial.github} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors" title="GitHub">
                 <IconBrandGithub className="w-5 h-5" />
               </a>
-              <a href="https://www.linkedin.com/in/corbin-meier-a49484125/" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors" title="LinkedIn">
+              <a href={site.footerSocial.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors" title="LinkedIn">
                 <IconBrandLinkedin className="w-5 h-5" />
               </a>
-              <a href="mailto:contact@corbinmeier.net" className="text-muted hover:text-accent transition-colors" title="Email">
+              <a href={site.footerSocial.email} className="text-muted hover:text-accent transition-colors" title="Email">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold text-xs uppercase tracking-widest mb-6">Navigation</h4>
+            <h4 className="font-bold text-xs uppercase tracking-widest mb-6">{site.footerNavLabel}</h4>
             <ul className="space-y-4">
-              <li><Link to="/portfolio" className="text-muted hover:text-accent transition-colors">Portfolio</Link></li>
-              <li><Link to="/about" className="text-muted hover:text-accent transition-colors">About</Link></li>
-              <li><Link to="/contact" className="text-muted hover:text-accent transition-colors">Contact</Link></li>
+              {site.navItems.map((item) => (
+                <li key={item.href}><Link to={item.href} className="text-muted hover:text-accent transition-colors">{item.name}</Link></li>
+              ))}
+              <li><Link to="/contact" className="text-muted hover:text-accent transition-colors">{site.contactCtaLabel}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-xs uppercase tracking-widest mb-6">Legal</h4>
+            <h4 className="font-bold text-xs uppercase tracking-widest mb-6">{site.footerLegalLabel}</h4>
             <ul className="space-y-4">
-              <li><Link to="/privacy-policy" className="text-muted hover:text-accent transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" className="text-muted hover:text-accent transition-colors">Terms of Service</Link></li>
-              <li><span className="text-muted">© {currentYear} Corbin Meier</span></li>
+              {site.footerLegalLinks.map((item) => (
+                <li key={item.href}><Link to={item.href} className="text-muted hover:text-accent transition-colors">{item.name}</Link></li>
+              ))}
+              <li><span className="text-muted">© {currentYear} {site.brandName}</span></li>
               <li><span className="text-muted">All rights reserved</span></li>
             </ul>
           </div>
         </div>
-        
+
         <div className="mt-16 pt-8 border-t border-border flex items-center justify-center">
           <p className="text-xs text-muted-foreground uppercase tracking-widest font-mono">
-            Built with React, Vite, and Cloudflare.
+            {site.builtWithLine}
           </p>
         </div>
       </div>

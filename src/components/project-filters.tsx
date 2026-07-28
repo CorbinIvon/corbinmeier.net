@@ -7,7 +7,7 @@ import { useProjectModal } from "./ProjectModalProvider";
 
 type Project = CardProject;
 
-export default function PortfolioFilters({
+export default function ProjectFilters({
   projects,
 }: {
   projects: Project[];

@@ -1,6 +1,7 @@
 "use client";
 
 import associates from "@/data/associates.json";
+import { education } from "@/data/education";
 import { GraduationCap, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -30,29 +31,29 @@ export default function EducationStrip() {
         <div className="flex-1 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-wider mb-3">
             <GraduationCap className="w-3 h-3" />
-            Academic Foundation
+            {education.eyebrow}
           </div>
           <h3 className="text-2xl font-serif font-medium mb-1">
-            Associate in Science — Computer Programming
+            {education.degreeTitle}
           </h3>
           <p className="text-muted mb-4">
             {butte.name} • Class of 2025
           </p>
           <div className="flex flex-wrap justify-center sm:justify-start gap-4">
             <a
-              href="https://programs.butte.edu/ProgramInfo/15/3188"
+              href={education.degreeMapUrl}
               className="text-sm font-medium underline underline-offset-4 hover:text-accent transition-colors inline-flex items-center gap-1"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Degree Map <ExternalLink className="w-3 h-3" />
+              {education.degreeMapLabel} <ExternalLink className="w-3 h-3" />
             </a>
           </div>
         </div>
 
         <div className="flex-shrink-0">
           <a
-            href="https://www.parchment.com/u/award/e84ced0798b2ee4710bd18d2a5da3634"
+            href={education.diplomaUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative block w-32 h-24 sm:w-40 sm:h-28 rounded-xl overflow-hidden border border-border shadow-lg transition-transform hover:scale-105"
@@ -60,13 +61,13 @@ export default function EducationStrip() {
             title="Official diploma (opens in new tab)"
           >
             <img
-              src="https://www.parchment.com/u/award/e84ced0798b2ee4710bd18d2a5da3634/preview-md.jpg"
+              src={education.diplomaPreviewUrl}
               alt="Diploma preview"
               className="absolute inset-0 w-full h-full object-cover"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-accent/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <span className="text-white text-xs font-bold uppercase">View Diploma</span>
+              <span className="text-white text-xs font-bold uppercase">{education.diplomaOverlayLabel}</span>
             </div>
           </a>
         </div>

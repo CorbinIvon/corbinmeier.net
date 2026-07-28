@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import BackgroundMotion from "@/components/BackgroundMotion";
 import SeoHead from "@/components/SeoHead";
 import { motion } from "framer-motion";
-import { Send, Mail, MapPin, Clock, Mailbox } from "lucide-react";
+import { Send, Mail, MapPin, Clock, Mailbox, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
+import { contact } from "@/data/contact";
+import type { ContactInfoItem } from "@/data/types";
+
+const CONTACT_ICONS: Record<ContactInfoItem["icon"], LucideIcon> = {
+  Mail,
+  MapPin,
+  Mailbox,
+  Clock,
+};
 
 // Official Cloudflare Turnstile "Always Passes" test key
 const TURNSTILE_SITE_KEY = import.meta.env.TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
@@ -36,7 +45,7 @@ export default function Contact() {
     if (!form.firstName || !form.email || !form.subject) {
       setStatus({
         ok: false,
-        message: "Please fill out at least your name, email, and the subject.",
+        message: contact.validation.missingFields,
       });
       return;
     }
@@ -44,7 +53,7 @@ export default function Contact() {
     if (!turnstileToken) {
       setStatus({
         ok: false,
-        message: "Please complete the security check.",
+        message: contact.validation.missingTurnstile,
       });
       return;
     }
@@ -62,12 +71,12 @@ export default function Contact() {
       if (!res.ok) {
         setStatus({
           ok: false,
-          message: data?.error || "Failed to send message",
+          message: data?.error || contact.validation.genericError,
         });
       } else {
         setStatus({
           ok: true,
-          message: "Message sent — thank you! A confirmation was emailed.",
+          message: contact.validation.success,
         });
         setForm({
           firstName: "",
@@ -86,13 +95,6 @@ export default function Contact() {
     }
   }
 
-  const infoItems = [
-    { icon: Mail, label: "Email", value: "contact@corbinmeier.net" },
-    { icon: MapPin, label: "Location", value: "California, USA" },
-    { icon: Mailbox, label: "Mailing Address", value: "P.O. Box 1433, Chico, CA" },
-    { icon: Clock, label: "Response Time", value: "< 24 Hours" },
-  ];
-
   return (
     <div className="relative min-h-screen pt-24 pb-20">
       <SeoHead
@@ -106,25 +108,27 @@ export default function Contact() {
           {/* Header & Info */}
           <div className="lg:col-span-5">
             <header className="mb-12 text-center sm:text-left">
-              <h1 className="text-5xl sm:text-7xl font-serif mb-6 tracking-tight">Contact</h1>
+              <h1 className="text-5xl sm:text-7xl font-serif mb-6 tracking-tight">{contact.heading}</h1>
               <p className="text-narrative">
-                Ready to bring your project to life? Whether you have a specific
-                requirement or just want to explore possibilities, I&apos;m here to help.
+                {contact.subhead}
               </p>
             </header>
 
             <div className="space-y-8">
-              {infoItems.map((item) => (
+              {contact.infoItems.map((item) => {
+                const Icon = CONTACT_ICONS[item.icon];
+                return (
                 <div key={item.label} className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
-                    <item.icon className="w-5 h-5" />
+                    <Icon className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-widest text-muted mb-1">{item.label}</p>
                     <p className="text-lg font-medium">{item.value}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -138,7 +142,7 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-muted">First Name</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.firstName}</label>
                     <input
                       className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
                       value={form.firstName}
@@ -148,7 +152,7 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-muted">Last Name</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.lastName}</label>
                     <input
                       className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
                       value={form.lastName}
@@ -159,7 +163,7 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-muted">Email Address</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.email}</label>
                     <input
                       type="email"
                       className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
@@ -170,7 +174,7 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-muted">Phone Number (Optional)</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.phone}</label>
                     <input
                       type="tel"
                       className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
@@ -181,7 +185,7 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-muted">Subject</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.subject}</label>
                   <input
                     className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
                     value={form.subject}
@@ -191,7 +195,7 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-muted">Project Details</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.projectDetails}</label>
                   <textarea
                     className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all"
                     value={form.message}
@@ -215,9 +219,9 @@ export default function Contact() {
                     disabled={loading}
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary text-background px-10 py-4 font-bold text-lg transition-all hover:scale-105 hover:bg-accent hover:text-white disabled:opacity-60"
                   >
-                    {loading ? "Sending..." : (
+                    {loading ? contact.formLabels.submitting : (
                       <>
-                        Send Message
+                        {contact.formLabels.submit}
                         <Send className="w-4 h-4" />
                       </>
                     )}
