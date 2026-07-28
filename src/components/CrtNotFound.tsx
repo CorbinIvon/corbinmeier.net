@@ -1,17 +1,11 @@
 import { useId } from "react";
 
-const VARIANT_GLOW: Record<"green" | "amber", { fg: string; bg: string; text: string; shadow: string }> = {
-  green: {
-    fg: "rgba(128,255,128,0.85)",
-    bg: "radial-gradient(circle at 50% 30%, #11581e 0%, #041607 70%, #000000 100%)",
-    text: "rgba(51,255,51,1)",
-    shadow: "rgba(32,128,32,0.8)",
-  },
-  amber: {
-    fg: "rgba(255,200,120,0.85)",
-    bg: "radial-gradient(circle at 50% 30%, #593a11 0%, #160f04 70%, #000000 100%)",
-    text: "rgba(255,170,51,1)",
-    shadow: "rgba(153,102,32,0.8)",
+const VARIANT_GLOW: Record<"blue", { fg: string; bg: string; text: string; shadow: string }> = {
+  blue: {
+    fg: "rgba(120,170,255,0.85)",
+    bg: "radial-gradient(circle at 50% 30%, #11213a 0%, #060a14 70%, #0a0e17 100%)",
+    text: "rgba(59,130,246,1)",
+    shadow: "rgba(32,80,153,0.8)",
   },
 };
 
@@ -26,7 +20,7 @@ export interface CrtNotFoundProps {
   backHref?: string;
   homeLabel?: string;
   homeHref?: string;
-  variant?: "green" | "amber";
+  variant?: "blue";
   className?: string;
 }
 
@@ -41,7 +35,7 @@ export default function CrtNotFound({
   backHref = "#",
   homeLabel = "return to the homepage",
   homeHref = "/",
-  variant = "green",
+  variant = "blue",
   className = "",
 }: CrtNotFoundProps) {
   const uid = useId().replace(/:/g, "");

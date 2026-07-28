@@ -10,10 +10,10 @@ import { useEffect, useRef } from "react";
 
 /** Falling-character rain, canvas-based. Respects prefers-reduced-motion by rendering nothing. */
 export function CyberCodeMatrixRain({
-  color = "#00ff88",
+  color = "#3b82f6",
   fontSize = 14,
   fps = 18,
-  className = "pointer-events-none fixed inset-0 z-0 opacity-15",
+  className = "pointer-events-none fixed inset-0 z-0 opacity-10",
 }: {
   color?: string;
   fontSize?: number;
@@ -85,7 +85,7 @@ export function CyberCodeMatrixRain({
 /** Drifting dot field that draws connecting lines near the cursor. */
 export function CyberCodeParticleField({
   count = 40,
-  color = "34,211,238",
+  color = "59,130,246",
   linkRadius = 120,
   className = "pointer-events-none fixed inset-0 z-[1]",
 }: {
@@ -181,7 +181,7 @@ export function CyberCodeParticleField({
 
 /** Ring + soft trailing dot that follow the pointer, replacing the OS cursor. Hidden on touch/coarse pointers. */
 export function CyberCodeCustomCursor({
-  color = "#00ff88",
+  color = "#3b82f6",
   className = "hidden md:block",
 }: {
   color?: string;
