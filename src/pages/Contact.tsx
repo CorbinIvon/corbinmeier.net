@@ -113,7 +113,7 @@ export default function Contact() {
   };
 
   return (
-    <PageShell>
+    <PageShell theme="contact">
       <SeoHead
         title="Contact | Corbin Meier"
         description="Ready to bring your project to life? Get in touch with Corbin Meier to discuss your next software engineering project."
