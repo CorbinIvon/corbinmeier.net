@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, ChevronDown, Filter } from "lucide-react";
 import ProjectCard, { Project as CardProject } from "./ProjectCard";
 import { useProjectModal } from "./ProjectModalProvider";
+import { CyberCodeTerminalWindow } from "./cybercode/CyberCodeUIKit";
+import { Terminal } from "lucide-react";
 
 type Project = CardProject;
 
@@ -51,82 +53,89 @@ export default function ProjectFilters({
   return (
     <div className="w-full space-y-12">
       {/* Search and Filters */}
-      <div className="relative glass-panel p-2 flex flex-col md:flex-row gap-2">
-        <div className="relative flex-1">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted" />
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search projects, stack, or outcome..."
-            className="w-full pl-12 pr-4 py-3 bg-transparent rounded-xl focus:outline-none text-sm"
-          />
-          {query && (
-            <button 
-              onClick={() => setQuery("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-muted/10 rounded-full"
-            >
-              <X className="w-3 h-3 text-muted" />
-            </button>
-          )}
+      <CyberCodeTerminalWindow
+        title="filter_projects.sh"
+        icon={<Terminal className="w-3 h-3" />}
+        showDots={false}
+        className="w-full"
+      >
+        <div className="flex flex-col md:flex-row gap-4 items-center -m-2">
+          <div className="relative flex-1 w-full">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search projects, stack, or outcome..."
+              className="w-full pl-12 pr-10 py-2.5 bg-white/5 border border-border focus:border-accent focus:outline-none rounded-xl text-sm font-mono transition-colors"
+            />
+            {query && (
+              <button 
+                onClick={() => setQuery("")}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-white/10 rounded-full"
+              >
+                <X className="w-3 h-3 text-muted" />
+              </button>
+            )}
+          </div>
+
+          <div className="flex flex-wrap gap-2 w-full md:w-auto justify-start md:justify-end">
+            <div className="relative group">
+              <select
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+                className="appearance-none pl-4 pr-10 py-2.5 bg-white/5 border border-border hover:border-accent/30 focus:border-accent transition-colors rounded-xl text-xs font-mono font-bold uppercase tracking-widest cursor-pointer focus:outline-none"
+              >
+                <option value="all" className="bg-card">Years</option>
+                {years.map((y) => (
+                  <option key={y} value={String(y)} className="bg-card">{y}</option>
+                ))}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted pointer-events-none" />
+            </div>
+
+            <div className="relative group">
+              <select
+                value={skill}
+                onChange={(e) => setSkill(e.target.value)}
+                className="appearance-none pl-4 pr-10 py-2.5 bg-white/5 border border-border hover:border-accent/30 focus:border-accent transition-colors rounded-xl text-xs font-mono font-bold uppercase tracking-widest cursor-pointer focus:outline-none"
+              >
+                <option value="all" className="bg-card">Technology</option>
+                {skills.map((s) => (
+                  <option key={s} value={s} className="bg-card">{s}</option>
+                ))}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted pointer-events-none" />
+            </div>
+
+            <div className="relative group">
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                className="appearance-none pl-4 pr-10 py-2.5 bg-white/5 border border-border hover:border-accent/30 focus:border-accent transition-colors rounded-xl text-xs font-mono font-bold uppercase tracking-widest cursor-pointer focus:outline-none"
+              >
+                <option value="active" className="bg-card">Active</option>
+                <option value="archived" className="bg-card">Archived</option>
+                <option value="all" className="bg-card">All Status</option>
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted pointer-events-none" />
+            </div>
+
+            {(year !== "all" || skill !== "all" || query !== "" || status !== "active") && (
+               <button
+                 onClick={() => {
+                   setQuery("");
+                   setYear("all");
+                   setSkill("all");
+                   setStatus("active");
+                 }}
+                 className="px-4 py-2.5 bg-accent text-white rounded-xl text-xs font-mono font-bold uppercase tracking-widest hover:bg-accent/90 transition-colors"
+               >
+                 Reset
+               </button>
+            )}
+          </div>
         </div>
-
-        <div className="flex flex-wrap gap-2 p-1 border-t md:border-t-0 md:border-l border-border mt-2 md:mt-0 pt-2 md:pt-0 pl-0 md:pl-2">
-          <div className="relative group">
-            <select
-              value={year}
-              onChange={(e) => setYear(e.target.value)}
-              className="appearance-none pl-4 pr-10 py-3 bg-muted/5 group-hover:bg-muted/10 transition-colors rounded-xl text-xs font-bold uppercase tracking-widest cursor-pointer focus:outline-none"
-            >
-              <option value="all">Years</option>
-              {years.map((y) => (
-                <option key={y} value={String(y)}>{y}</option>
-              ))}
-            </select>
-            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted pointer-events-none" />
-          </div>
-
-          <div className="relative group">
-            <select
-              value={skill}
-              onChange={(e) => setSkill(e.target.value)}
-              className="appearance-none pl-4 pr-10 py-3 bg-muted/5 group-hover:bg-muted/10 transition-colors rounded-xl text-xs font-bold uppercase tracking-widest cursor-pointer focus:outline-none"
-            >
-              <option value="all">Technology</option>
-              {skills.map((s) => (
-                <option key={s} value={s}>{s}</option>
-              ))}
-            </select>
-            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted pointer-events-none" />
-          </div>
-
-          <div className="relative group">
-            <select
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-              className="appearance-none pl-4 pr-10 py-3 bg-muted/5 group-hover:bg-muted/10 transition-colors rounded-xl text-xs font-bold uppercase tracking-widest cursor-pointer focus:outline-none"
-            >
-              <option value="active">Active</option>
-              <option value="archived">Archived</option>
-              <option value="all">All Status</option>
-            </select>
-            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted pointer-events-none" />
-          </div>
-
-          {(year !== "all" || skill !== "all" || query !== "" || status !== "active") && (
-             <button
-               onClick={() => {
-                 setQuery("");
-                 setYear("all");
-                 setSkill("all");
-                 setStatus("active");
-               }}
-               className="px-4 py-3 bg-accent text-white rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-accent/90 transition-colors"
-             >
-               Reset
-             </button>
-          )}
-        </div>
-      </div>
+      </CyberCodeTerminalWindow>
 
       {/* Result count */}
       <p className="text-xs font-bold uppercase tracking-widest text-muted text-center sm:text-left">

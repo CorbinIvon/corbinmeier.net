@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, Calendar, Code2, Layers, Maximize2, ChevronLeft, ChevronRight } from "lucide-react";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { Project } from "./ProjectCard";
+import BeforeAfterSlider from "./BeforeAfterSlider";
+import { CyberCodeTerminalWindow } from "./cybercode/CyberCodeUIKit";
 
 interface ProjectModalContextType {
   isOpen: boolean;
@@ -227,46 +229,72 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                 </div>
 
                 <div className="space-y-8 flex-1">
-                   {project.skills && (
-                     <div>
-                        <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground mb-4">Core Technologies</h4>
-                        <div className="flex flex-wrap gap-2">
-                           {project.skills.map(skill => (
-                             <span key={skill} className="px-3 py-1.5 rounded-xl bg-muted/5 border border-border text-xs font-medium">
-                               {skill}
-                             </span>
-                           ))}
+                    {project.skills && (
+                      <CyberCodeTerminalWindow title="stack.env" showDots={false}>
+                        <div className="overflow-hidden w-full relative">
+                           <style>{`
+                             @keyframes cc-marquee {
+                               0% { transform: translateX(0); }
+                               100% { transform: translateX(-33.333%); }
+                             }
+                             .cc-marquee-inner {
+                               display: flex;
+                               gap: 8px;
+                               width: max-content;
+                               animation: cc-marquee 20s linear infinite;
+                             }
+                             .cc-marquee-inner:hover {
+                               animation-play-state: paused;
+                             }
+                           `}</style>
+                           <div className="overflow-hidden w-full py-0.5">
+                             <div className="cc-marquee-inner">
+                                {[...project.skills, ...project.skills, ...project.skills].map((skill, idx) => (
+                                  <span key={`${skill}-${idx}`} className="px-3 py-1.5 rounded-xl bg-muted/5 border border-border text-xs font-medium whitespace-nowrap flex-shrink-0">
+                                    {skill}
+                                  </span>
+                                ))}
+                             </div>
+                           </div>
                         </div>
-                     </div>
-                   )}
+                      </CyberCodeTerminalWindow>
+                    )}
 
-                   {project.body && (
-                     <div>
-                        <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground mb-4">Context</h4>
+                    {project.body && (
+                      <CyberCodeTerminalWindow title="context.md" showDots={false}>
                         <div 
                            className="text-sm text-muted leading-relaxed prose prose-invert prose-sm max-w-none"
                            dangerouslySetInnerHTML={{ __html: project.body }}
                         />
-                     </div>
-                   )}
+                      </CyberCodeTerminalWindow>
+                    )}
 
-                   {project.beforeAfter && (
-                     <div className="space-y-6">
-                        <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground mb-4">Transformation</h4>
-                        <div className="grid grid-cols-1 gap-4">
-                           <div className="p-4 rounded-2xl bg-muted/5 border border-border/50">
-                              <span className="text-[9px] font-bold uppercase tracking-widest text-red-500/80 mb-2 block">Before</span>
-                              <h5 className="text-sm font-medium mb-1">{project.beforeAfter.before.title}</h5>
-                              <p className="text-xs text-muted leading-relaxed">{project.beforeAfter.before.description}</p>
-                           </div>
-                           <div className="p-4 rounded-2xl bg-accent/5 border border-accent/20">
-                              <span className="text-[9px] font-bold uppercase tracking-widest text-accent mb-2 block">After</span>
-                              <h5 className="text-sm font-medium mb-1">{project.beforeAfter.after.title}</h5>
-                              <p className="text-xs text-muted leading-relaxed">{project.beforeAfter.after.description}</p>
-                           </div>
-                        </div>
-                     </div>
-                   )}
+                    {project.beforeAfter && (
+                      <CyberCodeTerminalWindow title="transformation.diff" showDots={false}>
+                         {project.beforeAfter.before.image && project.beforeAfter.after.image && (
+                           <BeforeAfterSlider 
+                             beforeImage={project.beforeAfter.before.image}
+                             afterImage={project.beforeAfter.after.image}
+                             beforeLabel={project.beforeAfter.before.title}
+                             afterLabel={project.beforeAfter.after.title}
+                             className="mb-6"
+                           />
+                         )}
+
+                         <div className="grid grid-cols-1 gap-4">
+                            <div className="p-4 rounded-2xl bg-muted/5 border border-border/50">
+                               <span className="text-[9px] font-bold uppercase tracking-widest text-red-500/80 mb-2 block">Before</span>
+                               <h5 className="text-sm font-medium mb-1">{project.beforeAfter.before.title}</h5>
+                               <p className="text-xs text-muted leading-relaxed">{project.beforeAfter.before.description}</p>
+                            </div>
+                            <div className="p-4 rounded-2xl bg-accent/5 border border-accent/20">
+                               <span className="text-[9px] font-bold uppercase tracking-widest text-accent mb-2 block">After</span>
+                               <h5 className="text-sm font-medium mb-1">{project.beforeAfter.after.title}</h5>
+                               <p className="text-xs text-muted leading-relaxed">{project.beforeAfter.after.description}</p>
+                            </div>
+                         </div>
+                      </CyberCodeTerminalWindow>
+                    )}
                 </div>
 
                 <div className="mt-12 pt-8 border-t border-border">
