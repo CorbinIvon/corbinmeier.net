@@ -8,7 +8,7 @@ import PageShell from "@/components/PageShell";
 
 export default function Home() {
   return (
-    <PageShell>
+    <PageShell theme="blue">
       <SeoHead
         title="Corbin Meier | Software Engineer"
         description="Software Engineer specializing in building sophisticated, high-performance applications."

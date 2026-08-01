@@ -41,7 +41,22 @@
   --input-bg: #0d1420;
   --input-text: #c9d1d9;
 
-  --blueprint-grid: rgba(59, 130, 246, 0.05);
+  --blueprint-grid: rgba(var(--accent-rgb), 0.05);
+}
+
+.theme-blue {
+  --accent: #3b82f6;
+  --accent-rgb: 59, 130, 246;
+}
+
+.theme-green {
+  --accent: #10b981;
+  --accent-rgb: 16, 185, 129;
+}
+
+.theme-red {
+  --accent: #ef4444;
+  --accent-rgb: 239, 68, 68;
 }
 
 @layer base {

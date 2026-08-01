@@ -29,7 +29,7 @@ export default function About() {
   };
 
   return (
-    <PageShell>
+    <PageShell theme="red">
       <SeoHead
         title="About | Corbin Meier"
         description="A journey from theoretical computer science to hands-on software architecture, driven by a relentless pursuit of digital craftsmanship."

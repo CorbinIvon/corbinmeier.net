@@ -23,7 +23,7 @@ export default function Projects() {
   };
 
   return (
-    <PageShell>
+    <PageShell theme="green">
       <SeoHead
         title="Projects | Corbin Meier"
         description="A deep dive into the systems, applications, and digital experiences built by Corbin Meier — each project solved through meticulous engineering and user-centric design."

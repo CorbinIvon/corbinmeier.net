@@ -1,16 +1,26 @@
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import BackgroundMotion from "@/components/BackgroundMotion";
 import { cn } from "@/lib/utils";
 
 /**
  * Shared page-level root: owns the top clearance needed to sit below the
- * fixed mobile header (removed at lg+, where the sidebar takes over instead)
- * and the ambient background layer. Every page renders exactly one of these
- * as its root instead of hand-rolling the same pt-24/pb-20/BackgroundMotion
- * boilerplate, so the padding can't drift out of sync or get doubled up by
- * a page's own inner wrapper.
+ * fixed mobile header and the ambient background layer. Every page renders exactly one of these
+ * as its root, applying the appropriate page theme to the document element.
  */
-export default function PageShell({ children, className }: { children: ReactNode; className?: string }) {
+export default function PageShell({
+  children,
+  className,
+  theme = "blue",
+}: {
+  children: ReactNode;
+  className?: string;
+  theme?: "blue" | "green" | "red";
+}) {
+  useEffect(() => {
+    document.documentElement.classList.remove("theme-blue", "theme-green", "theme-red");
+    document.documentElement.classList.add(`theme-${theme}`);
+  }, [theme]);
+
   return (
     <div className={cn("relative min-h-screen pt-16 lg:pt-6 pb-10", className)}>
       <BackgroundMotion />
