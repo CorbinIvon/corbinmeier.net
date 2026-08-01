@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SeoHead from "@/components/SeoHead";
 import PageShell from "@/components/PageShell";
 import { motion, Variants } from "framer-motion";
-import { Mail, MapPin, Clock, Mailbox, Bot, type LucideIcon } from "lucide-react";
+import { Mail, MapPin, Clock, Mailbox, Save, Bot, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
 import { contact } from "@/data/contact";
@@ -314,7 +314,10 @@ export default function Contact() {
                         <span>Scanning synapses... (are you organic?)</span>
                       </>
                     ) : (
-                      "Submit (Humanity Passed)"
+                      <>
+                        <Save className="w-4 h-4 text-[var(--accent)]" />
+                        <span>Submit (Humanity Passed)</span>
+                      </>
                     )}
                   </CyberCodeButton>
 

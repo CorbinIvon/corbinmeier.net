@@ -406,7 +406,10 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                                 <span>Scanning synapses...</span>
                               </>
                             ) : (
-                              "Submit"
+                              <>
+                                <Save className="w-4 h-4 text-[var(--accent)]" />
+                                <span>Submit</span>
+                              </>
                             )}
                           </CyberCodeButton>
 
