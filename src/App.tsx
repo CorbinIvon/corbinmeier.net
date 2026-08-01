@@ -17,6 +17,20 @@ import AiSetup from "@/pages/AiSetup";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import ContactModalProvider, { useContactModal } from "@/components/ContactModalProvider";
+
+function ContactRouteRedirect() {
+  const navigate = useNavigate();
+  const { open } = useContactModal();
+  useEffect(() => {
+    open();
+    navigate("/", { replace: true });
+  }, [navigate, open]);
+  return null;
+}
+
 function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <>
@@ -35,20 +49,22 @@ function SiteLayout({ children }: { children: ReactNode }) {
 function App() {
   return (
     <div className="antialiased font-sans">
-      <CyberCodeStyles />
-      <PersonJsonLd />
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<SiteLayout><Home /></SiteLayout>} />
-        <Route path="/about" element={<SiteLayout><About /></SiteLayout>} />
-        <Route path="/contact" element={<SiteLayout><Contact /></SiteLayout>} />
-        <Route path="/projects" element={<SiteLayout><Projects /></SiteLayout>} />
-        <Route path="/ai-setup" element={<SiteLayout><AiSetup /></SiteLayout>} />
-        <Route path="/privacy-policy" element={<SiteLayout><PrivacyPolicy /></SiteLayout>} />
-        <Route path="/terms-of-service" element={<SiteLayout><TermsOfService /></SiteLayout>} />
-        <Route path="*" element={<CrtNotFound />} />
-      </Routes>
-      <Analytics />
+      <ContactModalProvider>
+        <CyberCodeStyles />
+        <PersonJsonLd />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<SiteLayout><Home /></SiteLayout>} />
+          <Route path="/about" element={<SiteLayout><About /></SiteLayout>} />
+          <Route path="/contact" element={<ContactRouteRedirect />} />
+          <Route path="/projects" element={<SiteLayout><Projects /></SiteLayout>} />
+          <Route path="/ai-setup" element={<SiteLayout><AiSetup /></SiteLayout>} />
+          <Route path="/privacy-policy" element={<SiteLayout><PrivacyPolicy /></SiteLayout>} />
+          <Route path="/terms-of-service" element={<SiteLayout><TermsOfService /></SiteLayout>} />
+          <Route path="*" element={<CrtNotFound />} />
+        </Routes>
+        <Analytics />
+      </ContactModalProvider>
     </div>
   );
 }

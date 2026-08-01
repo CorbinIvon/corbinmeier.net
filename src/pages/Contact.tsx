@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import SeoHead from "@/components/SeoHead";
 import PageShell from "@/components/PageShell";
 import { motion, Variants } from "framer-motion";
-import { Send, Mail, MapPin, Clock, Mailbox, type LucideIcon } from "lucide-react";
+import { Mail, MapPin, Clock, Mailbox, Bot, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
 import { contact } from "@/data/contact";
 import type { ContactInfoItem } from "@/data/types";
-import { CyberCodeFormField, CyberCodeButton, Typewriter, CyberCodeTerminalLine } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeTerminalWindow, CyberCodeButton, Typewriter, CyberCodeTerminalLine } from "@/components/cybercode/CyberCodeUIKit";
 
 const CONTACT_ICONS: Record<ContactInfoItem["icon"], LucideIcon> = {
   Mail,
@@ -30,10 +30,23 @@ export default function Contact() {
   });
 
   const [turnstileToken, setTurnstileToken] = useState<string>("");
+  const [turnstileStatus, setTurnstileStatus] = useState<"verifying" | "verified" | "expired" | "error">("verifying");
   const [status, setStatus] = useState<null | { ok: boolean; message: string }>(
     null
   );
   const [loading, setLoading] = useState(false);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [submitted, setSubmitted] = useState(false);
+
+  function isFieldInvalid(field: "firstName" | "email" | "subject") {
+    if (!touched[field] && !submitted) return false;
+    if (field === "firstName") return form.firstName.trim() === "";
+    if (field === "subject") return form.subject.trim() === "";
+    if (field === "email") {
+      return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+    }
+    return false;
+  }
 
   function update(field: string, value: string) {
     setForm((f) => ({ ...f, [field]: value }));
@@ -41,9 +54,10 @@ export default function Contact() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setSubmitted(true);
     setStatus(null);
 
-    if (!form.firstName || !form.email || !form.subject) {
+    if (isFieldInvalid("firstName") || isFieldInvalid("email") || isFieldInvalid("subject")) {
       setStatus({
         ok: false,
         message: contact.validation.missingFields,
@@ -52,9 +66,14 @@ export default function Contact() {
     }
 
     if (!turnstileToken) {
+      const messages = {
+        verifying: "Security check is running. Please wait...",
+        error: "Security verification failed. Please refresh the page and try again.",
+        expired: "Security verification expired. Please refresh the page.",
+      };
       setStatus({
         ok: false,
-        message: contact.validation.missingTurnstile,
+        message: messages[turnstileStatus] || contact.validation.missingTurnstile,
       });
       return;
     }
@@ -87,6 +106,8 @@ export default function Contact() {
           subject: "",
           message: "",
         });
+        setTouched({});
+        setSubmitted(false);
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
@@ -145,7 +166,7 @@ export default function Contact() {
                 const Icon = CONTACT_ICONS[infoItem.icon];
                 return (
                 <div key={infoItem.label} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: "var(--accent)", color: "var(--background)" }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center border border-[var(--accent)]" style={{ color: "var(--accent)" }}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
@@ -162,108 +183,195 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Form */}
+          {/* Form inside Terminal Window */}
           <motion.div variants={item} className="lg:col-span-7 theme-green">
-            <div className="relative glass-panel p-8 sm:p-12 border-accent/10">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.firstName}</label>
-                    <CyberCodeFormField
+            <CyberCodeTerminalWindow
+              title="visitor@meier.net:~/contact_form"
+              accent="primary"
+              className="!bg-[var(--background)] !border-[var(--border)]"
+              bodyClassName="p-4 sm:p-6"
+            >
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 py-1">
+                    <label className={cn(
+                      "font-mono text-xs select-none whitespace-nowrap min-w-[110px] transition-colors",
+                      isFieldInvalid("firstName") ? "text-[var(--danger)]" : "text-[var(--accent)]/80"
+                    )}>$ first_name:</label>
+                    <input
+                      type="text"
+                      className={cn(
+                        "flex-1 bg-transparent border-b outline-none font-mono text-sm p-0 pb-0.5 focus:ring-0 transition-colors",
+                        isFieldInvalid("firstName")
+                          ? "border-[var(--danger)] text-[var(--danger)] focus:border-[var(--danger)]"
+                          : "border-border text-[var(--accent)] focus:border-[var(--accent)]"
+                      )}
                       value={form.firstName}
                       onChange={(e) => update("firstName", e.target.value)}
+                      onBlur={() => setTouched((t) => ({ ...t, firstName: true }))}
                       required
                     />
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.lastName}</label>
-                    <CyberCodeFormField
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 py-1">
+                    <label className="font-mono text-xs text-[var(--accent)]/80 select-none whitespace-nowrap min-w-[110px]">$ last_name:</label>
+                    <input
+                      type="text"
+                      className="flex-1 bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
                       value={form.lastName}
                       onChange={(e) => update("lastName", e.target.value)}
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.email}</label>
-                    <CyberCodeFormField
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 py-1">
+                    <label className={cn(
+                      "font-mono text-xs select-none whitespace-nowrap min-w-[110px] transition-colors",
+                      isFieldInvalid("email") ? "text-[var(--danger)]" : "text-[var(--accent)]/80"
+                    )}>$ email:</label>
+                    <input
                       type="email"
+                      className={cn(
+                        "flex-1 bg-transparent border-b outline-none font-mono text-sm p-0 pb-0.5 focus:ring-0 transition-colors",
+                        isFieldInvalid("email")
+                          ? "border-[var(--danger)] text-[var(--danger)] focus:border-[var(--danger)]"
+                          : "border-border text-[var(--accent)] focus:border-[var(--accent)]"
+                      )}
                       value={form.email}
                       onChange={(e) => update("email", e.target.value)}
+                      onBlur={() => setTouched((t) => ({ ...t, email: true }))}
                       required
                     />
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.phone}</label>
-                    <CyberCodeFormField
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 py-1">
+                    <label className="font-mono text-xs text-[var(--accent)]/80 select-none whitespace-nowrap min-w-[110px]">$ phone:</label>
+                    <input
                       type="tel"
+                      className="flex-1 bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
                       value={form.phone}
                       onChange={(e) => update("phone", e.target.value)}
                     />
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.subject}</label>
-                  <CyberCodeFormField
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 py-1">
+                  <label className={cn(
+                    "font-mono text-xs select-none whitespace-nowrap min-w-[110px] transition-colors",
+                    isFieldInvalid("subject") ? "text-[var(--danger)]" : "text-[var(--accent)]/80"
+                  )}>$ subject:</label>
+                  <input
+                    type="text"
+                    className={cn(
+                      "flex-1 bg-transparent border-b outline-none font-mono text-sm p-0 pb-0.5 focus:ring-0 transition-colors",
+                      isFieldInvalid("subject")
+                        ? "border-[var(--danger)] text-[var(--danger)] focus:border-[var(--danger)]"
+                        : "border-border text-[var(--accent)] focus:border-[var(--accent)]"
+                    )}
                     value={form.subject}
                     onChange={(e) => update("subject", e.target.value)}
+                    onBlur={() => setTouched((t) => ({ ...t, subject: true }))}
                     required
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-muted">{contact.formLabels.projectDetails}</label>
-                  <CyberCodeFormField
-                    multiline
+                <div className="flex flex-col gap-2 py-1">
+                  <label className="font-mono text-xs text-[var(--accent)]/80 select-none whitespace-nowrap">$ message_body:</label>
+                  <textarea
+                    rows={4}
+                    className="w-full bg-transparent border border-border focus:border-[var(--accent)] rounded-md p-2.5 outline-none font-mono text-sm text-[var(--accent)] resize-none transition-colors"
                     value={form.message}
                     onChange={(e) => update("message", e.target.value)}
-                    rows={5}
                   />
                 </div>
 
-                <div className="pt-4 flex flex-wrap items-center gap-4">
-                  <CyberCodeButton type="submit" disabled={loading} className="w-full sm:w-auto disabled:opacity-60">
-                    {loading ? contact.formLabels.submitting : (
+                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
+                  <CyberCodeButton
+                    type="submit"
+                    disabled={loading || turnstileStatus === "verifying"}
+                    className="w-full sm:w-auto font-mono text-xs py-1.5 px-4 disabled:opacity-60 flex items-center justify-center gap-2"
+                  >
+                    {loading ? (
                       <>
-                        {contact.formLabels.submit}
-                        <Send className="w-4 h-4" />
+                        <span
+                          className="w-3.5 h-3.5 border-2 rounded-full animate-spin"
+                          style={{ borderColor: "var(--accent)", borderTopColor: "transparent" }}
+                        />
+                        <span>Transmitting message...</span>
                       </>
+                    ) : turnstileStatus === "verifying" ? (
+                      <>
+                        <Bot className="w-4 h-4 text-[var(--accent)] animate-bounce" />
+                        <span>Scanning synapses... (are you organic?)</span>
+                      </>
+                    ) : (
+                      "Submit (Humanity Passed)"
                     )}
                   </CyberCodeButton>
 
+                  <div className="flex items-center gap-2 text-xs font-mono select-none">
+                    <span className={cn(
+                      "w-2 h-2 rounded-full",
+                      turnstileStatus === "verified" && "bg-emerald-500 animate-pulse",
+                      turnstileStatus === "verifying" && "bg-amber-500 animate-ping",
+                      (turnstileStatus === "error" || turnstileStatus === "expired") && "bg-rose-500 animate-pulse"
+                    )} />
+                    <span className={cn(
+                      turnstileStatus === "verified" && "text-emerald-500",
+                      turnstileStatus === "verifying" && "text-amber-500",
+                      (turnstileStatus === "error" || turnstileStatus === "expired") && "text-rose-500"
+                    )}>
+                      {turnstileStatus === "verifying" && "[human_check: pending...]"}
+                      {turnstileStatus === "verified" && "[human_check: verified]"}
+                      {turnstileStatus === "expired" && "[human_check: expired]"}
+                      {turnstileStatus === "error" && "[human_check: failed]"}
+                    </span>
+                  </div>
+                </div>
+
                   {TURNSTILE_SITE_KEY && (
-                    <div className="border border-border rounded-xl overflow-hidden">
+                    <div className="hidden">
                       <CloudflareTurnstile
                         siteKey={TURNSTILE_SITE_KEY}
-                        onVerify={(token) => setTurnstileToken(token)}
+                        onVerify={(token) => {
+                          setTurnstileToken(token);
+                          setTimeout(() => {
+                            setTurnstileStatus("verified");
+                          }, 5000);
+                        }}
+                        onError={() => {
+                          setTurnstileToken("");
+                          setTurnstileStatus("error");
+                        }}
+                        onExpire={() => {
+                          setTurnstileToken("");
+                          setTurnstileStatus("expired");
+                        }}
                       />
                     </div>
                   )}
-                </div>
 
                 {status && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className={cn(
-                      "p-4 rounded-xl text-sm font-medium border",
+                      "p-3 rounded-lg text-xs font-mono border mt-4",
                       status.ok
                         ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"
                         : "bg-[var(--danger-soft)] text-[var(--danger)] border-[rgba(var(--danger-rgb),0.35)]"
                     )}
                   >
-                    {status.message}
+                    {status.ok ? `[success]: ${status.message}` : `[error]: ${status.message}`}
                   </motion.div>
                 )}
               </form>
-            </div>
+            </CyberCodeTerminalWindow>
           </motion.div>
         </div>
       </motion.main>
     </PageShell>
   );
 }
+
