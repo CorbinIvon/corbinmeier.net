@@ -93,14 +93,23 @@ export default function ContactModalProvider({ children }: { children: ReactNode
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
-  function isFieldInvalid(field: "firstName" | "email" | "subject") {
-    if (!touched[field] && !submitted) return false;
-    if (field === "firstName") return form.firstName.trim() === "";
-    if (field === "subject") return form.subject.trim() === "";
-    if (field === "email") {
-      return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+  function getValidationError(field: "firstName" | "email" | "phone" | "subject" | "message") {
+    if (!touched[field] && !submitted) return null;
+    const value = form[field].trim();
+    if (field === "firstName" || field === "subject" || field === "message") {
+      if (!value) return "[INPUT REQUIRED]";
     }
-    return false;
+    if (field === "email") {
+      if (!value) return "[INPUT REQUIRED]";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "[INVALID EMAIL]";
+    }
+    if (field === "phone") {
+      if (value) {
+        const phoneDigits = value.replace(/\D/g, "");
+        if (phoneDigits.length < 7 || phoneDigits.length > 15) return "[INVALID NUMBER]";
+      }
+    }
+    return null;
   }
 
   function update(field: string, value: string) {
@@ -112,7 +121,13 @@ export default function ContactModalProvider({ children }: { children: ReactNode
     setSubmitted(true);
     setStatus(null);
 
-    if (isFieldInvalid("firstName") || isFieldInvalid("email") || isFieldInvalid("subject")) {
+    if (
+      getValidationError("firstName") ||
+      getValidationError("email") ||
+      getValidationError("phone") ||
+      getValidationError("subject") ||
+      getValidationError("message")
+    ) {
       setStatus({
         ok: false,
         message: contact.validation.missingFields,
@@ -288,8 +303,8 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                           <div className="flex flex-col gap-1 py-1">
                             <label className={cn(
                               "font-mono text-xs select-none transition-colors",
-                              isFieldInvalid("firstName") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
-                            )}>$ first_name: {isFieldInvalid("firstName") && <span className="text-[10px] opacity-90 font-bold">[INPUT REQUIRED]</span>}</label>
+                              getValidationError("firstName") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
+                            )}>$ first_name: {getValidationError("firstName") && <span className="text-[10px] opacity-90 font-bold">{getValidationError("firstName")}</span>}</label>
                             <input
                               type="text"
                               className="w-full bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
@@ -315,8 +330,8 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                           <div className="flex flex-col gap-1 py-1">
                             <label className={cn(
                               "font-mono text-xs select-none transition-colors",
-                              isFieldInvalid("email") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
-                            )}>$ email: {isFieldInvalid("email") && <span className="text-[10px] opacity-90 font-bold">[INPUT REQUIRED]</span>}</label>
+                              getValidationError("email") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
+                            )}>$ email: {getValidationError("email") && <span className="text-[10px] opacity-90 font-bold">{getValidationError("email")}</span>}</label>
                             <input
                               type="email"
                               className="w-full bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
@@ -328,12 +343,16 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                           </div>
 
                           <div className="flex flex-col gap-1 py-1">
-                            <label className="font-mono text-xs text-[var(--accent)]/80 select-none">$ phone:</label>
+                            <label className={cn(
+                              "font-mono text-xs select-none transition-colors",
+                              getValidationError("phone") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
+                            )}>$ phone: {getValidationError("phone") && <span className="text-[10px] opacity-90 font-bold">{getValidationError("phone")}</span>}</label>
                             <input
                               type="tel"
                               className="w-full bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
                               value={form.phone}
                               onChange={(e) => update("phone", e.target.value)}
+                              onBlur={() => setTouched((t) => ({ ...t, phone: true }))}
                             />
                           </div>
                         </div>
@@ -341,8 +360,8 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                         <div className="flex flex-col gap-1 py-1">
                           <label className={cn(
                             "font-mono text-xs select-none transition-colors",
-                            isFieldInvalid("subject") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
-                          )}>$ subject: {isFieldInvalid("subject") && <span className="text-[10px] opacity-90 font-bold">[INPUT REQUIRED]</span>}</label>
+                            getValidationError("subject") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
+                          )}>$ subject: {getValidationError("subject") && <span className="text-[10px] opacity-90 font-bold">{getValidationError("subject")}</span>}</label>
                           <input
                             type="text"
                             className="w-full bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
@@ -354,12 +373,16 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                         </div>
 
                         <div className="flex flex-col gap-2 py-1">
-                          <label className="font-mono text-xs text-[var(--accent)]/80 select-none whitespace-nowrap">$ message_body:</label>
+                          <label className={cn(
+                            "font-mono text-xs select-none transition-colors",
+                            getValidationError("message") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
+                          )}>$ message_body: {getValidationError("message") && <span className="text-[10px] opacity-90 font-bold">{getValidationError("message")}</span>}</label>
                           <textarea
                             rows={4}
                             className="w-full bg-transparent border border-border focus:border-[var(--accent)] rounded-md p-2.5 outline-none font-mono text-sm text-[var(--accent)] resize-none transition-colors"
                             value={form.message}
                             onChange={(e) => update("message", e.target.value)}
+                            onBlur={() => setTouched((t) => ({ ...t, message: true }))}
                           />
                         </div>
 
