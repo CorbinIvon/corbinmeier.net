@@ -8,6 +8,7 @@ import {
   CyberCodeTerminalWindow,
   CyberCodeTerminalLine,
   CyberCodeBlinkCursor,
+  Typewriter,
 } from "@/components/cybercode/CyberCodeUIKit";
 
 export default function About() {
@@ -42,11 +43,13 @@ export default function About() {
       >
         <motion.header variants={item} className="w-full mb-12 text-left">
           <CyberCodeTerminalLine prompt=">" className="mb-2">
-            cat /profile/about.dat
+            <Typewriter as="span">cat /profile/about.dat</Typewriter>
           </CyberCodeTerminalLine>
-          <h1 className="text-h1 font-serif mb-6">{about.heroHeading}</h1>
+          <h1 className="text-h1 font-serif mb-6">
+            <Typewriter as="span">{about.heroHeading}</Typewriter>
+          </h1>
           <p className="text-narrative">
-            {about.heroSubhead}
+            <Typewriter as="span">{about.heroSubhead}</Typewriter>
           </p>
         </motion.header>
 
@@ -69,12 +72,11 @@ export default function About() {
               className="mt-6"
             >
               <CyberCodeTerminalLine output className="mb-0">
-                <span className="text-accent">{about.sidebarLabel}</span>
+                <Typewriter as="span" className="text-accent">{about.sidebarLabel}</Typewriter>
               </CyberCodeTerminalLine>
               <div className="h-px bg-border w-full my-3" />
               <CyberCodeTerminalLine output className="mb-0 italic">
-                &quot;{about.sidebarQuote}&quot;
-                <CyberCodeBlinkCursor className="ml-1" />
+                <Typewriter as="span">&quot;{about.sidebarQuote}&quot;</Typewriter>
               </CyberCodeTerminalLine>
             </CyberCodeTerminalWindow>
           </motion.div>
@@ -88,28 +90,33 @@ export default function About() {
                 showDots={false}
                 className={section.panelClassName ?? "mb-12"}
               >
-                <h2 className={section.headingClassName ?? "text-h2 font-mono mb-6"}>{section.heading}</h2>
+                <h2 className={section.headingClassName ?? "text-h2 font-mono mb-6"}>
+                  <Typewriter as="span">{section.heading}</Typewriter>
+                </h2>
                 {section.paragraphs.map((paragraph, index) => (
                   <p
                     key={index}
                     className={`text-lg text-muted-foreground leading-relaxed${index < section.paragraphs.length - 1 ? " mb-6" : ""}`}
                   >
-                    {paragraph}
+                    <Typewriter as="span">{paragraph}</Typewriter>
                   </p>
                 ))}
               </CyberCodeTerminalWindow>
             ))}
 
             <CyberCodeTerminalWindow title="EOF" icon={<Terminal className="w-3 h-3" />} showDots={false} className="text-left">
-              <h2 className={about.closingSection.headingClassName}>{about.closingSection.heading}</h2>
+              <h2 className={about.closingSection.headingClassName}>
+                <Typewriter as="span">{about.closingSection.heading}</Typewriter>
+              </h2>
               <p className="text-muted-foreground mb-6">
-                {about.closingSection.paragraphs[0]}{" "}
-                <span className="font-bold text-foreground underline decoration-accent decoration-2 underline-offset-4">{about.closingSection.boldFragment}</span>{" "}
-                {about.closingSection.paragraphs[1]}
+                <Typewriter as="span">
+                  {about.closingSection.paragraphs[0]}{" "}
+                  <span className="font-bold text-foreground underline decoration-accent decoration-2 underline-offset-4">{about.closingSection.boldFragment}</span>{" "}
+                  {about.closingSection.paragraphs[1]}
+                </Typewriter>
               </p>
               <CyberCodeTerminalLine prompt=">" className="mb-4">
-                initiate_contact --propose
-                <CyberCodeBlinkCursor className="ml-1" />
+                <Typewriter as="span">initiate_contact --propose</Typewriter>
               </CyberCodeTerminalLine>
               <div className="flex justify-start">
                 <Link

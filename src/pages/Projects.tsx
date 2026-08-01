@@ -2,7 +2,7 @@ import projects from "@/data/projects.json";
 import ProjectFilters from "@/components/project-filters";
 import SeoHead from "@/components/SeoHead";
 import PageShell from "@/components/PageShell";
-import { CyberCodeTerminalLine } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeTerminalLine, Typewriter } from "@/components/cybercode/CyberCodeUIKit";
 import { motion, Variants } from "framer-motion";
 
 export default function Projects() {
@@ -37,16 +37,22 @@ export default function Projects() {
       >
         <motion.header variants={item} className="w-full mb-16 text-left">
           <CyberCodeTerminalLine prompt=">" className="mb-2">
-            cat /projects.dat
+            <Typewriter as="span">cat /projects.dat</Typewriter>
           </CyberCodeTerminalLine>
-          <h1 className="text-h1 font-serif mb-6">Projects</h1>
+          <h1 className="text-h1 font-serif mb-6">
+            <Typewriter as="span">Projects</Typewriter>
+          </h1>
           <p className="text-narrative mb-4">
-            A deep dive into the systems, applications, and digital experiences
-            I&apos;ve built. Each project represents a unique challenge solved through
-            meticulous engineering and user-centric design.
+            <Typewriter as="span">
+              A deep dive into the systems, applications, and digital experiences
+              I&apos;ve built. Each project represents a unique challenge solved through
+              meticulous engineering and user-centric design.
+            </Typewriter>
           </p>
           <p className="text-xs font-bold uppercase tracking-widest text-muted">
-            {projects.length} {projects.length === 1 ? "Project" : "Projects"}
+            <Typewriter as="span">
+              {projects.length} {projects.length === 1 ? "Project" : "Projects"}
+            </Typewriter>
           </p>
         </motion.header>
 

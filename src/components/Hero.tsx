@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { homeHero } from "@/data/home";
 import { site } from "@/data/site";
-import { CyberCodeButton, CyberCodeLinkButton, CyberCodeTerminalLine } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeButton, CyberCodeLinkButton, CyberCodeTerminalLine, Typewriter } from "@/components/cybercode/CyberCodeUIKit";
 
 export default function Hero() {
   const [isPricingOpen, setIsPricingOpen] = useState(false);
@@ -35,7 +35,7 @@ export default function Hero() {
       >
         <motion.div variants={item} className="mb-2">
           <CyberCodeTerminalLine prompt=">" className="mb-2">
-            cat /home.dat
+            <Typewriter speedMs={20} as="span">cat /home.dat</Typewriter>
           </CyberCodeTerminalLine>
         </motion.div>
 
@@ -43,13 +43,15 @@ export default function Hero() {
           variants={item}
           className="mb-4 font-mono text-xs uppercase tracking-widest text-accent"
         >
-          {site.missionStatement}
+          <Typewriter speedMs={15} as="span">{site.missionStatement}</Typewriter>
         </motion.p>
 
         <motion.div variants={item}>
           <h1 className="text-display mb-6 font-serif text-foreground">
-            {homeHero.headingLine1} <br />
-            <span className="text-accent italic">{homeHero.headingAccent}</span>
+            <Typewriter speedMs={15} as="span">
+              {homeHero.headingLine1} <br />
+              <span className="text-accent italic">{homeHero.headingAccent}</span>
+            </Typewriter>
           </h1>
         </motion.div>
 
@@ -57,7 +59,7 @@ export default function Hero() {
           variants={item}
           className="text-narrative mb-8"
         >
-          {homeHero.paragraph}
+          <Typewriter speedMs={10} as="span">{homeHero.paragraph}</Typewriter>
         </motion.p>
 
         <motion.div

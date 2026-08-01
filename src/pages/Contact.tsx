@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
 import { contact } from "@/data/contact";
 import type { ContactInfoItem } from "@/data/types";
-import { CyberCodeFormField, CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeFormField, CyberCodeButton, Typewriter } from "@/components/cybercode/CyberCodeUIKit";
 
 const CONTACT_ICONS: Record<ContactInfoItem["icon"], LucideIcon> = {
   Mail,
@@ -129,23 +129,29 @@ export default function Contact() {
           {/* Header & Info */}
           <motion.div variants={item} className="lg:col-span-5">
             <header className="mb-12 text-center sm:text-left">
-              <h1 className="text-h1 font-serif mb-6">{contact.heading}</h1>
+              <h1 className="text-h1 font-serif mb-6">
+                <Typewriter durationMs={800} as="span">{contact.heading}</Typewriter>
+              </h1>
               <p className="text-narrative">
-                {contact.subhead}
+                <Typewriter durationMs={800} as="span">{contact.subhead}</Typewriter>
               </p>
             </header>
 
             <div className="space-y-8">
-              {contact.infoItems.map((item) => {
-                const Icon = CONTACT_ICONS[item.icon];
+              {contact.infoItems.map((infoItem) => {
+                const Icon = CONTACT_ICONS[infoItem.icon];
                 return (
-                <div key={item.label} className="flex items-center gap-4">
+                <div key={infoItem.label} className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-widest text-muted mb-1">{item.label}</p>
-                    <p className="text-lg font-medium">{item.value}</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-muted mb-1">
+                      <Typewriter durationMs={800} as="span">{infoItem.label}</Typewriter>
+                    </p>
+                    <p className="text-lg font-medium">
+                      <Typewriter durationMs={800} as="span">{infoItem.value}</Typewriter>
+                    </p>
                   </div>
                 </div>
                 );

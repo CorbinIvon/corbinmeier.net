@@ -703,3 +703,6 @@ export function CyberCodeFeatureLinkCard({
     </a>
   );
 }
+
+export { default as Typewriter } from "./Typewriter";
+
