@@ -45,11 +45,11 @@ export const about: AboutContent = {
     heading: "Strategic Partnership",
     headingClassName: "text-h3 font-serif mb-4 italic text-accent",
     paragraphs: [
-      "I specialize in providing high-performance, custom-engineered solutions for local businesses with",
-      "By leveraging modern cloud technology, I remove the financial barrier to premium digital infrastructure.",
+      "I design and build custom, high-performance websites for local businesses — quoted fairly to fit your project and budget, with",
+      "for simple static sites (only pay for your domain)."
     ],
-    boldFragment: "no monthly infrastructure fees.",
+    boldFragment: "no hosting fees",
     ctaLabel: "Start Your Journey",
-    ctaHref: "/contact",
+    ctaHref: "/contact?subject=Strategic%20Partnership",
   },
 };

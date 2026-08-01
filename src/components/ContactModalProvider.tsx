@@ -19,7 +19,7 @@ const TURNSTILE_SITE_KEY = import.meta.env.TURNSTILE_SITE_KEY || "1x000000000000
 
 interface ContactModalContextType {
   isOpen: boolean;
-  open: () => void;
+  open: (options?: { subject?: string }) => void;
   close: () => void;
 }
 
@@ -53,7 +53,10 @@ export default function ContactModalProvider({ children }: { children: ReactNode
   const [submitted, setSubmitted] = useState(false);
   const [turnstileInitialized, setTurnstileInitialized] = useState(false);
 
-  const open = () => {
+  const open = (options?: { subject?: string }) => {
+    if (options?.subject !== undefined) {
+      setForm((f) => ({ ...f, subject: options.subject || "" }));
+    }
     setIsOpen(true);
     setTurnstileInitialized(true);
     document.body.style.overflow = "hidden";
@@ -71,10 +74,18 @@ export default function ContactModalProvider({ children }: { children: ReactNode
       const anchor = target.closest("a");
       if (anchor) {
         const href = anchor.getAttribute("href");
-        if (href === "/contact" || href?.endsWith("/contact")) {
-          e.preventDefault();
-          e.stopPropagation();
-          open();
+        if (href) {
+          try {
+            const url = new URL(href, window.location.origin);
+            if (url.pathname === "/contact") {
+              e.preventDefault();
+              e.stopPropagation();
+              const subject = url.searchParams.get("subject") || undefined;
+              open({ subject });
+            }
+          } catch (err) {
+            // Ignore malformed URLs
+          }
         }
       }
     };
@@ -262,9 +273,26 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                         <h2 className="text-2xl sm:text-3xl font-serif mb-4">
                           {contact.heading}
                         </h2>
-                        <p className="text-sm text-muted leading-relaxed">
-                          {contact.subhead}
-                        </p>
+                        {form.subject.toLowerCase() === "strategic partnership" ? (
+                          <div className="space-y-4 text-sm text-muted leading-relaxed mb-6">
+                            <p>
+                              I design and build custom, high-performance websites for local businesses — quoted fairly to fit your project and budget, not a one-size-fits-all price tag.
+                            </p>
+                            <div className="border border-border bg-background/50 rounded-lg p-4 font-mono text-[11px] leading-relaxed">
+                              <p className="font-bold text-[var(--accent)] mb-2">{">"} How pricing actually works</p>
+                              <ul className="space-y-2 list-disc pl-4">
+                                <li>Every quote is custom — final cost depends on scope, timeline, and features, not a fixed rate.</li>
+                                <li>A simple static site with a contact form costs nothing to host on my end (Cloudflare Pages); your only ongoing cost is the domain.</li>
+                                <li>Add a database — for bookings, logins, or online orders — and that's when a monthly fee applies, scaled to what you actually use.</li>
+                                <li>As a reference point, small no-database sites often start around $750, but I'd rather talk through your project than quote a number in the dark.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        ) : (
+                          <p className="text-sm text-muted leading-relaxed">
+                            {contact.subhead}
+                          </p>
+                        )}
                       </header>
 
                       <div className="space-y-6">

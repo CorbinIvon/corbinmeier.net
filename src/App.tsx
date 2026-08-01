@@ -18,16 +18,18 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import ContactModalProvider, { useContactModal } from "@/components/ContactModalProvider";
 
 function ContactRouteRedirect() {
   const navigate = useNavigate();
   const { open } = useContactModal();
+  const [searchParams] = useSearchParams();
   useEffect(() => {
-    open();
+    const subject = searchParams.get("subject") || undefined;
+    open({ subject });
     navigate("/", { replace: true });
-  }, [navigate, open]);
+  }, [navigate, open, searchParams]);
   return null;
 }
 

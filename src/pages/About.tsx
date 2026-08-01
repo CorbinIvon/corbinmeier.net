@@ -9,6 +9,7 @@ import {
   CyberCodeTerminalLine,
   CyberCodeBlinkCursor,
   Typewriter,
+  CyberCodeButton,
 } from "@/components/cybercode/CyberCodeUIKit";
 
 export default function About() {
@@ -119,13 +120,13 @@ export default function About() {
                 <Typewriter as="span">initiate_contact --propose</Typewriter>
               </CyberCodeTerminalLine>
               <div className="flex justify-start">
-                <Link
+                <CyberCodeButton
                   to={about.closingSection.ctaHref}
-                  className="group inline-flex items-center gap-2 bg-primary text-background px-8 py-4 rounded-full font-bold transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 px-8 py-4"
                 >
                   {about.closingSection.ctaLabel}
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                  <ArrowRight className="w-4 h-4" />
+                </CyberCodeButton>
               </div>
             </CyberCodeTerminalWindow>
           </motion.div>

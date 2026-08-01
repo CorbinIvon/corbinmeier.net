@@ -49,7 +49,7 @@ export default function Hero() {
         <motion.div variants={item}>
           <h1 className="text-display mb-6 font-serif text-foreground">
             <Typewriter speedMs={15} as="span">
-              {homeHero.headingLine1} <br />
+              <span className="whitespace-nowrap">{homeHero.headingLine1}</span> <br />
               <span className="text-accent italic">{homeHero.headingAccent}</span>
             </Typewriter>
           </h1>

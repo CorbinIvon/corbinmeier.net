@@ -9,7 +9,7 @@ export const servicesSection: ServicesSectionContent = {
     {
       id: "websites",
       title: "The Foundation",
-      desc: "Custom high-performance websites with no monthly infrastructure fees. Outperforms Wix/Squarespace in speed, SEO, and flexibility.",
+      desc: "Custom high-performance websites. Simple static sites cost nothing to host (only domain cost). Database additions scale to what you actually use.",
       icon: "Globe",
     },
     {

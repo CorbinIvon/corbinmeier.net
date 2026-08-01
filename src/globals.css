@@ -111,7 +111,7 @@ html.theme-contact, html.theme-contact body {
      headings stay consistent across every page. .text-display is reserved
      for the homepage hero only. */
   .text-display {
-    @apply text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight;
+    @apply text-3xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight;
   }
 
   .text-h1 {

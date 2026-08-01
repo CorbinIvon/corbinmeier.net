@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import SeoHead from "@/components/SeoHead";
 import PageShell from "@/components/PageShell";
 import { motion, Variants } from "framer-motion";
@@ -20,12 +21,14 @@ const CONTACT_ICONS: Record<ContactInfoItem["icon"], LucideIcon> = {
 const TURNSTILE_SITE_KEY = import.meta.env.TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
 
 export default function Contact() {
+  const [searchParams] = useSearchParams();
+  const initialSubject = searchParams.get("subject") || "";
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
     phone: "",
     email: "",
-    subject: "",
+    subject: initialSubject,
     message: "",
   });
 
@@ -171,8 +174,25 @@ export default function Contact() {
               <h1 className="text-h1 font-serif mb-6">
                 <Typewriter durationMs={800} as="span">{contact.heading}</Typewriter>
               </h1>
-              <p className="text-narrative">
-                <Typewriter durationMs={800} as="span">{contact.subhead}</Typewriter>
+              <p className="text-narrative mb-6">
+                {form.subject.toLowerCase() === "strategic partnership" ? (
+                  <div className="space-y-6 text-left">
+                    <p>
+                      I design and build custom, high-performance websites for local businesses — quoted fairly to fit your project and budget, not a one-size-fits-all price tag.
+                    </p>
+                    <div className="border border-border bg-background/50 rounded-xl p-5 font-mono text-[11px] leading-relaxed">
+                      <p className="font-bold text-[var(--accent)] mb-3">{">"} How pricing actually works</p>
+                      <ul className="space-y-2 list-disc pl-4 text-muted">
+                        <li>Every quote is custom — final cost depends on scope, timeline, and features, not a fixed rate.</li>
+                        <li>A simple static site with a contact form costs nothing to host on my end (Cloudflare Pages); your only ongoing cost is the domain.</li>
+                        <li>Add a database — for bookings, logins, or online orders — and that's when a monthly fee applies, scaled to what you actually use.</li>
+                        <li>As a reference point, small no-database sites often start around $750, but I'd rather talk through your project than quote a number in the dark.</li>
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  <Typewriter durationMs={800} as="span">{contact.subhead}</Typewriter>
+                )}
               </p>
             </header>
 
