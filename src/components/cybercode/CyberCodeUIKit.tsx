@@ -147,6 +147,8 @@ export function CyberCodeTerminalWindow({
   accent = "primary",
   showDots = true,
   collapsible = false,
+  onDotClick,
+  bodyClassName,
   className,
   children,
 }: {
@@ -155,10 +157,13 @@ export function CyberCodeTerminalWindow({
   accent?: CyberAccent;
   showDots?: boolean;
   collapsible?: boolean;
+  onDotClick?: () => void;
+  bodyClassName?: string;
   className?: string;
   children: ReactNode;
 }) {
   const [collapsed, setCollapsed] = useState(false);
+  const handleDotClick = onDotClick || (collapsible ? () => setCollapsed((c) => !c) : undefined);
   return (
     <div
       className={cx(
@@ -171,7 +176,7 @@ export function CyberCodeTerminalWindow({
         title={title}
         icon={icon}
         showDots={showDots}
-        onDotClick={collapsible ? () => setCollapsed((c) => !c) : undefined}
+        onDotClick={handleDotClick}
       />
       <div
         className={cx(
@@ -180,7 +185,7 @@ export function CyberCodeTerminalWindow({
         )}
       >
         <div className="overflow-hidden">
-          <div className="p-6">{children}</div>
+          <div className={bodyClassName || "p-6"}>{children}</div>
         </div>
       </div>
     </div>
