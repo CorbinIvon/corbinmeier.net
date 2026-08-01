@@ -11,10 +11,12 @@ import {
   AtSign,
   Zap,
   Brain,
+  Terminal,
   type LucideIcon,
 } from "lucide-react";
 import { servicesSection } from "@/data/services";
 import type { ServiceItem } from "@/data/types";
+import { CyberCodeTerminalWindow } from "@/components/cybercode/CyberCodeUIKit";
 
 const ICONS: Record<ServiceItem["icon"], LucideIcon> = {
   Globe,
@@ -34,7 +36,7 @@ export default function Services() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.05,
       },
     },
   };
@@ -46,66 +48,72 @@ export default function Services() {
   };
 
   return (
-    <section className="section-container bg-muted/30">
-      <div className="w-full mb-10 sm:mb-16 text-center sm:text-left">
-        <h2 className="text-h2 font-serif mb-6">{servicesSection.headingPre} <span className="text-accent italic">{servicesSection.headingAccent}</span></h2>
-        <p className="text-narrative">
-          {servicesSection.intro}
-        </p>
-      </div>
-
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+    <section className="section-container">
+      <CyberCodeTerminalWindow
+        title="strategy.sh"
+        icon={<Terminal className="w-3 h-3" />}
+        showDots={false}
       >
-        {servicesSection.items.map((s) => {
-          const Icon = ICONS[s.icon];
-          const Content = (
-            <>
-              <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-h3 font-serif mb-3">{s.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
-              {s.link && (
-                <div className="mt-6 flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest">
-                  Learn more
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </div>
-              )}
-            </>
-          );
+        <div className="w-full mb-10 sm:mb-16 text-center sm:text-left">
+          <h2 className="text-h2 font-serif mb-6">{servicesSection.headingPre} <span className="text-accent italic">{servicesSection.headingAccent}</span></h2>
+          <p className="text-narrative">
+            {servicesSection.intro}
+          </p>
+        </div>
 
-          if (s.link) {
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {servicesSection.items.map((s) => {
+            const Icon = ICONS[s.icon];
+            const Content = (
+              <>
+                <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-h3 font-serif mb-3">{s.title}</h3>
+                <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
+                {s.link && (
+                  <div className="mt-6 flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest">
+                    Learn more
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                )}
+              </>
+            );
+
+            if (s.link) {
+              return (
+                <motion.div
+                  key={s.id}
+                  variants={item}
+                >
+                  <Link
+                    to={s.link}
+                    className="relative glass-panel p-8 group hover:border-accent/30 transition-all duration-300 block h-full"
+                  >
+                    {Content}
+                  </Link>
+                </motion.div>
+              );
+            }
+
             return (
               <motion.div
                 key={s.id}
                 variants={item}
+                className="relative glass-panel p-8 group hover:border-accent/30 transition-all duration-300"
               >
-                <Link
-                  to={s.link}
-                  className="relative glass-panel p-8 group hover:border-accent/30 transition-all duration-300 block h-full"
-                >
-                  {Content}
-                </Link>
+                {Content}
               </motion.div>
             );
-          }
-
-          return (
-            <motion.div
-              key={s.id}
-              variants={item}
-              className="relative glass-panel p-8 group hover:border-accent/30 transition-all duration-300"
-            >
-              {Content}
-            </motion.div>
-          );
-        })}
-      </motion.div>
+          })}
+        </motion.div>
+      </CyberCodeTerminalWindow>
     </section>
   );
 }

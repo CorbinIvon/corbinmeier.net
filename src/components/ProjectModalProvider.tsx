@@ -206,6 +206,14 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                         <Calendar className="w-3 h-3" />
                         {project.year}
                       </div>
+                      {project.wip && (
+                        <>
+                          <div className="h-4 w-px bg-border" />
+                          <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[8px] font-bold uppercase tracking-wider border border-amber-500/20">
+                            UnderConstruction
+                          </span>
+                        </>
+                      )}
                       <div className="h-4 w-px bg-border" />
                       <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-widest text-muted">
                         <Layers className="w-3 h-3" />

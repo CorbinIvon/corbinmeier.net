@@ -3,6 +3,7 @@
     "title": "Janus Advisor Inc. - Funeral Home Network",
     "slug": "janus-advisor-network",
     "year": 2026,
+    "extension": "tsx",
     "skills": ["React", "Vite", "Cloudflare Pages", "Infrastructure"],
     "public-url": "https://cremation-simplicity.com/",
     "description": "Enterprise-scale digital modernization for a leading equity firm managing multiple funeral home properties.",
@@ -23,6 +24,7 @@
     "title": "Amazing Grace Media",
     "slug": "amazing-grace-media",
     "year": 2026,
+    "extension": "tsx",
     "skills": ["React", "Vite", "Cloudflare Pages", "Node.js"],
     "public-url": "https://amzinggracemedia-com.pages.dev/",
     "original-url": "https://amzinggracemedia.com",
@@ -44,6 +46,7 @@
     "title": "Red Bluff Church of Christ",
     "slug": "red-bluff-church-of-christ",
     "year": 2026,
+    "extension": "tsx",
     "skills": [
       "React",
       "Vite",
@@ -73,6 +76,7 @@
     "title": "CorbinMeier.net",
     "slug": "corbinmeier-net",
     "year": 2026,
+    "extension": "tsx",
     "skills": ["React", "Vite", "Cloudflare Pages", "TypeScript"],
     "public-url": "https://corbinmeier.net/",
     "description": "The portfolio you are currently viewing, built with a focus on speed and security.",
@@ -93,6 +97,7 @@
     "title": "Chuck the Painter",
     "slug": "chuck-the-painter",
     "year": 2026,
+    "extension": "tsx",
     "skills": ["React", "Vite", "SEO", "Cloudflare Pages", "Vanilla CSS"],
     "public-url": "https://chuck-the-painter.com",
     "description": "Professional painter's business website featuring a clean, static design and a functional contact form.",
@@ -113,6 +118,7 @@
     "title": "Atlas Energy Consulting",
     "slug": "atlas-energy-consulting",
     "year": 2026,
+    "extension": "tsx",
     "skills": ["React", "Vite", "Cloudflare"],
     "public-url": "https://atlasenergyconsulting-com.pages.dev/",
     "original-url": "https://atlasenergyconsulting.com",
@@ -134,6 +140,7 @@
     "title": "Johnsons Turboclean",
     "slug": "johnsons-turboclean",
     "year": 2026,
+    "extension": "tsx",
     "skills": ["React", "Vite", "Cloudflare", "Branding"],
     "public-url": "https://johnsonsturboclean-com.pages.dev/",
     "original-url": "https://johnsonsturboclean.com",
@@ -155,6 +162,7 @@
     "title": "Envee Hair Studio",
     "slug": "envee-hair-studio",
     "year": 2026,
+    "extension": "tsx",
     "skills": ["React", "Vite", "Cloudflare", "UI/UX"],
     "public-url": "https://enveehairstudio-com.pages.dev/",
     "original-url": "https://enveehairstudio.com",
@@ -176,24 +184,29 @@
     "title": "Vehicles Management",
     "slug": "vehicles-management",
     "year": 2023,
+    "extension": "php",
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Tracks vehicle essential information, documents, and live/recorded locations. On-premise deployment for internal fleet management.",
     "body": "<p>This on-premise fleet management system centralizes vehicle information, including registration, service history, documentation, and location logs. Designed for businesses that require internal hosting and strict data controls.</p><ul><li>Document uploads and versioning</li><li>Location logging (live & recorded)</li><li>Role-based access and audit logs</li></ul>",
-    "images": ["/projects/vehicles-management.png"]
+    "images": ["/projects/vehicles-management.png"],
+    "archived": true
   },
   {
     "title": "Employees HR Portal",
     "slug": "employees-hr-portal",
     "year": 2023,
+    "extension": "php",
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Human Resources system that digitizes and stores employee records, documents, and history. Built for secure on-premise hosting.",
     "body": "<p>An HR portal that digitizes personnel records, stores signed documents, and tracks employment history. Emphasis on privacy and on-premise deployment for organizations with internal-only data policies.</p><p>Features include secure document storage, custom reporting, and role-based workflows for approvals.</p>",
-    "images": ["/projects/employees-hr-portal.png"]
+    "images": ["/projects/employees-hr-portal.png"],
+    "archived": true
   },
   {
     "title": "Buildings & Sites Manager",
     "slug": "buildings-sites-manager",
     "year": 2023,
+    "extension": "php",
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Real-estate and site management system tracking building files, time-sensitive reminders, and location-specific metadata.",
     "body": "<p>A property and site management tool for maintaining building records, lease documents, and maintenance schedules. Includes reminder notifications for inspections and lease renewals.</p>",
@@ -202,63 +215,75 @@
       "/projects/buildings-sites-manager-audit.png",
       "/projects/buildings-sites-manager-registration.png",
       "/projects/buildings-sites-manager-search.png"
-    ]
+    ],
+    "archived": true
   },
   {
     "title": "Night&Day (Mobile App)",
     "slug": "night-and-day",
     "year": 2025,
+    "extension": "dart",
     "skills": ["Flutter", "iOS", "Android"],
     "description": "A mobile app currently in development for both Android and iOS. Work in progress.",
     "body": "<p>Night&Day is a cross-platform Flutter app designed for seamless experiences on iOS and Android. Current work includes authentication, local state syncing, and responsive UI tuned for mobile interactions.</p>",
-    "images": []
+    "images": [],
+    "wip": true
   },
   {
     "title": "Inventory & Asset System",
     "slug": "inventory-asset-system",
     "year": 2026,
+    "extension": "ts",
     "skills": ["GraphQL", "Next.js", "MySQL", "WebSockets"],
     "public-url": "https://github.com/CorbinIvon/2024fa-csci-36-inventory-system",
     "description": "College inventory system using a GraphQL API and MySQL with WebSocket-based live updates for real-time inventory and asset tracking.",
     "body": "<p>Built as a college project, this inventory and asset management app uses a GraphQL backend and WebSocket-powered live updates for changes to inventory counts, checkouts, and reservations.</p><p>It demonstrates real-time collaboration patterns and efficient querying with GraphQL.</p>",
-    "images": []
+    "images": [],
+    "archived": true
   },
   {
     "title": "Gestational Diabetes Tracking Assistant",
     "slug": "gestational-diabetes-assistant",
     "year": 2024,
+    "extension": "dart",
     "skills": ["Flutter", "Dart", "CSV Export", "Data Filtering"],
     "public-url": "https://github.com/CorbinIvon/gestational_diabetes_tracking_assistant",
     "description": "A Flutter app for quick number tracking, CSV exporting, and filtered data views to assist gestational diabetes monitoring (college project).",
     "body": "<p>This tool helps users log blood glucose readings quickly, export sessions as CSV for sharing with clinicians, and filter/view trends over time. Built with usability and quick data entry in mind.</p>",
-    "images": []
+    "images": [],
+    "archived": true
   },
   {
     "title": "Media Control API",
     "slug": "media-control-api",
     "year": 2024,
+    "extension": "py",
     "skills": ["Python", "API"],
     "public-url": "https://github.com/CorbinIvon/python-media-control-api",
     "description": "Python-based API for programmatic media control and device management, built as a college project.",
     "body": "<p>A lightweight Python API that exposes programmatic controls for media playback and device discovery on local networks. Useful as a centralized control layer for automation scripts and integrations.</p>",
-    "images": []
+    "images": [],
+    "archived": true
   },
   {
     "title": "Windows Toast LAN Messenger",
     "slug": "windows-toast-lan-messenger",
     "year": 2023,
+    "extension": "cs",
     "skills": ["Windows Notifications", "LAN Messaging"],
     "public-url": "https://github.com/CorbinIvon/toaster",
     "description": "Windows Toast and notification system enabling LAN messenger between devices for quick local notifications.",
     "body": "<p>A small utility that sends Windows toast notifications across a LAN. Designed for quick local messaging without a centralized server—great for internal team alerts or small office broadcasts.</p>",
     "images": [
       "https://github.com/CorbinIvon/toaster/assets/20233488/ca8a8c67-9aa0-4dbe-91b6-cb2f077f842a"
-    ]
+    ],
+    "archived": true
   },
   {
     "title": "Public College Courses Projects",
     "slug": "butte-csci-projects",
     "year": 2026,
+    "extension": "ts",
     "skills": [
       "Next.js",
       "Vercel",
@@ -279,6 +304,7 @@
     "body": "<p>Aggregated course work showcasing web apps, tooling, and experiments. Includes examples using modern stacks like Next.js, Supabase, Prisma, and Turborepo monorepos.</p>",
     "images": [
       "https://github.com/user-attachments/assets/61ab2d26-86b0-41c5-9383-c4fa3dab6100"
-    ]
+    ],
+    "archived": true
   }
 ]

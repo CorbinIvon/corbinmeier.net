@@ -1,10 +1,27 @@
 import { Link } from "react-router-dom";
 import SeoHead from "@/components/SeoHead";
 import PageShell from "@/components/PageShell";
+import { motion, Variants } from "framer-motion";
 
 const LAST_UPDATED = "July 21, 2026";
 
 export default function PrivacyPolicy() {
+  const container: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
     <PageShell>
       <SeoHead
@@ -12,8 +29,13 @@ export default function PrivacyPolicy() {
         description="Read Corbin Meier's privacy policy covering contact form data, analytics, retention, and your rights."
         path="/privacy-policy"
       />
-      <main className="page-container">
-        <header className="w-full mb-16 text-center sm:text-left">
+      <motion.main
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="page-container"
+      >
+        <motion.header variants={item} className="w-full mb-16 text-center sm:text-left">
           <h1 className="text-h1 font-serif mb-6">Privacy Policy</h1>
           <p className="text-narrative">Last updated: {LAST_UPDATED}</p>
           <p className="text-sm text-muted mt-2">
@@ -22,9 +44,9 @@ export default function PrivacyPolicy() {
               Terms of Service
             </Link>.
           </p>
-        </header>
+        </motion.header>
 
-        <div className="w-full space-y-10 text-muted leading-relaxed">
+        <motion.div variants={item} className="w-full space-y-10 text-muted leading-relaxed">
           <section>
             <h2 className="text-xl font-bold text-foreground mb-3">Information You Provide</h2>
             <p>
@@ -113,8 +135,8 @@ export default function PrivacyPolicy() {
             advice. Consult an attorney to confirm it meets your specific legal
             obligations.
           </p>
-        </div>
-      </main>
+        </motion.div>
+      </motion.main>
     </PageShell>
   );
 }

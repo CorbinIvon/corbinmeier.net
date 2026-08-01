@@ -7,6 +7,7 @@ export const site: SiteContent = {
     { name: "About", href: "/about" },
   ],
   contactCtaLabel: "Contact",
+  missionStatement: "Outperforming standard CMS platforms — solutions for every business.",
   footerTagline:
     "Providing high-performance, custom-engineered digital infrastructure for local businesses with a zero up-front hosting model.",
   footerSocial: {

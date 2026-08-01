@@ -15,6 +15,7 @@ export default function ProjectFilters({
   const [query, setQuery] = useState("");
   const [year, setYear] = useState<string>("all");
   const [skill, setSkill] = useState<string>("all");
+  const [status, setStatus] = useState<string>("active");
   const { open } = useProjectModal();
 
   const years = useMemo(() => {
@@ -31,6 +32,8 @@ export default function ProjectFilters({
 
   const filtered = useMemo(() => {
     return projects.filter((p) => {
+      if (status === "active" && p.archived) return false;
+      if (status === "archived" && !p.archived) return false;
       if (year !== "all" && String(p.year) !== year) return false;
       if (skill !== "all" && !(p.skills || []).includes(skill)) return false;
       if (query.trim()) {
@@ -43,7 +46,7 @@ export default function ProjectFilters({
       }
       return true;
     });
-  }, [projects, query, year, skill]);
+  }, [projects, query, year, skill, status]);
 
   return (
     <div className="w-full space-y-12">
@@ -96,12 +99,26 @@ export default function ProjectFilters({
             <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted pointer-events-none" />
           </div>
 
-          {(year !== "all" || skill !== "all" || query !== "") && (
+          <div className="relative group">
+            <select
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+              className="appearance-none pl-4 pr-10 py-3 bg-muted/5 group-hover:bg-muted/10 transition-colors rounded-xl text-xs font-bold uppercase tracking-widest cursor-pointer focus:outline-none"
+            >
+              <option value="active">Active</option>
+              <option value="archived">Archived</option>
+              <option value="all">All Status</option>
+            </select>
+            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted pointer-events-none" />
+          </div>
+
+          {(year !== "all" || skill !== "all" || query !== "" || status !== "active") && (
              <button
                onClick={() => {
                  setQuery("");
                  setYear("all");
                  setSkill("all");
+                 setStatus("active");
                }}
                className="px-4 py-3 bg-accent text-white rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-accent/90 transition-colors"
              >
@@ -147,7 +164,7 @@ export default function ProjectFilters({
           <Filter className="w-12 h-12 text-muted/20 mx-auto mb-4" />
           <p className="text-muted font-serif text-xl">No projects found matching your criteria.</p>
           <button 
-            onClick={() => { setQuery(""); setYear("all"); setSkill("all"); }}
+            onClick={() => { setQuery(""); setYear("all"); setSkill("all"); setStatus("active"); }}
             className="text-accent underline underline-offset-4 mt-4 text-sm font-medium"
           >
             Clear all filters

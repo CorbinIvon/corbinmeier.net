@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SeoHead from "@/components/SeoHead";
 import PageShell from "@/components/PageShell";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Send, Mail, MapPin, Clock, Mailbox, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
@@ -96,6 +96,22 @@ export default function Contact() {
     }
   }
 
+  const container: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
     <PageShell>
       <SeoHead
@@ -103,10 +119,15 @@ export default function Contact() {
         description="Ready to bring your project to life? Get in touch with Corbin Meier to discuss your next software engineering project."
         path="/contact"
       />
-      <main className="page-container">
+      <motion.main
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="page-container"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Header & Info */}
-          <div className="lg:col-span-5">
+          <motion.div variants={item} className="lg:col-span-5">
             <header className="mb-12 text-center sm:text-left">
               <h1 className="text-h1 font-serif mb-6">{contact.heading}</h1>
               <p className="text-narrative">
@@ -130,15 +151,11 @@ export default function Contact() {
                 );
               })}
             </div>
-          </div>
+          </motion.div>
 
           {/* Form */}
-          <div className="lg:col-span-7">
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="relative glass-panel p-8 sm:p-12 border-accent/10"
-            >
+          <motion.div variants={item} className="lg:col-span-7">
+            <div className="relative glass-panel p-8 sm:p-12 border-accent/10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -234,10 +251,10 @@ export default function Contact() {
                   </motion.div>
                 )}
               </form>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
-      </main>
+      </motion.main>
     </PageShell>
   );
 }

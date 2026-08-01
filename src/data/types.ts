@@ -111,6 +111,7 @@ export interface SiteContent {
   brandName: string;
   navItems: NavItem[];
   contactCtaLabel: string;
+  missionStatement: string;
   footerTagline: string;
   footerSocial: SocialLinks;
   footerNavLabel: string;

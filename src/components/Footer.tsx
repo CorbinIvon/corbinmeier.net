@@ -10,7 +10,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border mt-20">
+    <footer className="border-t border-border mt-10">
       <div className="section-container !py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
@@ -49,7 +49,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border flex items-center justify-center">
+        <div className="mt-16 pt-8 border-t border-border flex flex-col items-center justify-center gap-2 text-center">
+          <p className="text-xs text-accent uppercase tracking-widest font-mono">
+            {site.missionStatement}
+          </p>
           <p className="text-xs text-muted-foreground uppercase tracking-widest font-mono">
             {site.builtWithLine}
           </p>

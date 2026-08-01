@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
  */
 export default function PageShell({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn("relative min-h-screen pt-24 lg:pt-12 pb-20", className)}>
+    <div className={cn("relative min-h-screen pt-16 lg:pt-6 pb-10", className)}>
       <BackgroundMotion />
       {children}
     </div>

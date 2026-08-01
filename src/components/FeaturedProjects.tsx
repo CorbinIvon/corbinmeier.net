@@ -8,7 +8,7 @@ import ProjectCard from "./ProjectCard";
 import { useProjectModal } from "./ProjectModalProvider";
 
 export default function FeaturedProjects() {
-  const featured = projects.slice(0, 3);
+  const featured = projects.filter((p) => !p.archived).slice(0, 3);
   const { open } = useProjectModal();
 
   const container = {
@@ -28,22 +28,22 @@ export default function FeaturedProjects() {
   };
 
   return (
-    <section className="section-container border-y border-border/50">
-      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end mb-10 sm:mb-20 gap-8">
-        <div className="w-full text-center lg:text-left">
-          <h2 className="text-h2 font-serif mb-6">Selected Works</h2>
-          <p className="text-narrative">
-            A curated selection of digital infrastructure and performance-critical systems
-            built with precision and purpose.
-          </p>
+    <section className="section-container border-b border-border/50">
+      <div className="mb-10 sm:mb-20">
+        <div className="flex justify-between items-baseline mb-6 gap-8">
+          <h2 className="text-h2 font-serif">Selected Works</h2>
+          <Link
+            to="/projects"
+            className="group flex items-center gap-2 text-accent font-medium hover:underline decoration-accent underline-offset-4 whitespace-nowrap shrink-0"
+          >
+            View all work
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
-        <Link
-          to="/projects"
-          className="group flex items-center gap-2 text-accent font-medium hover:underline decoration-accent underline-offset-4"
-        >
-          View all work
-          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-        </Link>
+        <p className="text-narrative">
+          A curated selection of digital infrastructure and performance-critical systems
+          built with precision and purpose.
+        </p>
       </div>
 
       <motion.div 

@@ -2,9 +2,16 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ExternalLink, Code2 } from "lucide-react";
-import { IconBrandGithub } from "@tabler/icons-react";
+import { 
+  IconBrandGithub, 
+  IconBrandPhp, 
+  IconBrandPython, 
+  IconBrandFlutter, 
+  IconBrandTypescript, 
+  IconBrandReact 
+} from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeTerminalWindow } from "@/components/cybercode/CyberCodeUIKit";
 
 export type Project = {
   title: string;
@@ -16,6 +23,9 @@ export type Project = {
   description?: string;
   body?: string;
   images?: string[];
+  archived?: boolean;
+  wip?: boolean;
+  extension?: string;
   beforeAfter?: {
     before: {
       title: string;
@@ -29,6 +39,23 @@ export type Project = {
     };
   };
 };
+
+function getProjectIcon(extension?: string) {
+  switch (extension) {
+    case "php":
+      return <IconBrandPhp className="w-4 h-4 text-accent" />;
+    case "py":
+      return <IconBrandPython className="w-4 h-4 text-accent" />;
+    case "dart":
+      return <IconBrandFlutter className="w-4 h-4 text-accent" />;
+    case "ts":
+      return <IconBrandTypescript className="w-4 h-4 text-accent" />;
+    case "tsx":
+      return <IconBrandReact className="w-4 h-4 text-accent" />;
+    default:
+      return <Code2 className="w-4 h-4 text-accent" />;
+  }
+}
 
 export default function ProjectCard({
   project,
@@ -60,71 +87,84 @@ export default function ProjectCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative h-full flex flex-col group overflow-hidden bg-card border border-border rounded-2xl transition-all duration-500 hover:border-accent/50 "
+      className="relative h-full flex flex-col group"
     >
-      <CyberCodeSectionLabel />
-      {/* Glow Effect */}
-      <motion.div
-        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{
-          background: useTransform(
-            [mouseX, mouseY],
-            ([x, y]) => `radial-gradient(600px circle at ${x}px ${y}px, var(--accent), transparent 40%)`
-          ),
-          opacity: hovered ? 0.15 : 0,
-        }}
-      />
+      <CyberCodeTerminalWindow
+        title={`${project.slug}.${project.extension || "sh"}`}
+        icon={getProjectIcon(project.extension)}
+        showDots={false}
+        className="h-full border-border bg-card transition-all duration-500 group-hover:border-accent/50 relative"
+      >
+        {/* Glow Effect */}
+        <motion.div
+          className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          style={{
+            background: useTransform(
+              [mouseX, mouseY],
+              ([x, y]) => `radial-gradient(600px circle at ${x}px ${y}px, var(--accent), transparent 40%)`
+            ),
+            opacity: hovered ? 0.15 : 0,
+          }}
+        />
 
-      <div className="relative aspect-video overflow-hidden bg-muted/20 flex items-center justify-center">
-        {project.images?.[0] ? (
-          <img
-            src={project.images[0]}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="lazy"
-          />
-        ) : (
-          <div className="flex flex-col items-center gap-2 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
-            <Code2 className="w-12 h-12" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Source View</span>
-          </div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-           <div className="flex gap-2">
-              {project["public-url"]?.includes("github.com") && (
-                <div className="p-2 rounded-full bg-background/90 text-foreground shadow-none">
-                  <IconBrandGithub className="w-4 h-4" />
+        <div className="relative -mx-6 -mt-6 aspect-video overflow-hidden bg-muted/20 flex items-center justify-center border-b border-border/50">
+          {project.images?.[0] ? (
+            <img
+              src={project.images[0]}
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+          ) : (
+            <div className="flex flex-col items-center gap-2 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
+              <Code2 className="w-12 h-12" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Source View</span>
+            </div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+             <div className="flex gap-2">
+                {project["public-url"]?.includes("github.com") && (
+                  <div className="p-2 rounded-full bg-background/90 text-foreground shadow-none">
+                    <IconBrandGithub className="w-4 h-4" />
+                  </div>
+                )}
+                <div className="p-2 rounded-full bg-accent text-white">
+                  <ExternalLink className="w-4 h-4" />
                 </div>
-              )}
-              <div className="p-2 rounded-full bg-accent text-white">
-                <ExternalLink className="w-4 h-4" />
-              </div>
-           </div>
-        </div>
-      </div>
-
-      <div className="flex-1 p-8 flex flex-col">
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-[10px] font-mono text-accent font-bold uppercase tracking-[0.2em]">{project.year}</span>
-          <div className="flex gap-2">
-            {project.skills?.slice(0, 3).map(skill => (
-              <span key={skill} className="px-2.5 py-1 rounded-md bg-muted/5 text-[9px] font-bold uppercase tracking-wider text-muted-foreground border border-border/50">
-                {skill}
-              </span>
-            ))}
+             </div>
           </div>
         </div>
-        <h3 className="text-h3 font-serif group-hover:text-accent transition-colors mb-3">
-          {project.title}
-        </h3>
-        <p className="text-muted leading-relaxed line-clamp-2">
-          {project.description}
-        </p>
-      </div>
+
+        <div className="flex-1 pt-6 flex flex-col">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-mono text-accent font-bold uppercase tracking-[0.2em]">{project.year}</span>
+              {project.wip && (
+                <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[8px] font-bold uppercase tracking-wider border border-amber-500/20">
+                  UnderConstruction
+                </span>
+              )}
+            </div>
+            <div className="flex gap-2">
+              {project.skills?.slice(0, 3).map(skill => (
+                <span key={skill} className="px-2.5 py-1 rounded-md bg-muted/5 text-[9px] font-bold uppercase tracking-wider text-muted-foreground border border-border/50">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+          <h3 className="text-h3 font-serif group-hover:text-accent transition-colors mb-3 text-left">
+            {project.title}
+          </h3>
+          <p className="text-muted leading-relaxed line-clamp-2 text-left">
+            {project.description}
+          </p>
+        </div>
+      </CyberCodeTerminalWindow>
     </div>
   );
 
-  const baseClass = cn("block text-left transition-all duration-300", className);
+  const baseClass = cn("block text-left transition-all duration-300 w-full", className);
 
   if (href) {
     return (

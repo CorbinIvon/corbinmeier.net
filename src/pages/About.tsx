@@ -3,6 +3,7 @@ import PageShell from "@/components/PageShell";
 import { ArrowRight, Terminal } from "lucide-react";
 import { Link } from "react-router-dom";
 import { about } from "@/data/about";
+import { motion, Variants } from "framer-motion";
 import {
   CyberCodeTerminalWindow,
   CyberCodeTerminalLine,
@@ -10,6 +11,22 @@ import {
 } from "@/components/cybercode/CyberCodeUIKit";
 
 export default function About() {
+  const container: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
     <PageShell>
       <SeoHead
@@ -17,8 +34,13 @@ export default function About() {
         description="A journey from theoretical computer science to hands-on software architecture, driven by a relentless pursuit of digital craftsmanship."
         path="/about"
       />
-      <main className="page-container">
-        <header className="w-full mb-12 text-left">
+      <motion.main
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="page-container"
+      >
+        <motion.header variants={item} className="w-full mb-12 text-left">
           <CyberCodeTerminalLine prompt=">" className="mb-2">
             cat /profile/about.dat
           </CyberCodeTerminalLine>
@@ -26,10 +48,10 @@ export default function About() {
           <p className="text-narrative">
             {about.heroSubhead}
           </p>
-        </header>
+        </motion.header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-4 lg:sticky lg:top-16">
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
+          <motion.div variants={item} className="w-full lg:w-[384px] lg:sticky lg:top-16 flex-none mx-auto lg:mx-0">
             <CyberCodeTerminalWindow title="corbin.jpg" icon={<Terminal className="w-3 h-3" />} collapsible>
               <div className="relative aspect-square -m-6 overflow-hidden">
                 <img
@@ -55,9 +77,9 @@ export default function About() {
                 <CyberCodeBlinkCursor className="ml-1" />
               </CyberCodeTerminalLine>
             </CyberCodeTerminalWindow>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-8 text-foreground">
+          <motion.div variants={item} className="flex-1 w-full text-foreground">
             {about.sections.map((section, i) => (
               <CyberCodeTerminalWindow
                 key={section.heading}
@@ -99,9 +121,9 @@ export default function About() {
                 </Link>
               </div>
             </CyberCodeTerminalWindow>
-          </div>
+          </motion.div>
         </div>
-      </main>
+      </motion.main>
     </PageShell>
   );
 }
