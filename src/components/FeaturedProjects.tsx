@@ -58,7 +58,7 @@ export default function FeaturedProjects() {
           <motion.div key={p.slug} variants={item}>
             <ProjectCard 
               project={p} 
-              onClick={() => open(p)} 
+              onClick={() => open(p, featured)}
               className="h-full"
             />
           </motion.div>

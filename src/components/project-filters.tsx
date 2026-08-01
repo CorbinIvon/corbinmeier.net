@@ -160,7 +160,7 @@ export default function ProjectFilters({
             >
               <ProjectCard
                 project={p}
-                onClick={() => open(p)}
+                onClick={() => open(p, filtered)}
                 className="h-full"
               />
             </motion.div>

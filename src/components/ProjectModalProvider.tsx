@@ -9,7 +9,7 @@ import { CyberCodeTerminalWindow, CyberCodeWindowChrome } from "./cybercode/Cybe
 interface ProjectModalContextType {
   isOpen: boolean;
   project: Project | null;
-  open: (project: Project) => void;
+  open: (project: Project, list?: Project[]) => void;
   close: () => void;
 }
 
@@ -24,12 +24,14 @@ export const useProjectModal = () => {
 export default function ProjectModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
+  const [projectList, setProjectList] = useState<Project[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [direction, setDirection] = useState(0);
 
-  const open = (p: Project) => {
+  const open = (p: Project, list?: Project[]) => {
     setProject(p);
+    setProjectList(list ?? []);
     setActiveIndex(0);
     setDirection(0);
     setIsOpen(true);
@@ -53,6 +55,20 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
     });
   }, [project]);
 
+  const projectIndex = project ? projectList.findIndex((p) => p.slug === project.slug) : -1;
+  const hasProjectNav = projectIndex !== -1 && projectList.length > 1;
+
+  const navigateProject = useCallback((newDirection: number) => {
+    if (!project) return;
+    const currentIndex = projectList.findIndex((p) => p.slug === project.slug);
+    if (currentIndex === -1 || projectList.length <= 1) return;
+    const nextIndex = (currentIndex + newDirection + projectList.length) % projectList.length;
+    setProject(projectList[nextIndex]);
+    setActiveIndex(0);
+    setDirection(0);
+    setIsFullscreen(false);
+  }, [project, projectList]);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen) return;
@@ -60,13 +76,15 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
         if (isFullscreen) setIsFullscreen(false);
         else close();
       }
+      if (!isFullscreen && e.shiftKey && e.key === "ArrowRight") { navigateProject(1); return; }
+      if (!isFullscreen && e.shiftKey && e.key === "ArrowLeft") { navigateProject(-1); return; }
       if (e.key === "ArrowRight") paginate(1);
       if (e.key === "ArrowLeft") paginate(-1);
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, isFullscreen, paginate]);
+  }, [isOpen, isFullscreen, paginate, navigateProject]);
 
   const variants = {
     enter: (direction: number) => ({
@@ -99,7 +117,27 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
               className="absolute inset-0 bg-background/95"
             />
             
+            {hasProjectNav && (
+              <>
+                <button
+                  onClick={(e) => { e.stopPropagation(); navigateProject(-1); }}
+                  aria-label="Previous project"
+                  className="hidden lg:flex absolute left-2 xl:left-6 top-1/2 -translate-y-1/2 z-10 p-3 bg-background/60 hover:bg-background/90 border border-white/10 rounded-full transition-all items-center justify-center"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); navigateProject(1); }}
+                  aria-label="Next project"
+                  className="hidden lg:flex absolute right-2 xl:right-6 top-1/2 -translate-y-1/2 z-10 p-3 bg-background/60 hover:bg-background/90 border border-white/10 rounded-full transition-all items-center justify-center"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </>
+            )}
+
             <motion.div
+              key={project.slug}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -112,6 +150,28 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                 showDots={true}
                 onDotClick={close}
               />
+
+              {hasProjectNav && (
+                <div className="flex lg:hidden items-center justify-between border-b border-border bg-white/5 px-4 py-2">
+                  <button
+                    onClick={() => navigateProject(-1)}
+                    className="flex items-center gap-1 text-xs font-mono text-muted hover:text-accent transition-colors"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                    Prev
+                  </button>
+                  <span className="text-[10px] font-mono text-muted/60">
+                    {projectIndex + 1} / {projectList.length}
+                  </span>
+                  <button
+                    onClick={() => navigateProject(1)}
+                    className="flex items-center gap-1 text-xs font-mono text-muted hover:text-accent transition-colors"
+                  >
+                    Next
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              )}
 
               <div className="flex-1 flex flex-col md:flex-row overflow-hidden min-h-0">
                 {/* Image Section */}
@@ -209,6 +269,19 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                           <div>
                             <span className="text-muted">Title:</span> <span className="text-foreground font-bold">{project.title}</span>
                           </div>
+                          {project["public-url"] && (
+                            <div className="truncate">
+                              <span className="text-muted">URL:</span>{" "}
+                              <a
+                                href={project["public-url"]}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-accent hover:underline"
+                              >
+                                {project["public-url"]}
+                              </a>
+                            </div>
+                          )}
                           <div>
                             <span className="text-muted">Year:</span> <span className="text-accent">{project.year}</span>
                           </div>
@@ -253,18 +326,19 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                                 <ExternalLink className="w-2.5 h-2.5" />
                               </a>
                             )}
-                            {project["public-url"]?.includes("github.com") && (
-                              <a
-                                href={project["public-url"]}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-mini"
-                                style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
-                              >
-                                Source
-                                <IconBrandGithub className="w-2.5 h-2.5" />
-                              </a>
-                            )}
+                            {project["original-url"] &&
+                              project["public-url"]?.includes("github.com") && (
+                                <a
+                                  href={project["public-url"]}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="btn-mini"
+                                  style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
+                                >
+                                  Source
+                                  <IconBrandGithub className="w-2.5 h-2.5" />
+                                </a>
+                              )}
                           </div>
                         </CyberCodeTerminalWindow>
                       )}

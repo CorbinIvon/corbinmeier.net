@@ -188,7 +188,7 @@
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Tracks vehicle essential information, documents, and live/recorded locations. On-premise deployment for internal fleet management.",
     "body": "<p>This on-premise fleet management system centralizes vehicle information, including registration, service history, documentation, and location logs. Designed for businesses that require internal hosting and strict data controls.</p><ul><li>Document uploads and versioning</li><li>Location logging (live & recorded)</li><li>Role-based access and audit logs</li></ul>",
-    "images": ["/projects/vehicles-management.png"],
+    "images": ["/clients/vehicles-management/vehicles-management.png"],
     "archived": true
   },
   {
@@ -199,7 +199,7 @@
     "skills": ["PHP", "MySQL", "On-Premise"],
     "description": "Human Resources system that digitizes and stores employee records, documents, and history. Built for secure on-premise hosting.",
     "body": "<p>An HR portal that digitizes personnel records, stores signed documents, and tracks employment history. Emphasis on privacy and on-premise deployment for organizations with internal-only data policies.</p><p>Features include secure document storage, custom reporting, and role-based workflows for approvals.</p>",
-    "images": ["/projects/employees-hr-portal.png"],
+    "images": ["/clients/employees-hr-portal/employees-hr-portal.png"],
     "archived": true
   },
   {
@@ -211,10 +211,10 @@
     "description": "Real-estate and site management system tracking building files, time-sensitive reminders, and location-specific metadata.",
     "body": "<p>A property and site management tool for maintaining building records, lease documents, and maintenance schedules. Includes reminder notifications for inspections and lease renewals.</p>",
     "images": [
-      "/projects/buildings-sites-manager-dashboard.png",
-      "/projects/buildings-sites-manager-audit.png",
-      "/projects/buildings-sites-manager-registration.png",
-      "/projects/buildings-sites-manager-search.png"
+      "/clients/buildings-sites-manager/buildings-sites-manager-dashboard.png",
+      "/clients/buildings-sites-manager/buildings-sites-manager-audit.png",
+      "/clients/buildings-sites-manager/buildings-sites-manager-registration.png",
+      "/clients/buildings-sites-manager/buildings-sites-manager-search.png"
     ],
     "archived": true
   },
