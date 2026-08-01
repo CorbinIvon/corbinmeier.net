@@ -13,7 +13,7 @@ export default function Projects() {
       />
       <BackgroundMotion />
       <main className="section-container">
-        <header className="max-w-3xl mb-16 mx-auto sm:mx-0 text-center sm:text-left">
+        <header className="w-full mb-16 text-center sm:text-left">
           <h1 className="text-5xl sm:text-7xl font-serif mb-6 tracking-tight">Projects</h1>
           <p className="text-narrative mb-4">
             A deep dive into the systems, applications, and digital experiences

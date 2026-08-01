@@ -3,7 +3,6 @@
 import { motion, Variants } from "framer-motion";
 import { homeHero } from "@/data/home";
 import { CyberCodeButton, CyberCodeLinkButton } from "@/components/cybercode/CyberCodeUIKit";
-import { CyberCodeMatrixRain } from "@/components/cybercode/CyberCodeBackdrops";
 
 export default function Hero() {
   const container: Variants = {
@@ -23,13 +22,12 @@ export default function Hero() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-6 sm:px-12 pt-8 pb-16 sm:py-32 min-h-[60vh] sm:min-h-[85vh] flex flex-col justify-center items-center sm:items-start relative blueprint-bg">
-      <CyberCodeMatrixRain className="pointer-events-none absolute inset-0 z-0 opacity-10" />
+    <section className="w-full px-1 pt-8 pb-16 sm:py-32 min-h-[60vh] sm:min-h-[85vh] flex flex-col justify-center items-center sm:items-start relative blueprint-bg">
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="max-w-5xl relative z-10 text-center sm:text-left"
+        className="w-full relative z-10 text-center sm:text-left"
       >
         <motion.div
           variants={item}
@@ -58,7 +56,7 @@ export default function Hero() {
 
         <motion.details
           variants={item}
-          className="group mb-14 border border-border rounded-xl px-5 py-4 max-w-2xl text-left"
+          className="group mb-14 w-full border border-border rounded-xl px-5 py-4 text-left"
         >
           <summary className="cursor-pointer list-none flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent">
             <span className="transition-transform group-open:rotate-90">{">"}</span>

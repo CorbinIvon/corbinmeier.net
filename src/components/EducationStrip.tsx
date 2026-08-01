@@ -18,7 +18,7 @@ export default function EducationStrip() {
         viewport={{ once: true }}
         className="relative glass-panel p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-8 border-accent/10"
       >
-        <CyberCodeSectionLabel>// education</CyberCodeSectionLabel>
+        <CyberCodeSectionLabel />
         <div className="flex-shrink-0">
           <div className="w-20 h-20 sm:w-24 sm:h-24 relative bg-white rounded-full border border-border overflow-hidden m-0.5 p-px">
             <img

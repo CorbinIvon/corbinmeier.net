@@ -80,28 +80,16 @@ export function CyberCodeStyles() {
 /* ------------------------------------------------------------------------ */
 
 /**
- * Small mono tag that overlaps the top border of a bordered panel, labeling
- * it like a terminal comment (e.g. `// about.bio`). Place on a `relative`
- * ancestor with `overflow-visible`; the parent supplies its own border.
+ * Traffic-light dot cluster sitting directly on a bordered panel's top edge,
+ * like a terminal window titlebar. Place on a `relative` ancestor — the
+ * parent supplies its own border, which the dots sit on top of.
  */
-export function CyberCodeSectionLabel({
-  children,
-  accent = "primary",
-  className,
-}: {
-  children: ReactNode;
-  accent?: CyberAccent;
-  className?: string;
-}) {
+export function CyberCodeSectionLabel({ className }: { className?: string }) {
   return (
-    <span
-      className={cx(
-        "absolute -top-3 left-4 z-10 bg-background px-2 font-mono text-[10px] uppercase tracking-widest text-[var(--cc-text)]",
-        className
-      )}
-      style={accentVars(accent)}
-    >
-      {children}
+    <span className={cx("absolute -top-[5px] left-4 z-10 flex gap-1.5", className)}>
+      <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+      <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+      <span className="h-2 w-2 rounded-full bg-[#28c840]" />
     </span>
   );
 }

@@ -3,7 +3,6 @@ import SeoHead from "@/components/SeoHead";
 import { ArrowRight, Terminal } from "lucide-react";
 import { Link } from "react-router-dom";
 import { about } from "@/data/about";
-import { CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
 
 export default function About() {
   return (
@@ -15,7 +14,7 @@ export default function About() {
       />
       <BackgroundMotion />
       <main className="section-container">
-        <header className="max-w-3xl mb-16 mx-auto sm:mx-0 text-center sm:text-left">
+        <header className="w-full mb-16 text-center sm:text-left">
           <h1 className="text-5xl sm:text-7xl font-serif mb-6 tracking-tight">{about.heroHeading}</h1>
           <p className="text-narrative">
             {about.heroSubhead}
@@ -25,7 +24,6 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-32">
             <div className="relative aspect-square rounded-3xl overflow-hidden border border-border">
-              <CyberCodeSectionLabel>// about.jpg</CyberCodeSectionLabel>
               <img
                 src="/corbin.jpg"
                 alt="Corbin Meier"

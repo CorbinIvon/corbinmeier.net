@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import BackgroundMotion from "@/components/BackgroundMotion";
 import { aiSetup } from "@/data/ai-setup";
 import type { AiSetupValueProp } from "@/data/types";
-import { CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
 
 const VALUE_PROP_ICONS: Record<AiSetupValueProp["icon"], LucideIcon> = {
   ShieldCheck,
@@ -34,7 +33,7 @@ export default function AiSetup() {
       
       <div className="section-container relative z-10">
         {/* Hero Section */}
-        <div className="max-w-4xl mb-20 mx-auto sm:mx-0 text-center sm:text-left">
+        <div className="w-full mb-20 text-center sm:text-left">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -56,7 +55,7 @@ export default function AiSetup() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-narrative max-w-2xl mx-auto sm:mx-0"
+            className="text-xl text-narrative w-full"
           >
             {aiSetup.intro}
           </motion.p>
@@ -73,7 +72,6 @@ export default function AiSetup() {
             const Icon = VALUE_PROP_ICONS[prop.icon];
             return (
               <motion.div key={prop.title} variants={item} className="relative glass-panel p-8">
-                <CyberCodeSectionLabel>{`// value.${prop.icon.toLowerCase()}`}</CyberCodeSectionLabel>
                 <Icon className="w-10 h-10 text-accent mb-6" />
                 <h3 className="text-xl font-serif mb-3">{prop.title}</h3>
                 <p className="text-sm text-muted">{prop.body}</p>
@@ -114,8 +112,7 @@ export default function AiSetup() {
         </div>
 
         {/* Pricing/CTA Section */}
-        <div className="relative glass-panel p-12 text-center max-w-4xl mx-auto">
-          <CyberCodeSectionLabel>// ai-setup.pricing</CyberCodeSectionLabel>
+        <div className="relative glass-panel p-12 text-center w-full">
           <h2 className="text-3xl sm:text-4xl font-serif mb-6">{aiSetup.pricingHeadingPre} <span className="text-accent italic">{aiSetup.pricingHeadingAccent}</span></h2>
           <div className="flex flex-col items-center mb-10">
             <span className="text-sm uppercase tracking-widest text-accent font-bold mb-2">{aiSetup.pricingTierLabel}</span>

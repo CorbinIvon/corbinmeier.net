@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, ChevronDown, Filter } from "lucide-react";
 import ProjectCard, { Project as CardProject } from "./ProjectCard";
 import { useProjectModal } from "./ProjectModalProvider";
-import { CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
 
 type Project = CardProject;
 
@@ -50,7 +49,6 @@ export default function ProjectFilters({
     <div className="w-full space-y-12">
       {/* Search and Filters */}
       <div className="relative glass-panel p-2 flex flex-col md:flex-row gap-2">
-        <CyberCodeSectionLabel>// projects.filters</CyberCodeSectionLabel>
         <div className="relative flex-1">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted" />
           <input

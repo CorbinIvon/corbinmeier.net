@@ -79,11 +79,11 @@
   }
 
   .section-container {
-    @apply max-w-7xl mx-auto px-6 sm:px-12 py-16 sm:py-32;
+    @apply w-full px-1 py-16 sm:py-32;
   }
 
   .text-narrative {
-    @apply text-lg sm:text-2xl text-muted font-light leading-[1.4] max-w-4xl;
+    @apply text-lg sm:text-2xl text-muted font-light leading-[1.4] w-full;
   }
 
   .btn-artisan {
