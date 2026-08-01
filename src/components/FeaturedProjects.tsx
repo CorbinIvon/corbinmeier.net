@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { CyberCodeLinkButton } from "@/components/cybercode/CyberCodeUIKit";
 import projects from "@/data/projects.json";
 import ProjectCard from "./ProjectCard";
 import { useProjectModal } from "./ProjectModalProvider";
@@ -32,13 +33,13 @@ export default function FeaturedProjects() {
       <div className="mb-10 sm:mb-20">
         <div className="flex justify-between items-baseline mb-6 gap-8">
           <h2 className="text-h2 font-serif">Selected Works</h2>
-          <Link
+          <CyberCodeLinkButton
             to="/projects"
-            className="group flex items-center gap-2 text-accent font-medium hover:underline decoration-accent underline-offset-4 whitespace-nowrap shrink-0"
+            className="group whitespace-nowrap shrink-0"
           >
             View all work
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </CyberCodeLinkButton>
         </div>
         <p className="text-narrative">
           A curated selection of digital infrastructure and performance-critical systems

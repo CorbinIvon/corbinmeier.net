@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
 import { contact } from "@/data/contact";
 import type { ContactInfoItem } from "@/data/types";
-import { CyberCodeFormField, CyberCodeButton, Typewriter } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeFormField, CyberCodeButton, Typewriter, CyberCodeTerminalLine } from "@/components/cybercode/CyberCodeUIKit";
 
 const CONTACT_ICONS: Record<ContactInfoItem["icon"], LucideIcon> = {
   Mail,
@@ -129,6 +129,9 @@ export default function Contact() {
           {/* Header & Info */}
           <motion.div variants={item} className="lg:col-span-5">
             <header className="mb-12 text-center sm:text-left">
+              <CyberCodeTerminalLine prompt=">" className="mb-2">
+                <Typewriter durationMs={800} as="span">mailto contact@corbinmeier.net</Typewriter>
+              </CyberCodeTerminalLine>
               <h1 className="text-h1 font-serif mb-6">
                 <Typewriter durationMs={800} as="span">{contact.heading}</Typewriter>
               </h1>

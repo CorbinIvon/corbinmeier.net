@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { FileCode2, Home, Send } from "lucide-react";
 import { site } from "@/data/site";
+import { CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
 
 const ICONS = [Home, FileCode2, FileCode2];
 
@@ -48,17 +49,14 @@ export default function Sidebar() {
         })}
       </nav>
 
-      <div className="p-4 border-t border-border">
-        <Link
+      <div className="p-4 border-t border-border flex justify-center">
+        <CyberCodeButton
           to="/contact"
-          className={cn(
-            "flex items-center justify-center gap-2 w-full bg-primary text-background px-4 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-[1.02] active:scale-95",
-            pathname === "/contact" && "ring-1 ring-accent"
-          )}
+          className="w-full"
         >
           <Send className="w-4 h-4" />
           {site.contactCtaLabel}
-        </Link>
+        </CyberCodeButton>
       </div>
     </aside>
   );
