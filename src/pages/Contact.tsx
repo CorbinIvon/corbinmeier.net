@@ -145,7 +145,7 @@ export default function Contact() {
                 const Icon = CONTACT_ICONS[infoItem.icon];
                 return (
                 <div key={infoItem.label} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent text-background flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: "var(--accent)", color: "var(--background)" }}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
