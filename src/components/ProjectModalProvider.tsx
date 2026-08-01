@@ -226,6 +226,48 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                           </div>
                         </div>
                       </CyberCodeTerminalWindow>
+                      {(project["public-url"] || project["original-url"]) && (
+                        <CyberCodeTerminalWindow title="source.links" showDots={false}>
+                          <div className="flex flex-wrap gap-2">
+                            {project["public-url"] && (
+                              <a
+                                href={project["public-url"]}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-mini"
+                                style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
+                              >
+                                {project["original-url"] ? "Live Site" : "View"}
+                                <ExternalLink className="w-2.5 h-2.5" />
+                              </a>
+                            )}
+                            {project["original-url"] && (
+                              <a
+                                href={project["original-url"]}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-mini"
+                                style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
+                              >
+                                Original
+                                <ExternalLink className="w-2.5 h-2.5" />
+                              </a>
+                            )}
+                            {project["public-url"]?.includes("github.com") && (
+                              <a
+                                href={project["public-url"]}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-mini"
+                                style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
+                              >
+                                Source
+                                <IconBrandGithub className="w-2.5 h-2.5" />
+                              </a>
+                            )}
+                          </div>
+                        </CyberCodeTerminalWindow>
+                      )}
                       {project.skills && (
                         <CyberCodeTerminalWindow title="stack.env" showDots={false}>
                           <div className="overflow-hidden w-full relative">
@@ -295,44 +337,6 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                            </div>
                         </CyberCodeTerminalWindow>
                       )}
-                  </div>
-
-                  <div className="mt-12 pt-8 border-t border-border">
-                    <div className="flex flex-wrap gap-4">
-                      {project["public-url"] && (
-                        <a 
-                          href={project["public-url"]}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-artisan py-3 px-8 text-sm"
-                        >
-                          {project["original-url"] ? "Visit Live Site" : "Visit Project"}
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      )}
-                      {project["original-url"] && (
-                        <a 
-                          href={project["original-url"]}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-8 py-3 rounded-full border border-border/50 hover:bg-muted/10 transition-colors text-sm font-medium text-muted"
-                        >
-                          View Original
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      )}
-                      {project["public-url"]?.includes("github.com") && (
-                        <a 
-                          href={project["public-url"]}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-8 py-3 rounded-full border border-border hover:bg-muted/10 transition-colors text-sm font-bold"
-                        >
-                          Source Code
-                          <IconBrandGithub className="w-4 h-4" />
-                        </a>
-                      )}
-                    </div>
                   </div>
                 </div>
               </div>
