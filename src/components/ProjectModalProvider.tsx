@@ -94,19 +94,19 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={close}
-              className="absolute inset-0 bg-background/80 backdrop-blur-md"
+              className="absolute inset-0 bg-background/95"
             />
             
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-6xl max-h-[90vh] bg-card border border-border rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row"
+              className="relative w-full max-w-6xl max-h-[90vh] bg-card border border-border rounded-2xl overflow-hidden flex flex-col md:flex-row"
             >
               {/* Close Button */}
               <button 
                 onClick={close}
-                className="absolute top-6 right-6 z-[110] p-2 bg-background/50 hover:bg-background backdrop-blur-xl border border-border rounded-full transition-all"
+                className="absolute top-6 right-6 z-[110] p-2 bg-background/80 hover:bg-background border border-border rounded-full transition-all"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -144,7 +144,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                                 e.stopPropagation();
                                 setIsFullscreen(true);
                               }}
-                              className="p-3 bg-black border border-white/50 rounded-xl text-white shadow-[0_0_20px_rgba(0,0,0,0.6)] backdrop-blur-sm hover:scale-110 transition-transform flex items-center gap-2"
+                              className="p-3 bg-black border border-white/50 rounded-xl text-white shadow-none hover:scale-110 transition-transform flex items-center gap-2"
                             >
                               <Maximize2 className="w-4 h-4" />
                             </button>
@@ -163,13 +163,13 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                     <>
                       <button 
                         onClick={(e) => { e.stopPropagation(); paginate(-1); }}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/20 hover:bg-background/40 backdrop-blur-xl border border-white/10 rounded-full transition-all opacity-0 group-hover:opacity-100"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/60 hover:bg-background/80 border border-white/10 rounded-full transition-all opacity-0 group-hover:opacity-100"
                       >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <button 
                         onClick={(e) => { e.stopPropagation(); paginate(1); }}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/20 hover:bg-background/40 backdrop-blur-xl border border-white/10 rounded-full transition-all opacity-0 group-hover:opacity-100"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/60 hover:bg-background/80 border border-white/10 rounded-full transition-all opacity-0 group-hover:opacity-100"
                       >
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -188,7 +188,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                           setActiveIndex(idx);
                         }}
                         className={`relative w-16 h-12 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
-                          idx === activeIndex ? "border-accent scale-105 shadow-lg" : "border-transparent opacity-50 hover:opacity-100"
+                          idx === activeIndex ? "border-accent scale-105" : "border-transparent opacity-50 hover:opacity-100"
                         }`}
                       >
                         <img src={img} alt="" className="w-full h-full object-cover" />
@@ -311,7 +311,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-3xl flex items-center justify-center p-4 md:p-12 overflow-hidden"
+            className="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4 md:p-12 overflow-hidden"
             onClick={() => setIsFullscreen(false)}
           >
             <motion.div 
@@ -322,7 +322,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                 layoutId={`project-image-${project.slug}-${activeIndex}`}
                 src={project.images[activeIndex]}
                 alt={project.title}
-                className="max-w-full max-h-full object-contain shadow-2xl rounded-sm cursor-zoom-out"
+                className="max-w-full max-h-full object-contain rounded-sm cursor-zoom-out"
                 onClick={() => setIsFullscreen(false)}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />

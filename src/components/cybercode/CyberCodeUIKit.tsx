@@ -79,6 +79,33 @@ export function CyberCodeStyles() {
 /* Window chrome — macOS-style traffic-light header                        */
 /* ------------------------------------------------------------------------ */
 
+/**
+ * Small mono tag that overlaps the top border of a bordered panel, labeling
+ * it like a terminal comment (e.g. `// about.bio`). Place on a `relative`
+ * ancestor with `overflow-visible`; the parent supplies its own border.
+ */
+export function CyberCodeSectionLabel({
+  children,
+  accent = "primary",
+  className,
+}: {
+  children: ReactNode;
+  accent?: CyberAccent;
+  className?: string;
+}) {
+  return (
+    <span
+      className={cx(
+        "absolute -top-3 left-4 z-10 bg-background px-2 font-mono text-[10px] uppercase tracking-widest text-[var(--cc-text)]",
+        className
+      )}
+      style={accentVars(accent)}
+    >
+      {children}
+    </span>
+  );
+}
+
 export function CyberCodeWindowChrome({
   title,
   icon,
@@ -89,7 +116,7 @@ export function CyberCodeWindowChrome({
   className?: string;
 }) {
   return (
-    <div className={cx("flex items-center gap-3 border-b border-white/10 bg-white/5 px-4 py-3", className)}>
+    <div className={cx("flex items-center gap-3 border-b border-border bg-white/5 px-4 py-3", className)}>
       <div className="flex gap-1.5">
         <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
@@ -123,7 +150,7 @@ export function CyberCodeTerminalWindow({
   return (
     <div
       className={cx(
-        "overflow-hidden rounded-xl border border-white/10 bg-background/80 shadow-[0_20px_60px_rgba(0,0,0,0.5)]",
+        "overflow-hidden rounded-xl border border-border bg-background",
         className
       )}
       style={accentVars(accent)}
@@ -226,10 +253,10 @@ export function CyberCodeEditorWindow({
 }) {
   return (
     <div
-      className={cx("overflow-hidden rounded-xl border border-white/10 bg-background/80 shadow-[0_10px_40px_rgba(0,0,0,0.3)]", className)}
+      className={cx("overflow-hidden rounded-xl border border-border bg-background", className)}
       style={accentVars(accent)}
     >
-      <div className="flex gap-0.5 border-b border-white/10 bg-white/5 px-2 pt-2">
+      <div className="flex gap-0.5 border-b border-border bg-white/5 px-2 pt-2">
         {tabs.map((tab, index) => (
           <span
             key={index}
@@ -246,7 +273,7 @@ export function CyberCodeEditorWindow({
         {lineCount !== undefined && (
           <div
             aria-hidden="true"
-            className="mr-5 select-none border-r border-white/10 pr-5 font-mono text-xs leading-7 text-muted"
+            className="mr-5 select-none border-r border-border pr-5 font-mono text-xs leading-7 text-muted"
           >
             {Array.from({ length: lineCount }, (_, i) => (
               <div key={i}>{i + 1}</div>
@@ -281,7 +308,7 @@ export function CyberCodeStatCard({
   return (
     <div
       className={cx(
-        "flex min-h-[150px] flex-col items-center justify-center rounded-xl border border-white/10 bg-white/5 p-6 text-center transition-transform hover:-translate-y-1",
+        "flex min-h-[150px] flex-col items-center justify-center rounded-xl border border-border bg-white/5 p-6 text-center transition-transform hover:-translate-y-1",
         className
       )}
       style={accentVars(accent)}
@@ -357,14 +384,14 @@ export function CyberCodeProjectCard({
   return (
     <article
       className={cx(
-        "overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-all hover:-translate-y-2",
+        "overflow-hidden rounded-xl border border-border bg-white/5 transition-all hover:-translate-y-2",
         className
       )}
       style={accentVars(accent)}
     >
       <CyberCodeWindowChrome title={fileName} icon={fileIcon} />
       <div className="max-h-[250px] overflow-hidden p-5 font-mono text-xs leading-relaxed text-muted">{children}</div>
-      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 px-5 py-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border px-5 py-4">
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <CyberCodeTag key={tag} accent={accent}>
@@ -503,12 +530,12 @@ export function CyberCodeFormField({
       <span className="flex min-w-11 items-center justify-center pt-2 text-[var(--cc-text)]">{promptIcon ?? ">"}</span>
       {multiline ? (
         <textarea
-          className="min-h-[100px] flex-1 resize-y rounded-md border border-white/10 bg-white/5 p-2.5 font-mono text-sm text-foreground outline-none focus:border-[var(--cc-text)]"
+          className="min-h-[100px] flex-1 resize-y rounded-md border border-border bg-white/5 p-2.5 font-mono text-sm text-foreground outline-none focus:border-[var(--cc-text)]"
           {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
         />
       ) : (
         <input
-          className="flex-1 rounded-md border border-white/10 bg-white/5 p-2.5 font-mono text-sm text-foreground outline-none focus:border-[var(--cc-text)]"
+          className="flex-1 rounded-md border border-border bg-white/5 p-2.5 font-mono text-sm text-foreground outline-none focus:border-[var(--cc-text)]"
           {...(rest as InputHTMLAttributes<HTMLInputElement>)}
         />
       )}
@@ -536,14 +563,14 @@ export function CyberCodeSocialLink({
     <a
       aria-label={label}
       className={cx(
-        "group relative flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg text-muted transition-all hover:-translate-y-1 hover:text-[var(--cc-text)]",
+        "group relative flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-white/5 text-lg text-muted transition-all hover:-translate-y-1 hover:text-[var(--cc-text)]",
         className
       )}
       style={{ ...accentVars(accent), ["--tw-hover-border" as string]: "var(--cc-border)" }}
       {...rest}
     >
       {icon}
-      <span className="pointer-events-none absolute -bottom-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-white/10 bg-background px-2 py-1 text-[0.7rem] text-muted opacity-0 transition-opacity group-hover:opacity-100">
+      <span className="pointer-events-none absolute -bottom-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-background px-2 py-1 text-[0.7rem] text-muted opacity-0 transition-opacity group-hover:opacity-100">
         {label}
       </span>
     </a>
