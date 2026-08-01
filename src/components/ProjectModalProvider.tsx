@@ -245,11 +245,14 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                                }
                              `}</style>
                              <div className="overflow-hidden w-full py-0.5">
-                               <div className="cc-marquee-inner">
+                               <div className="cc-marquee-inner flex items-center">
                                   {[...project.skills, ...project.skills, ...project.skills].map((skill, idx) => (
-                                    <span key={`${skill}-${idx}`} className="px-3 py-1.5 rounded-xl bg-muted/5 border border-border text-xs font-medium whitespace-nowrap flex-shrink-0">
-                                      {skill}
-                                    </span>
+                                    <React.Fragment key={`${skill}-${idx}`}>
+                                      {idx > 0 && <span className="text-muted/40 px-1 font-mono text-xs">|</span>}
+                                      <span className="py-1 text-xs font-mono text-muted-foreground whitespace-nowrap flex-shrink-0">
+                                        {skill}
+                                      </span>
+                                    </React.Fragment>
                                   ))}
                                </div>
                              </div>
@@ -279,12 +282,12 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                            )}
 
                            <div className="grid grid-cols-1 gap-4">
-                              <div className="p-4 rounded-2xl bg-muted/5 border border-border/50">
+                              <div className="p-4 rounded-none bg-red-500/5 border border-red-500/80">
                                  <span className="text-[9px] font-bold uppercase tracking-widest text-red-500/80 mb-2 block">Before</span>
                                  <h5 className="text-sm font-medium mb-1">{project.beforeAfter.before.title}</h5>
                                  <p className="text-xs text-muted leading-relaxed">{project.beforeAfter.before.description}</p>
                               </div>
-                              <div className="p-4 rounded-2xl bg-accent/5 border border-accent/20">
+                              <div className="p-4 rounded-none bg-accent/5 border border-accent">
                                  <span className="text-[9px] font-bold uppercase tracking-widest text-accent mb-2 block">After</span>
                                  <h5 className="text-sm font-medium mb-1">{project.beforeAfter.after.title}</h5>
                                  <p className="text-xs text-muted leading-relaxed">{project.beforeAfter.after.description}</p>
