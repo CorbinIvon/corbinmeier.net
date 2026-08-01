@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Mail, MapPin, Clock, Mailbox, Send, Bot, type LucideIcon } from "lucide-react";
+import { X, Mail, MapPin, Clock, Mailbox, Save, Bot, type LucideIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
@@ -245,7 +245,7 @@ export default function ContactModalProvider({ children }: { children: ReactNode
             >
               <CyberCodeWindowChrome
                 title="contact_terminal.sh"
-                icon={<Send className="w-4 h-4 text-accent" />}
+                icon={<Save className="w-4 h-4 text-accent" />}
                 showDots={true}
                 onDotClick={close}
               />

@@ -2,7 +2,7 @@
 
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { FileCode2, Home, Send } from "lucide-react";
+import { FileCode2, Home, Save } from "lucide-react";
 import { site } from "@/data/site";
 import { CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
 
@@ -54,7 +54,7 @@ export default function Sidebar() {
           to="/contact"
           className="w-full"
         >
-          <Send className="w-4 h-4" />
+          <Save className="w-4 h-4" />
           {site.contactCtaLabel}
         </CyberCodeButton>
       </div>
