@@ -283,13 +283,13 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                       className="!bg-[var(--background)] !border-[var(--border)]"
                       bodyClassName="p-4 sm:p-6"
                     >
-                      <form onSubmit={handleSubmit} className="space-y-4">
+                      <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div className="flex flex-col gap-1 py-1">
                             <label className={cn(
                               "font-mono text-xs select-none transition-colors",
                               isFieldInvalid("firstName") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
-                            )}>$ first_name:</label>
+                            )}>$ first_name: {isFieldInvalid("firstName") && <span className="text-[10px] opacity-90 font-bold">[INPUT REQUIRED]</span>}</label>
                             <input
                               type="text"
                               className="w-full bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
@@ -316,7 +316,7 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                             <label className={cn(
                               "font-mono text-xs select-none transition-colors",
                               isFieldInvalid("email") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
-                            )}>$ email:</label>
+                            )}>$ email: {isFieldInvalid("email") && <span className="text-[10px] opacity-90 font-bold">[INPUT REQUIRED]</span>}</label>
                             <input
                               type="email"
                               className="w-full bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
@@ -342,7 +342,7 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                           <label className={cn(
                             "font-mono text-xs select-none transition-colors",
                             isFieldInvalid("subject") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
-                          )}>$ subject:</label>
+                          )}>$ subject: {isFieldInvalid("subject") && <span className="text-[10px] opacity-90 font-bold">[INPUT REQUIRED]</span>}</label>
                           <input
                             type="text"
                             className="w-full bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
