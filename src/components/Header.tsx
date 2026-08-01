@@ -27,9 +27,9 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <header className="lg:hidden fixed top-0 left-0 right-0 z-50 px-6 py-4">
       <div className="max-w-7xl mx-auto">
-        <nav className="glass-panel px-6 py-3 flex items-center justify-between border-white/10 shadow-2xl shadow-black/5">
+        <nav className="glass-panel px-6 py-3 flex items-center justify-between border-white/10">
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 overflow-hidden rounded-full border border-border transition-transform group-hover:scale-105">
               <img
@@ -92,7 +92,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.15 }}
-              className="md:hidden glass-panel mt-3 px-6 py-4 flex flex-col gap-1 border-white/10 shadow-2xl shadow-black/5"
+              className="md:hidden glass-panel mt-3 px-6 py-4 flex flex-col gap-1 border-white/10"
             >
               {site.navItems.map((item) => (
                 <Link

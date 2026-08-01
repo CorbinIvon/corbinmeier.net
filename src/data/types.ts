@@ -8,13 +8,17 @@ export interface NavItem {
   href: string;
 }
 
+export interface HomePricingDetails {
+  summary: string;
+  points: string[];
+}
+
 export interface HomeHeroContent {
   eyebrow: string;
   headingLine1: string;
   headingAccent: string;
-  paragraphPre: string;
-  paragraphEmphasis: string;
-  paragraphPost: string;
+  paragraph: string;
+  pricingDetails: HomePricingDetails;
   primaryCta: CtaLink;
   secondaryCta: CtaLink;
 }

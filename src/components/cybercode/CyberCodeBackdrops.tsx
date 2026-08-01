@@ -37,8 +37,9 @@ export function CyberCodeMatrixRain({
     let lastFrame = 0;
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const { width, height } = canvas.getBoundingClientRect();
+      canvas.width = width;
+      canvas.height = height;
       columns = Math.floor(canvas.width / fontSize);
       drops = Array.from({ length: columns }, () => Math.random() * canvas.height);
     };
@@ -70,12 +71,13 @@ export function CyberCodeMatrixRain({
     };
 
     resize();
-    window.addEventListener("resize", resize);
+    const observer = new ResizeObserver(resize);
+    observer.observe(canvas);
     animationId = window.requestAnimationFrame(loop);
 
     return () => {
       window.cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", resize);
+      observer.disconnect();
     };
   }, [color, fontSize, fps]);
 

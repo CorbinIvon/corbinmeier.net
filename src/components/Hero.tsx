@@ -2,7 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { homeHero } from "@/data/home";
-import { CyberCodeButton, CyberCodeLinkButton, CyberCodeGlitchHeading } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeButton, CyberCodeLinkButton } from "@/components/cybercode/CyberCodeUIKit";
 import { CyberCodeMatrixRain } from "@/components/cybercode/CyberCodeBackdrops";
 
 export default function Hero() {
@@ -43,23 +43,35 @@ export default function Hero() {
         </motion.div>
 
         <motion.div variants={item}>
-          <CyberCodeGlitchHeading
-            as="h1"
-            className="text-6xl sm:text-8xl lg:text-[10rem] mb-10 leading-[0.8] font-serif tracking-tighter"
-          >
+          <h1 className="text-6xl sm:text-8xl lg:text-[10rem] mb-10 leading-[0.8] font-serif tracking-tighter text-foreground">
             {homeHero.headingLine1} <br />
             <span className="text-accent italic">{homeHero.headingAccent}</span>
-          </CyberCodeGlitchHeading>
+          </h1>
         </motion.div>
 
         <motion.p
           variants={item}
-          className="text-narrative mb-14"
+          className="text-narrative mb-8"
         >
-          {homeHero.paragraphPre}{" "}
-          <span className="text-foreground font-medium underline decoration-accent/30 decoration-4 underline-offset-8">{homeHero.paragraphEmphasis}</span>{" "}
-          {homeHero.paragraphPost}
+          {homeHero.paragraph}
         </motion.p>
+
+        <motion.details
+          variants={item}
+          className="group mb-14 border border-border rounded-xl px-5 py-4 max-w-2xl text-left"
+        >
+          <summary className="cursor-pointer list-none flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent">
+            <span className="transition-transform group-open:rotate-90">{">"}</span>
+            {homeHero.pricingDetails.summary}
+          </summary>
+          <ul className="mt-4 space-y-3">
+            {homeHero.pricingDetails.points.map((point) => (
+              <li key={point} className="text-sm text-muted leading-relaxed pl-4 border-l border-border">
+                {point}
+              </li>
+            ))}
+          </ul>
+        </motion.details>
 
         <motion.div
           variants={item}

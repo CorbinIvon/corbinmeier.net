@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
 import { contact } from "@/data/contact";
 import type { ContactInfoItem } from "@/data/types";
-import { CyberCodeFormField, CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeFormField, CyberCodeButton, CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
 
 const CONTACT_ICONS: Record<ContactInfoItem["icon"], LucideIcon> = {
   Mail,
@@ -138,8 +138,9 @@ export default function Contact() {
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="glass-panel p-8 sm:p-12 border-accent/10 shadow-2xl shadow-accent/5"
+              className="relative glass-panel p-8 sm:p-12 border-accent/10"
             >
+              <CyberCodeSectionLabel>// contact.form</CyberCodeSectionLabel>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -200,16 +201,7 @@ export default function Contact() {
                   />
                 </div>
 
-                <div className="pt-2">
-                   {TURNSTILE_SITE_KEY && (
-                     <CloudflareTurnstile 
-                       siteKey={TURNSTILE_SITE_KEY} 
-                       onVerify={(token) => setTurnstileToken(token)} 
-                     />
-                   )}
-                </div>
-
-                <div className="pt-4">
+                <div className="pt-4 flex flex-wrap items-center gap-4">
                   <CyberCodeButton type="submit" disabled={loading} className="w-full sm:w-auto disabled:opacity-60">
                     {loading ? contact.formLabels.submitting : (
                       <>
@@ -218,6 +210,15 @@ export default function Contact() {
                       </>
                     )}
                   </CyberCodeButton>
+
+                  {TURNSTILE_SITE_KEY && (
+                    <div className="border border-border rounded-xl overflow-hidden">
+                      <CloudflareTurnstile
+                        siteKey={TURNSTILE_SITE_KEY}
+                        onVerify={(token) => setTurnstileToken(token)}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {status && (

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { homeCta } from "@/data/home";
+import { CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
 
 export default function CTA() {
   return (
@@ -13,8 +14,9 @@ export default function CTA() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative overflow-hidden rounded-[3rem] bg-[#1c1917] text-[#fafaf9] px-8 py-12 sm:py-20 text-center sm:px-16 border border-white/5 shadow-2xl"
+        className="relative overflow-hidden rounded-[3rem] bg-[#1c1917] text-[#fafaf9] px-8 py-12 sm:py-20 text-center sm:px-16 border border-white/5"
       >
+        <CyberCodeSectionLabel className="bg-[#1c1917]">// cta.contact</CyberCodeSectionLabel>
         {/* Subtle background circles */}
         <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/30 rounded-full blur-[100px]" />
         <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-accent/30 rounded-full blur-[100px]" />

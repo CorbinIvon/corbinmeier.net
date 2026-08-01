@@ -9,4 +9,10 @@ export interface TurnstileProps {
 export const CloudflareTurnstile: React.FC<TurnstileProps> = ({
   siteKey,
   onVerify,
-}) => <Turnstile siteKey={siteKey} onSuccess={onVerify} />;
+}) => (
+  <Turnstile
+    siteKey={siteKey}
+    onSuccess={onVerify}
+    options={{ theme: "dark", size: "compact" }}
+  />
+);

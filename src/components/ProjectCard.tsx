@@ -4,6 +4,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ExternalLink, Code2 } from "lucide-react";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
+import { CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
 
 export type Project = {
   title: string;
@@ -59,8 +60,9 @@ export default function ProjectCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative h-full flex flex-col group overflow-hidden bg-card border border-border rounded-2xl transition-all duration-500 hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/10"
+      className="relative h-full flex flex-col group overflow-hidden bg-card border border-border rounded-2xl transition-all duration-500 hover:border-accent/50 "
     >
+      <CyberCodeSectionLabel>{`// project.${project.slug}`}</CyberCodeSectionLabel>
       {/* Glow Effect */}
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -90,11 +92,11 @@ export default function ProjectCard({
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
            <div className="flex gap-2">
               {project["public-url"]?.includes("github.com") && (
-                <div className="p-2 rounded-full bg-background/90 text-foreground backdrop-blur-sm shadow-lg">
+                <div className="p-2 rounded-full bg-background/90 text-foreground shadow-none">
                   <IconBrandGithub className="w-4 h-4" />
                 </div>
               )}
-              <div className="p-2 rounded-full bg-accent text-white shadow-lg">
+              <div className="p-2 rounded-full bg-accent text-white">
                 <ExternalLink className="w-4 h-4" />
               </div>
            </div>

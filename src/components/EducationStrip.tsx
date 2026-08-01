@@ -4,6 +4,7 @@ import associates from "@/data/associates.json";
 import { education } from "@/data/education";
 import { GraduationCap, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
+import { CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
 
 export default function EducationStrip() {
   const butte = associates.find((a) => a.name.toLowerCase().includes("butte"));
@@ -15,10 +16,11 @@ export default function EducationStrip() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="glass-panel p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-8 border-accent/10"
+        className="relative glass-panel p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-8 border-accent/10"
       >
+        <CyberCodeSectionLabel>// education</CyberCodeSectionLabel>
         <div className="flex-shrink-0">
-          <div className="w-20 h-20 sm:w-24 sm:h-24 relative bg-white rounded-full shadow-sm border border-border overflow-hidden m-0.5 p-px">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 relative bg-white rounded-full border border-border overflow-hidden m-0.5 p-px">
             <img
               src={butte.logo}
               alt={`${butte.name} logo`}
@@ -56,7 +58,7 @@ export default function EducationStrip() {
             href={education.diplomaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative block w-32 h-24 sm:w-40 sm:h-28 rounded-xl overflow-hidden border border-border shadow-lg transition-transform hover:scale-105"
+            className="group relative block w-32 h-24 sm:w-40 sm:h-28 rounded-xl overflow-hidden border border-border transition-transform hover:scale-105"
             aria-label="View official diploma on Parchment.com"
             title="Official diploma (opens in new tab)"
           >
