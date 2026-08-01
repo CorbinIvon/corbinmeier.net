@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Cpu, ShieldCheck, Zap, DollarSign, ArrowRight, Server, BrainCircuit, type LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
-import BackgroundMotion from "@/components/BackgroundMotion";
+import PageShell from "@/components/PageShell";
 import { aiSetup } from "@/data/ai-setup";
 import type { AiSetupValueProp } from "@/data/types";
 
@@ -28,12 +28,10 @@ export default function AiSetup() {
   };
 
   return (
-    <div className="relative min-h-screen pt-24 pb-20 overflow-hidden">
-      <BackgroundMotion />
-      
-      <div className="section-container relative z-10">
+    <PageShell className="overflow-hidden">
+      <div className="page-container relative z-10">
         {/* Hero Section */}
-        <div className="w-full mb-20 text-center sm:text-left">
+        <div className="w-full mb-12 text-center sm:text-left">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -46,7 +44,7 @@ export default function AiSetup() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl sm:text-7xl font-serif mb-8 leading-[0.9]"
+            className="text-h1 font-serif mb-8"
           >
             {aiSetup.headingLine1} <br />
             <span className="text-accent italic">{aiSetup.headingAccent}</span>
@@ -66,14 +64,14 @@ export default function AiSetup() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
         >
           {aiSetup.valueProps.map((prop) => {
             const Icon = VALUE_PROP_ICONS[prop.icon];
             return (
               <motion.div key={prop.title} variants={item} className="relative glass-panel p-8">
                 <Icon className="w-10 h-10 text-accent mb-6" />
-                <h3 className="text-xl font-serif mb-3">{prop.title}</h3>
+                <h3 className="text-h3 font-serif mb-3">{prop.title}</h3>
                 <p className="text-sm text-muted">{prop.body}</p>
               </motion.div>
             );
@@ -81,7 +79,7 @@ export default function AiSetup() {
         </motion.div>
 
         {/* Technical Stack */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -96,7 +94,7 @@ export default function AiSetup() {
           </motion.div>
           
           <div>
-            <h2 className="text-4xl font-serif mb-8">{aiSetup.stackHeadingPre} <span className="text-accent italic">{aiSetup.stackHeadingAccent}</span> Environment</h2>
+            <h2 className="text-h2 font-serif mb-8">{aiSetup.stackHeadingPre} <span className="text-accent italic">{aiSetup.stackHeadingAccent}</span> Environment</h2>
             <p className="text-narrative mb-8">
               {aiSetup.stackBody}
             </p>
@@ -113,7 +111,7 @@ export default function AiSetup() {
 
         {/* Pricing/CTA Section */}
         <div className="relative glass-panel p-12 text-center w-full">
-          <h2 className="text-3xl sm:text-4xl font-serif mb-6">{aiSetup.pricingHeadingPre} <span className="text-accent italic">{aiSetup.pricingHeadingAccent}</span></h2>
+          <h2 className="text-h2 font-serif mb-6">{aiSetup.pricingHeadingPre} <span className="text-accent italic">{aiSetup.pricingHeadingAccent}</span></h2>
           <div className="flex flex-col items-center mb-10">
             <span className="text-sm uppercase tracking-widest text-accent font-bold mb-2">{aiSetup.pricingTierLabel}</span>
             <div className="text-6xl font-serif flex items-start">
@@ -140,6 +138,6 @@ export default function AiSetup() {
           </Link>
         </div>
       </div>
-    </div>
+    </PageShell>
   );
 }

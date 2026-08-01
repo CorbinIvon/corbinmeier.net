@@ -1,21 +1,20 @@
 import { Link } from "react-router-dom";
-import BackgroundMotion from "@/components/BackgroundMotion";
 import SeoHead from "@/components/SeoHead";
+import PageShell from "@/components/PageShell";
 
 const LAST_UPDATED = "July 21, 2026";
 
 export default function TermsOfService() {
   return (
-    <div className="relative min-h-screen pt-24 pb-20">
+    <PageShell>
       <SeoHead
         title="Terms of Service | Corbin Meier"
         description="Terms of Service governing use of corbinmeier.net, its content, and the contact form."
         path="/terms-of-service"
       />
-      <BackgroundMotion />
-      <main className="section-container">
+      <main className="page-container">
         <header className="w-full mb-16 text-center sm:text-left">
-          <h1 className="text-5xl sm:text-6xl font-serif mb-6 tracking-tight">Terms of Service</h1>
+          <h1 className="text-h1 font-serif mb-6">Terms of Service</h1>
           <p className="text-narrative">Last updated: {LAST_UPDATED}</p>
           <p className="text-sm text-muted mt-2">
             See also our{" "}
@@ -127,6 +126,6 @@ export default function TermsOfService() {
           </p>
         </div>
       </main>
-    </div>
+    </PageShell>
   );
 }

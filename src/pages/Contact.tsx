@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import BackgroundMotion from "@/components/BackgroundMotion";
 import SeoHead from "@/components/SeoHead";
+import PageShell from "@/components/PageShell";
 import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Clock, Mailbox, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -97,19 +97,18 @@ export default function Contact() {
   }
 
   return (
-    <div className="relative min-h-screen pt-24 pb-20">
+    <PageShell>
       <SeoHead
         title="Contact | Corbin Meier"
         description="Ready to bring your project to life? Get in touch with Corbin Meier to discuss your next software engineering project."
         path="/contact"
       />
-      <BackgroundMotion />
-      <main className="section-container">
+      <main className="page-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Header & Info */}
           <div className="lg:col-span-5">
             <header className="mb-12 text-center sm:text-left">
-              <h1 className="text-5xl sm:text-7xl font-serif mb-6 tracking-tight">{contact.heading}</h1>
+              <h1 className="text-h1 font-serif mb-6">{contact.heading}</h1>
               <p className="text-narrative">
                 {contact.subhead}
               </p>
@@ -239,6 +238,6 @@ export default function Contact() {
           </div>
         </div>
       </main>
-    </div>
+    </PageShell>
   );
 }

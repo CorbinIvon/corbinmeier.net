@@ -48,8 +48,6 @@ export interface ServicesSectionContent {
 export interface EducationContent {
   eyebrow: string;
   degreeTitle: string;
-  degreeMapLabel: string;
-  degreeMapUrl: string;
   diplomaUrl: string;
   diplomaPreviewUrl: string;
   diplomaOverlayLabel: string;

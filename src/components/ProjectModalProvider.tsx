@@ -212,7 +212,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                         Project
                       </div>
                    </div>
-                   <h2 className="text-4xl font-serif leading-tight mb-4">{project.title}</h2>
+                   <h2 className="text-h2 font-serif mb-4">{project.title}</h2>
                    <p className="text-muted leading-relaxed text-lg">
                      {project.description}
                    </p>

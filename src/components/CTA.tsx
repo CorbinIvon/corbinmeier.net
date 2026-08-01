@@ -20,7 +20,7 @@ export default function CTA() {
         <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-accent/30 rounded-full blur-[100px]" />
 
         <div className="relative z-10 w-full">
-          <h2 className="text-4xl sm:text-6xl font-serif text-white mb-8 leading-tight">
+          <h2 className="text-h2 font-serif text-white mb-8">
             {homeCta.headingPre} <span className="text-accent italic">{homeCta.headingAccent}</span>
           </h2>
           <p className="text-white/80 text-lg sm:text-xl mb-12 leading-relaxed">

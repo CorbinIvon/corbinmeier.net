@@ -48,7 +48,7 @@ export default function Services() {
   return (
     <section className="section-container bg-muted/30">
       <div className="w-full mb-10 sm:mb-16 text-center sm:text-left">
-        <h2 className="text-4xl sm:text-5xl font-serif mb-6">{servicesSection.headingPre} <span className="text-accent italic">{servicesSection.headingAccent}</span></h2>
+        <h2 className="text-h2 font-serif mb-6">{servicesSection.headingPre} <span className="text-accent italic">{servicesSection.headingAccent}</span></h2>
         <p className="text-narrative">
           {servicesSection.intro}
         </p>
@@ -68,7 +68,7 @@ export default function Services() {
               <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Icon className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-serif font-medium mb-3">{s.title}</h3>
+              <h3 className="text-h3 font-serif mb-3">{s.title}</h3>
               <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
               {s.link && (
                 <div className="mt-6 flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-widest">

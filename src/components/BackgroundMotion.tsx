@@ -33,9 +33,10 @@ export default function BackgroundMotion() {
         className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-accent/10 rounded-full blur-[100px]" 
       />
       
-      {/* Subtle grid pattern */}
+      {/* Subtle grid pattern — same viewport-anchored grid as the homepage
+          hero (blueprint-bg), so it's continuous across every page. */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] contrast-150" />
-      <div className="absolute inset-0 bg-grid-slate-900/[0.02] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.02]" />
+      <div className="absolute inset-0 opacity-40 blueprint-bg" />
     </div>
   );
 }

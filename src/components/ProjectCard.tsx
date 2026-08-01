@@ -114,7 +114,7 @@ export default function ProjectCard({
             ))}
           </div>
         </div>
-        <h3 className="text-2xl font-serif font-medium mb-3 group-hover:text-accent transition-colors leading-tight">
+        <h3 className="text-h3 font-serif group-hover:text-accent transition-colors mb-3">
           {project.title}
         </h3>
         <p className="text-muted leading-relaxed line-clamp-2">

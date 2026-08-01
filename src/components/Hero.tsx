@@ -22,7 +22,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="w-full px-1 pt-8 pb-16 sm:py-32 min-h-[60vh] sm:min-h-[85vh] flex flex-col justify-center items-center sm:items-start relative blueprint-bg">
+    <section className="w-full px-6 sm:px-10 pt-4 lg:pt-8 pb-12 sm:pb-16 min-h-[50vh] sm:min-h-[65vh] flex flex-col justify-center items-center sm:items-start relative">
       <motion.div
         variants={container}
         initial="hidden"
@@ -41,7 +41,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div variants={item}>
-          <h1 className="text-6xl sm:text-8xl lg:text-[10rem] mb-10 leading-[0.8] font-serif tracking-tighter text-foreground">
+          <h1 className="text-display mb-6 font-serif text-foreground">
             {homeHero.headingLine1} <br />
             <span className="text-accent italic">{homeHero.headingAccent}</span>
           </h1>

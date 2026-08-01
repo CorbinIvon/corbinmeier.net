@@ -2,7 +2,7 @@
 
 import associates from "@/data/associates.json";
 import { education } from "@/data/education";
-import { GraduationCap, ExternalLink } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
 
@@ -35,22 +35,12 @@ export default function EducationStrip() {
             <GraduationCap className="w-3 h-3" />
             {education.eyebrow}
           </div>
-          <h3 className="text-2xl font-serif font-medium mb-1">
+          <h3 className="text-h3 font-serif mb-1">
             {education.degreeTitle}
           </h3>
-          <p className="text-muted mb-4">
+          <p className="text-muted">
             {butte.name} • Class of 2025
           </p>
-          <div className="flex flex-wrap justify-center sm:justify-start gap-4">
-            <a
-              href={education.degreeMapUrl}
-              className="text-sm font-medium underline underline-offset-4 hover:text-accent transition-colors inline-flex items-center gap-1"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {education.degreeMapLabel} <ExternalLink className="w-3 h-3" />
-            </a>
-          </div>
         </div>
 
         <div className="flex-shrink-0">

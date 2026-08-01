@@ -68,6 +68,25 @@
 }
 
 @layer components {
+  /* Standard heading scale — use these instead of ad hoc text-*xl sizes so
+     headings stay consistent across every page. .text-display is reserved
+     for the homepage hero only. */
+  .text-display {
+    @apply text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight;
+  }
+
+  .text-h1 {
+    @apply text-3xl sm:text-4xl leading-tight tracking-tight;
+  }
+
+  .text-h2 {
+    @apply text-2xl sm:text-3xl leading-tight tracking-tight;
+  }
+
+  .text-h3 {
+    @apply text-lg sm:text-xl font-medium leading-snug;
+  }
+
   .glass-panel {
     @apply bg-card border border-border rounded-xl;
   }
@@ -76,10 +95,23 @@
     background-image: linear-gradient(var(--blueprint-grid) 1px, transparent 1px),
       linear-gradient(90deg, var(--blueprint-grid) 1px, transparent 1px);
     background-size: 40px 40px;
+    /* Fixed attachment ties the grid to the viewport instead of each
+       element's own box, so the pattern lines up continuously across
+       every section that uses this class instead of resetting per-section. */
+    background-attachment: fixed;
   }
 
   .section-container {
-    @apply w-full px-1 py-16 sm:py-32;
+    @apply w-full px-6 sm:px-10 py-10 sm:py-16;
+  }
+
+  /* Horizontal-only variant of .section-container — for a page's single
+     <main> wrapper, where the page root div already supplies top/bottom
+     spacing. Using .section-container there would stack a second, redundant
+     vertical padding on top of it and push content down further than
+     intended. */
+  .page-container {
+    @apply w-full px-6 sm:px-10;
   }
 
   .text-narrative {

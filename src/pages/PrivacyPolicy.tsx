@@ -1,21 +1,20 @@
 import { Link } from "react-router-dom";
-import BackgroundMotion from "@/components/BackgroundMotion";
 import SeoHead from "@/components/SeoHead";
+import PageShell from "@/components/PageShell";
 
 const LAST_UPDATED = "July 21, 2026";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="relative min-h-screen pt-24 pb-20">
+    <PageShell>
       <SeoHead
         title="Privacy Policy | Corbin Meier"
         description="Read Corbin Meier's privacy policy covering contact form data, analytics, retention, and your rights."
         path="/privacy-policy"
       />
-      <BackgroundMotion />
-      <main className="section-container">
+      <main className="page-container">
         <header className="w-full mb-16 text-center sm:text-left">
-          <h1 className="text-5xl sm:text-6xl font-serif mb-6 tracking-tight">Privacy Policy</h1>
+          <h1 className="text-h1 font-serif mb-6">Privacy Policy</h1>
           <p className="text-narrative">Last updated: {LAST_UPDATED}</p>
           <p className="text-sm text-muted mt-2">
             See also our{" "}
@@ -116,6 +115,6 @@ export default function PrivacyPolicy() {
           </p>
         </div>
       </main>
-    </div>
+    </PageShell>
   );
 }

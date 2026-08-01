@@ -7,6 +7,7 @@ import type {
   ReactNode,
   TextareaHTMLAttributes,
 } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRevealOnScroll } from "./useCyberCodeEffects";
 
@@ -97,19 +98,37 @@ export function CyberCodeSectionLabel({ className }: { className?: string }) {
 export function CyberCodeWindowChrome({
   title,
   icon,
+  showDots = true,
+  onDotClick,
   className,
 }: {
   title: ReactNode;
   icon?: ReactNode;
+  showDots?: boolean;
+  onDotClick?: () => void;
   className?: string;
 }) {
+  const dotColors = ["#ff5f57", "#febc2e", "#28c840"];
   return (
     <div className={cx("flex items-center gap-3 border-b border-border bg-white/5 px-4 py-3", className)}>
-      <div className="flex gap-1.5">
-        <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-      </div>
+      {showDots && (
+        <div className="flex gap-1.5">
+          {dotColors.map((color) =>
+            onDotClick ? (
+              <button
+                key={color}
+                type="button"
+                onClick={onDotClick}
+                aria-label="Toggle window"
+                className="h-2.5 w-2.5 rounded-full transition-transform hover:scale-125"
+                style={{ backgroundColor: color }}
+              />
+            ) : (
+              <span key={color} className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: color }} />
+            )
+          )}
+        </div>
+      )}
       <span className="flex items-center gap-2 truncate font-mono text-xs text-muted">
         {icon}
         {title}
@@ -126,15 +145,20 @@ export function CyberCodeTerminalWindow({
   title,
   icon,
   accent = "primary",
+  showDots = true,
+  collapsible = false,
   className,
   children,
 }: {
   title: ReactNode;
   icon?: ReactNode;
   accent?: CyberAccent;
+  showDots?: boolean;
+  collapsible?: boolean;
   className?: string;
   children: ReactNode;
 }) {
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <div
       className={cx(
@@ -143,8 +167,22 @@ export function CyberCodeTerminalWindow({
       )}
       style={accentVars(accent)}
     >
-      <CyberCodeWindowChrome title={title} icon={icon} />
-      <div className="p-6">{children}</div>
+      <CyberCodeWindowChrome
+        title={title}
+        icon={icon}
+        showDots={showDots}
+        onDotClick={collapsible ? () => setCollapsed((c) => !c) : undefined}
+      />
+      <div
+        className={cx(
+          "grid transition-[grid-template-rows] duration-300 ease-in-out",
+          collapsed ? "grid-rows-[0fr]" : "grid-rows-[1fr]"
+        )}
+      >
+        <div className="overflow-hidden">
+          <div className="p-6">{children}</div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -163,7 +201,7 @@ export function CyberCodeTerminalLine({
   return (
     <div className={cx("mb-3 font-mono text-sm leading-relaxed", output ? "pl-6 text-muted" : "text-foreground", className)}>
       {!output && (
-        <span className="mr-2.5 text-[var(--cc-text)]" style={{ textShadow: "var(--cc-glow)" }}>
+        <span className="inline-block w-6 text-[var(--cc-text)]" style={{ textShadow: "var(--cc-glow)" }}>
           {prompt}
         </span>
       )}
