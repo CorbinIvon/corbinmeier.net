@@ -240,7 +240,7 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                   {/* Info Panel */}
                   <div className="lg:col-span-5 flex flex-col justify-between">
                     <div>
-                      <header className="mb-8 theme-blue">
+                      <header className="mb-8">
                         <CyberCodeTerminalLine prompt=">" className="mb-2">
                           <span className="font-mono text-sm">mailto contact@corbinmeier.net</span>
                         </CyberCodeTerminalLine>
@@ -252,7 +252,7 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                         </p>
                       </header>
 
-                      <div className="space-y-6 theme-red">
+                      <div className="space-y-6">
                         {contact.infoItems.map((infoItem) => {
                           const Icon = CONTACT_ICONS[infoItem.icon];
                           return (
@@ -276,7 +276,7 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                   </div>
 
                   {/* Form Panel */}
-                  <div className="lg:col-span-7 theme-green">
+                  <div className="lg:col-span-7">
                     <CyberCodeTerminalWindow
                       title="visitor@meier.net:~/contact_form"
                       accent="primary"
@@ -288,16 +288,11 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                           <div className="flex flex-col gap-1 py-1">
                             <label className={cn(
                               "font-mono text-xs select-none transition-colors",
-                              isFieldInvalid("firstName") ? "text-[var(--danger)]" : "text-[var(--accent)]/80"
+                              isFieldInvalid("firstName") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
                             )}>$ first_name:</label>
                             <input
                               type="text"
-                              className={cn(
-                                "w-full bg-transparent border-b outline-none font-mono text-sm p-0 pb-0.5 focus:ring-0 transition-colors",
-                                isFieldInvalid("firstName")
-                                  ? "border-[var(--danger)] text-[var(--danger)] focus:border-[var(--danger)]"
-                                  : "border-border text-[var(--accent)] focus:border-[var(--accent)]"
-                              )}
+                              className="w-full bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
                               value={form.firstName}
                               onChange={(e) => update("firstName", e.target.value)}
                               onBlur={() => setTouched((t) => ({ ...t, firstName: true }))}
@@ -320,16 +315,11 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                           <div className="flex flex-col gap-1 py-1">
                             <label className={cn(
                               "font-mono text-xs select-none transition-colors",
-                              isFieldInvalid("email") ? "text-[var(--danger)]" : "text-[var(--accent)]/80"
+                              isFieldInvalid("email") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
                             )}>$ email:</label>
                             <input
                               type="email"
-                              className={cn(
-                                "w-full bg-transparent border-b outline-none font-mono text-sm p-0 pb-0.5 focus:ring-0 transition-colors",
-                                isFieldInvalid("email")
-                                  ? "border-[var(--danger)] text-[var(--danger)] focus:border-[var(--danger)]"
-                                  : "border-border text-[var(--accent)] focus:border-[var(--accent)]"
-                              )}
+                              className="w-full bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
                               value={form.email}
                               onChange={(e) => update("email", e.target.value)}
                               onBlur={() => setTouched((t) => ({ ...t, email: true }))}
@@ -351,16 +341,11 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                         <div className="flex flex-col gap-1 py-1">
                           <label className={cn(
                             "font-mono text-xs select-none transition-colors",
-                            isFieldInvalid("subject") ? "text-[var(--danger)]" : "text-[var(--accent)]/80"
+                            isFieldInvalid("subject") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
                           )}>$ subject:</label>
                           <input
                             type="text"
-                            className={cn(
-                              "w-full bg-transparent border-b outline-none font-mono text-sm p-0 pb-0.5 focus:ring-0 transition-colors",
-                              isFieldInvalid("subject")
-                                ? "border-[var(--danger)] text-[var(--danger)] focus:border-[var(--danger)]"
-                                : "border-border text-[var(--accent)] focus:border-[var(--accent)]"
-                            )}
+                            className="w-full bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
                             value={form.subject}
                             onChange={(e) => update("subject", e.target.value)}
                             onBlur={() => setTouched((t) => ({ ...t, subject: true }))}

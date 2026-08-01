@@ -149,7 +149,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Header & Info */}
           <motion.div variants={item} className="lg:col-span-5">
-            <header className="mb-12 text-center sm:text-left theme-blue">
+            <header className="mb-12 text-center sm:text-left">
               <CyberCodeTerminalLine prompt=">" className="mb-2">
                 <Typewriter durationMs={800} as="span">mailto contact@corbinmeier.net</Typewriter>
               </CyberCodeTerminalLine>
@@ -161,7 +161,7 @@ export default function Contact() {
               </p>
             </header>
 
-            <div className="space-y-8 theme-red">
+            <div className="space-y-8">
               {contact.infoItems.map((infoItem) => {
                 const Icon = CONTACT_ICONS[infoItem.icon];
                 return (
@@ -184,7 +184,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Form inside Terminal Window */}
-          <motion.div variants={item} className="lg:col-span-7 theme-green">
+          <motion.div variants={item} className="lg:col-span-7">
             <CyberCodeTerminalWindow
               title="visitor@meier.net:~/contact_form"
               accent="primary"
@@ -196,16 +196,11 @@ export default function Contact() {
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 py-1">
                     <label className={cn(
                       "font-mono text-xs select-none whitespace-nowrap min-w-[110px] transition-colors",
-                      isFieldInvalid("firstName") ? "text-[var(--danger)]" : "text-[var(--accent)]/80"
+                      isFieldInvalid("firstName") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
                     )}>$ first_name:</label>
                     <input
                       type="text"
-                      className={cn(
-                        "flex-1 bg-transparent border-b outline-none font-mono text-sm p-0 pb-0.5 focus:ring-0 transition-colors",
-                        isFieldInvalid("firstName")
-                          ? "border-[var(--danger)] text-[var(--danger)] focus:border-[var(--danger)]"
-                          : "border-border text-[var(--accent)] focus:border-[var(--accent)]"
-                      )}
+                      className="flex-1 bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
                       value={form.firstName}
                       onChange={(e) => update("firstName", e.target.value)}
                       onBlur={() => setTouched((t) => ({ ...t, firstName: true }))}
@@ -228,16 +223,11 @@ export default function Contact() {
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 py-1">
                     <label className={cn(
                       "font-mono text-xs select-none whitespace-nowrap min-w-[110px] transition-colors",
-                      isFieldInvalid("email") ? "text-[var(--danger)]" : "text-[var(--accent)]/80"
+                      isFieldInvalid("email") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
                     )}>$ email:</label>
                     <input
                       type="email"
-                      className={cn(
-                        "flex-1 bg-transparent border-b outline-none font-mono text-sm p-0 pb-0.5 focus:ring-0 transition-colors",
-                        isFieldInvalid("email")
-                          ? "border-[var(--danger)] text-[var(--danger)] focus:border-[var(--danger)]"
-                          : "border-border text-[var(--accent)] focus:border-[var(--accent)]"
-                      )}
+                      className="flex-1 bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
                       value={form.email}
                       onChange={(e) => update("email", e.target.value)}
                       onBlur={() => setTouched((t) => ({ ...t, email: true }))}
@@ -259,16 +249,11 @@ export default function Contact() {
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 py-1">
                   <label className={cn(
                     "font-mono text-xs select-none whitespace-nowrap min-w-[110px] transition-colors",
-                    isFieldInvalid("subject") ? "text-[var(--danger)]" : "text-[var(--accent)]/80"
+                    isFieldInvalid("subject") ? "animate-label-flash text-[var(--accent)] font-bold" : "text-[var(--accent)]/80"
                   )}>$ subject:</label>
                   <input
                     type="text"
-                    className={cn(
-                      "flex-1 bg-transparent border-b outline-none font-mono text-sm p-0 pb-0.5 focus:ring-0 transition-colors",
-                      isFieldInvalid("subject")
-                        ? "border-[var(--danger)] text-[var(--danger)] focus:border-[var(--danger)]"
-                        : "border-border text-[var(--accent)] focus:border-[var(--accent)]"
-                    )}
+                    className="flex-1 bg-transparent border-b border-border focus:border-[var(--accent)] outline-none font-mono text-sm text-[var(--accent)] p-0 pb-0.5 focus:ring-0 transition-colors"
                     value={form.subject}
                     onChange={(e) => update("subject", e.target.value)}
                     onBlur={() => setTouched((t) => ({ ...t, subject: true }))}
