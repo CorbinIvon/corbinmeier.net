@@ -62,7 +62,7 @@ export default function ProjectCard({
       onMouseLeave={() => setHovered(false)}
       className="relative h-full flex flex-col group overflow-hidden bg-card border border-border rounded-2xl transition-all duration-500 hover:border-accent/50 "
     >
-      <CyberCodeSectionLabel>{`// project.${project.slug}`}</CyberCodeSectionLabel>
+      <CyberCodeSectionLabel />
       {/* Glow Effect */}
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"

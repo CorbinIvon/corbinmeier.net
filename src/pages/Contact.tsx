@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
 import { contact } from "@/data/contact";
 import type { ContactInfoItem } from "@/data/types";
-import { CyberCodeFormField, CyberCodeButton, CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeFormField, CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
 
 const CONTACT_ICONS: Record<ContactInfoItem["icon"], LucideIcon> = {
   Mail,
@@ -140,7 +140,6 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               className="relative glass-panel p-8 sm:p-12 border-accent/10"
             >
-              <CyberCodeSectionLabel>// contact.form</CyberCodeSectionLabel>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">

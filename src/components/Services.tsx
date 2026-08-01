@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { servicesSection } from "@/data/services";
 import type { ServiceItem } from "@/data/types";
-import { CyberCodeSectionLabel } from "@/components/cybercode/CyberCodeUIKit";
 
 const ICONS: Record<ServiceItem["icon"], LucideIcon> = {
   Globe,
@@ -48,7 +47,7 @@ export default function Services() {
 
   return (
     <section className="section-container bg-muted/30">
-      <div className="max-w-3xl mb-10 sm:mb-16 mx-auto sm:mx-0 text-center sm:text-left">
+      <div className="w-full mb-10 sm:mb-16 text-center sm:text-left">
         <h2 className="text-4xl sm:text-5xl font-serif mb-6">{servicesSection.headingPre} <span className="text-accent italic">{servicesSection.headingAccent}</span></h2>
         <p className="text-narrative">
           {servicesSection.intro}
@@ -66,7 +65,6 @@ export default function Services() {
           const Icon = ICONS[s.icon];
           const Content = (
             <>
-              <CyberCodeSectionLabel>{`// services.${s.id}`}</CyberCodeSectionLabel>
               <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Icon className="w-6 h-6" />
               </div>
