@@ -50,6 +50,7 @@
   --background: #0a0e17;
   --card-bg: #0d1420;
   --border: #1e2836;
+  --input-bg: #0d1420;
 }
 
 .theme-green {
@@ -58,6 +59,7 @@
   --background: #04100c;
   --card-bg: #071712;
   --border: #0d2a21;
+  --input-bg: #051a14;
 }
 
 .theme-red {
@@ -66,6 +68,7 @@
   --background: #100404;
   --card-bg: #170707;
   --border: #2c0d0d;
+  --input-bg: #1c0a0a;
 }
 
 html.theme-contact, html.theme-contact body {
