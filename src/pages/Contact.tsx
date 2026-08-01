@@ -128,7 +128,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Header & Info */}
           <motion.div variants={item} className="lg:col-span-5">
-            <header className="mb-12 text-center sm:text-left">
+            <header className="mb-12 text-center sm:text-left theme-blue">
               <CyberCodeTerminalLine prompt=">" className="mb-2">
                 <Typewriter durationMs={800} as="span">mailto contact@corbinmeier.net</Typewriter>
               </CyberCodeTerminalLine>
@@ -140,7 +140,7 @@ export default function Contact() {
               </p>
             </header>
 
-            <div className="space-y-8">
+            <div className="space-y-8 theme-red">
               {contact.infoItems.map((infoItem) => {
                 const Icon = CONTACT_ICONS[infoItem.icon];
                 return (
@@ -163,7 +163,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Form */}
-          <motion.div variants={item} className="lg:col-span-7">
+          <motion.div variants={item} className="lg:col-span-7 theme-green">
             <div className="relative glass-panel p-8 sm:p-12 border-accent/10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
