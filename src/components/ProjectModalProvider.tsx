@@ -201,8 +201,6 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                             <BeforeAfterSlider 
                               beforeImage={project.beforeAfter!.before.image!}
                               afterImage={project.beforeAfter!.after.image!}
-                              beforeLabel={project.beforeAfter!.before.title}
-                              afterLabel={project.beforeAfter!.after.title}
                               className="w-full h-full"
                             />
                           </div>
