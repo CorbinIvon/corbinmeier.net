@@ -196,10 +196,15 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                             {/* We only use layoutId for the image that is NOT currently being animated out */}
                             <motion.img
                               layoutId={!isFullscreen ? `project-image-${project.slug}-${activeIndex}` : undefined}
-                              src={project.images[activeIndex]}
+                              src={project.images[activeIndex].src}
                               alt={project.title}
                               className="w-full h-full object-cover"
                             />
+                            {project.images[activeIndex].label && (
+                              <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 text-white text-[9px] font-bold uppercase tracking-wider border border-white/20">
+                                {project.images[activeIndex].label}
+                              </span>
+                            )}
                             {/* Expand Button */}
                             <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
                               <button 
@@ -245,7 +250,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                     <div className="flex gap-2 p-4 border-t border-border overflow-x-auto bg-background/50">
                       {project.images.map((img, idx) => (
                         <button
-                          key={img}
+                          key={img.src}
                           onClick={() => {
                             setDirection(idx > activeIndex ? 1 : -1);
                             setActiveIndex(idx);
@@ -254,7 +259,12 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                             idx === activeIndex ? "border-accent scale-95" : "border-border/50 hover:border-border scale-100"
                           }`}
                         >
-                          <img src={img} alt="" className="w-full h-full object-cover" />
+                          <img src={img.src} alt="" className="w-full h-full object-cover" />
+                          {img.label && (
+                            <span className="absolute bottom-0 left-0 right-0 px-1 py-0.5 bg-black/70 text-white text-[7px] font-bold uppercase tracking-wider text-center truncate">
+                              {img.label}
+                            </span>
+                          )}
                         </button>
                       ))}
                     </div>
@@ -442,7 +452,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
             >
               <motion.img
                 layoutId={`project-image-${project.slug}-${activeIndex}`}
-                src={project.images[activeIndex]}
+                src={project.images[activeIndex].src}
                 alt={project.title}
                 className="max-w-full max-h-full object-contain rounded-sm cursor-zoom-out"
                 onClick={() => setIsFullscreen(false)}
@@ -476,8 +486,11 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
               )}
 
               {/* Index Indicator */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-center text-white/40 font-mono text-xs tracking-widest uppercase">
+              <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-center items-center gap-2 text-white/40 font-mono text-xs tracking-widest uppercase">
                 {activeIndex + 1} / {project.images.length}
+                {project.images[activeIndex].label && (
+                  <span className="text-white/70">— {project.images[activeIndex].label}</span>
+                )}
               </div>
             </motion.div>
           </motion.div>

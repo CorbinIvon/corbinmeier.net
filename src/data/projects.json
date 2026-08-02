@@ -1,22 +1,38 @@
 [
   {
-    "title": "Janus Advisor Inc. - Funeral Home Network",
-    "slug": "janus-advisor-network",
+    "title": "Cremation Simplicity",
+    "slug": "cremation-simplicity",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages", "Infrastructure"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages",
+      "Infrastructure"
+    ],
     "public-url": "https://cremation-simplicity.com/",
-    "description": "Enterprise-scale digital modernization for a leading equity firm managing multiple funeral home properties.",
-    "body": "<p>Serving as the IT lead for Janus Advisor Inc., I am executing a massive digital overhaul for their network of funeral home properties. This initiative involves migrating a fleet of over 20 legacy sites from restrictive, high-premium Squarespace plans to a custom, high-performance React + Vite framework. This transition not only provides a significantly more premium aesthetic but also delivers substantial operational efficiency, saving the firm between $240 and $1,200 annually per property in hosting fees alone.</p><p>A critical technical objective was achieving granular control over the UI that out-of-the-box templates couldn't provide. A prime example is the 'Available 24/7' Call Now button integrated directly into the site headers—a high-converting feature essential for the industry that Squarespace's rigid template system could not accommodate. Current successful migrations include Cremation Simplicity, with Blair's Cremation, McNary's Woodland, and Chapel by the Sea currently under review for final deployment.</p>",
-    "images": [],
+    "description": "A custom, high-performance rebuild for Cremation Simplicity, part of a wider modernization effort for a network of funeral home properties.",
+    "body": "<p>I rebuilt Cremation Simplicity's site, migrating it from a restrictive, high-premium Squarespace plan to a custom, high-performance React + Vite framework. This transition not only provides a significantly more premium aesthetic but also delivers substantial operational efficiency, saving the business between $240 and $1,200 annually in hosting fees.</p><p>A critical technical objective was achieving granular control over the UI that out-of-the-box templates couldn't provide. A prime example is the 'Available 24/7' Call Now button integrated directly into the site header—a high-converting feature essential for the industry that Squarespace's rigid template system could not accommodate. This build is part of a broader migration roadmap covering other properties in the same network, including Blair's Cremation, McNary's Woodland, and Chapel by the Sea.</p>",
+    "images": [
+      {
+        "src": "/clients/cremation-simplicity/original/screencapture-web-archive-org-web-20250825053042-https-www-cremation-simplicity-com-2026-08-01-17_20_15.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/cremation-simplicity/update/screencapture-localhost-5173-2026-08-01-17_07_31.png",
+        "label": "update"
+      }
+    ],
     "beforeAfter": {
       "before": {
         "title": "Rigid SaaS (Squarespace)",
-        "description": "High hosting premiums ($20-$100/mo per site) and restrictive templates that blocked essential UI features like enhanced header CTAs."
+        "description": "High hosting premiums ($20-$100/mo per site) and restrictive templates that blocked essential UI features like enhanced header CTAs.",
+        "image": "/clients/cremation-simplicity/original/screencapture-web-archive-org-web-20250825053042-https-www-cremation-simplicity-com-2026-08-01-17_20_15.png"
       },
       "after": {
         "title": "Custom Enterprise Edge",
-        "description": "Zero-cost Cloudflare hosting with a 20+ site roadmap, featuring custom 'Available 24/7' CTAs and a premium, bespoke aesthetic."
+        "description": "Zero-cost Cloudflare hosting with a 20+ site roadmap, featuring custom 'Available 24/7' CTAs and a premium, bespoke aesthetic.",
+        "image": "/clients/cremation-simplicity/update/screencapture-localhost-5173-2026-08-01-17_07_31.png"
       }
     }
   },
@@ -25,7 +41,12 @@
     "slug": "amazing-grace-media",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages", "Node.js"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages",
+      "Node.js"
+    ],
     "public-url": "https://amzinggracemedia-com.pages.dev/",
     "original-url": "https://amzinggracemedia.com",
     "status": "WIP",
@@ -61,15 +82,58 @@
     "public-url": "https://redbluffcofc.com",
     "description": "Comprehensive church website with an admin portal, user authentication, and an automated newsletter system.",
     "body": "<p>A full-featured community platform for the Red Bluff Church of Christ. While the public-facing site remains highly performant and static-first, the backend leverages Cloudflare Pages Functions and D1 for dynamic content management. Features include a secure admin portal for content updates, user authentication for members, and a newsletter subscription service with automated email notifications for new posts.</p><p>Moving beyond a brittle HostGator setup, I engineered a robust digital ecosystem for this community. The highlight is a custom-built CMS that empowers leadership with full CRUD operations for announcements, Bible studies, and weekly devotionals. The Bible study module includes a sophisticated text editor and live preview tool, while the Devotional section features an elegant text-over-image experience.</p>",
-    "images": [],
+    "images": [
+      {
+        "src": "/clients/red-bluff-church-of-christ/New/screencapture-redbluffcofc-2026-08-01-16_00_39.png",
+        "label": "New"
+      },
+      {
+        "src": "/clients/red-bluff-church-of-christ/New/screencapture-redbluffcofc-about-2026-08-01-16_00_49.png",
+        "label": "New"
+      },
+      {
+        "src": "/clients/red-bluff-church-of-christ/New/screencapture-redbluffcofc-bible-studies-2026-08-01-16_01_03.png",
+        "label": "New"
+      },
+      {
+        "src": "/clients/red-bluff-church-of-christ/New/screencapture-redbluffcofc-contact-2026-08-01-16_01_14.png",
+        "label": "New"
+      },
+      {
+        "src": "/clients/red-bluff-church-of-christ/New/screencapture-redbluffcofc-news-2026-08-01-16_00_57.png",
+        "label": "New"
+      },
+      {
+        "src": "/clients/red-bluff-church-of-christ/Original/screencapture-file-home-corbin-Code-Work-Sites-CorbinMeier-Solutions-Churches-redbluffcofc-com-original-about-html-2026-08-01-15_56_47.png",
+        "label": "Original"
+      },
+      {
+        "src": "/clients/red-bluff-church-of-christ/Original/screencapture-file-home-corbin-Code-Work-Sites-CorbinMeier-Solutions-Churches-redbluffcofc-com-original-blogs-html-2026-08-01-15_57_14.png",
+        "label": "Original"
+      },
+      {
+        "src": "/clients/red-bluff-church-of-christ/Original/screencapture-file-home-corbin-Code-Work-Sites-CorbinMeier-Solutions-Churches-redbluffcofc-com-original-contact-html-2026-08-01-15_57_07.png",
+        "label": "Original"
+      },
+      {
+        "src": "/clients/red-bluff-church-of-christ/Original/screencapture-file-home-corbin-Code-Work-Sites-CorbinMeier-Solutions-Churches-redbluffcofc-com-original-courses-html-2026-08-01-15_56_57.png",
+        "label": "Original"
+      },
+      {
+        "src": "/clients/red-bluff-church-of-christ/Original/screencapture-file-home-corbin-Code-Work-Sites-CorbinMeier-Solutions-Churches-redbluffcofc-com-original-index-html-2026-08-01-15_56_38.png",
+        "label": "Original"
+      }
+    ],
     "beforeAfter": {
       "before": {
         "title": "Brittle Legacy Hosting",
-        "description": "Unbearable maintenance on HostGator; updates frequently broke functionality, and manual rollbacks were common."
+        "description": "Unbearable maintenance on HostGator; updates frequently broke functionality, and manual rollbacks were common.",
+        "image": "/clients/red-bluff-church-of-christ/Original/screencapture-file-home-corbin-Code-Work-Sites-CorbinMeier-Solutions-Churches-redbluffcofc-com-original-about-html-2026-08-01-15_56_47.png"
       },
       "after": {
         "title": "Empowered Community Portal",
-        "description": "A secure, multi-role backend with custom editing tools, achieving faster load times and zero maintenance friction."
+        "description": "A secure, multi-role backend with custom editing tools, achieving faster load times and zero maintenance friction.",
+        "image": "/clients/red-bluff-church-of-christ/New/screencapture-redbluffcofc-2026-08-01-16_00_39.png"
       }
     }
   },
@@ -78,7 +142,12 @@
     "slug": "corbinmeier-net",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages", "TypeScript"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages",
+      "TypeScript"
+    ],
     "public-url": "https://corbinmeier.net/",
     "description": "The portfolio you are currently viewing, built with a focus on speed and security.",
     "body": "<p>This site represents my personal standard for web architecture. I migrated from a heavy Next.js + Vercel + Supabase stack to a streamlined React + Vite implementation on Cloudflare Pages. This shift eliminated unnecessary runtime overhead and consolidated the infrastructure into a zero-cost, high-performance static delivery model.</p><p>By leveraging TypeScript for structural integrity and Cloudflare's edge network for security, I've created a platform that is not only fast but virtually impenetrable and infinitely scalable.</p>",
@@ -99,7 +168,13 @@
     "slug": "chuck-the-painter",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "SEO", "Cloudflare Pages", "Vanilla CSS"],
+    "skills": [
+      "React",
+      "Vite",
+      "SEO",
+      "Cloudflare Pages",
+      "Vanilla CSS"
+    ],
     "public-url": "https://chuck-the-painter.com",
     "status": "Complete, ongoing",
     "description": "Professional painter's business website featuring a clean, static design and a functional contact form.",
@@ -121,7 +196,11 @@
     "slug": "atlas-energy-consulting",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare"
+    ],
     "public-url": "https://atlasenergyconsulting-com.pages.dev/",
     "original-url": "https://atlasenergyconsulting.com",
     "description": "A high-performance recreation of a WordPress site to lower costs and improve design.",
@@ -143,7 +222,12 @@
     "slug": "johnsons-turboclean",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare", "Branding"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare",
+      "Branding"
+    ],
     "public-url": "https://johnsonsturboclean-com.pages.dev/",
     "original-url": "https://johnsonsturboclean.com",
     "status": "WIP",
@@ -166,7 +250,12 @@
     "slug": "envee-hair-studio",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare", "UI/UX"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare",
+      "UI/UX"
+    ],
     "public-url": "https://enveehairstudio-com.pages.dev/",
     "original-url": "https://enveehairstudio.com",
     "description": "A high-fidelity site migration completed in a single day after a previous developer failed to deliver.",
@@ -188,10 +277,18 @@
     "slug": "vehicles-management",
     "year": 2023,
     "extension": "php",
-    "skills": ["PHP", "MySQL", "On-Premise"],
+    "skills": [
+      "PHP",
+      "MySQL",
+      "On-Premise"
+    ],
     "description": "Tracks vehicle essential information, documents, and live/recorded locations. On-premise deployment for internal fleet management.",
     "body": "<p>This on-premise fleet management system centralizes vehicle information, including registration, service history, documentation, and location logs. Designed for businesses that require internal hosting and strict data controls.</p><ul><li>Document uploads and versioning</li><li>Location logging (live & recorded)</li><li>Role-based access and audit logs</li></ul>",
-    "images": ["/clients/vehicles-management/vehicles-management.png"],
+    "images": [
+      {
+        "src": "/clients/vehicles-management/vehicles-management.png"
+      }
+    ],
     "archived": true
   },
   {
@@ -199,10 +296,18 @@
     "slug": "employees-hr-portal",
     "year": 2023,
     "extension": "php",
-    "skills": ["PHP", "MySQL", "On-Premise"],
+    "skills": [
+      "PHP",
+      "MySQL",
+      "On-Premise"
+    ],
     "description": "Human Resources system that digitizes and stores employee records, documents, and history. Built for secure on-premise hosting.",
     "body": "<p>An HR portal that digitizes personnel records, stores signed documents, and tracks employment history. Emphasis on privacy and on-premise deployment for organizations with internal-only data policies.</p><p>Features include secure document storage, custom reporting, and role-based workflows for approvals.</p>",
-    "images": ["/clients/employees-hr-portal/employees-hr-portal.png"],
+    "images": [
+      {
+        "src": "/clients/employees-hr-portal/employees-hr-portal.png"
+      }
+    ],
     "archived": true
   },
   {
@@ -210,14 +315,26 @@
     "slug": "buildings-sites-manager",
     "year": 2023,
     "extension": "php",
-    "skills": ["PHP", "MySQL", "On-Premise"],
+    "skills": [
+      "PHP",
+      "MySQL",
+      "On-Premise"
+    ],
     "description": "Real-estate and site management system tracking building files, time-sensitive reminders, and location-specific metadata.",
     "body": "<p>A property and site management tool for maintaining building records, lease documents, and maintenance schedules. Includes reminder notifications for inspections and lease renewals.</p>",
     "images": [
-      "/clients/buildings-sites-manager/buildings-sites-manager-dashboard.png",
-      "/clients/buildings-sites-manager/buildings-sites-manager-audit.png",
-      "/clients/buildings-sites-manager/buildings-sites-manager-registration.png",
-      "/clients/buildings-sites-manager/buildings-sites-manager-search.png"
+      {
+        "src": "/clients/buildings-sites-manager/buildings-sites-manager-audit.png"
+      },
+      {
+        "src": "/clients/buildings-sites-manager/buildings-sites-manager-dashboard.png"
+      },
+      {
+        "src": "/clients/buildings-sites-manager/buildings-sites-manager-registration.png"
+      },
+      {
+        "src": "/clients/buildings-sites-manager/buildings-sites-manager-search.png"
+      }
     ],
     "archived": true
   },
@@ -226,7 +343,11 @@
     "slug": "night-and-day",
     "year": 2025,
     "extension": "dart",
-    "skills": ["Flutter", "iOS", "Android"],
+    "skills": [
+      "Flutter",
+      "iOS",
+      "Android"
+    ],
     "description": "A mobile app currently in development for both Android and iOS. Work in progress.",
     "body": "<p>Night&Day is a cross-platform Flutter app designed for seamless experiences on iOS and Android. Current work includes authentication, local state syncing, and responsive UI tuned for mobile interactions.</p>",
     "images": [],
@@ -237,7 +358,12 @@
     "slug": "inventory-asset-system",
     "year": 2026,
     "extension": "ts",
-    "skills": ["GraphQL", "Next.js", "MySQL", "WebSockets"],
+    "skills": [
+      "GraphQL",
+      "Next.js",
+      "MySQL",
+      "WebSockets"
+    ],
     "public-url": "https://github.com/CorbinIvon/2024fa-csci-36-inventory-system",
     "description": "College inventory system using a GraphQL API and MySQL with WebSocket-based live updates for real-time inventory and asset tracking.",
     "body": "<p>Built as a college project, this inventory and asset management app uses a GraphQL backend and WebSocket-powered live updates for changes to inventory counts, checkouts, and reservations.</p><p>It demonstrates real-time collaboration patterns and efficient querying with GraphQL.</p>",
@@ -249,7 +375,12 @@
     "slug": "gestational-diabetes-assistant",
     "year": 2024,
     "extension": "dart",
-    "skills": ["Flutter", "Dart", "CSV Export", "Data Filtering"],
+    "skills": [
+      "Flutter",
+      "Dart",
+      "CSV Export",
+      "Data Filtering"
+    ],
     "public-url": "https://github.com/CorbinIvon/gestational_diabetes_tracking_assistant",
     "description": "A Flutter app for quick number tracking, CSV exporting, and filtered data views to assist gestational diabetes monitoring (college project).",
     "body": "<p>This tool helps users log blood glucose readings quickly, export sessions as CSV for sharing with clinicians, and filter/view trends over time. Built with usability and quick data entry in mind.</p>",
@@ -261,7 +392,10 @@
     "slug": "media-control-api",
     "year": 2024,
     "extension": "py",
-    "skills": ["Python", "API"],
+    "skills": [
+      "Python",
+      "API"
+    ],
     "public-url": "https://github.com/CorbinIvon/python-media-control-api",
     "description": "Python-based API for programmatic media control and device management, built as a college project.",
     "body": "<p>A lightweight Python API that exposes programmatic controls for media playback and device discovery on local networks. Useful as a centralized control layer for automation scripts and integrations.</p>",
@@ -273,7 +407,10 @@
     "slug": "windows-toast-lan-messenger",
     "year": 2023,
     "extension": "cs",
-    "skills": ["Windows Notifications", "LAN Messaging"],
+    "skills": [
+      "Windows Notifications",
+      "LAN Messaging"
+    ],
     "public-url": "https://github.com/CorbinIvon/toaster",
     "description": "Windows Toast and notification system enabling LAN messenger between devices for quick local notifications.",
     "body": "<p>A small utility that sends Windows toast notifications across a LAN. Designed for quick local messaging without a centralized server—great for internal team alerts or small office broadcasts.</p>",
@@ -315,7 +452,12 @@
     "slug": "simply-results-pt",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages", "Third-Party Integrations"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages",
+      "Third-Party Integrations"
+    ],
     "public-url": "https://simplyresultspt-com.pages.dev",
     "original-url": "https://simplyresultspt.com/",
     "status": "WIP",
@@ -329,7 +471,11 @@
     "slug": "amanda-grace-videos",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://amandagracevideos-com.pages.dev/",
     "original-url": "https://amandagracevideos.com/",
     "status": "WIP",
@@ -343,7 +489,11 @@
     "slug": "slade-brown-insurance",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://sladebrown-com.pages.dev/",
     "original-url": "https://sladebrown.com/",
     "status": "WIP",
@@ -357,7 +507,13 @@
     "slug": "bold-remedies",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages", "E-commerce", "Booking"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages",
+      "E-commerce",
+      "Booking"
+    ],
     "public-url": "https://bold-with-cheyenne.pages.dev/",
     "status": "WIP",
     "wip": true,
@@ -370,7 +526,14 @@
     "slug": "530-garage-llc",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages", "Automation", "Booking", "E-commerce"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages",
+      "Automation",
+      "Booking",
+      "E-commerce"
+    ],
     "public-url": "https://530garagellc-com.pages.dev/",
     "original-url": "https://www.530garagellc.com/",
     "status": "Feedback Phase",
@@ -383,7 +546,11 @@
     "slug": "dj-mojo-entertainment",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://djmojoentertainment-com.pages.dev/",
     "original-url": "https://www.djmojoentertainment.com/",
     "status": "Dropped",
@@ -397,7 +564,11 @@
     "slug": "kinney-attorney-at-law",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://vankinney-com.pages.dev/",
     "original-url": "https://vankinney.com/",
     "status": "WIP",
@@ -411,7 +582,11 @@
     "slug": "norcal-accounting-professionals",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://norcalaccountingprofessionals.com/",
     "status": "Complete",
     "description": "An overhaul migrating an accounting firm off Squarespace for a cleaner, standout site.",
@@ -423,7 +598,11 @@
     "slug": "park-construction",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://parkconstruction.homes/",
     "status": "Complete",
     "description": "A specialized overhaul for a Redding, CA deck construction company.",
@@ -435,7 +614,11 @@
     "slug": "community-alliance-network",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://wecan-team.pages.dev",
     "original-url": "https://wecan.team/",
     "status": "Dropped",
@@ -449,7 +632,12 @@
     "slug": "hause-of-wilson",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages", "Custom CMS"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages",
+      "Custom CMS"
+    ],
     "public-url": "https://hauseofwilson-com.pages.dev/",
     "original-url": "https://www.hauseofwilson.com/",
     "status": "Near Completion, Feedback Needed",
@@ -463,7 +651,11 @@
     "slug": "early-byrd-services",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://earlybyrd.services/",
     "status": "Complete, ongoing",
     "description": "A custom site for a landscaping and property preservation company.",
@@ -475,7 +667,11 @@
     "slug": "chico-business-network-group",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://chicobusinessnetwork.org",
     "status": "Complete, ongoing",
     "description": "A budget-conscious site for a non-compete business networking group in Chico, CA.",
@@ -487,7 +683,11 @@
     "slug": "addressdb",
     "year": 2026,
     "extension": "ts",
-    "skills": ["TypeScript", "Sales Tooling", "Internal Tools"],
+    "skills": [
+      "TypeScript",
+      "Sales Tooling",
+      "Internal Tools"
+    ],
     "status": "WIP",
     "wip": true,
     "description": "An internal tool built to assist with sales and outreach, designed to be universally deployable.",
@@ -499,7 +699,12 @@
     "slug": "michaels-office-furnishings",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages", "Site Management"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages",
+      "Site Management"
+    ],
     "public-url": "https://www.michaels-inc.com/",
     "status": "Complete",
     "description": "Ongoing site management for a Redding, CA furnishings store previously on Squarespace.",
@@ -511,7 +716,11 @@
     "slug": "easy-cleanups",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://easycleanups.com",
     "status": "Complete, Features WIP",
     "description": "A custom solution for a Redding, CA construction demolition company that Squarespace couldn't support.",
@@ -523,7 +732,11 @@
     "slug": "living-water-jet-boat-tours",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://living-water-jet-boats.pages.dev/",
     "original-url": "https://livingwaterjetboats.com/",
     "status": "Awaiting DNS Connection",
@@ -537,7 +750,13 @@
     "slug": "lit-from-within",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages", "Booking", "Custom Integration"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages",
+      "Booking",
+      "Custom Integration"
+    ],
     "public-url": "https://litfromwithin.life/",
     "status": "Complete, ongoing",
     "description": "A custom mind-body booking integration built to replace an unsatisfying off-the-shelf system.",
@@ -549,7 +768,11 @@
     "slug": "living-water-adventures",
     "year": 2026,
     "extension": "tsx",
-    "skills": ["React", "Vite", "Cloudflare Pages"],
+    "skills": [
+      "React",
+      "Vite",
+      "Cloudflare Pages"
+    ],
     "public-url": "https://example-livingwateradventures-com.pages.dev/",
     "original-url": "https://livingwateradventures.com/",
     "status": "Dropped",

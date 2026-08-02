@@ -22,7 +22,7 @@ export type Project = {
   "original-url"?: string;
   description?: string;
   body?: string;
-  images?: string[];
+  images?: { src: string; label?: string }[];
   archived?: boolean;
   wip?: boolean;
   status?: string;
@@ -111,7 +111,7 @@ export default function ProjectCard({
         <div className="relative -mx-6 -mt-6 aspect-video overflow-hidden bg-muted/20 flex items-center justify-center border-b border-border/50">
           {project.images?.[0] ? (
             <img
-              src={project.images[0]}
+              src={project.images[0].src}
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
