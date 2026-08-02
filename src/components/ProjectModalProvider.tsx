@@ -29,6 +29,9 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [direction, setDirection] = useState(0);
 
+  const hasBeforeAfter = !!(project?.beforeAfter?.before?.image && project?.beforeAfter?.after?.image);
+  const totalSlides = (hasBeforeAfter ? 1 : 0) + (project?.images?.length || 0);
+
   const open = (p: Project, list?: Project[]) => {
     setProject(p);
     setProjectList(list ?? []);
@@ -45,12 +48,14 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
   };
 
   const paginate = useCallback((newDirection: number) => {
-    if (!project?.images?.length) return;
+    const hasBeforeAfter = !!(project?.beforeAfter?.before?.image && project?.beforeAfter?.after?.image);
+    const totalSlides = (hasBeforeAfter ? 1 : 0) + (project?.images?.length || 0);
+    if (totalSlides === 0) return;
     setDirection(newDirection);
     setActiveIndex((prev) => {
       const next = prev + newDirection;
-      if (next < 0) return project.images!.length - 1;
-      if (next >= project.images!.length) return 0;
+      if (next < 0) return totalSlides - 1;
+      if (next >= totalSlides) return 0;
       return next;
     });
   }, [project]);
@@ -191,18 +196,28 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                         }}
                         className="absolute inset-0"
                       >
-                        {project.images?.[activeIndex] ? (
+                        {hasBeforeAfter && activeIndex === 0 ? (
+                          <div className="w-full h-full relative p-6 flex items-center justify-center bg-muted/10">
+                            <BeforeAfterSlider 
+                              beforeImage={project.beforeAfter!.before.image!}
+                              afterImage={project.beforeAfter!.after.image!}
+                              beforeLabel={project.beforeAfter!.before.title}
+                              afterLabel={project.beforeAfter!.after.title}
+                              className="w-full h-full"
+                            />
+                          </div>
+                        ) : project.images?.[activeIndex - (hasBeforeAfter ? 1 : 0)] ? (
                           <div className="w-full h-full relative cursor-zoom-in" onClick={() => setIsFullscreen(true)}>
                             {/* We only use layoutId for the image that is NOT currently being animated out */}
                             <motion.img
                               layoutId={!isFullscreen ? `project-image-${project.slug}-${activeIndex}` : undefined}
-                              src={project.images[activeIndex].src}
+                              src={project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].src}
                               alt={project.title}
                               className="w-full h-full object-cover"
                             />
-                            {project.images[activeIndex].label && (
+                            {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].label && (
                               <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 text-white text-[9px] font-bold uppercase tracking-wider border border-white/20">
-                                {project.images[activeIndex].label}
+                                {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].label}
                               </span>
                             )}
                             {/* Expand Button */}
@@ -227,7 +242,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                     </AnimatePresence>
 
                     {/* Navigation Arrows (Desktop) */}
-                    {project.images && project.images.length > 1 && (
+                    {totalSlides > 1 && (
                       <>
                         <button 
                           onClick={(e) => { e.stopPropagation(); paginate(-1); }}
@@ -246,27 +261,47 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                   </div>
 
                   {/* Thumbnail bar */}
-                  {project.images && project.images.length > 1 && (
+                  {totalSlides > 1 && (
                     <div className="flex gap-2 p-4 border-t border-border overflow-x-auto bg-background/50">
-                      {project.images.map((img, idx) => (
+                      {hasBeforeAfter && (
                         <button
-                          key={img.src}
+                          key="before-after-thumb"
                           onClick={() => {
-                            setDirection(idx > activeIndex ? 1 : -1);
-                            setActiveIndex(idx);
+                            setDirection(0 > activeIndex ? 1 : -1);
+                            setActiveIndex(0);
                           }}
                           className={`relative w-20 aspect-video rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
-                            idx === activeIndex ? "border-accent scale-95" : "border-border/50 hover:border-border scale-100"
+                            activeIndex === 0 ? "border-accent scale-95" : "border-border/50 hover:border-border scale-100"
                           }`}
                         >
-                          <img src={img.src} alt="" className="w-full h-full object-cover" />
-                          {img.label && (
-                            <span className="absolute bottom-0 left-0 right-0 px-1 py-0.5 bg-black/70 text-white text-[7px] font-bold uppercase tracking-wider text-center truncate">
-                              {img.label}
-                            </span>
-                          )}
+                          <img src={project.beforeAfter!.after.image!} alt="Diff Preview" className="w-full h-full object-cover" />
+                          <span className="absolute bottom-0 left-0 right-0 px-1 py-0.5 bg-accent/90 text-white text-[7px] font-bold uppercase tracking-wider text-center truncate">
+                            Diff
+                          </span>
                         </button>
-                      ))}
+                      )}
+                      {project.images?.map((img, idx) => {
+                        const slideIdx = idx + (hasBeforeAfter ? 1 : 0);
+                        return (
+                          <button
+                            key={img.src}
+                            onClick={() => {
+                              setDirection(slideIdx > activeIndex ? 1 : -1);
+                              setActiveIndex(slideIdx);
+                            }}
+                            className={`relative w-20 aspect-video rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
+                              slideIdx === activeIndex ? "border-accent scale-95" : "border-border/50 hover:border-border scale-100"
+                            }`}
+                          >
+                            <img src={img.src} alt="" className="w-full h-full object-cover" />
+                            {img.label && (
+                              <span className="absolute bottom-0 left-0 right-0 px-1 py-0.5 bg-black/70 text-white text-[7px] font-bold uppercase tracking-wider text-center truncate">
+                                {img.label}
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
@@ -404,16 +439,6 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
 
                       {project.beforeAfter && (
                         <CyberCodeTerminalWindow title="transformation.diff" showDots={false}>
-                           {project.beforeAfter.before.image && project.beforeAfter.after.image && (
-                             <BeforeAfterSlider 
-                               beforeImage={project.beforeAfter.before.image}
-                               afterImage={project.beforeAfter.after.image}
-                               beforeLabel={project.beforeAfter.before.title}
-                               afterLabel={project.beforeAfter.after.title}
-                               className="mb-6"
-                             />
-                           )}
-
                            <div className="grid grid-cols-1 gap-4">
                               <div className="p-4 rounded-none bg-red-500/5 border border-red-500/80">
                                  <span className="text-[9px] font-bold uppercase tracking-widest text-red-500/80 mb-2 block">Before</span>
@@ -438,7 +463,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
 
       {/* Fullscreen Overlay */}
       <AnimatePresence>
-        {isFullscreen && project && project.images && (
+        {isFullscreen && project && project.images && (!hasBeforeAfter || activeIndex !== 0) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -452,7 +477,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
             >
               <motion.img
                 layoutId={`project-image-${project.slug}-${activeIndex}`}
-                src={project.images[activeIndex].src}
+                src={project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].src}
                 alt={project.title}
                 className="max-w-full max-h-full object-contain rounded-sm cursor-zoom-out"
                 onClick={() => setIsFullscreen(false)}
@@ -468,7 +493,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
               </button>
 
               {/* Navigation Arrows Fullscreen */}
-              {project.images.length > 1 && (
+              {totalSlides > 1 && (
                 <>
                   <button
                     onClick={(e) => { e.stopPropagation(); paginate(-1); }}
@@ -487,9 +512,9 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
 
               {/* Index Indicator */}
               <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-center items-center gap-2 text-white/40 font-mono text-xs tracking-widest uppercase">
-                {activeIndex + 1} / {project.images.length}
-                {project.images[activeIndex].label && (
-                  <span className="text-white/70">— {project.images[activeIndex].label}</span>
+                {activeIndex + 1} / {totalSlides}
+                {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)]?.label && (
+                  <span className="text-white/70">— {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].label}</span>
                 )}
               </div>
             </motion.div>
