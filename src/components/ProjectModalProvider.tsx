@@ -213,7 +213,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                               src={project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].src}
                               alt={project.title}
                               className="w-full h-full"
-                              imgClassName="w-full h-full object-cover"
+                              imgClassName="w-full h-full object-contain"
                               priority={true}
                             />
                             {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].label && (
@@ -493,8 +493,8 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                 layoutId={`project-image-${project.slug}-${activeIndex}`}
                 src={project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].src}
                 alt={project.title}
-                className="max-w-full max-h-full"
-                imgClassName="max-w-full max-h-full object-contain rounded-sm cursor-zoom-out"
+                className="w-full h-full"
+                imgClassName="w-full h-full object-contain rounded-sm cursor-zoom-out"
                 onClick={() => setIsFullscreen(false)}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 priority={true}
