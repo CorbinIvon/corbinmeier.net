@@ -285,7 +285,14 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                           <div>
                             <span className="text-muted">Year:</span> <span className="text-accent">{project.year}</span>
                           </div>
-                          {project.wip && (
+                          {project.status ? (
+                            <div>
+                              <span className="text-muted">Status:</span>{" "}
+                              <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[8px] font-bold uppercase tracking-wider border border-amber-500/20">
+                                {project.status}
+                              </span>
+                            </div>
+                          ) : project.wip && (
                             <div>
                               <span className="text-muted">Status:</span>{" "}
                               <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[8px] font-bold uppercase tracking-wider border border-amber-500/20">
