@@ -142,7 +142,7 @@ export default function ProjectCard({
         <div className="flex-1 pt-6 flex flex-col">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-mono text-accent font-bold uppercase tracking-[0.2em]">{project.year}</span>
+              <span className="text-[10px] font-mono text-accent font-bold uppercase tracking-[0.2em]">{project.date || project.year}</span>
               {project.status ? (
                 <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[8px] font-bold uppercase tracking-wider border border-amber-500/20">
                   {project.status}

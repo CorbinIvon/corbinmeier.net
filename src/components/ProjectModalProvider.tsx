@@ -329,7 +329,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                             </div>
                           )}
                           <div>
-                            <span className="text-muted">Year:</span> <span className="text-accent">{project.year}</span>
+                            <span className="text-muted">Date:</span> <span className="text-accent">{project.date || project.year}</span>
                           </div>
                           {project.status ? (
                             <div>

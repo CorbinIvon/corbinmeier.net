@@ -198,7 +198,36 @@
     "archived": true,
     "description": "A professional custom update for a Redding, CA community fundraiser and events organization.",
     "body": "<p>Community Alliance Network organizes fundraisers and community-building events in the Redding, CA area. This project delivered a professional custom update to their existing site, with a members implementation I was particularly proud of, before the engagement was dropped.</p>",
-    "images": [],
+    "images": [
+      {
+        "src": "/clients/community-alliance-network/new/screencapture-wecan-team-pages-dev-2026-08-01-20_27_04.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/community-alliance-network/new/screencapture-wecan-team-pages-dev-application-2026-08-01-20_27_36.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/community-alliance-network/new/screencapture-wecan-team-pages-dev-contact-2026-08-01-20_27_32.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/community-alliance-network/new/screencapture-wecan-team-pages-dev-events-2026-08-01-20_27_26.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/community-alliance-network/new/screencapture-wecan-team-pages-dev-team-2026-08-01-20_27_13.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/community-alliance-network/original/screencapture-wecan-team-2026-08-01-20_27_51.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/community-alliance-network/original/screencapture-wecan-team-team-2026-08-01-20_28_02.png",
+        "label": "original"
+      }
+    ],
     "date": "2026-06-25"
   },
   {
@@ -310,7 +339,16 @@
     "archived": true,
     "description": "A slight overhaul for a San Francisco DJ specializing in corporate events, weddings, clubs, and bars.",
     "body": "<p>A light-touch enhancement of an existing DJ entertainment site, preserving the original vision while refining the layout. This project was ultimately dropped before completion.</p>",
-    "images": [],
+    "images": [
+      {
+        "src": "/clients/dj-mojo-entertainment/new/screencapture-djmojoentertainment-com-pages-dev-2026-08-01-20_29_21.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/dj-mojo-entertainment/original/screencapture-djmojoentertainment-2026-08-01-20_29_04.png",
+        "label": "original"
+      }
+    ],
     "date": "2026-06-17"
   },
   {
