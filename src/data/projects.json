@@ -52,7 +52,16 @@
     "status": "WIP",
     "description": "A high-performance videographer portfolio replacing a bloated Wix site.",
     "body": "<p>A videographer's work demands a platform as sharp as their lens. This project involved migrating a media-heavy portfolio from Wix to a custom React + Vite architecture. By stripping away the computational bloat and pervasive script errors inherent in the original platform, I achieved near-instantaneous load times and a fluid scrolling experience that lets the cinematography take center stage.</p><p>The transition to Cloudflare Pages ensured global edge delivery, providing a rock-solid, high-bandwidth experience for potential clients regardless of their location.</p>",
-    "images": [],
+    "images": [
+      {
+        "src": "/clients/amazing-grace-media/new/screencapture-localhost-5173-2026-08-01-18_47_51.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/amazing-grace-media/original/screencapture-amzinggracemedia-2026-08-01-17_29_27.png",
+        "label": "original"
+      }
+    ],
     "beforeAfter": {
       "before": {
         "title": "Legacy Wix Build",
@@ -149,9 +158,32 @@
       "TypeScript"
     ],
     "public-url": "https://corbinmeier.net/",
+    "links": [
+      {
+        "label": "2026-08",
+        "url": "https://cc02d0cb.corbinmeier-net.pages.dev/"
+      },
+      {
+        "label": "2026-07",
+        "url": "https://0c0b2553.corbinmeier-net.pages.dev/"
+      },
+      {
+        "label": "2026-05",
+        "url": "https://c51b0c4f.corbinmeier-net.pages.dev/"
+      }
+    ],
     "description": "The portfolio you are currently viewing, built with a focus on speed and security.",
     "body": "<p>This site represents my personal standard for web architecture. I migrated from a heavy Next.js + Vercel + Supabase stack to a streamlined React + Vite implementation on Cloudflare Pages. This shift eliminated unnecessary runtime overhead and consolidated the infrastructure into a zero-cost, high-performance static delivery model.</p><p>By leveraging TypeScript for structural integrity and Cloudflare's edge network for security, I've created a platform that is not only fast but virtually impenetrable and infinitely scalable.</p>",
-    "images": [],
+    "images": [
+      {
+        "src": "/clients/corbinmeier-net/new/screencapture-cc02d0cb-corbinmeier-net-pages-dev-2026-08-01-19_10_10.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/corbinmeier-net/original/screencapture-c51b0c4f-corbinmeier-net-pages-dev-2026-08-01-19_09_26.png",
+        "label": "original"
+      }
+    ],
     "beforeAfter": {
       "before": {
         "title": "Next.js / Supabase Stack",
@@ -179,7 +211,11 @@
     "status": "Complete, ongoing",
     "description": "Professional painter's business website featuring a clean, static design and a functional contact form.",
     "body": "<p>A high-performance business website for a professional painting service. Built with React and Vite, the site is deployed as static assets on Cloudflare Pages for maximum speed and reliability. It includes a custom contact form integrated with Cloudflare Pages Functions for lead generation.</p><p>Digital confidence is the cornerstone of local business growth. For this project, I transformed a word-of-mouth operation into a searchable digital powerhouse. The new site focuses on high-visibility project showcases and aggressive SEO optimization.</p><p>In its first month of operation, the site successfully handled over 16,000 requests from 1,500 unique visitors, with a 40% cache hit rate. By implementing clean, bot-friendly markup and structured data, the site is now actively crawled, steadily climbing the ranks to connect Chuck with new potential clients.</p>",
-    "images": [],
+    "images": [
+      {
+        "src": "/clients/chuck-the-painter/screencapture-chuck-the-painter-2026-08-01-19_10_36.png"
+      }
+    ],
     "beforeAfter": {
       "before": {
         "title": "No Digital Presence",
@@ -205,7 +241,24 @@
     "original-url": "https://atlasenergyconsulting.com",
     "description": "A high-performance recreation of a WordPress site to lower costs and improve design.",
     "body": "<p>WordPress often imposes rigid design constraints and high operational costs. For Atlas Energy, I provided a complete architectural escape, recreating their entire digital presence in a custom React framework. This move eliminated the need for expensive managed hosting and the constant headache of plugin security updates.</p><p>The result is a pixel-perfect, lightning-fast site that gives the client full design freedom while slashing their monthly overhead to a fraction of the previous cost.</p>",
-    "images": [],
+    "images": [
+      {
+        "src": "/clients/atlas-energy-consulting/new/screencapture-atlasenergyconsulting-com-pages-dev-2026-08-01-19_16_22.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/atlas-energy-consulting/new/screencapture-atlasenergyconsulting-com-pages-dev-about-2026-08-01-19_17_06.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/atlas-energy-consulting/original/screencapture-atlasenergyconsulting-2026-08-01-19_15_40.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/atlas-energy-consulting/original/screencapture-atlasenergyconsulting-about-2026-08-01-19_16_47.png",
+        "label": "original"
+      }
+    ],
     "beforeAfter": {
       "before": {
         "title": "Rigid WordPress Build",
@@ -233,7 +286,11 @@
     "status": "WIP",
     "description": "Professionalizing a DIY effort into a cohesive, high-performance brand portal.",
     "body": "<p>A potential client reached out to bridge the gap between their manual DIY efforts and a professional digital presence. This project focuses on building a cohesive brand identity from the ground up, paired with a modern web experience that reflects the precision of their services.</p><p>The new architecture moves away from consumer-grade builders to a custom professional stack, ensuring that as the business scales, the website remains a robust and reliable asset.</p>",
-    "images": [],
+    "images": [
+      {
+        "src": "/clients/johnsons-turboclean/screencapture-johnsonsturboclean-com-pages-dev-2026-08-01-19_25_25.png"
+      }
+    ],
     "beforeAfter": {
       "before": {
         "title": "DIY Builder Effort",
@@ -260,7 +317,16 @@
     "original-url": "https://enveehairstudio.com",
     "description": "A high-fidelity site migration completed in a single day after a previous developer failed to deliver.",
     "body": "<p>This project was a critical rescue mission. Nichole already had a functioning site, but a third-party developer offered to recreate it with the promise of modernization. After months of waiting with no progress to show, the third party eventually dropped the ball, leaving Nichole to revert to her original, outdated setup in frustration.</p><p>Leveraging my streamlined React + Vite framework, I was able to step in and deliver a high-fidelity modernization—a complete recreation of the desired design—in just a single day of work. The focus was on capturing the boutique's aesthetic while implementing modern performance optimizations, proving that high-quality delivery doesn't require months of development time.</p>",
-    "images": [],
+    "images": [
+      {
+        "src": "/clients/envee-hair-studio/new/screencapture-enveehairstudio-com-pages-dev-2026-08-01-19_35_55.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/envee-hair-studio/original/screencapture-enveehairstudio-2026-08-01-19_26_04.png",
+        "label": "original"
+      }
+    ],
     "beforeAfter": {
       "before": {
         "title": "Failed Recreation Attempt",
@@ -464,7 +530,16 @@
     "wip": true,
     "description": "A near 1:1 clone rebuild for a physical therapy provider, integrating client-provided third-party services without handling protected health data directly.",
     "body": "<p>Simply Results PT is a health provider site rebuilt as a near-exact recreation on the standard React + Vite + Cloudflare Pages stack. Since I do not hold HIPAA credentials, no protected health data is stored or processed on my end—instead, the site integrates third-party services that the provider supplies and hosts themselves, keeping compliance responsibility where it belongs.</p><p>Because the client hosts the underlying databases and services, this integration work is provided at no additional charge.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/simply-results-pt/new/screencapture-simplyresultspt-com-pages-dev-2026-08-01-19_37_16.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/simply-results-pt/original/screencapture-simplyresultspt-2026-08-01-19_37_08.png",
+        "label": "original"
+      }
+    ]
   },
   {
     "title": "Amanda Grace Videos",
@@ -482,7 +557,36 @@
     "wip": true,
     "description": "A near 1:1 clone rebuild for a Chico, CA videographer specializing in weddings and graduations.",
     "body": "<p>A faithful recreation of a videographer's portfolio site serving the Chico, CA area, covering weddings and graduation ceremonies. The rebuild preserves the original's visual identity while moving it onto a faster, more maintainable custom stack.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/amanda-grace-videos/new/screencapture-amandagracevideos-com-pages-dev-2026-08-01-20_04_25.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/amanda-grace-videos/new/screencapture-amandagracevideos-com-pages-dev-about-me-2026-08-01-20_04_48.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/amanda-grace-videos/new/screencapture-amandagracevideos-com-pages-dev-contact-2026-08-01-20_04_56.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/amanda-grace-videos/new/screencapture-amandagracevideos-com-pages-dev-gallery-2026-08-01-20_04_40.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/amanda-grace-videos/original/screencapture-amandagracevideos-2026-08-01-20_03_52.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/amanda-grace-videos/original/screencapture-amandagracevideos-about-me-2026-08-01-20_04_17.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/amanda-grace-videos/original/screencapture-amandagracevideos-gallery-2026-08-01-20_04_09.png",
+        "label": "original"
+      }
+    ]
   },
   {
     "title": "Slade Brown Insurance",
@@ -500,7 +604,16 @@
     "wip": true,
     "description": "A near 1:1 clone rebuild for an insurance broker.",
     "body": "<p>A close recreation of an insurance broker's site, rebuilt on the standard React + Vite + Cloudflare Pages stack for improved performance and easier future maintenance.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/slade-brown-insurance/new/screencapture-sladebrown-com-pages-dev-2026-08-01-19_38_33.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/slade-brown-insurance/original/screencapture-sladebrown-2026-08-01-19_38_07.png",
+        "label": "original"
+      }
+    ]
   },
   {
     "title": "BOLD Remedies",
@@ -519,7 +632,11 @@
     "wip": true,
     "description": "A new site for a home-grown remedies startup offering products, classes, and appointment booking with built-in e-commerce.",
     "body": "<p>BOLD Remedies is a startup selling home-grown remedies, running classes, and booking appointments. This project builds their first web presence from scratch, with a built-in e-commerce function to support product sales alongside their service offerings.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/bold-remedies/screencapture-bold-with-cheyenne-pages-dev-2026-08-01-19_38_55.png"
+      }
+    ]
   },
   {
     "title": "530 Garage LLC",
@@ -539,7 +656,16 @@
     "status": "Feedback Phase",
     "description": "A makeover for a Redding, CA mechanic shop, adding automations and advanced booking with potential e-commerce.",
     "body": "<p>A full makeover of a local mechanic shop's outdated site. The new build introduces automations and an advanced appointment booking flow, with a potential e-commerce application for parts or services under consideration.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/530-garage-llc/new/screencapture-530garagellc-com-pages-dev-2026-08-01-19_39_54.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/530-garage-llc/original/screencapture-530garagellc-2026-08-01-19_39_16.png",
+        "label": "original"
+      }
+    ]
   },
   {
     "title": "DJ Mojo Entertainment",
@@ -575,7 +701,16 @@
     "wip": true,
     "description": "A modern makeover for a Redding attorney continuing her retired father's practice.",
     "body": "<p>A Redding attorney is carrying on her retired father's law practice, and this project brings her site up to modern standards while respecting the practice's established reputation.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/kinney-attorney-at-law/new/screencapture-vankinney-com-pages-dev-2026-08-01-19_40_45.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/kinney-attorney-at-law/original/screencapture-vankinney-2026-08-01-19_40_13.png",
+        "label": "original"
+      }
+    ]
   },
   {
     "title": "Norcal Accounting Professionals",
@@ -591,7 +726,16 @@
     "status": "Complete",
     "description": "An overhaul migrating an accounting firm off Squarespace for a cleaner, standout site.",
     "body": "<p>Originally hosted on Squarespace, this accounting firm's site suffered from CMS limitations and slow update cycles, prompting them to outsource the project. The rebuild delivers a cleaner design that stands out from typical CMS templates.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/norcal-accounting-professionals/new/screencapture-norcalaccountingprofessionals-2026-08-01-19_43_01.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/norcal-accounting-professionals/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-norcalaccountingprofessionals-com-original-content-reference-index-html-2026-08-01-19_43_13.png",
+        "label": "original"
+      }
+    ]
   },
   {
     "title": "Park Construction",
@@ -607,7 +751,40 @@
     "status": "Complete",
     "description": "A specialized overhaul for a Redding, CA deck construction company.",
     "body": "<p>A Redding, CA deck construction company needed a specialized touch to stand out from generic CMS-platform competitors. The rebuild gives them a distinctive, custom presence.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/park-construction/new/screencapture-parkconstruction-homes-2026-08-01-19_45_54.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/park-construction/new/screencapture-parkconstruction-homes-about-2026-08-01-19_47_09.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/park-construction/new/screencapture-parkconstruction-homes-contact-2026-08-01-19_47_45.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/park-construction/new/screencapture-parkconstruction-homes-products-2026-08-01-19_47_19.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/park-construction/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-parkconstruction-homes-original-content-reference-about-us-html-2026-08-01-19_46_43.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/park-construction/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-parkconstruction-homes-original-content-reference-contact-html-2026-08-01-19_47_36.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/park-construction/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-parkconstruction-homes-original-content-reference-index-html-2026-08-01-19_43_52.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/park-construction/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-parkconstruction-homes-original-content-reference-products-html-2026-08-01-19_46_54.png",
+        "label": "original"
+      }
+    ]
   },
   {
     "title": "Community Alliance Network",
@@ -644,7 +821,20 @@
     "wip": true,
     "description": "A complete remake with management tooling in mind for a shows and events host.",
     "body": "<p>Hause of Wilson hosts shows and other events. This project is a complete remake of their site, built with management in mind so the team can maintain content going forward.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/hause-of-wilson/new/screencapture-hauseofwilson-com-pages-dev-2026-08-01-19_48_50.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/hause-of-wilson/new/screencapture-hauseofwilson-com-pages-dev-gsms-2026-08-01-19_49_15.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/hause-of-wilson/original/screencapture-hauseofwilson-2026-08-01-19_48_19.png",
+        "label": "original"
+      }
+    ]
   },
   {
     "title": "Early Byrd Services",
@@ -660,7 +850,17 @@
     "status": "Complete, ongoing",
     "description": "A custom site for a landscaping and property preservation company.",
     "body": "<p>Early Byrd Services is a landscaping and property preservation company that reached out for a custom site. The result is a standard, easy-on-the-eyes site that clearly conveys their services.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/early-byrd-services/screencapture-earlybyrd-services-2026-08-01-19_49_48.png"
+      },
+      {
+        "src": "/clients/early-byrd-services/screencapture-earlybyrd-services-contact-2026-08-01-19_49_58.png"
+      },
+      {
+        "src": "/clients/early-byrd-services/screencapture-earlybyrd-services-request-service-2026-08-01-19_50_03.png"
+      }
+    ]
   },
   {
     "title": "Chico Business Network Group",
@@ -676,7 +876,14 @@
     "status": "Complete, ongoing",
     "description": "A budget-conscious site for a non-compete business networking group in Chico, CA.",
     "body": "<p>Chico Business Network Group is a business get-together featuring a non-compete membership. They had no prior site, so this project assembled a basic site on a budget covering the group's mission statement and objectives.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/chico-business-network-group/screencapture-chicobusinessnetwork-org-2026-08-01-19_50_32.png"
+      },
+      {
+        "src": "/clients/chico-business-network-group/screencapture-chicobusinessnetwork-org-contact-2026-08-01-19_50_42.png"
+      }
+    ]
   },
   {
     "title": "addressdb",
@@ -692,7 +899,50 @@
     "wip": true,
     "description": "An internal tool built to assist with sales and outreach, designed to be universally deployable.",
     "body": "<p>addressdb is a tool created to help and assist with sales and outreach. The vision is a universal tool that can be easily deployed and accessed by any company.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-2026-08-01-19_52_03.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-2026-08-01-19_52_09.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-2026-08-01-19_52_21.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-2026-08-01-19_52_51.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-2026-08-01-19_53_02.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-2026-08-01-19_53_12.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-2026-08-01-19_53_26.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-2026-08-01-19_53_33.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-admin-2026-08-01-19_54_00.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-admin-2026-08-01-19_54_19.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-admin-2026-08-01-19_54_24.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-admin-2026-08-01-19_54_30.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-list-2026-08-01-19_52_29.png"
+      },
+      {
+        "src": "/clients/addressdb/screencapture-addressdb-pages-dev-list-2026-08-01-19_52_41.png"
+      }
+    ]
   },
   {
     "title": "Michael's Office Furnishings",
@@ -709,7 +959,20 @@
     "status": "Complete",
     "description": "Ongoing site management for a Redding, CA furnishings store previously on Squarespace.",
     "body": "<p>Michael's Office Furnishings is a Redding, CA furnishings store whose Squarespace management had become too burdensome. I have since taken over their site management entirely.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/michaels-office-furnishings/screencapture-michaels-inc-2026-08-01-19_55_24.png"
+      },
+      {
+        "src": "/clients/michaels-office-furnishings/screencapture-michaels-inc-about-2026-08-01-19_55_47.png"
+      },
+      {
+        "src": "/clients/michaels-office-furnishings/screencapture-michaels-inc-contact-2026-08-01-19_56_10.png"
+      },
+      {
+        "src": "/clients/michaels-office-furnishings/screencapture-michaels-inc-services-2026-08-01-19_55_57.png"
+      }
+    ]
   },
   {
     "title": "Easy Cleanups",
@@ -725,7 +988,20 @@
     "status": "Complete, Features WIP",
     "description": "A custom solution for a Redding, CA construction demolition company that Squarespace couldn't support.",
     "body": "<p>Easy Cleanups is a Redding, CA construction demolition company whose needs outgrew what Squarespace's intuitive-but-limited tooling could provide. The core site is complete, with additional features still in progress.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/easy-cleanups/screencapture-easycleanups-2026-08-01-19_56_32.png"
+      },
+      {
+        "src": "/clients/easy-cleanups/screencapture-easycleanups-about-2026-08-01-19_56_44.png"
+      },
+      {
+        "src": "/clients/easy-cleanups/screencapture-easycleanups-contact-2026-08-01-19_56_50.png"
+      },
+      {
+        "src": "/clients/easy-cleanups/screencapture-easycleanups-services-2026-08-01-19_56_39.png"
+      }
+    ]
   },
   {
     "title": "Living Water Jet Boat Tours",
@@ -743,7 +1019,32 @@
     "wip": true,
     "description": "A rapid-turnaround site delivered within 24 hours after months of no progress from a prior arrangement.",
     "body": "<p>The client requested a site three months prior with nothing to show for it. After they asked me to put something together, I delivered a complete site within 24 hours. It is now awaiting the client's DNS connection to go live.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/living-water-jet-boat-tours/new/screencapture-living-water-jet-boats-pages-dev-2026-08-01-19_57_29.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-jet-boat-tours/new/screencapture-living-water-jet-boats-pages-dev-about-2026-08-01-19_57_42.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-jet-boat-tours/new/screencapture-living-water-jet-boats-pages-dev-booking-2026-08-01-19_57_57.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-jet-boat-tours/new/screencapture-living-water-jet-boats-pages-dev-contact-2026-08-01-19_57_51.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-jet-boat-tours/new/screencapture-living-water-jet-boats-pages-dev-tours-2026-08-01-19_57_38.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-jet-boat-tours/original/screencapture-livingwaterjetboats-2026-08-01-19_57_14.png",
+        "label": "original"
+      }
+    ]
   },
   {
     "title": "Lit from Within",
@@ -761,7 +1062,32 @@
     "status": "Complete, ongoing",
     "description": "A custom mind-body booking integration built to replace an unsatisfying off-the-shelf system.",
     "body": "<p>The client wasn't happy with their existing mind-body integration and booking service. They wanted something more custom and built directly into their systems, so that's exactly what was delivered.</p>",
-    "images": []
+    "images": [
+      {
+        "src": "/clients/lit-from-within/new/screencapture-litfromwithin-life-pages-dev-2026-08-01-20_00_03.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/lit-from-within/new/screencapture-litfromwithin-life-pages-dev-blog-the-glow-guide-litfromwithin-2026-08-01-20_01_23.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/lit-from-within/new/screencapture-litfromwithin-life-pages-dev-classes-2026-08-01-20_02_02.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/lit-from-within/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-litfromwithin-life-original-content-reference-blog-the-glow-guide-litfromwithin-html-2026-08-01-20_01_33.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/lit-from-within/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-litfromwithin-life-original-content-reference-book-a-service-html-2026-08-01-20_01_47.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/lit-from-within/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-litfromwithin-life-original-content-reference-index-html-2026-08-01-19_59_30.png",
+        "label": "original"
+      }
+    ]
   },
   {
     "title": "Living Water Adventures",

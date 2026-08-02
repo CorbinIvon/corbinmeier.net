@@ -12,6 +12,7 @@ import {
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { CyberCodeTerminalWindow } from "@/components/cybercode/CyberCodeUIKit";
+import LazyImage from "./LazyImage";
 
 export type Project = {
   title: string;
@@ -20,6 +21,7 @@ export type Project = {
   skills?: string[];
   "public-url"?: string;
   "original-url"?: string;
+  links?: { label: string; url: string }[];
   description?: string;
   body?: string;
   images?: { src: string; label?: string }[];
@@ -40,6 +42,7 @@ export type Project = {
     };
   };
 };
+
 
 function getProjectIcon(extension?: string) {
   switch (extension) {
@@ -110,11 +113,10 @@ export default function ProjectCard({
 
         <div className="relative -mx-6 -mt-6 aspect-video overflow-hidden bg-muted/20 flex items-center justify-center border-b border-border/50">
           {project.images?.[0] ? (
-            <img
+            <LazyImage
               src={project.images[0].src}
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
             />
           ) : (
             <div className="flex flex-col items-center gap-2 opacity-20 group-hover:opacity-40 transition-opacity duration-700">

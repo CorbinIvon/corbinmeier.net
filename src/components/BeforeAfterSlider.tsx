@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import LazyImage from "./LazyImage";
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -27,10 +28,12 @@ export default function BeforeAfterSlider({
       style={{ aspectRatio: "16/9" }}
     >
       {/* Before Image (Background) */}
-      <img
+      <LazyImage
         src={beforeImage}
         alt="Before"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        imgClassName="w-full h-full object-cover"
+        priority={true}
       />
 
       {/* After Image (Foreground, Clipped) */}
@@ -38,10 +41,12 @@ export default function BeforeAfterSlider({
         className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
         style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
       >
-        <img
+        <LazyImage
           src={afterImage}
           alt="After"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          imgClassName="w-full h-full object-cover"
+          priority={true}
         />
       </div>
 

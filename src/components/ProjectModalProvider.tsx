@@ -4,6 +4,7 @@ import { X, ExternalLink, Calendar, Code2, Layers, Maximize2, ChevronLeft, Chevr
 import { IconBrandGithub } from "@tabler/icons-react";
 import { Project } from "./ProjectCard";
 import BeforeAfterSlider from "./BeforeAfterSlider";
+import LazyImage from "./LazyImage";
 import { CyberCodeTerminalWindow, CyberCodeWindowChrome } from "./cybercode/CyberCodeUIKit";
 
 interface ProjectModalContextType {
@@ -207,11 +208,13 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                         ) : project.images?.[activeIndex - (hasBeforeAfter ? 1 : 0)] ? (
                           <div className="w-full h-full relative cursor-zoom-in" onClick={() => setIsFullscreen(true)}>
                             {/* We only use layoutId for the image that is NOT currently being animated out */}
-                            <motion.img
+                            <LazyImage
                               layoutId={!isFullscreen ? `project-image-${project.slug}-${activeIndex}` : undefined}
                               src={project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].src}
                               alt={project.title}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full"
+                              imgClassName="w-full h-full object-cover"
+                              priority={true}
                             />
                             {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].label && (
                               <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 text-white text-[9px] font-bold uppercase tracking-wider border border-white/20">
@@ -272,7 +275,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                             activeIndex === 0 ? "border-accent scale-95" : "border-border/50 hover:border-border scale-100"
                           }`}
                         >
-                          <img src={project.beforeAfter!.after.image!} alt="Diff Preview" className="w-full h-full object-cover" />
+                          <LazyImage src={project.beforeAfter!.after.image!} alt="Diff Preview" className="w-full h-full" imgClassName="w-full h-full object-cover" />
                           <span className="absolute bottom-0 left-0 right-0 px-1 py-0.5 bg-accent/90 text-white text-[7px] font-bold uppercase tracking-wider text-center truncate">
                             Diff
                           </span>
@@ -291,7 +294,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                               slideIdx === activeIndex ? "border-accent scale-95" : "border-border/50 hover:border-border scale-100"
                             }`}
                           >
-                            <img src={img.src} alt="" className="w-full h-full object-cover" />
+                            <LazyImage src={img.src} alt="" className="w-full h-full" imgClassName="w-full h-full object-cover" />
                             {img.label && (
                               <span className="absolute bottom-0 left-0 right-0 px-1 py-0.5 bg-black/70 text-white text-[7px] font-bold uppercase tracking-wider text-center truncate">
                                 {img.label}
@@ -349,10 +352,10 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                           </div>
                         </div>
                       </CyberCodeTerminalWindow>
-                      {(project["public-url"] || project["original-url"]) && (
+                      {(project["public-url"] || project["original-url"] || project.links) && (
                         <CyberCodeTerminalWindow title="source.links" showDots={false}>
                           <div className="flex flex-wrap gap-2">
-                            {project["public-url"] && (
+                            {project["public-url"] && project.slug !== "corbinmeier-net" && (
                               <a
                                 href={project["public-url"]}
                                 target="_blank"
@@ -389,6 +392,19 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                                   <IconBrandGithub className="w-2.5 h-2.5" />
                                 </a>
                               )}
+                            {project.links && project.links.map((link, idx) => (
+                              <a
+                                key={idx}
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-mini"
+                                style={{ borderColor: "var(--accent)", color: "var(--accent)" }}
+                              >
+                                {link.label}
+                                <ExternalLink className="w-2.5 h-2.5" />
+                              </a>
+                            ))}
                           </div>
                         </CyberCodeTerminalWindow>
                       )}
@@ -473,14 +489,22 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
               className="relative w-full h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <motion.img
+              <LazyImage
                 layoutId={`project-image-${project.slug}-${activeIndex}`}
                 src={project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].src}
                 alt={project.title}
-                className="max-w-full max-h-full object-contain rounded-sm cursor-zoom-out"
+                className="max-w-full max-h-full"
+                imgClassName="max-w-full max-h-full object-contain rounded-sm cursor-zoom-out"
                 onClick={() => setIsFullscreen(false)}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                priority={true}
               />
+
+              {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)]?.label && (
+                <span className="absolute top-6 left-6 px-2 py-0.5 rounded bg-black/70 text-white text-[9px] font-bold uppercase tracking-wider border border-white/20">
+                  {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].label}
+                </span>
+              )}
               
               {/* Close Button Fullscreen */}
               <button 

@@ -72,10 +72,7 @@ for (const project of projects) {
     changed++;
   }
 
-  if (scan.beforeImage && project.beforeAfter) {
-    project.beforeAfter.before.image = scan.beforeImage;
-    project.beforeAfter.after.image = scan.afterImage;
-  }
+
 }
 
 writeFileSync(PROJECTS_JSON, JSON.stringify(projects, null, 2) + "\n");

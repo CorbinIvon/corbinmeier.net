@@ -22,3 +22,7 @@ Cloudflare Pages should be configured to:
 1. **Build command:** `npm run build`
 2. **Build output directory:** `dist`
 3. **Compatibility flag:** `nodejs_compat` (required for Resend in Functions)
+
+## Features
+- **Custom Project Links:** Added support for a `links` array of `{ label: string, url: string }` objects on project entries in `src/data/projects.json`. These links are dynamically rendered inside the `source.links` terminal block in `src/components/ProjectModalProvider.tsx`.
+
