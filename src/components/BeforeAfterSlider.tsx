@@ -32,9 +32,6 @@ export default function BeforeAfterSlider({
         alt="Before"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       />
-      <div className="absolute top-3 left-3 bg-black/75 border border-border/40 text-white text-xs px-2.5 py-1 rounded font-mono uppercase tracking-wider z-10">
-        {beforeLabel}
-      </div>
 
       {/* After Image (Foreground, Clipped) */}
       <div
@@ -46,9 +43,6 @@ export default function BeforeAfterSlider({
           alt="After"
           className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         />
-        <div className="absolute top-3 right-3 bg-primary/90 border border-primary-foreground/20 text-primary-foreground text-xs px-2.5 py-1 rounded font-mono uppercase tracking-wider z-10">
-          {afterLabel}
-        </div>
       </div>
 
       {/* Slider Bar & Handle */}
