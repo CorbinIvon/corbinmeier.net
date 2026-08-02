@@ -17,7 +17,7 @@ export default function ProjectFilters({
   const [query, setQuery] = useState("");
   const [year, setYear] = useState<string>("all");
   const [skill, setSkill] = useState<string>("all");
-  const [status, setStatus] = useState<string>("active");
+  const [status, setStatus] = useState<string>("all");
   const { open } = useProjectModal();
 
   const years = useMemo(() => {
@@ -120,13 +120,13 @@ export default function ProjectFilters({
               <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-muted pointer-events-none" />
             </div>
 
-            {(year !== "all" || skill !== "all" || query !== "" || status !== "active") && (
+            {(year !== "all" || skill !== "all" || query !== "" || status !== "all") && (
                <button
                  onClick={() => {
                    setQuery("");
                    setYear("all");
                    setSkill("all");
-                   setStatus("active");
+                   setStatus("all");
                  }}
                  className="px-4 py-2.5 bg-accent text-white rounded-xl text-xs font-mono font-bold uppercase tracking-widest hover:bg-accent/90 transition-colors"
                >
@@ -173,7 +173,7 @@ export default function ProjectFilters({
           <Filter className="w-12 h-12 text-muted/20 mx-auto mb-4" />
           <p className="text-muted font-serif text-xl">No projects found matching your criteria.</p>
           <button 
-            onClick={() => { setQuery(""); setYear("all"); setSkill("all"); setStatus("active"); }}
+            onClick={() => { setQuery(""); setYear("all"); setSkill("all"); setStatus("all"); }}
             className="text-accent underline underline-offset-4 mt-4 text-sm font-medium"
           >
             Clear all filters

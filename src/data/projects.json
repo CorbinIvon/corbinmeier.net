@@ -661,7 +661,48 @@
     "archived": true,
     "description": "An unsolicited clone recreation built after stumbling across the original site.",
     "body": "<p>A spontaneous project born from coming across the wrong link and deciding to clone and re-create the site anyway. The result speaks for itself.</p>",
-    "images": [],
+    "images": [
+      {
+        "src": "/clients/living-water-adventures/new/screencapture-example-livingwateradventures-com-pages-dev-2026-08-01-20_31_38.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-adventures/new/screencapture-example-livingwateradventures-com-pages-dev-about-2026-08-01-20_31_44.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-adventures/new/screencapture-example-livingwateradventures-com-pages-dev-contact-2026-08-01-20_32_04.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-adventures/new/screencapture-example-livingwateradventures-com-pages-dev-downloads-2026-08-01-20_31_59.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-adventures/new/screencapture-example-livingwateradventures-com-pages-dev-faqs-2026-08-01-20_31_54.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-adventures/new/screencapture-example-livingwateradventures-com-pages-dev-pricing-2026-08-01-20_31_49.png",
+        "label": "new"
+      },
+      {
+        "src": "/clients/living-water-adventures/original/screencapture-livingwateradventures-2026-08-01-20_31_04.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/living-water-adventures/original/screencapture-livingwateradventures-about-us-2026-08-01-20_31_14.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/living-water-adventures/original/screencapture-livingwateradventures-contact-2026-08-01-20_31_24.png",
+        "label": "original"
+      },
+      {
+        "src": "/clients/living-water-adventures/original/screencapture-livingwateradventures-pricing-2026-08-01-20_31_20.png",
+        "label": "original"
+      }
+    ],
     "date": "2026-05-19"
   },
   {
