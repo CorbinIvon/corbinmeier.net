@@ -25,4 +25,8 @@ Cloudflare Pages should be configured to:
 
 ## Features
 - **Custom Project Links:** Added support for a `links` array of `{ label: string, url: string }` objects on project entries in `src/data/projects.json`. These links are dynamically rendered inside the `source.links` terminal block in `src/components/ProjectModalProvider.tsx`.
+- **Selected Works Config:** Explicitly selected three projects (`addressdb`, `amazing-grace-media`, `living-water-jet-boat-tours`) to display in the "Selected Works" section on the home page inside `src/components/FeaturedProjects.tsx`.
+- **Project Commit Dates:** Mapped and updated accurate creation dates (`date` and `year`) for all 36 projects in `src/data/projects.json` matching the first commit date of their respective GitHub repositories.
+
+
 

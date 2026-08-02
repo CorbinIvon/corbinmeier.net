@@ -18,6 +18,7 @@ export type Project = {
   title: string;
   slug: string;
   year: number;
+  date?: string;
   skills?: string[];
   "public-url"?: string;
   "original-url"?: string;

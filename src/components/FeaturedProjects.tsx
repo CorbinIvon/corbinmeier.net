@@ -9,7 +9,10 @@ import ProjectCard from "./ProjectCard";
 import { useProjectModal } from "./ProjectModalProvider";
 
 export default function FeaturedProjects() {
-  const featured = projects.filter((p) => !p.archived).slice(0, 3);
+  const selectedSlugs = ["addressdb", "amazing-grace-media", "living-water-jet-boat-tours"];
+  const featured = selectedSlugs
+    .map(slug => projects.find((p) => p.slug === slug))
+    .filter((p): p is typeof projects[number] => !!p);
   const { open } = useProjectModal();
 
   const container = {

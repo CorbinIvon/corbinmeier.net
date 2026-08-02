@@ -34,7 +34,8 @@
         "description": "Zero-cost Cloudflare hosting with a 20+ site roadmap, featuring custom 'Available 24/7' CTAs and a premium, bespoke aesthetic.",
         "image": "/clients/cremation-simplicity/update/screencapture-localhost-5173-2026-08-01-17_07_31.png"
       }
-    }
+    },
+    "date": "2026-04-29"
   },
   {
     "title": "Amazing Grace Media",
@@ -71,7 +72,8 @@
         "title": "Artisan React Site",
         "description": "Blazing fast, error-free delivery with a fresh design optimized for high-definition video presentation."
       }
-    }
+    },
+    "date": "2026-05-20"
   },
   {
     "title": "Red Bluff Church of Christ",
@@ -144,12 +146,13 @@
         "description": "A secure, multi-role backend with custom editing tools, achieving faster load times and zero maintenance friction.",
         "image": "/clients/red-bluff-church-of-christ/New/screencapture-redbluffcofc-2026-08-01-16_00_39.png"
       }
-    }
+    },
+    "date": "2026-04-19"
   },
   {
     "title": "CorbinMeier.net",
     "slug": "corbinmeier-net",
-    "year": 2026,
+    "year": 2025,
     "extension": "tsx",
     "skills": [
       "React",
@@ -193,7 +196,8 @@
         "title": "Streamlined Static Edge",
         "description": "Minimal runtime, maximum security, and high performance with zero-cost infrastructure."
       }
-    }
+    },
+    "date": "2025-10-04"
   },
   {
     "title": "Chuck the Painter",
@@ -225,7 +229,8 @@
         "title": "Search-Optimized Hub",
         "description": "1,500+ monthly unique visitors and 40% cached traffic, building immediate trust through a professional gallery."
       }
-    }
+    },
+    "date": "2026-04-01"
   },
   {
     "title": "Atlas Energy Consulting",
@@ -268,7 +273,8 @@
         "title": "Custom Edge Framework",
         "description": "Infinite design flexibility, superior performance, and significantly reduced operational expenses."
       }
-    }
+    },
+    "date": "2026-04-27"
   },
   {
     "title": "Johnsons Turboclean",
@@ -300,7 +306,8 @@
         "title": "Professional Brand Hub",
         "description": "A unified identity and high-performance site that allows the business to scale with authority."
       }
-    }
+    },
+    "date": "2026-04-02"
   },
   {
     "title": "Envee Hair Studio",
@@ -336,12 +343,13 @@
         "title": "24-Hour Modernization",
         "description": "A complete, high-fidelity recreation delivered in a single day, providing the professional digital home the salon deserved."
       }
-    }
+    },
+    "date": "2026-04-09"
   },
   {
     "title": "Vehicles Management",
     "slug": "vehicles-management",
-    "year": 2023,
+    "year": 2022,
     "extension": "php",
     "skills": [
       "PHP",
@@ -355,12 +363,13 @@
         "src": "/clients/vehicles-management/vehicles-management.png"
       }
     ],
-    "archived": true
+    "archived": true,
+    "date": "2022-03-14"
   },
   {
     "title": "Employees HR Portal",
     "slug": "employees-hr-portal",
-    "year": 2023,
+    "year": 2022,
     "extension": "php",
     "skills": [
       "PHP",
@@ -374,12 +383,13 @@
         "src": "/clients/employees-hr-portal/employees-hr-portal.png"
       }
     ],
-    "archived": true
+    "archived": true,
+    "date": "2022-04-13"
   },
   {
     "title": "Buildings & Sites Manager",
     "slug": "buildings-sites-manager",
-    "year": 2023,
+    "year": 2022,
     "extension": "php",
     "skills": [
       "PHP",
@@ -402,12 +412,13 @@
         "src": "/clients/buildings-sites-manager/buildings-sites-manager-search.png"
       }
     ],
-    "archived": true
+    "archived": true,
+    "date": "2022-05-13"
   },
   {
     "title": "Night&Day (Mobile App)",
     "slug": "night-and-day",
-    "year": 2025,
+    "year": 2024,
     "extension": "dart",
     "skills": [
       "Flutter",
@@ -417,12 +428,13 @@
     "description": "A mobile app currently in development for both Android and iOS. Work in progress.",
     "body": "<p>Night&Day is a cross-platform Flutter app designed for seamless experiences on iOS and Android. Current work includes authentication, local state syncing, and responsive UI tuned for mobile interactions.</p>",
     "images": [],
-    "wip": true
+    "wip": true,
+    "date": "2024-07-11"
   },
   {
     "title": "Inventory & Asset System",
     "slug": "inventory-asset-system",
-    "year": 2026,
+    "year": 2024,
     "extension": "ts",
     "skills": [
       "GraphQL",
@@ -434,12 +446,13 @@
     "description": "College inventory system using a GraphQL API and MySQL with WebSocket-based live updates for real-time inventory and asset tracking.",
     "body": "<p>Built as a college project, this inventory and asset management app uses a GraphQL backend and WebSocket-powered live updates for changes to inventory counts, checkouts, and reservations.</p><p>It demonstrates real-time collaboration patterns and efficient querying with GraphQL.</p>",
     "images": [],
-    "archived": true
+    "archived": true,
+    "date": "2024-11-05"
   },
   {
     "title": "Gestational Diabetes Tracking Assistant",
     "slug": "gestational-diabetes-assistant",
-    "year": 2024,
+    "year": 2025,
     "extension": "dart",
     "skills": [
       "Flutter",
@@ -451,12 +464,13 @@
     "description": "A Flutter app for quick number tracking, CSV exporting, and filtered data views to assist gestational diabetes monitoring (college project).",
     "body": "<p>This tool helps users log blood glucose readings quickly, export sessions as CSV for sharing with clinicians, and filter/view trends over time. Built with usability and quick data entry in mind.</p>",
     "images": [],
-    "archived": true
+    "archived": true,
+    "date": "2025-08-16"
   },
   {
     "title": "Media Control API",
     "slug": "media-control-api",
-    "year": 2024,
+    "year": 2025,
     "extension": "py",
     "skills": [
       "Python",
@@ -466,7 +480,8 @@
     "description": "Python-based API for programmatic media control and device management, built as a college project.",
     "body": "<p>A lightweight Python API that exposes programmatic controls for media playback and device discovery on local networks. Useful as a centralized control layer for automation scripts and integrations.</p>",
     "images": [],
-    "archived": true
+    "archived": true,
+    "date": "2025-03-05"
   },
   {
     "title": "Windows Toast LAN Messenger",
@@ -483,12 +498,13 @@
     "images": [
       "https://github.com/CorbinIvon/toaster/assets/20233488/ca8a8c67-9aa0-4dbe-91b6-cb2f077f842a"
     ],
-    "archived": true
+    "archived": true,
+    "date": "2023-08-08"
   },
   {
     "title": "Public College Courses Projects",
     "slug": "butte-csci-projects",
-    "year": 2026,
+    "year": 2023,
     "extension": "ts",
     "skills": [
       "Next.js",
@@ -511,7 +527,8 @@
     "images": [
       "https://github.com/user-attachments/assets/61ab2d26-86b0-41c5-9383-c4fa3dab6100"
     ],
-    "archived": true
+    "archived": true,
+    "date": "2023-11-09"
   },
   {
     "title": "Simply Results PT",
@@ -539,7 +556,8 @@
         "src": "/clients/simply-results-pt/original/screencapture-simplyresultspt-2026-08-01-19_37_08.png",
         "label": "original"
       }
-    ]
+    ],
+    "date": "2026-05-22"
   },
   {
     "title": "Amanda Grace Videos",
@@ -586,7 +604,8 @@
         "src": "/clients/amanda-grace-videos/original/screencapture-amandagracevideos-gallery-2026-08-01-20_04_09.png",
         "label": "original"
       }
-    ]
+    ],
+    "date": "2026-05-22"
   },
   {
     "title": "Slade Brown Insurance",
@@ -613,7 +632,8 @@
         "src": "/clients/slade-brown-insurance/original/screencapture-sladebrown-2026-08-01-19_38_07.png",
         "label": "original"
       }
-    ]
+    ],
+    "date": "2026-06-05"
   },
   {
     "title": "BOLD Remedies",
@@ -636,7 +656,8 @@
       {
         "src": "/clients/bold-remedies/screencapture-bold-with-cheyenne-pages-dev-2026-08-01-19_38_55.png"
       }
-    ]
+    ],
+    "date": "2026-06-26"
   },
   {
     "title": "530 Garage LLC",
@@ -665,7 +686,8 @@
         "src": "/clients/530-garage-llc/original/screencapture-530garagellc-2026-08-01-19_39_16.png",
         "label": "original"
       }
-    ]
+    ],
+    "date": "2026-06-17"
   },
   {
     "title": "DJ Mojo Entertainment",
@@ -683,7 +705,8 @@
     "archived": true,
     "description": "A slight overhaul for a San Francisco DJ specializing in corporate events, weddings, clubs, and bars.",
     "body": "<p>A light-touch enhancement of an existing DJ entertainment site, preserving the original vision while refining the layout. This project was ultimately dropped before completion.</p>",
-    "images": []
+    "images": [],
+    "date": "2026-06-17"
   },
   {
     "title": "Kinney Attorney at Law",
@@ -710,7 +733,8 @@
         "src": "/clients/kinney-attorney-at-law/original/screencapture-vankinney-2026-08-01-19_40_13.png",
         "label": "original"
       }
-    ]
+    ],
+    "date": "2026-06-25"
   },
   {
     "title": "Norcal Accounting Professionals",
@@ -735,7 +759,8 @@
         "src": "/clients/norcal-accounting-professionals/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-norcalaccountingprofessionals-com-original-content-reference-index-html-2026-08-01-19_43_13.png",
         "label": "original"
       }
-    ]
+    ],
+    "date": "2026-06-17"
   },
   {
     "title": "Park Construction",
@@ -784,7 +809,8 @@
         "src": "/clients/park-construction/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-parkconstruction-homes-original-content-reference-products-html-2026-08-01-19_46_54.png",
         "label": "original"
       }
-    ]
+    ],
+    "date": "2026-06-09"
   },
   {
     "title": "Community Alliance Network",
@@ -802,7 +828,8 @@
     "archived": true,
     "description": "A professional custom update for a Redding, CA community fundraiser and events organization.",
     "body": "<p>Community Alliance Network organizes fundraisers and community-building events in the Redding, CA area. This project delivered a professional custom update to their existing site, with a members implementation I was particularly proud of, before the engagement was dropped.</p>",
-    "images": []
+    "images": [],
+    "date": "2026-06-25"
   },
   {
     "title": "Hause of Wilson",
@@ -834,7 +861,8 @@
         "src": "/clients/hause-of-wilson/original/screencapture-hauseofwilson-2026-08-01-19_48_19.png",
         "label": "original"
       }
-    ]
+    ],
+    "date": "2026-06-22"
   },
   {
     "title": "Early Byrd Services",
@@ -860,12 +888,13 @@
       {
         "src": "/clients/early-byrd-services/screencapture-earlybyrd-services-request-service-2026-08-01-19_50_03.png"
       }
-    ]
+    ],
+    "date": "2026-07-20"
   },
   {
     "title": "Chico Business Network Group",
     "slug": "chico-business-network-group",
-    "year": 2026,
+    "year": 2025,
     "extension": "tsx",
     "skills": [
       "React",
@@ -883,7 +912,8 @@
       {
         "src": "/clients/chico-business-network-group/screencapture-chicobusinessnetwork-org-contact-2026-08-01-19_50_42.png"
       }
-    ]
+    ],
+    "date": "2025-11-07"
   },
   {
     "title": "addressdb",
@@ -942,7 +972,8 @@
       {
         "src": "/clients/addressdb/screencapture-addressdb-pages-dev-list-2026-08-01-19_52_41.png"
       }
-    ]
+    ],
+    "date": "2026-07-25"
   },
   {
     "title": "Michael's Office Furnishings",
@@ -972,7 +1003,8 @@
       {
         "src": "/clients/michaels-office-furnishings/screencapture-michaels-inc-services-2026-08-01-19_55_57.png"
       }
-    ]
+    ],
+    "date": "2026-05-27"
   },
   {
     "title": "Easy Cleanups",
@@ -1001,7 +1033,8 @@
       {
         "src": "/clients/easy-cleanups/screencapture-easycleanups-services-2026-08-01-19_56_39.png"
       }
-    ]
+    ],
+    "date": "2026-06-25"
   },
   {
     "title": "Living Water Jet Boat Tours",
@@ -1044,7 +1077,8 @@
         "src": "/clients/living-water-jet-boat-tours/original/screencapture-livingwaterjetboats-2026-08-01-19_57_14.png",
         "label": "original"
       }
-    ]
+    ],
+    "date": "2026-07-27"
   },
   {
     "title": "Lit from Within",
@@ -1087,7 +1121,8 @@
         "src": "/clients/lit-from-within/original/screencapture-file-home-corbin-Code-Work-Sites-Amazing-Grace-Media-litfromwithin-life-original-content-reference-index-html-2026-08-01-19_59_30.png",
         "label": "original"
       }
-    ]
+    ],
+    "date": "2026-06-17"
   },
   {
     "title": "Living Water Adventures",
@@ -1105,6 +1140,7 @@
     "archived": true,
     "description": "An unsolicited clone recreation built after stumbling across the original site.",
     "body": "<p>A spontaneous project born from coming across the wrong link and deciding to clone and re-create the site anyway. The result speaks for itself.</p>",
-    "images": []
+    "images": [],
+    "date": "2026-05-19"
   }
 ]
