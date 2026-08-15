@@ -7,7 +7,7 @@ import { FileCode2, Home, Save, Wrench } from "lucide-react";
 import { site } from "@/data/site";
 import { CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
 import { useAnimatedAccent } from "@/hooks/useAnimatedAccent";
-import { bellEase } from "@/lib/navAccent";
+import { bellEase } from "@/lib/theme";
 
 const ICONS = [Home, FileCode2, Wrench, FileCode2];
 

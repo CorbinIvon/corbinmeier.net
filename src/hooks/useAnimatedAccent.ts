@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { animate, useMotionValue } from "framer-motion";
-import { accentForPath, bellEase } from "@/lib/navAccent";
+import { accentForPath, bellEase } from "@/lib/theme";
 
 // Animates a color motion value from the previous route's accent to the
 // current route's accent along a bell-curve (slow -> fast -> slow) easing

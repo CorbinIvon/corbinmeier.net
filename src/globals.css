@@ -44,41 +44,11 @@
   --blueprint-grid: rgba(var(--accent-rgb), 0.05);
 }
 
-.theme-blue {
-  --accent: #3b82f6;
-  --accent-rgb: 59, 130, 246;
-  --background: #0a0e17;
-  --card-bg: #0d1420;
-  --border: #1e2836;
-  --input-bg: #0d1420;
-}
-
-.theme-green {
-  --accent: #10b981;
-  --accent-rgb: 16, 185, 129;
-  --background: #04100c;
-  --card-bg: #071712;
-  --border: #0d2a21;
-  --input-bg: #051a14;
-}
-
-.theme-red {
-  --accent: #ef4444;
-  --accent-rgb: 239, 68, 68;
-  --background: #100404;
-  --card-bg: #170707;
-  --border: #2c0d0d;
-  --input-bg: #1c0a0a;
-}
-
-.theme-yellow {
-  --accent: #eab308;
-  --accent-rgb: 234, 179, 8;
-  --background: #120d02;
-  --card-bg: #1a1305;
-  --border: #2e2308;
-  --input-bg: #1a1305;
-}
+/* Per-page palettes (blue/green/red/yellow) are no longer static CSS
+   classes — src/hooks/useThemeTransition.ts tweens --accent, --background,
+   --card-bg, --border and --input-bg directly on <html> as inline styles so
+   the whole site can animate between them on navigation. See src/lib/theme.ts
+   for the canonical palette values. */
 
 html.theme-contact, html.theme-contact body {
   background-image: linear-gradient(135deg, #0a0e17 0%, #100404 50%, #04100c 100%) !important;
@@ -89,7 +59,10 @@ html.theme-contact, html.theme-contact body {
   body {
     background-color: var(--background);
     color: var(--foreground);
-    @apply font-sans transition-colors duration-700 antialiased;
+    /* --background itself is now tweened frame-by-frame by
+       useThemeTransition, so a CSS transition here would fight the JS
+       animation instead of smoothing it. */
+    @apply font-sans antialiased;
   }
 
   ::selection {
