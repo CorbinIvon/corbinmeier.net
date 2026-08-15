@@ -49,7 +49,7 @@ export default function Sidebar() {
                   layoutId="sidebar-nav-pill"
                   className="absolute inset-0 rounded-lg border-l-2"
                   style={{ borderColor: activeColor, backgroundColor: "var(--accent-soft)" }}
-                  transition={{ duration: 0.6, ease: themeEase }}
+                  transition={{ type: "tween", duration: 0.6, ease: themeEase }}
                 />
               )}
               {active ? (
