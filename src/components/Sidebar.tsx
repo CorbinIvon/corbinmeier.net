@@ -7,7 +7,7 @@ import { FileCode2, Home, Save, Wrench } from "lucide-react";
 import { site } from "@/data/site";
 import { CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
 import { useAnimatedAccent } from "@/hooks/useAnimatedAccent";
-import { bellEase } from "@/lib/theme";
+import { themeEase } from "@/lib/theme";
 
 const ICONS = [Home, FileCode2, Wrench, FileCode2];
 
@@ -49,7 +49,7 @@ export default function Sidebar() {
                   layoutId="sidebar-nav-pill"
                   className="absolute inset-0 rounded-lg border-l-2"
                   style={{ borderColor: activeColor, backgroundColor: "var(--accent-soft)" }}
-                  transition={{ duration: 0.6, ease: bellEase }}
+                  transition={{ duration: 0.6, ease: themeEase }}
                 />
               )}
               {active ? (

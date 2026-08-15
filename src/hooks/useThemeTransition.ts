@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { animate } from "framer-motion";
-import { THEMES, bellEase, colorToRgbTriplet, paletteForTheme, type ThemeName } from "@/lib/theme";
+import { THEMES, themeEase, colorToRgbTriplet, paletteForTheme, type ThemeName } from "@/lib/theme";
 
 const CSS_VARS = {
   accent: "--accent",
@@ -34,7 +34,7 @@ export function useThemeTransition(theme: ThemeName) {
       const from = getComputedStyle(root).getPropertyValue(cssVar).trim() || target[key];
       return animate(from, target[key], {
         duration: 0.6,
-        ease: bellEase,
+        ease: themeEase,
         onUpdate: (latest) => {
           root.style.setProperty(cssVar, latest);
           if (key === "accent") root.style.setProperty("--accent-rgb", colorToRgbTriplet(latest));

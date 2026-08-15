@@ -40,9 +40,9 @@ export function accentForPath(pathname: string): string {
   return THEMES[ROUTE_THEME[pathname] ?? DEFAULT_PALETTE].accent;
 }
 
-// A symmetric ease-in-out curve — velocity ramps up then back down like a
-// bell curve, rather than the linear pace of a default CSS transition.
-export const bellEase: [number, number, number, number] = [0.65, 0, 0.35, 1];
+// Constant-velocity pace for the nav pill slide and theme color tween — no
+// ease-in/ease-out ramp, for comparison against the bell-curve easing.
+export const themeEase = "linear";
 
 // Framer Motion's color interpolation emits rgba()/hex strings depending on
 // the animation stage; normalize either to an "r, g, b" triplet for the
