@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { animate, useMotionValue } from "framer-motion";
-import { accentForPath, themeEase } from "@/lib/theme";
+import { accentForPath, bellEase } from "@/lib/theme";
 
 // Animates a color motion value from the previous route's accent to the
 // current route's accent along a bell-curve (slow -> fast -> slow) easing
@@ -14,7 +14,7 @@ export function useAnimatedAccent(pathname: string) {
     prevPathname.current = pathname;
     const controls = animate(color, accentForPath(pathname), {
       duration: 0.6,
-      ease: themeEase,
+      ease: bellEase,
     });
     return () => controls.stop();
   }, [pathname, color]);
