@@ -4,16 +4,19 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Home, FileCode2, FolderOpen, Save } from "lucide-react";
+import { X, Home, FileCode2, FolderOpen, Save, Wrench } from "lucide-react";
 import { site } from "@/data/site";
 import { CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
+import { useAnimatedAccent } from "@/hooks/useAnimatedAccent";
+import { bellEase } from "@/lib/theme";
 
-const ICONS = [Home, FileCode2, FileCode2];
+const ICONS = [Home, FileCode2, Wrench, FileCode2];
 
 export default function Header() {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const items = [{ name: "Home", href: "/" }, ...site.navItems];
+  const activeColor = useAnimatedAccent(pathname);
 
   // Close the mobile menu on browser back/forward. In-app navigation closes it
   // from the link handlers below, so the drawer keeps its slide-out animation.
@@ -84,7 +87,7 @@ export default function Header() {
                 <span className="font-serif text-base tracking-tight truncate">{site.brandName}</span>
               </Link>
 
-              <nav className="flex-1 px-3 py-6 space-y-1" onClick={() => setMenuOpen(false)}>
+              <nav className="relative flex-1 px-3 py-6 space-y-1" onClick={() => setMenuOpen(false)}>
                 <p className="px-3 mb-2 font-mono text-[10px] uppercase tracking-widest text-muted">// nav</p>
                 {items.map((item, index) => {
                   const Icon = ICONS[index] ?? FileCode2;
@@ -94,14 +97,29 @@ export default function Header() {
                       key={item.href}
                       to={item.href}
                       className={cn(
-                        "flex items-center gap-3 px-3 py-2 rounded-lg font-mono text-sm border-l-2 transition-colors",
-                        active
-                          ? "border-accent text-accent bg-accent/5"
-                          : "border-transparent text-muted hover:text-foreground hover:bg-muted/5"
+                        "relative flex items-center gap-3 px-3 py-2 rounded-lg font-mono text-sm border-l-2 border-transparent transition-colors",
+                        !active && "text-muted hover:text-foreground hover:bg-muted/5"
                       )}
                     >
-                      <Icon className="w-4 h-4 shrink-0" />
-                      <span className="truncate">{item.name.toLowerCase()}</span>
+                      {active && (
+                        <motion.div
+                          layoutId="mobile-nav-pill"
+                          className="absolute inset-0 rounded-lg border-l-2"
+                          style={{ borderColor: activeColor, backgroundColor: "var(--accent-soft)" }}
+                          transition={{ type: "tween", duration: 0.6, ease: bellEase }}
+                        />
+                      )}
+                      {active ? (
+                        <motion.span style={{ color: activeColor }} className="relative flex items-center gap-3">
+                          <Icon className="w-4 h-4 shrink-0" />
+                          <span className="truncate">{item.name.toLowerCase()}</span>
+                        </motion.span>
+                      ) : (
+                        <>
+                          <Icon className="relative w-4 h-4 shrink-0" />
+                          <span className="relative truncate">{item.name.toLowerCase()}</span>
+                        </>
+                      )}
                     </Link>
                   );
                 })}

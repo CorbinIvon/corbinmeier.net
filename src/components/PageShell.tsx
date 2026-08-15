@@ -1,11 +1,13 @@
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import BackgroundMotion from "@/components/BackgroundMotion";
 import { cn } from "@/lib/utils";
+import { useThemeTransition } from "@/hooks/useThemeTransition";
+import type { ThemeName } from "@/lib/theme";
 
 /**
  * Shared page-level root: owns the top clearance needed to sit below the
  * fixed mobile header and the ambient background layer. Every page renders exactly one of these
- * as its root, applying the appropriate page theme to the document element.
+ * as its root, smoothly transitioning the document's color palette to match.
  */
 export default function PageShell({
   children,
@@ -14,12 +16,9 @@ export default function PageShell({
 }: {
   children: ReactNode;
   className?: string;
-  theme?: "blue" | "green" | "red" | "contact";
+  theme?: ThemeName;
 }) {
-  useEffect(() => {
-    document.documentElement.classList.remove("theme-blue", "theme-green", "theme-red", "theme-contact");
-    document.documentElement.classList.add(`theme-${theme}`);
-  }, [theme]);
+  useThemeTransition(theme);
 
   return (
     <div className={cn("relative min-h-screen pt-16 lg:pt-6 pb-10", className)}>
