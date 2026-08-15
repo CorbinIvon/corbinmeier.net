@@ -71,6 +71,15 @@
   --input-bg: #1c0a0a;
 }
 
+.theme-yellow {
+  --accent: #eab308;
+  --accent-rgb: 234, 179, 8;
+  --background: #120d02;
+  --card-bg: #1a1305;
+  --border: #2e2308;
+  --input-bg: #1a1305;
+}
+
 html.theme-contact, html.theme-contact body {
   background-image: linear-gradient(135deg, #0a0e17 0%, #100404 50%, #04100c 100%) !important;
   background-attachment: fixed !important;

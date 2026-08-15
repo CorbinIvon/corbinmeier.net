@@ -4,6 +4,7 @@ export const site: SiteContent = {
   brandName: "Corbin Meier",
   navItems: [
     { name: "Projects", href: "/projects" },
+    { name: "Tools", href: "/tools" },
     { name: "About", href: "/about" },
   ],
   contactCtaLabel: "Contact",

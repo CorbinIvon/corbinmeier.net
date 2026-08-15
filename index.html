@@ -31,6 +31,8 @@
         var theme = "blue";
         if (path.startsWith("/projects")) {
           theme = "green";
+        } else if (path.startsWith("/tools")) {
+          theme = "yellow";
         } else if (path.startsWith("/about")) {
           theme = "red";
         } else if (path.startsWith("/contact")) {
@@ -48,6 +50,9 @@
       }
       html.theme-red, html.theme-red body {
         background-color: #100404;
+      }
+      html.theme-yellow, html.theme-yellow body {
+        background-color: #120d02;
       }
       html.theme-contact, html.theme-contact body {
         background-image: linear-gradient(135deg, #0a0e17 0%, #100404 50%, #04100c 100%) !important;

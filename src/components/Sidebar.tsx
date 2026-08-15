@@ -2,11 +2,11 @@
 
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { FileCode2, Home, Save } from "lucide-react";
+import { FileCode2, Home, Save, Wrench } from "lucide-react";
 import { site } from "@/data/site";
 import { CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
 
-const ICONS = [Home, FileCode2, FileCode2];
+const ICONS = [Home, FileCode2, Wrench, FileCode2];
 
 export default function Sidebar() {
   const { pathname } = useLocation();

@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Home, FileCode2, FolderOpen, Save } from "lucide-react";
+import { X, Home, FileCode2, FolderOpen, Save, Wrench } from "lucide-react";
 import { site } from "@/data/site";
 import { CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
 
-const ICONS = [Home, FileCode2, FileCode2];
+const ICONS = [Home, FileCode2, Wrench, FileCode2];
 
 export default function Header() {
   const { pathname } = useLocation();

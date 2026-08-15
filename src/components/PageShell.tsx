@@ -14,10 +14,10 @@ export default function PageShell({
 }: {
   children: ReactNode;
   className?: string;
-  theme?: "blue" | "green" | "red" | "contact";
+  theme?: "blue" | "green" | "red" | "yellow" | "contact";
 }) {
   useEffect(() => {
-    document.documentElement.classList.remove("theme-blue", "theme-green", "theme-red", "theme-contact");
+    document.documentElement.classList.remove("theme-blue", "theme-green", "theme-red", "theme-yellow", "theme-contact");
     document.documentElement.classList.add(`theme-${theme}`);
   }, [theme]);
 
