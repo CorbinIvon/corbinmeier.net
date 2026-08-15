@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { animate } from "framer-motion";
-import { THEMES, bellEase, colorToRgbTriplet, paletteForTheme, type PaletteName, type ThemeName } from "@/lib/theme";
+import { THEMES, bellEase, colorToRgbTriplet, paletteForTheme, type ThemeName } from "@/lib/theme";
 
 const CSS_VARS = {
   accent: "--accent",
@@ -17,15 +17,17 @@ const CSS_VARS = {
 // glows, borders — transitions automatically.
 export function useThemeTransition(theme: ThemeName) {
   const palette = paletteForTheme(theme);
-  const prevPalette = useRef<PaletteName | null>(null);
 
   useEffect(() => {
     const root = document.documentElement;
     root.classList.toggle("theme-contact", theme === "contact");
 
-    if (prevPalette.current === palette) return;
-    prevPalette.current = palette;
-
+    // No "already applied" short-circuit here: under React 18 StrictMode,
+    // effects run, clean up, then run again before the first frame paints.
+    // A ref-based skip would have the first (soon-cancelled) run mark the
+    // palette as applied before any onUpdate fired, causing the real second
+    // run to skip animating entirely. Reading the live CSS var as `from`
+    // instead makes a same-palette re-run a cheap no-op naturally.
     const target = THEMES[palette];
     const controls = (Object.keys(CSS_VARS) as (keyof typeof CSS_VARS)[]).map((key) => {
       const cssVar = CSS_VARS[key];

@@ -26,39 +26,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" />
     <script>
-      (function() {
+      // Pre-hydration FOUC guard: set the live theme CSS custom properties
+      // directly (inline style beats any stylesheet rule, layered or not)
+      // so the first paint already matches the route's page. Mirrors the
+      // palette in src/lib/theme.ts — keep both in sync if it changes.
+      (function () {
+        var THEMES = {
+          blue: { accent: "#3b82f6", background: "#0a0e17", cardBg: "#0d1420", border: "#1e2836", inputBg: "#0d1420" },
+          green: { accent: "#10b981", background: "#04100c", cardBg: "#071712", border: "#0d2a21", inputBg: "#051a14" },
+          red: { accent: "#ef4444", background: "#100404", cardBg: "#170707", border: "#2c0d0d", inputBg: "#1c0a0a" },
+          yellow: { accent: "#eab308", background: "#120d02", cardBg: "#1a1305", border: "#2e2308", inputBg: "#1a1305" },
+        };
         var path = window.location.pathname;
-        var theme = "blue";
-        if (path.startsWith("/projects")) {
-          theme = "green";
-        } else if (path.startsWith("/tools")) {
-          theme = "yellow";
-        } else if (path.startsWith("/about")) {
-          theme = "red";
-        } else if (path.startsWith("/contact")) {
-          theme = "contact";
-        }
-        document.documentElement.classList.add("theme-" + theme);
+        var name = "blue";
+        if (path.indexOf("/projects") === 0) name = "green";
+        else if (path.indexOf("/tools") === 0) name = "yellow";
+        else if (path.indexOf("/about") === 0) name = "red";
+        else if (path.indexOf("/contact") === 0) name = "contact";
+
+        var palette = THEMES[name === "contact" ? "blue" : name];
+        var root = document.documentElement;
+        root.style.setProperty("--accent", palette.accent);
+        var v = parseInt(palette.accent.slice(1), 16);
+        root.style.setProperty("--accent-rgb", ((v >> 16) & 255) + ", " + ((v >> 8) & 255) + ", " + (v & 255));
+        root.style.setProperty("--background", palette.background);
+        root.style.setProperty("--card-bg", palette.cardBg);
+        root.style.setProperty("--border", palette.border);
+        root.style.setProperty("--input-bg", palette.inputBg);
+        if (name === "contact") root.classList.add("theme-contact");
       })();
     </script>
-    <style>
-      html, body {
-        background-color: #0a0e17;
-      }
-      html.theme-green, html.theme-green body {
-        background-color: #04100c;
-      }
-      html.theme-red, html.theme-red body {
-        background-color: #100404;
-      }
-      html.theme-yellow, html.theme-yellow body {
-        background-color: #120d02;
-      }
-      html.theme-contact, html.theme-contact body {
-        background-image: linear-gradient(135deg, #0a0e17 0%, #100404 50%, #04100c 100%) !important;
-        background-attachment: fixed !important;
-      }
-    </style>
   </head>
   <body>
     <div id="root"></div>
