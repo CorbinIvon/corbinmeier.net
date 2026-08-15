@@ -1130,7 +1130,9 @@
     "description": "The work from my CSCI 031 college course, including web apps and tools built with modern technologies.",
     "body": "<p>Aggregated course work showcasing web apps, tooling, and experiments. Includes examples using modern stacks like Next.js, Supabase, Prisma, and Turborepo monorepos.</p>",
     "images": [
-      "https://github.com/user-attachments/assets/61ab2d26-86b0-41c5-9383-c4fa3dab6100"
+      {
+        "src": "https://github.com/user-attachments/assets/61ab2d26-86b0-41c5-9383-c4fa3dab6100"
+      }
     ],
     "archived": true,
     "date": "2023-11-09"
@@ -1148,7 +1150,9 @@
     "description": "Windows Toast and notification system enabling LAN messenger between devices for quick local notifications.",
     "body": "<p>A small utility that sends Windows toast notifications across a LAN. Designed for quick local messaging without a centralized server—great for internal team alerts or small office broadcasts.</p>",
     "images": [
-      "https://github.com/CorbinIvon/toaster/assets/20233488/ca8a8c67-9aa0-4dbe-91b6-cb2f077f842a"
+      {
+        "src": "https://github.com/CorbinIvon/toaster/assets/20233488/ca8a8c67-9aa0-4dbe-91b6-cb2f077f842a"
+      }
     ],
     "archived": true,
     "date": "2023-08-08"

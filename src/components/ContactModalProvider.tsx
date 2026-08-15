@@ -1,12 +1,12 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import React, { useState, ReactNode, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Mail, MapPin, Clock, Mailbox, Save, Bot, type LucideIcon } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Mail, MapPin, Clock, Mailbox, Save, Bot, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
 import { contact } from "@/data/contact";
 import type { ContactInfoItem } from "@/data/types";
-import { CyberCodeTerminalWindow, CyberCodeButton, Typewriter, CyberCodeTerminalLine, CyberCodeWindowChrome } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeTerminalWindow, CyberCodeButton, CyberCodeTerminalLine, CyberCodeWindowChrome } from "@/components/cybercode/CyberCodeUIKit";
+import { ContactModalContext } from "./ContactModalContext";
 
 const CONTACT_ICONS: Record<ContactInfoItem["icon"], LucideIcon> = {
   Mail,
@@ -17,23 +17,8 @@ const CONTACT_ICONS: Record<ContactInfoItem["icon"], LucideIcon> = {
 
 const TURNSTILE_SITE_KEY = import.meta.env.TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
 
-interface ContactModalContextType {
-  isOpen: boolean;
-  open: (options?: { subject?: string }) => void;
-  close: () => void;
-}
-
-const ContactModalContext = createContext<ContactModalContextType | undefined>(undefined);
-
-export const useContactModal = () => {
-  const context = useContext(ContactModalContext);
-  if (!context) throw new Error("useContactModal must be used within ContactModalProvider");
-  return context;
-};
-
 export default function ContactModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
 
   // Form states maintained in provider to persist when closed/reopened
   const [form, setForm] = useState({
@@ -83,7 +68,7 @@ export default function ContactModalProvider({ children }: { children: ReactNode
               const subject = url.searchParams.get("subject") || undefined;
               open({ subject });
             }
-          } catch (err) {
+          } catch {
             // Ignore malformed URLs
           }
         }
@@ -147,7 +132,8 @@ export default function ContactModalProvider({ children }: { children: ReactNode
     }
 
     if (!turnstileToken) {
-      const messages = {
+      // "verified" is absent by design: reaching here means no token was issued.
+      const messages: Partial<Record<typeof turnstileStatus, string>> = {
         verifying: "Security check is running. Please wait...",
         error: "Security verification failed. Please refresh the page and try again.",
         expired: "Security verification expired. Please refresh the page.",

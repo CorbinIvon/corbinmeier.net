@@ -35,7 +35,7 @@ export default function Hero() {
       >
         <motion.div variants={item} className="mb-2">
           <CyberCodeTerminalLine prompt=">" className="mb-2">
-            <Typewriter speedMs={20} as="span">cat /home.dat</Typewriter>
+            <Typewriter as="span">cat /home.dat</Typewriter>
           </CyberCodeTerminalLine>
         </motion.div>
 
@@ -43,12 +43,12 @@ export default function Hero() {
           variants={item}
           className="mb-4 font-mono text-xs uppercase tracking-widest text-accent"
         >
-          <Typewriter speedMs={15} as="span">{site.missionStatement}</Typewriter>
+          <Typewriter as="span">{site.missionStatement}</Typewriter>
         </motion.p>
 
         <motion.div variants={item}>
           <h1 className="text-display mb-6 font-serif text-foreground">
-            <Typewriter speedMs={15} as="span">
+            <Typewriter as="span">
               <span className="whitespace-nowrap">{homeHero.headingLine1}</span> <br />
               <span className="text-accent italic">{homeHero.headingAccent}</span>
             </Typewriter>
@@ -59,7 +59,7 @@ export default function Hero() {
           variants={item}
           className="text-narrative mb-8"
         >
-          <Typewriter speedMs={10} as="span">{homeHero.paragraph}</Typewriter>
+          <Typewriter as="span">{homeHero.paragraph}</Typewriter>
         </motion.p>
 
         <motion.div

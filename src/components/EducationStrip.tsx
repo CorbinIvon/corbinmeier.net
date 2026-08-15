@@ -4,7 +4,7 @@ import associates from "@/data/associates.json";
 import { education } from "@/data/education";
 import { GraduationCap, Terminal } from "lucide-react";
 import { motion } from "framer-motion";
-import { CyberCodeSectionLabel, CyberCodeTerminalWindow } from "@/components/cybercode/CyberCodeUIKit";
+import { CyberCodeTerminalWindow } from "@/components/cybercode/CyberCodeUIKit";
 
 export default function EducationStrip() {
   const butte = associates.find((a) => a.name.toLowerCase().includes("butte"));

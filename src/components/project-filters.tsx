@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, X, ChevronDown, Filter } from "lucide-react";
 import ProjectCard, { Project as CardProject } from "./ProjectCard";
-import { useProjectModal } from "./ProjectModalProvider";
+import { useProjectModal } from "./ProjectModalContext";
 import { CyberCodeTerminalWindow } from "./cybercode/CyberCodeUIKit";
 import { Terminal } from "lucide-react";
 

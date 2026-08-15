@@ -1,26 +1,12 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect, useCallback } from "react";
+import React, { useState, ReactNode, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Calendar, Code2, Layers, Maximize2, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ExternalLink, Code2, Maximize2, ChevronLeft, ChevronRight } from "lucide-react";
 import { IconBrandGithub } from "@tabler/icons-react";
 import { Project } from "./ProjectCard";
 import BeforeAfterSlider from "./BeforeAfterSlider";
 import LazyImage from "./LazyImage";
 import { CyberCodeTerminalWindow, CyberCodeWindowChrome } from "./cybercode/CyberCodeUIKit";
-
-interface ProjectModalContextType {
-  isOpen: boolean;
-  project: Project | null;
-  open: (project: Project, list?: Project[]) => void;
-  close: () => void;
-}
-
-const ProjectModalContext = createContext<ProjectModalContextType | undefined>(undefined);
-
-export const useProjectModal = () => {
-  const context = useContext(ProjectModalContext);
-  if (!context) throw new Error("useProjectModal must be used within ProjectModalProvider");
-  return context;
-};
+import { ProjectModalContext } from "./ProjectModalContext";
 
 export default function ProjectModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);

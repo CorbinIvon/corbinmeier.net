@@ -9,6 +9,16 @@ interface CloudflareEnv {
   TURNSTILE_SECRET_KEY: string;
 }
 
+interface ContactRequestBody {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
+  subject?: string;
+  message?: string;
+  turnstileToken?: string;
+}
+
 export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
   const { request, env } = context;
 
@@ -21,7 +31,7 @@ export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
   }
 
   try {
-    const body: any = await request.json();
+    const body = (await request.json()) as ContactRequestBody;
     const { turnstileToken } = body;
 
     // Turnstile verification

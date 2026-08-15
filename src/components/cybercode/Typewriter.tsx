@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 
+// React 19 types element props as `unknown`, so narrow to the only shape we read.
+type WithChildren = { children?: React.ReactNode };
+
 // Recursively count text characters in the React children tree
 function countTextCharacters(children: React.ReactNode): number {
   let count = 0;
@@ -7,7 +10,7 @@ function countTextCharacters(children: React.ReactNode): number {
     if (child === null || child === undefined) return;
     if (typeof child === "string" || typeof child === "number") {
       count += String(child).length;
-    } else if (React.isValidElement(child)) {
+    } else if (React.isValidElement<WithChildren>(child)) {
       count += countTextCharacters(child.props.children);
     }
   });
@@ -60,7 +63,7 @@ function renderLimit(
       }
     }
 
-    if (React.isValidElement(child)) {
+    if (React.isValidElement<WithChildren>(child)) {
       const [newChildren, newRemaining] = renderLimit(
         child.props.children,
         remaining,
@@ -68,12 +71,9 @@ function renderLimit(
         showCursor
       );
       remaining = newRemaining;
-      
+
       // Clone the element with the typed subset of children
-      return React.cloneElement(child, {
-        ...child.props,
-        children: newChildren,
-      } as any);
+      return React.cloneElement(child, { children: newChildren });
     }
 
     return null;
@@ -105,13 +105,6 @@ export default function Typewriter({
   const [cursorVisible, setCursorVisible] = useState(showCursor);
   const elementRef = useRef<HTMLElement | null>(null);
 
-  const speedMs = React.useMemo(() => {
-    if (totalChars <= 0) return 0;
-    // Add +/- 0.6 seconds (600ms) random jitter
-    const jitteredDuration = durationMs + (Math.random() - 0.5) * 1200;
-    return Math.max(1, jitteredDuration) / totalChars;
-  }, [durationMs, totalChars]);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -132,7 +125,11 @@ export default function Typewriter({
   }, [delayMs]);
 
   useEffect(() => {
-    if (!started) return;
+    if (!started || totalChars <= 0) return;
+
+    // Add +/- 0.6 seconds (600ms) random jitter. Kept in the effect so render stays pure.
+    const jitteredDuration = durationMs + (Math.random() - 0.5) * 1200;
+    const speedMs = Math.max(1, jitteredDuration) / totalChars;
 
     let current = 0;
     const interval = setInterval(() => {
@@ -144,7 +141,7 @@ export default function Typewriter({
     }, speedMs);
 
     return () => clearInterval(interval);
-  }, [started, totalChars, speedMs]);
+  }, [started, totalChars, durationMs]);
 
   useEffect(() => {
     if (visibleCharCount >= totalChars && totalChars > 0 && showCursor) {

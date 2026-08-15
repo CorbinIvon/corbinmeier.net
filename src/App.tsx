@@ -11,7 +11,6 @@ import CrtNotFound from "@/components/CrtNotFound";
 import { CyberCodeStyles } from "@/components/cybercode/CyberCodeUIKit";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
-import Contact from "@/pages/Contact";
 import Projects from "@/pages/Projects";
 import AiSetup from "@/pages/AiSetup";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -19,7 +18,8 @@ import TermsOfService from "@/pages/TermsOfService";
 
 import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import ContactModalProvider, { useContactModal } from "@/components/ContactModalProvider";
+import ContactModalProvider from "@/components/ContactModalProvider";
+import { useContactModal } from "@/components/ContactModalContext";
 
 function ContactRouteRedirect() {
   const navigate = useNavigate();

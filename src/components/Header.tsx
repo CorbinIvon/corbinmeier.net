@@ -15,10 +15,13 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const items = [{ name: "Home", href: "/" }, ...site.navItems];
 
-  // Close mobile menu on route change.
+  // Close the mobile menu on browser back/forward. In-app navigation closes it
+  // from the link handlers below, so the drawer keeps its slide-out animation.
   useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+    const close = () => setMenuOpen(false);
+    window.addEventListener("popstate", close);
+    return () => window.removeEventListener("popstate", close);
+  }, []);
 
   // Close on Escape for keyboard users.
   useEffect(() => {
@@ -67,6 +70,7 @@ export default function Header() {
             >
               <Link
                 to="/"
+                onClick={() => setMenuOpen(false)}
                 className="flex items-center gap-3 px-6 py-6 border-b border-border group"
               >
                 <div className="relative w-9 h-9 overflow-hidden rounded-full border border-border transition-transform group-hover:scale-105">
@@ -80,7 +84,7 @@ export default function Header() {
                 <span className="font-serif text-base tracking-tight truncate">{site.brandName}</span>
               </Link>
 
-              <nav className="flex-1 px-3 py-6 space-y-1">
+              <nav className="flex-1 px-3 py-6 space-y-1" onClick={() => setMenuOpen(false)}>
                 <p className="px-3 mb-2 font-mono text-[10px] uppercase tracking-widest text-muted">// nav</p>
                 {items.map((item, index) => {
                   const Icon = ICONS[index] ?? FileCode2;
@@ -103,7 +107,7 @@ export default function Header() {
                 })}
               </nav>
 
-              <div className="p-4 border-t border-border flex justify-center">
+              <div className="p-4 border-t border-border flex justify-center" onClick={() => setMenuOpen(false)}>
                 <CyberCodeButton to="/contact" className="w-full">
                   <Save className="w-4 h-4" />
                   {site.contactCtaLabel}

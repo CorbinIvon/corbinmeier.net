@@ -19,10 +19,15 @@ export default function LazyImage({
   priority = false,
   ...props
 }: LazyImageProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  // Track which src finished loading/failed rather than a bare boolean, so a new
+  // src (e.g. inside a modal carousel) resets the state by derivation, not an effect.
+  const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
+  const [errorSrc, setErrorSrc] = useState<string | null>(null);
   const [isInView, setIsInView] = useState(false);
-  const [error, setError] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const isLoaded = loadedSrc === src;
+  const error = errorSrc === src;
 
   useEffect(() => {
     const triggerLoad = () => {
@@ -68,12 +73,6 @@ export default function LazyImage({
     };
   }, [priority]);
 
-  // Reset loaded/error state when src changes (e.g. inside a modal carousel)
-  useEffect(() => {
-    setIsLoaded(false);
-    setError(false);
-  }, [src]);
-
   return (
     <div
       ref={containerRef}
@@ -115,8 +114,8 @@ export default function LazyImage({
         <motion.img
           src={src}
           alt={alt}
-          onLoad={() => setIsLoaded(true)}
-          onError={() => setError(true)}
+          onLoad={() => setLoadedSrc(src)}
+          onError={() => setErrorSrc(src)}
           initial={{ opacity: 0 }}
           animate={{ opacity: isLoaded ? 1 : 0 }}
           transition={{ duration: 0.2 }}

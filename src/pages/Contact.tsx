@@ -84,7 +84,8 @@ export default function Contact() {
     }
 
     if (!turnstileToken) {
-      const messages = {
+      // "verified" is absent by design: reaching here means no token was issued.
+      const messages: Partial<Record<typeof turnstileStatus, string>> = {
         verifying: "Security check is running. Please wait...",
         error: "Security verification failed. Please refresh the page and try again.",
         expired: "Security verification expired. Please refresh the page.",

@@ -1,13 +1,11 @@
 import SeoHead from "@/components/SeoHead";
 import PageShell from "@/components/PageShell";
 import { ArrowRight, Terminal } from "lucide-react";
-import { Link } from "react-router-dom";
 import { about } from "@/data/about";
 import { motion, Variants } from "framer-motion";
 import {
   CyberCodeTerminalWindow,
   CyberCodeTerminalLine,
-  CyberCodeBlinkCursor,
   Typewriter,
   CyberCodeButton,
 } from "@/components/cybercode/CyberCodeUIKit";

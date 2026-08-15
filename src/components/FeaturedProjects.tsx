@@ -1,12 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { CyberCodeLinkButton } from "@/components/cybercode/CyberCodeUIKit";
 import projects from "@/data/projects.json";
 import ProjectCard from "./ProjectCard";
-import { useProjectModal } from "./ProjectModalProvider";
+import { useProjectModal } from "./ProjectModalContext";
 
 export default function FeaturedProjects() {
   const selectedSlugs = ["addressdb", "amazing-grace-media", "living-water-jet-boat-tours"];

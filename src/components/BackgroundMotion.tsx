@@ -1,21 +1,13 @@
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useEffect, useState } from "react";
 
 export default function BackgroundMotion() {
-  const [mounted, setMounted] = useState(false);
   const { scrollYProgress } = useScroll();
-  
+
   // Create smooth parallax values
   const y1 = useSpring(useTransform(scrollYProgress, [0, 1], [0, 200]), { stiffness: 50, damping: 20 });
   const y2 = useSpring(useTransform(scrollYProgress, [0, 1], [0, -300]), { stiffness: 50, damping: 20 });
   const y3 = useSpring(useTransform(scrollYProgress, [0, 1], [0, 100]), { stiffness: 50, damping: 20 });
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
