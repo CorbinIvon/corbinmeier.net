@@ -29,18 +29,32 @@ export function useThemeTransition(theme: ThemeName) {
     // run to skip animating entirely. Reading the live CSS var as `from`
     // instead makes a same-palette re-run a cheap no-op naturally.
     const target = THEMES[palette];
-    const controls = (Object.keys(CSS_VARS) as (keyof typeof CSS_VARS)[]).map((key) => {
-      const cssVar = CSS_VARS[key];
-      const from = getComputedStyle(root).getPropertyValue(cssVar).trim() || target[key];
-      return animate(from, target[key], {
-        duration: 0.6,
-        ease: bellEase,
-        onUpdate: (latest) => {
-          root.style.setProperty(cssVar, latest);
-          if (key === "accent") root.style.setProperty("--accent-rgb", colorToRgbTriplet(latest));
-        },
+    const keys = Object.keys(CSS_VARS) as (keyof typeof CSS_VARS)[];
+
+    const apply = (key: keyof typeof CSS_VARS, value: string) => {
+      root.style.setProperty(CSS_VARS[key], value);
+      if (key === "accent") root.style.setProperty("--accent-rgb", colorToRgbTriplet(value));
+    };
+
+    // The tween is decoration; the palette it lands on is not. If color
+    // interpolation is unavailable on some engine, snap straight to the target
+    // rather than let the throw escape the effect — an uncaught error here
+    // unmounts the whole tree and empties #root (issue #7).
+    let controls;
+    try {
+      controls = keys.map((key) => {
+        const from = getComputedStyle(root).getPropertyValue(CSS_VARS[key]).trim() || target[key];
+        return animate(from, target[key], {
+          duration: 0.6,
+          ease: bellEase,
+          onUpdate: (latest) => apply(key, latest),
+        });
       });
-    });
+    } catch (error) {
+      console.error("[useThemeTransition] palette tween unavailable; applying instantly", error);
+      keys.forEach((key) => apply(key, target[key]));
+      return;
+    }
 
     return () => controls.forEach((c) => c.stop());
   }, [palette, theme]);

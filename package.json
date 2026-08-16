@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "check": "tsc --noEmit",
+    "test": "vitest run",
     "deploy": "wrangler pages deploy dist"
   },
   "dependencies": {
@@ -32,6 +33,8 @@
     "@cloudflare/workers-types": "^4.20260519.1",
     "@eslint/js": "^9.39.5",
     "@tailwindcss/vite": "^4.0.0",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^20.19.19",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
@@ -41,11 +44,13 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.4",
     "globals": "^17.11.0",
+    "jsdom": "^30.0.1",
     "postcss": "^8.4.49",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.67.0",
     "vite": "^6.0.3",
+    "vitest": "^3.2.7",
     "wrangler": "^3.91.0"
   }
 }
