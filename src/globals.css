@@ -52,7 +52,16 @@
 
 html.theme-contact, html.theme-contact body {
   background-image: linear-gradient(135deg, #0a0e17 0%, #100404 50%, #04100c 100%) !important;
-  background-attachment: fixed !important;
+}
+
+/* iOS Safari composites `background-attachment: fixed` at full device pixel
+   ratio and can drop the layer outright on Retina phones, so it is limited to
+   fine-pointer (desktop) devices here and on .blueprint-bg below. Touch
+   devices get the same paint, scrolling with the page. */
+@media (hover: hover) and (pointer: fine) {
+  html.theme-contact, html.theme-contact body {
+    background-attachment: fixed !important;
+  }
 }
 
 @layer base {
@@ -118,10 +127,17 @@ html.theme-contact, html.theme-contact body {
     background-image: linear-gradient(var(--blueprint-grid) 1px, transparent 1px),
       linear-gradient(90deg, var(--blueprint-grid) 1px, transparent 1px);
     background-size: 40px 40px;
-    /* Fixed attachment ties the grid to the viewport instead of each
-       element's own box, so the pattern lines up continuously across
-       every section that uses this class instead of resetting per-section. */
-    background-attachment: fixed;
+  }
+
+  /* Fixed attachment ties the grid to the viewport instead of each element's
+     own box, so the pattern lines up continuously across every section that
+     uses this class instead of resetting per-section. Desktop only — see the
+     .theme-contact note above for why iOS Safari is excluded. The grid sits on
+     a full-viewport fixed layer anyway, so touch devices lose nothing. */
+  @media (hover: hover) and (pointer: fine) {
+    .blueprint-bg {
+      background-attachment: fixed;
+    }
   }
 
   .section-container {
