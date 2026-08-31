@@ -18,6 +18,102 @@
           { "label": "Bing Webmaster Guidelines", "url": "https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a" },
           { "label": "Moz - Beginner's Guide to SEO", "url": "https://moz.com/beginners-guide-to-seo" }
         ]
+      },
+      {
+        "id": "how-ranking-works",
+        "logId": "002",
+        "question": "How does a website actually end up at the top of Google?",
+        "date": "2026-08-31",
+        "tag": "Mechanics",
+        "answer": "<p>Three separate stages have to go right, and most sites that \"aren't ranking\" have quietly failed at stage one or two.</p><p><strong>1. Crawling.</strong> Google runs automated programs that follow links around the web and download pages. If nothing links to a page and it isn't listed in your sitemap, it may never be discovered at all.</p><p><strong>2. Indexing.</strong> Google reads what it downloaded, works out what the page is about, and decides whether to file it. People assume this step is automatic. It isn't - Google states plainly that indexing isn't guaranteed, and that not every page it processes will be indexed.</p><p><strong>3. Serving.</strong> Only pages that made it into the index can be ranked at all. When someone searches, Google sorts the eligible pages using hundreds of signals, which it groups as: what the query means, how relevant the page is, how good the content appears to be, how usable the page is (speed, mobile-friendliness), and the searcher's own context - their location, language, and whether they're on a phone or a desktop.</p><p>\"Hundreds of signals\" also isn't one algorithm. Google publicly names dozens of separate ranking systems running alongside each other: link analysis, spam detection, freshness for time-sensitive queries, systems that favor original reporting, and systems that stop any one site from filling the whole results page.</p><p>Worth knowing: two people searching the same words at the same second can get different results, because location, language, and device are part of the input. \"We rank number one\" is always shorthand for \"number one for someone, somewhere, on something.\"</p>",
+        "stat": null,
+        "sources": [
+          { "label": "Google - In-Depth Guide to How Search Works", "url": "https://developers.google.com/search/docs/fundamentals/how-search-works" },
+          { "label": "Google - Ranking Systems Guide", "url": "https://developers.google.com/search/docs/appearance/ranking-systems-guide" },
+          { "label": "Google - How Results Are Ranked", "url": "https://www.google.com/search/howsearchworks/how-search-works/ranking-results/" }
+        ]
+      },
+      {
+        "id": "why-seo-is-ongoing",
+        "logId": "003",
+        "question": "Why do SEO companies charge every month? Isn't it a one-time fix?",
+        "date": "2026-08-31",
+        "tag": "Billing",
+        "answer": "<p>Because the thing you're being graded against doesn't hold still. In 2023 alone, Google made <strong>4,781 changes to Search</strong>, supported by 16,871 live traffic experiments and more than 700,000 quality tests. That's roughly thirteen changes a day to the rules your site is scored on.</p><p>The other half is competition. A ranking isn't a score you earn and keep, it's a <em>position in a line</em>. You can change nothing at all and still slide down, because three competitors published something better this quarter. Search visibility behaves less like a renovation and more like a lawn: stop for a season and you don't keep last season's result.</p><p>What honest monthly work actually buys:</p><ul><li>Publishing and refreshing content so pages stay accurate and keep matching what people search for</li><li>Watching for pages that dropped out of the index or lost rankings, and fixing the cause</li><li>Repairing broken links, slow pages, and the errors that accumulate as any site gets edited</li><li>Tracking what competitors changed, and responding</li><li>Reporting what moved, so you can judge whether the spend is working</li></ul><p>The fair warning: a monthly retainer is only worth paying if someone is doing that work and showing it to you. A retainer with no report attached is a subscription, not a service.</p>",
+        "stat": { "value": "4,781", "label": "changes Google made to Search in 2023" },
+        "sources": [
+          { "label": "Google - How We Test Search Changes", "url": "https://www.google.com/search/howsearchworks/how-search-works/rigorous-testing/" },
+          { "label": "Google - Ranking Systems Guide", "url": "https://developers.google.com/search/docs/appearance/ranking-systems-guide" }
+        ]
+      },
+      {
+        "id": "where-seo-is-managed",
+        "logId": "004",
+        "question": "Where is SEO actually managed? Is there a dashboard I log into?",
+        "date": "2026-08-31",
+        "tag": "Tooling",
+        "answer": "<p>There's no single control panel, and nothing you can log into that lets you set your own position. The tools report what's happening; the fixes happen on the website itself.</p><p>The ones that matter:</p><ul><li><strong>Google Search Console</strong> (free). The closest thing to an official dashboard. It shows the actual search terms people used to find you, which pages Google has and hasn't indexed, whether Google can load your pages, whether you've been penalized, and how your pages score on speed. Verifying it is the highest-value hour on this list.</li><li><strong>Bing Webmaster Tools</strong> (free). The same idea for Bing, whose results also feed a number of other places people search.</li><li><strong>Google Business Profile</strong> (free). If customers can visit you or you serve a defined area, this is the listing that appears alongside the map. For many local businesses it drives more phone calls than the website does.</li><li><strong>An analytics tool.</strong> Search Console tells you what happened <em>in the search results</em>. Analytics tells you what visitors did once they arrived. You need both halves to know whether traffic is worth anything.</li><li><strong>Paid research tools</strong> such as Ahrefs or Semrush. Optional, and where a good share of agency retainers quietly goes. Genuinely useful for competitor and keyword research, and unnecessary for getting a small site's fundamentals right.</li></ul><p>One piece of advice worth more than the rest: hold the logins to those free accounts in your own name, even when someone else does the work. If an agency owns them and you part ways, you can lose your entire history of what worked.</p>",
+        "stat": null,
+        "sources": [
+          { "label": "Google Search Console - Getting Started", "url": "https://developers.google.com/search/docs/monitor-debug/search-console-start" },
+          { "label": "Bing Webmaster Tools", "url": "https://www.bing.com/webmasters/about" },
+          { "label": "Google Business Profile - Improve Your Local Ranking", "url": "https://support.google.com/business/answer/7091" }
+        ]
+      },
+      {
+        "id": "how-long-until-results",
+        "logId": "005",
+        "question": "How long before SEO work actually shows results?",
+        "date": "2026-08-31",
+        "tag": "Timeline",
+        "answer": "<p>Google's own answer is deliberately unglamorous: some changes might take effect in a few hours, others could take several months, and you should generally wait a few weeks before judging whether a change helped.</p><p>The spread is that wide because different problems have different clocks. Fixing a page that was accidentally blocked from being indexed can restore traffic within days, because nothing needed to be earned - something was simply broken. Earning authority for a competitive, high-volume term is measured in quarters, because it depends on other people publishing, linking, and referencing you over time.</p><p>Two practical consequences. First, a three-month engagement is usually too short to prove anything in either direction, so judge the work on whether it's being done well, not on week-six rankings. Second, anyone promising results in days is describing paid advertising, which is a perfectly legitimate thing to buy - it just isn't this.</p>",
+        "stat": null,
+        "sources": [
+          { "label": "Google - SEO Starter Guide: How Long Until Impact", "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" },
+          { "label": "Google - Do You Need an SEO?", "url": "https://developers.google.com/search/docs/fundamentals/do-i-need-seo" }
+        ]
+      },
+      {
+        "id": "seo-facts-people-miss",
+        "logId": "006",
+        "question": "What are some SEO facts most people don't know?",
+        "date": "2026-08-31",
+        "tag": "Fun Facts",
+        "answer": "<ul><li><strong>Most of the internet gets nothing.</strong> Ahrefs studied roughly 14 billion pages and found <strong>96.55% of them get zero search traffic from Google</strong>. Publishing a page and being findable are entirely different achievements.</li><li><strong>The keywords tag has been dead since 2009.</strong> Google publicly announced that it ignores the meta keywords tag for ranking, because it got abused into uselessness, and it has ignored it ever since. People still sell it.</li><li><strong>Your meta description isn't a ranking factor.</strong> It's the preview text under your link, so it affects whether someone clicks, which matters. It does not affect your position - and Google often overrides it anyway and writes its own preview from the page content.</li><li><strong>You cannot pay Google for better rankings.</strong> In Google's own words: it doesn't accept payment to crawl a site more frequently or rank it higher, and if anyone tells you otherwise, they're wrong. Ads are bought separately and labeled as ads.</li><li><strong>Speed is graded on real visitors, not a lab test.</strong> Google measures three things from actual Chrome users on your site: how fast the main content appears (target: under 2.5 seconds), how quickly the page responds when tapped or clicked (under 200 milliseconds), and how much the layout jumps around while loading (almost none).</li><li><strong>Being indexed and being ranked are different problems.</strong> A page can be beautifully written, perfectly targeted, and simply not in Google's index at all. It's a five-minute check that most site owners have never run once.</li><li><strong>Nobody is ranking for one keyword.</strong> A single page that performs well typically draws traffic from hundreds of different phrasings, most of which nobody thought to target. Writing for a keyword list is a much narrower strategy than answering a question thoroughly.</li></ul>",
+        "stat": { "value": "96.55%", "label": "of pages get zero Google search traffic" },
+        "sources": [
+          { "label": "Ahrefs - 96.55% of Content Gets No Traffic From Google", "url": "https://ahrefs.com/blog/search-traffic-study/" },
+          { "label": "Google - We Don't Use the Keywords Meta Tag", "url": "https://developers.google.com/search/blog/2009/09/google-does-not-use-keywords-meta-tag" },
+          { "label": "Google - How to Write Meta Descriptions", "url": "https://developers.google.com/search/docs/appearance/snippet" },
+          { "label": "Google - In-Depth Guide to How Search Works", "url": "https://developers.google.com/search/docs/fundamentals/how-search-works" },
+          { "label": "web.dev - Core Web Vitals", "url": "https://web.dev/articles/vitals" }
+        ]
+      },
+      {
+        "id": "local-seo",
+        "logId": "007",
+        "question": "I'm a local business. Does any of this work differently for me?",
+        "date": "2026-08-31",
+        "tag": "Local",
+        "answer": "<p>Yes, and mostly in your favor. The map results are ranked separately from the ordinary blue links, on three factors Google states openly:</p><ul><li><strong>Relevance</strong> - how well your listing matches what was searched. This is why filling in every field of your profile is not busywork.</li><li><strong>Distance</strong> - how far you are from the person searching, or from the area they named.</li><li><strong>Prominence</strong> - how well known you are, which includes your review count and who links to you.</li></ul><p>Distance is the factor that changes the economics entirely. A national competitor with a hundred times your budget cannot be closer to the customer than you are. You aren't competing with the whole internet, you're competing with the handful of businesses within range of that search.</p><p>Which is why a complete, accurate, actively maintained Google Business Profile - correct hours, the right categories, real photos, a defined service area, and replies to reviews - frequently outperforms months of work on the website itself for a business that serves a local area. If budget is tight and you serve a region, that's where the first dollar goes.</p>",
+        "stat": null,
+        "sources": [
+          { "label": "Google Business Profile - Improve Your Local Ranking", "url": "https://support.google.com/business/answer/7091" },
+          { "label": "Google - Ranking Systems Guide", "url": "https://developers.google.com/search/docs/appearance/ranking-systems-guide" }
+        ]
+      },
+      {
+        "id": "ranking-guarantees",
+        "logId": "008",
+        "question": "Can anyone guarantee me the number one spot?",
+        "date": "2026-08-31",
+        "tag": "Red Flags",
+        "answer": "<p>No, and the guarantee itself is the warning sign. Google's guidance is blunt about it: no one can guarantee a number one ranking, and you should be wary of anyone who claims to guarantee rankings, alleges a special relationship with Google, or advertises a priority submission to Google.</p><p>The mechanics back that up. Ranking is done programmatically, positions aren't for sale, and Google doesn't even guarantee it will crawl or index a given page in the first place.</p><p>The usual trick is a guarantee quietly attached to a term nobody searches for. Ranking first for your own business name, or for a nine-word phrase with no search volume, is trivial and worth nothing. Before signing anything with a guarantee in it, ask one question: how many people search that exact term in a month? If the answer is vague, that's the answer.</p><p>Other things worth walking away from: unsolicited email offering search engine inclusion, unwillingness to explain plainly what will be done to your site, and any package built around submitting your site to thousands of search engines.</p>",
+        "stat": null,
+        "sources": [
+          { "label": "Google - Do You Need an SEO?", "url": "https://developers.google.com/search/docs/fundamentals/do-i-need-seo" },
+          { "label": "Google - In-Depth Guide to How Search Works", "url": "https://developers.google.com/search/docs/fundamentals/how-search-works" }
+        ]
       }
     ]
   },
@@ -31,11 +127,90 @@
         "id": "mobile-traffic-share",
         "logId": "001",
         "question": "How much of my traffic is coming from mobile?",
-        "date": "2026-08-23",
-        "tag": "Trending Up",
-        "answer": "<p>Mobile devices account for roughly <strong>65% of all web traffic</strong>, and that share continues to grow. For most client sites, that means the majority of first impressions happen on a phone screen, not a desktop monitor.</p><p>That has real design consequences: navigation, load speed, tap targets, and layout all need to be built mobile-first, with desktop treated as the expanded view rather than the default. A site that only looks polished on a wide monitor is optimizing for the minority of its own visitors.</p>",
-        "stat": { "value": "65%", "label": "of web traffic is mobile - and growing" },
-        "sources": []
+        "date": "2026-08-31",
+        "tag": "Benchmarks",
+        "answer": "<p>Worldwide, phones account for roughly <strong>53% of all web traffic</strong>, desktops about 46%, and tablets the small remainder. That's the whole-web average as of mid-2026, and it has been hovering near an even split rather than climbing forever.</p><p>Your number won't be the average, and that matters more than the average does. The split swings hard by industry: retail, restaurants, and anything people look up while out often run 70% or higher on mobile, while business services, software, and anything researched during the workday can still be desktop-majority.</p><p>So stop guessing. Your analytics already knows the answer for your site specifically, and that number is the one that should drive design decisions.</p><p>Either way, the split is close enough to even that \"we'll deal with mobile later\" is a decision to under-serve about half of everyone who visits.</p>",
+        "stat": { "value": "53%", "label": "of worldwide web traffic is on phones" },
+        "sources": [
+          { "label": "StatCounter - Desktop vs Mobile vs Tablet Market Share", "url": "https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet" }
+        ]
+      },
+      {
+        "id": "mobile-first-indexing",
+        "logId": "002",
+        "question": "Does Google look at my mobile site or my desktop site?",
+        "date": "2026-08-31",
+        "tag": "Indexing",
+        "answer": "<p>Your mobile one. Google calls this <strong>mobile-first indexing</strong>, and it isn't a preference or a tie-breaker - it's how the entire web is now processed. Google finished moving the last remaining sites over in 2024, and every site is now crawled and indexed by a crawler presenting itself as a phone.</p><p>The consequence catches people out. Google's guidance is explicit that only the content shown on the mobile site is used for indexing. If your desktop layout carries rich service descriptions and your mobile layout drops them to save space, that text isn't competing for rankings at all - and Google warns to expect traffic loss in exactly that situation.</p><p>It's fine to <em>present</em> content differently on a small screen. Collapsing sections into expandable panels or tabs is fine, because the text is still there. Removing it isn't.</p><p>The mental model to correct: the mobile version of your site is not the compact edition of the real one. As far as search is concerned, it <em>is</em> the real one, and the desktop layout is the variant.</p>",
+        "stat": null,
+        "sources": [
+          { "label": "Google - Mobile-First Indexing Best Practices", "url": "https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing" },
+          { "label": "Google - Mobile-First Indexing Has Landed", "url": "https://developers.google.com/search/blog/2023/10/mobile-first-is-here" }
+        ]
+      },
+      {
+        "id": "mobile-desktop-conversion-gap",
+        "logId": "003",
+        "question": "If most of my traffic is mobile, why does most of my revenue come from desktop?",
+        "date": "2026-08-31",
+        "tag": "Conversion",
+        "answer": "<p>This is the most consistent and least discussed pattern in web analytics: mobile wins the traffic, desktop wins the transaction. Retail benchmarks put desktop conversion near <strong>3.4%</strong> against roughly <strong>2%</strong> on mobile, and desktop visitors spend more than twice as long on site.</p><p>Some of that gap is genuine behavior. Phones catch the browsing, the lunch break, the look-this-up-while-I'm-out moment. The desktop catches the sit-down decision. That part isn't a flaw to fix.</p><p>The rest is friction, and that part is entirely yours: fiddly forms, tap targets too small to hit, a checkout that requires typing a card number on a moving bus.</p><p>The trap is reading the gap as \"mobile doesn't convert, so put the money into desktop.\" Mobile is usually where the customer <em>started</em>. A phone visit that ends in a desktop purchase gets recorded as a mobile failure and a desktop success, which flatters the wrong screen and hides the real sequence.</p><p>The reading that pays: mobile is where you lose people, which makes mobile the place where removing friction is worth the most.</p>",
+        "stat": { "value": "3.4% / 2%", "label": "desktop vs mobile conversion rate" },
+        "sources": [
+          { "label": "Shopify - Mobile vs. Desktop Conversion Rates", "url": "https://www.shopify.com/blog/mobile-vs-desktop-conversion-rates" },
+          { "label": "StatCounter - Desktop vs Mobile vs Tablet Market Share", "url": "https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet" }
+        ]
+      },
+      {
+        "id": "what-changes-on-mobile",
+        "logId": "004",
+        "question": "What actually has to change for a small screen?",
+        "date": "2026-08-31",
+        "tag": "Design",
+        "answer": "<p>More than shrinking. A phone isn't a narrower monitor, it's a different set of physical constraints:</p><ul><li><strong>A finger isn't a cursor.</strong> Buttons and links need to be big enough, and far enough apart, to hit without zooming. A dense list of links that works fine with a mouse becomes a coin flip with a thumb.</li><li><strong>There's no hover.</strong> Menus and tooltips that appear on mouse-over have no equivalent gesture on a touchscreen. If navigation depends on hovering, part of your site is simply unreachable on a phone.</li><li><strong>Text has to be readable without pinching.</strong> If someone has to zoom in to read your paragraphs, most of them just leave instead.</li><li><strong>The connection is worse than yours.</strong> Sites get built on fast office broadband and visited on two bars of cell service in a parking lot. Oversized images and unnecessary scripts cost real seconds there, and seconds cost visitors.</li><li><strong>Vertical space is scarce.</strong> Everything competes for a screen about the size of a postcard. What matters has to come first, and long forms have to become short ones.</li><li><strong>Typing is expensive.</strong> Every extra field on a phone form costs you completed submissions. This is where the majority of mobile conversion quietly disappears.</li></ul><p>Building mobile-first is the standard answer, and it's a sequencing decision more than a style one: design against the hardest constraint, then let the layout expand into the room a desktop offers. That's far easier than designing wide and squeezing down afterward, which is how most broken mobile experiences get made.</p>",
+        "stat": null,
+        "sources": [
+          { "label": "Google - Page Experience in Search", "url": "https://developers.google.com/search/docs/appearance/page-experience" },
+          { "label": "web.dev - Core Web Vitals", "url": "https://web.dev/articles/vitals" }
+        ]
+      },
+      {
+        "id": "separate-mobile-site-or-app",
+        "logId": "005",
+        "question": "Do I need a separate mobile site, or an app?",
+        "date": "2026-08-31",
+        "tag": "Architecture",
+        "answer": "<p>Almost certainly neither.</p><p>The standard approach is a <strong>responsive</strong> site: one website, one address, one set of content, with a layout that rearranges itself to fit whatever screen it lands on. Google recommends it directly, on the grounds that it's the easiest pattern to build and maintain. It also avoids both failure modes of the old separate-mobile-address approach, where the two versions drift out of sync and search engines have to work out which one to rank.</p><p>An app is a separate product with separate economics: two platforms to build for, app store review, ongoing updates for every operating system release, and the genuinely hard part - persuading someone to install it before they'll see anything at all.</p><p>Apps earn their cost when you have repeat users doing something frequently enough to justify a home screen icon. For a business whose visitors arrive from a search, read something, and then get in touch, an app adds expense and subtracts reach.</p>",
+        "stat": null,
+        "sources": [
+          { "label": "Google - Mobile Site and App Configurations", "url": "https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing" }
+        ]
+      },
+      {
+        "id": "does-desktop-still-matter",
+        "logId": "006",
+        "question": "So is desktop dead? Should I just design for phones?",
+        "date": "2026-08-31",
+        "tag": "Balance",
+        "answer": "<p>No. Mobile-first describes the order you design in, not the only screen you design for. Desktop is still close to half of all web traffic and, as the conversion numbers show, a disproportionate share of the money.</p><p>Where desktop still leads:</p><ul><li><strong>Work.</strong> If your buyer makes the decision at a desk, they make it on a desktop. Business-to-business services skew heavily this way.</li><li><strong>Considered purchases.</strong> Expensive, comparison-heavy, or form-heavy decisions migrate to the bigger screen, even when the research started on a phone.</li><li><strong>Detail.</strong> Long documents, data, portfolios, floor plans, anything with fine detail worth seeing at size.</li></ul><p>The mistake runs in both directions and is the same mistake either way: treating one screen as the real site and the other as a courtesy. They're both the site. Each one is what roughly half your visitors will ever see.</p>",
+        "stat": { "value": "46%", "label": "of worldwide web traffic is still desktop" },
+        "sources": [
+          { "label": "StatCounter - Desktop vs Mobile vs Tablet Market Share", "url": "https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet" },
+          { "label": "Shopify - Mobile vs. Desktop Conversion Rates", "url": "https://www.shopify.com/blog/mobile-vs-desktop-conversion-rates" }
+        ]
+      },
+      {
+        "id": "it-looks-fine-on-my-phone",
+        "logId": "007",
+        "question": "It looks fine on my phone. Isn't that enough?",
+        "date": "2026-08-31",
+        "tag": "Testing",
+        "answer": "<p>It's one data point out of a very large set, collected under the best possible conditions.</p><p>You're testing on a phone you chose, on a network you trust, on a page your browser has already cached from the last time you looked, on a site you already know how to use. A first-time visitor has none of those advantages, and their phone may be four years older and considerably smaller.</p><p>What a real check covers instead:</p><ul><li>Several screen sizes, including small older phones and the awkward middle ground of tablets and folding screens</li><li>A first visit with nothing cached, on a deliberately slowed connection</li><li>Every form actually filled in and submitted with a thumb, not a mouse</li><li>The speed scores Google collects from real Chrome visitors, which appear in Search Console and reflect your actual audience's devices rather than yours</li></ul><p>That last one is the one that matters most. Google is already measuring your site on real visitors' phones and will hand you the results for free. Your own thumb is a hunch. That report is evidence.</p>",
+        "stat": null,
+        "sources": [
+          { "label": "Google Search Console - Getting Started", "url": "https://developers.google.com/search/docs/monitor-debug/search-console-start" },
+          { "label": "web.dev - Core Web Vitals", "url": "https://web.dev/articles/vitals" }
+        ]
       }
     ]
   }

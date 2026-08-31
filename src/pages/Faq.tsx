@@ -30,7 +30,7 @@ export default function Faq() {
     <PageShell theme="orange">
       <SeoHead
         title="FAQ | Corbin Meier"
-        description="Answers to the questions clients ask most, backed by data on SEO and mobile vs. desktop traffic."
+        description="A plain-English guide to SEO and mobile vs. desktop: how search ranking actually works, why SEO is billed monthly, where it gets managed, and what really changes on a small screen."
         path="/faq"
       />
       <FaqJsonLd categories={categories} />

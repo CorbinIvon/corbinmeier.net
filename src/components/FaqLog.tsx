@@ -78,7 +78,7 @@ function FaqLogEntry({ entry, categorySlug }: { entry: FaqEntry; categorySlug: s
               </p>
 
               <div
-                className="text-sm text-muted leading-relaxed prose prose-invert prose-sm max-w-none"
+                className="faq-answer text-sm text-muted leading-relaxed max-w-none"
                 dangerouslySetInnerHTML={{ __html: entry.answer }}
               />
 

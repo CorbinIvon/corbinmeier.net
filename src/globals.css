@@ -168,6 +168,39 @@ html.theme-contact, html.theme-contact body {
   .card-glow {
     @apply relative overflow-hidden transition-all duration-300;
   }
+
+  /* FAQ answers are authored as HTML strings in src/data/faqs.json and injected
+     with dangerouslySetInnerHTML, so those tags never pass through Tailwind and
+     can't carry utility classes. Preflight also strips <p> margins and <ul>
+     bullets, which would run every answer together into one block. This class
+     restyles that subtree explicitly - it is the substitute for the typography
+     plugin, which this project does not install. */
+  .faq-answer > * + * {
+    @apply mt-3;
+  }
+
+  /* Spacing between items is set on li+li rather than with space-y-*, whose
+     :where(& > :not(:last-child)) implementation emits malformed CSS when
+     @applied inside a nested selector like this one. */
+  .faq-answer ul {
+    @apply list-disc pl-5;
+  }
+
+  .faq-answer li + li {
+    @apply mt-2;
+  }
+
+  .faq-answer li::marker {
+    color: var(--accent);
+  }
+
+  .faq-answer strong {
+    @apply font-bold text-foreground;
+  }
+
+  .faq-answer em {
+    @apply italic;
+  }
 }
 
 @layer utilities {
