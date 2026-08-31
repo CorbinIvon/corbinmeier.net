@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import Footer from "@/components/Footer";
@@ -71,7 +70,9 @@ function App() {
           <Route path="/terms-of-service" element={<SiteLayout><TermsOfService /></SiteLayout>} />
           <Route path="*" element={<CrtNotFound />} />
         </Routes>
-        <Analytics />
+        {/* No analytics component by design: Cloudflare Web Analytics is
+            enabled on the Pages project and injects its own beacon, so there
+            is nothing to mount here. */}
       </ContactModalProvider>
     </div>
   );

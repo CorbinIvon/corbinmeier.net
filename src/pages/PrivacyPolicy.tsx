@@ -99,13 +99,13 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-bold text-foreground mb-3">Cookies & Analytics</h2>
             <p>
-              This site uses Vercel Analytics, a cookieless, privacy-respecting analytics
-              service. It records aggregate page-view metrics - the page visited, referrer,
-              approximate country/region (derived from IP address, which is not stored),
-              device type, browser, and operating system. This information is anonymized
-              and aggregated; it does not use cookies, does not track you across other
-              websites, does not identify you personally, and is never tied to information
-              submitted through the contact form.
+              This site uses Cloudflare Web Analytics, a cookieless, privacy-respecting
+              analytics service. It records aggregate page-view metrics - the page visited,
+              referrer, approximate country, device type, browser, and operating system.
+              It sets no cookies and stores nothing on your device, which is why you are
+              not asked to dismiss a consent banner. It does not fingerprint you, does not
+              track you across other websites, does not identify you personally, and is
+              never tied to information submitted through the contact form.
             </p>
           </section>
 
