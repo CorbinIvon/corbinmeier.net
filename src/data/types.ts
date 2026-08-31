@@ -66,15 +66,31 @@ export interface PricingGroup {
   items: PricingLineItem[];
 }
 
-/** The two things nearly everything else builds on, called out ahead of the
- *  menu so the entry cost is never buried in a table. */
-export interface PricingCornerstone {
+/** One of the build tiers. `build` is a one-time price, and there is
+ *  deliberately no recurring field: ongoing cost is chosen separately on the
+ *  maintenance axis below, so a self-managed client genuinely owes nothing
+ *  monthly. Folding a monthly in here is what made the earlier single-tier
+ *  page contradict the "no hosting fees" claim on the About page. */
+export interface PricingTier {
   id: string;
   name: string;
-  upfront: string;
-  recurring: string;
+  build: string;
+  tagline: string;
   summary: string;
   includes: string[];
+  /** Marks the tier to lead with visually. Exactly one tier sets this. */
+  featured?: boolean;
+}
+
+/** How a finished site is looked after. This is an axis rather than a tier:
+ *  every build is offered both ways, so it renders once beside the tiers
+ *  instead of being repeated inside each one. */
+export interface PricingMaintenanceOption {
+  id: string;
+  name: string;
+  price: string;
+  summary: string;
+  points: string[];
 }
 
 export interface PricingNotice {
@@ -88,8 +104,12 @@ export interface PricingContent {
   headingAccent: string;
   intro: string;
   ballpark: string;
-  cornerstonesHeading: string;
-  cornerstones: PricingCornerstone[];
+  tiersHeading: string;
+  tiersIntro: string;
+  tiers: PricingTier[];
+  maintenanceHeading: string;
+  maintenanceIntro: string;
+  maintenanceOptions: PricingMaintenanceOption[];
   menuHeadingPre: string;
   menuHeadingAccent: string;
   menuIntro: string;

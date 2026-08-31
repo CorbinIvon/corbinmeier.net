@@ -62,7 +62,7 @@ export default function Pricing() {
     <PageShell theme="teal">
       <SeoHead
         title="Pricing | Corbin Meier"
-        description="Modular, value-based pricing for custom websites and web applications. A fixed foundation plus à-la-carte features, each with its cost and responsibilities clearly stated."
+        description="Custom websites from $700, built once and owned outright. Three build tiers, maintenance you can opt out of entirely, and an à-la-carte menu with every cost and responsibility stated up front."
         path="/pricing"
       />
 
@@ -105,36 +105,89 @@ export default function Pricing() {
           </motion.div>
         </motion.header>
 
-        {/* Cornerstones */}
+        {/* Build tiers */}
         <section className="mb-16">
-          <h2 className="text-h2 font-serif mb-8">{pricing.cornerstonesHeading}</h2>
+          <h2 className="text-h2 font-serif mb-3">{pricing.tiersHeading}</h2>
+          <p className="text-narrative mb-8">{pricing.tiersIntro}</p>
+
           <motion.div
             variants={container}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.15 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch"
           >
-            {pricing.cornerstones.map((stone) => (
+            {pricing.tiers.map((tier) => (
               <motion.div
-                key={stone.id}
+                key={tier.id}
                 variants={item}
-                className="glass-panel p-8 flex flex-col gap-5"
+                className={`glass-panel p-8 flex flex-col gap-5 h-full transition-colors duration-300 ${
+                  tier.featured ? "border-accent/40" : "hover:border-accent/30"
+                }`}
               >
                 <div>
-                  <h3 className="text-h3 font-serif mb-3">{stone.name}</h3>
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <h3 className="text-h3 font-serif">{tier.name}</h3>
+                    {tier.featured && (
+                      <span className="px-2 py-0.5 rounded border border-accent/30 bg-accent/10 text-accent text-[0.6rem] font-bold uppercase tracking-[0.15em]">
+                        Most chosen
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="text-xs font-bold uppercase tracking-[0.15em] text-muted mb-4">
+                    {tier.tagline}
+                  </p>
+
                   <div className="flex flex-wrap items-baseline gap-x-3">
-                    <span className="font-serif text-4xl text-accent">{stone.upfront}</span>
-                    <span className="text-muted">
-                      then <span className="text-foreground">{stone.recurring}</span>
-                    </span>
+                    <span className="font-serif text-4xl text-accent">{tier.build}</span>
+                    <span className="text-sm text-muted">one-time</span>
                   </div>
                 </div>
 
-                <p className="text-narrative text-base">{stone.summary}</p>
+                <p className="text-narrative text-base">{tier.summary}</p>
 
-                <ul className="space-y-3">
-                  {stone.includes.map((line) => (
+                <ul className="space-y-3 mt-auto">
+                  {tier.includes.map((line) => (
+                    <li key={line} className="flex items-start gap-3 text-sm text-muted">
+                      <Check className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
+
+        {/* Maintenance axis: offered against every tier, so it renders once
+            here rather than being repeated inside each tier card. */}
+        <section className="mb-16">
+          <h2 className="text-h2 font-serif mb-3">{pricing.maintenanceHeading}</h2>
+          <p className="text-narrative mb-8">{pricing.maintenanceIntro}</p>
+
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch"
+          >
+            {pricing.maintenanceOptions.map((option) => (
+              <motion.div
+                key={option.id}
+                variants={item}
+                className="glass-panel p-8 flex flex-col gap-5 h-full hover:border-accent/30 transition-colors duration-300"
+              >
+                <div>
+                  <h3 className="text-h3 font-serif mb-3">{option.name}</h3>
+                  <span className="font-serif text-3xl text-accent">{option.price}</span>
+                </div>
+
+                <p className="text-narrative text-base">{option.summary}</p>
+
+                <ul className="space-y-3 mt-auto">
+                  {option.points.map((line) => (
                     <li key={line} className="flex items-start gap-3 text-sm text-muted">
                       <Check className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                       <span>{line}</span>
@@ -189,7 +242,7 @@ export default function Pricing() {
         {/* Notices */}
         <section className="mb-16">
           <h2 className="text-h2 font-serif mb-8">{pricing.noticesHeading}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {pricing.notices.map((notice) => (
               <div key={notice.title} className="glass-panel p-6">
                 <h3 className="font-serif text-lg mb-3 text-accent">{notice.title}</h3>

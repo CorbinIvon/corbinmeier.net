@@ -7,6 +7,7 @@ import { Mail, MapPin, Clock, Mailbox, Save, Bot, type LucideIcon } from "lucide
 import { cn } from "@/lib/utils";
 import { CloudflareTurnstile } from "@/components/CloudflareTurnstile";
 import { contact } from "@/data/contact";
+import { homeHero } from "@/data/home";
 import type { ContactInfoItem } from "@/data/types";
 import { CyberCodeTerminalWindow, CyberCodeButton, Typewriter, CyberCodeTerminalLine } from "@/components/cybercode/CyberCodeUIKit";
 
@@ -178,16 +179,15 @@ export default function Contact() {
               <p className="text-narrative mb-6">
                 {form.subject.toLowerCase() === "strategic partnership" ? (
                   <div className="space-y-6 text-left">
-                    <p>
-                      I design and build custom, high-performance websites for local businesses - quoted fairly to fit your project and budget, not a one-size-fits-all price tag.
-                    </p>
+                    <p>{homeHero.paragraph}</p>
                     <div className="border border-border bg-background/50 rounded-xl p-5 font-mono text-[11px] leading-relaxed">
-                      <p className="font-bold text-[var(--accent)] mb-3">{">"} How pricing actually works</p>
+                      <p className="font-bold text-[var(--accent)] mb-3">
+                        {">"} {homeHero.pricingDetails.summary}
+                      </p>
                       <ul className="space-y-2 list-disc pl-4 text-muted">
-                        <li>Every quote is custom - final cost depends on scope, timeline, and features, not a fixed rate.</li>
-                        <li>A simple static site with a contact form costs nothing to host on my end (Cloudflare Pages); your only ongoing cost is the domain.</li>
-                        <li>Add a database - for bookings, logins, or online orders - and that's when a monthly fee applies, scaled to what you actually use.</li>
-                        <li>As a reference point, small no-database sites often start around $750, but I'd rather talk through your project than quote a number in the dark.</li>
+                        {homeHero.pricingDetails.points.map((point) => (
+                          <li key={point}>{point}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
