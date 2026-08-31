@@ -46,16 +46,19 @@ export interface ServicesSectionContent {
   items: ServiceItem[];
 }
 
-/** A single à-la-carte feature on the pricing menu. `recurring` and
- *  `prerequisite` are null when the feature carries no monthly cost or stands
- *  on its own. `responsibility` is the point of the menu, not a footnote: it
- *  states in plain terms what the price actually buys. */
+/** A single à-la-carte feature on the pricing menu. `recurring` is null when
+ *  the feature carries no monthly cost. `prerequisites` holds the ids of other
+ *  line items that must be bought first, rather than their display names, so
+ *  the card can resolve each one's real price instead of restating it by hand
+ *  and drifting out of sync. Empty when the feature stands on its own.
+ *  `responsibility` is the point of the menu, not a footnote: it states in
+ *  plain terms what the price actually buys. */
 export interface PricingLineItem {
   id: string;
   name: string;
   upfront: string;
   recurring: string | null;
-  prerequisite: string | null;
+  prerequisites: string[];
   responsibility: string;
 }
 

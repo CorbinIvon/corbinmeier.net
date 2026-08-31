@@ -78,14 +78,15 @@ export const pricing: PricingContent = {
     {
       id: "maintained",
       name: "I maintain it",
-      price: "$50 - $100/mo",
+      price: "$50 - $250/mo",
       summary:
-        "I stay on as an administrator and keep the site healthy: content changes, updates, monitoring, and backups. $50 for a straightforward site, $100 once it stores accounts, bookings, or orders.",
+        "I stay on as an administrator and keep the site healthy. The rate is set per project against what I am actually responsible for: $50 covers a straightforward site, and it climbs from there as that list grows. You see the list, agreed in writing, before you agree to a number.",
       points: [
         "Content and copy changes handled as they come up",
         "Security patches and dependency updates applied for you",
-        "Uptime monitoring, so I usually know before you do",
-        "Regular backups you can actually be restored from",
+        "Uptime monitoring, so I know when your site goes down or has issues",
+        "Backups with 1 click restoration",
+        "Debugging when something stops behaving the way it should",
       ],
     },
   ],
@@ -93,7 +94,7 @@ export const pricing: PricingContent = {
   menuHeadingPre: "The",
   menuHeadingAccent: "à-la-carte menu.",
   menuIntro:
-    "Add any of these to any tier. Each line names what it costs and what I am on the hook for. A monthly appears only where the feature genuinely consumes an outside service, billed on top of whichever upkeep option you chose. Anything marked with a prerequisite needs that piece in place first.",
+    "Add any of these to any tier. Each line names what it costs and what I am on the hook for. A monthly appears only where the feature genuinely consumes an outside service, billed on top of whichever upkeep option you chose. Anything with a prerequisite needs that piece in place first, and its cost is listed on the card so you can see the real total.",
 
   groups: [
     {
@@ -104,18 +105,18 @@ export const pricing: PricingContent = {
         {
           id: "database",
           name: "Database Tier",
-          upfront: "Included",
+          upfront: "$0",
           recurring: "$15 - $100/mo usage",
-          prerequisite: null,
+          prerequisites: [],
           responsibility:
-            "The memory behind your site. The moment it needs to remember someone, whether that is an account, a booking, an order, or an uploaded photo, it needs this. No separate build fee, and the monthly moves with real usage rather than a flat guess. Included in Growth, and paid straight to the platform if you self-manage.",
+            "The memory behind your site. The moment it needs to remember someone, whether that is an account, a booking, an order, or an uploaded photo, it needs this. There is no build fee for it, so the monthly is the whole cost, and it moves with real usage rather than a flat guess. Paid straight to the platform if you self-manage.",
         },
         {
           id: "rate-limiting",
           name: "Usage Limits & Abuse Protection",
           upfront: "$300",
           recurring: null,
-          prerequisite: "Database Tier",
+          prerequisites: ["database"],
           responsibility:
             "Caps how often one person can submit or request something, with allowances resetting at their local midnight rather than yours.",
         },
@@ -129,36 +130,36 @@ export const pricing: PricingContent = {
         {
           id: "reviews",
           name: "Reviews & Testimonials",
-          upfront: "$300",
+          upfront: "$75",
           recurring: null,
-          prerequisite: null,
+          prerequisites: [],
           responsibility:
             "Your customer reviews pulled in and displayed properly, so the proof that you are good at your job is on your own site instead of only on someone else's platform.",
         },
         {
           id: "local-seo",
-          name: "Local SEO & Business Profile",
+          name: "Local SEO & Search Visibility",
           upfront: "$350",
-          recurring: null,
-          prerequisite: null,
+          recurring: "$150/mo optional",
+          prerequisites: [],
           responsibility:
-            "Your Google Business Profile claimed and filled out, your details made consistent across the listings that matter, and your site marked up so search engines understand where you are and what you do.",
+            "Everything on the website side of being found locally: your site marked up so search engines understand where you are and what you do, your details made consistent, and the standard practices applied at launch. Done once, at build. I do not claim or verify your Google Business Profile, because Google requires a video walkthrough of your premises that only you can record, and I do not post to it either. The optional monthly buys three hours of ongoing competitor checks, auditing, and verification.",
         },
         {
           id: "mailing-list",
           name: "Mailing List & Lead Capture",
           upfront: "$200",
-          recurring: "$15/mo",
-          prerequisite: null,
+          recurring: "$5 - $30/mo",
+          prerequisites: [],
           responsibility:
-            "Sign-up forms that screen out bots before they reach you, so your list stays real people and your mail does not get flagged as spam. The monthly covers the delivery service.",
+            "Sign-up forms that screen out bots before they reach you, so your list stays real people and your mail does not get flagged as spam. The monthly covers the delivery service: $5 up to 3,000 emails a month, $30 above that.",
         },
         {
           id: "countdown",
           name: "Countdown Timers & Timelines",
           upfront: "$200",
           recurring: null,
-          prerequisite: null,
+          prerequisites: [],
           responsibility:
             "Live countdowns to an opening, a deadline, or an event, plus timeline layouts for telling a story in order.",
         },
@@ -167,16 +168,16 @@ export const pricing: PricingContent = {
           name: "Interactive Media Gallery",
           upfront: "$275",
           recurring: null,
-          prerequisite: null,
+          prerequisites: [],
           responsibility:
-            "A browsable photo or video gallery that stays quick to load even when the images are large.",
+            "A browsable photo or video gallery, laid out around how you want the work shown. Files uploaded through the site have a size ceiling set by the host, so full-length or high-resolution video is better kept on a video platform and pulled into the gallery from there.",
         },
         {
           id: "estimator",
           name: "Custom Inquiry & Estimator Forms",
           upfront: "$350",
           recurring: null,
-          prerequisite: null,
+          prerequisites: [],
           responsibility:
             "Multi-step forms that ask the right follow-up questions and can return a live estimate, so the enquiries reaching you are already qualified.",
         },
@@ -192,16 +193,16 @@ export const pricing: PricingContent = {
           name: "Blog / Article Publishing",
           upfront: "$450",
           recurring: null,
-          prerequisite: "Admin Portal & Database Tier",
+          prerequisites: ["admin-single", "database"],
           responsibility:
-            "Write, edit, schedule, and publish posts yourself. Built so articles are easy for search engines to find and index.",
+            "Write, edit, schedule, and publish posts yourself. Because a post lives in your database rather than in the site's code, each published article also gets a plain readable copy built out at the same web address your visitors use, so search engines have something to read and list.",
         },
         {
           id: "wysiwyg",
           name: "Rich Text Editor",
           upfront: "$400",
           recurring: null,
-          prerequisite: "Admin Portal",
+          prerequisites: ["admin-single"],
           responsibility:
             "Format your content the way you would in a word processor, with headings, links, images, and lists, and no code to learn. Included in Growth.",
         },
@@ -209,10 +210,10 @@ export const pricing: PricingContent = {
           id: "uploader",
           name: "Media Uploader",
           upfront: "$400",
-          recurring: "$15/mo",
-          prerequisite: "Admin Portal & Database Tier",
+          recurring: "from $5/mo",
+          prerequisites: ["admin-single", "database"],
           responsibility:
-            "Large photo and video uploads go straight to secure storage rather than through the website, which keeps your pages fast and your upload limits generous. The monthly covers that storage. Included in Growth.",
+            "Large photo and video uploads go straight to secure storage rather than through the website, which keeps your pages fast and your upload limits generous. The monthly is the storage bill and it grows with how much you keep there, so it starts at $5 and rises as the library does. Included in Growth.",
         },
       ],
     },
@@ -226,27 +227,27 @@ export const pricing: PricingContent = {
           name: "Single-User Admin Portal",
           upfront: "$600",
           recurring: null,
-          prerequisite: "Database Tier",
+          prerequisites: ["database"],
           responsibility:
-            "A private area where you add, edit, and remove your own content. One owner account, straightforward by design. Included in Growth.",
+            "A private area where you add, edit, and remove your own content. One owner account, straightforward by design, and protected by multi-factor authentication so a stolen password on its own is not enough to get in. Included in Growth.",
         },
         {
           id: "admin-multi",
           name: "Multi-User / SaaS Admin Portal",
           upfront: "$2,100",
           recurring: "$100/mo",
-          prerequisite: "Database Tier",
+          prerequisites: ["database"],
           responsibility:
-            "Multiple staff accounts with different permission levels, where each person sees only their own data and only the areas you have granted them.",
+            "Multiple staff accounts with different permission levels, where each person sees only their own data and only the areas you have granted them. Multi-factor authentication on every account.",
         },
         {
           id: "otp",
           name: "Passwordless Login",
           upfront: "$1,100",
-          recurring: "$25/mo + usage",
-          prerequisite: "Database Tier",
+          recurring: "$5 - $30/mo",
+          prerequisites: ["database"],
           responsibility:
-            "Users sign in with a one-time code sent to their phone or inbox. No passwords to forget, reset, or leak. Message costs are billed at cost.",
+            "Users sign in with a one-time code instead of a password, so there is nothing to forget, reset, or leak. Email codes run on the same tiers as the mailing list. Codes by text message are available too, but they need a Twilio account opened in your name, and Twilio bills you directly for the messages.",
         },
       ],
     },
@@ -260,25 +261,25 @@ export const pricing: PricingContent = {
           name: "Secure Checkout",
           upfront: "$1,200",
           recurring: "$15/mo",
-          prerequisite: "Database Tier",
+          prerequisites: ["database"],
           responsibility:
-            "Card payments for invoices, deposits, or a full cart. Payment status updates on its own, and money routes straight to your bank. It never sits with me.",
+            "The payment machinery itself, and on its own it is enough to charge for an invoice, a deposit, or a donation with no product range in sight. It handles the card form, the receipt, the record of who has paid and who has not, and the payout landing in your bank. Money never sits with me. Everything else in this group is built on top of it.",
         },
         {
           id: "catalog",
           name: "Product Catalog & Cart",
           upfront: "$600",
           recurring: null,
-          prerequisite: "Checkout",
+          prerequisites: ["checkout"],
           responsibility:
-            "A browsable product range with a working cart, built around how you actually group and sell your items.",
+            "The shop front that sits on top of checkout: a browsable product range, grouped the way you actually sell, with a cart that holds several items and hands the total over to be paid. This is the shopping half, not the paying half, which is why it is priced separately.",
         },
         {
           id: "ticketing",
           name: "Digital Ticketing",
           upfront: "$900",
           recurring: "$15/mo",
-          prerequisite: "Checkout & Admin Portal",
+          prerequisites: ["checkout", "admin-single"],
           responsibility:
             "Someone buys a ticket and automatically receives a unique digital pass by email, ready to be checked at the door.",
         },
@@ -287,7 +288,7 @@ export const pricing: PricingContent = {
           name: "ID Verification",
           upfront: "$900",
           recurring: "$25/mo + usage",
-          prerequisite: "Database Tier",
+          prerequisites: ["database"],
           responsibility:
             "Confirms a customer is who they claim to be. The sensitive ID documents are handled by the verification provider and are never stored on your site.",
         },
@@ -296,7 +297,7 @@ export const pricing: PricingContent = {
           name: "Crowdfunding & Goal Tracker",
           upfront: "$600",
           recurring: null,
-          prerequisite: "Checkout",
+          prerequisites: ["checkout"],
           responsibility:
             "Collect contributions against a public target, with a progress display that updates as donations arrive.",
         },
@@ -312,16 +313,16 @@ export const pricing: PricingContent = {
           name: "Booking & Scheduling",
           upfront: "$900",
           recurring: "$25/mo",
-          prerequisite: "Admin Portal & Database Tier",
+          prerequisites: ["admin-single", "database"],
           responsibility:
             "Live availability that accounts for what is already reserved, blocks out holidays and time off, and sends confirmation and change notices automatically.",
         },
         {
           id: "integrations",
           name: "Vendor Integration (each)",
-          upfront: "$450",
+          upfront: "$150",
           recurring: null,
-          prerequisite: null,
+          prerequisites: [],
           responsibility:
             "Connects your site to an outside system you already use, such as a point of sale, a booking tool, or a supplier. Priced per system, since each one stores credentials, maps data, and gets tested separately.",
         },
@@ -330,7 +331,7 @@ export const pricing: PricingContent = {
           name: "Live Leaderboards & Rankings",
           upfront: "$450",
           recurring: null,
-          prerequisite: "Database Tier",
+          prerequisites: ["database"],
           responsibility:
             "Standings that update as results come in, for competitions, fundraising drives, or sales targets.",
         },
@@ -338,10 +339,10 @@ export const pricing: PricingContent = {
           id: "custom",
           name: "Custom Solution",
           upfront: "Quoted",
-          recurring: "Quoted",
-          prerequisite: null,
+          recurring: null,
+          prerequisites: [],
           responsibility:
-            "Anything not on this menu, including the specialised pieces some industries need such as age or content gating. Bring me the problem and I will scope it honestly, including telling you when it is not worth building.",
+            "Anything not on this menu, including the specialised pieces some industries need such as age or content gating. Bring me the problem and I will scope it honestly, naming the build price and any monthly it carries before you commit, including telling you when it is not worth building.",
         },
       ],
     },
@@ -364,6 +365,10 @@ export const pricing: PricingContent = {
     {
       title: "Ongoing partners keep their rate",
       body: "While a maintenance agreement is active, your pricing stays where it started, even as these numbers rise. Ending that agreement ends the locked rate, and returning later means coming back at current pricing.",
+    },
+    {
+      title: "I build websites, not marketing",
+      body: "My work stops at the edge of the website. I do not write your posts, run your ad accounts, or manage the profiles that need you to verify them in person. Where a job needs one of those, I will say so rather than quietly leave it out of scope.",
     },
     {
       title: "Regulated health and social data",

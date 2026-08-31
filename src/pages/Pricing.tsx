@@ -20,6 +20,20 @@ const item: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
+/** Every menu item keyed by id, so a card can price its own prerequisites
+ *  instead of the data file restating those numbers and drifting out of sync
+ *  the next time one of them changes. */
+const itemsById = new Map<string, PricingLineItem>(
+  pricing.groups.flatMap((group) => group.items).map((entry) => [entry.id, entry]),
+);
+
+/** Both halves of a price as one string. A prerequisite whose real cost is the
+ *  monthly rather than the build fee still has to show that monthly, or the
+ *  running total a reader adds up is wrong. */
+function fullCost({ upfront, recurring }: PricingLineItem) {
+  return recurring ? `${upfront} + ${recurring}` : upfront;
+}
+
 /** Price chips carry the numbers, so they stay scannable when someone is
  *  skimming for cost rather than reading the responsibility copy. */
 function PriceChips({ upfront, recurring }: Pick<PricingLineItem, "upfront" | "recurring">) {
@@ -31,6 +45,35 @@ function PriceChips({ upfront, recurring }: Pick<PricingLineItem, "upfront" | "r
           then <span className="text-foreground">{recurring}</span>
         </span>
       )}
+    </div>
+  );
+}
+
+/** Prerequisites are listed with their own prices because the card's headline
+ *  number is not what the feature actually costs to reach: the Rich Text
+ *  Editor reads as $400 until you notice it cannot exist without a $600 admin
+ *  portal underneath it. */
+function Prerequisites({ ids }: { ids: string[] }) {
+  const required = ids
+    .map((id) => itemsById.get(id))
+    .filter((entry): entry is PricingLineItem => entry !== undefined);
+
+  if (required.length === 0) return null;
+
+  return (
+    <div className="pt-1 flex flex-col gap-1.5">
+      <p className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-muted/80">Requires</p>
+      <ul className="flex flex-col gap-1">
+        {required.map((entry) => (
+          <li
+            key={entry.id}
+            className="flex flex-wrap items-baseline justify-between gap-x-3 text-xs text-accent"
+          >
+            <span>{entry.name}</span>
+            <span className="text-accent/70">{fullCost(entry)}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -48,11 +91,7 @@ function LineItemCard({ entry }: { entry: PricingLineItem }) {
 
       <p className="text-sm text-muted leading-relaxed flex-1">{entry.responsibility}</p>
 
-      {entry.prerequisite && (
-        <p className="text-[0.7rem] font-bold uppercase tracking-[0.15em] text-muted/80 pt-1">
-          Requires <span className="text-accent">{entry.prerequisite}</span>
-        </p>
-      )}
+      <Prerequisites ids={entry.prerequisites} />
     </motion.div>
   );
 }
