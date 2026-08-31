@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, Variants } from "framer-motion";
 import { homeHero } from "@/data/home";
 import { site } from "@/data/site";
@@ -86,6 +87,13 @@ export default function Hero() {
                 </li>
               ))}
             </ul>
+            <Link
+              to={homeHero.pricingDetails.cta.href}
+              className="mt-4 ml-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent hover:opacity-80 transition-opacity"
+            >
+              {homeHero.pricingDetails.cta.label}
+              <span aria-hidden="true">-&gt;</span>
+            </Link>
           </motion.div>
         </motion.div>
 

@@ -19,7 +19,7 @@ export default defineConfig({
     outDir: 'dist',
     // Vite 6 defaults to "baseline-widely-available" (Safari 16.0). A phone
     // below that floor cannot parse the bundle at all, so React never mounts
-    // and #root stays empty — visually identical to the blank screen in issue
+    // and #root stays empty - visually identical to the blank screen in issue
     // #7. Pin an explicit, older JS floor so the failure mode is impossible.
     target: ['es2020', 'safari14', 'chrome87', 'firefox78', 'edge88'],
     // Held at the Tailwind v4 floor on purpose: its output relies on

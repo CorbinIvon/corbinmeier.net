@@ -40,7 +40,7 @@ export function EmailTemplate({
 
         <p style={{ marginTop: 12, color: "#374151" }}>
           I appreciate you reaching out. This is a confirmation that I received
-          your message — I&apos;ll review it and get back to you as soon as
+          your message - I&apos;ll review it and get back to you as soon as
           possible.
         </p>
 
@@ -71,7 +71,7 @@ export function EmailTemplate({
         )}
 
         <p style={{ marginTop: 18, color: "#6b7280", fontSize: 13 }}>
-          — Corbin Meier
+          - Corbin Meier
         </p>
 
         <hr

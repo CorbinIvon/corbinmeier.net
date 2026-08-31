@@ -1,7 +1,7 @@
 // Single source of truth for the site's per-page color palette. Mirrors the
-// values previously duplicated across globals.css's .theme-* classes — those
+// values previously duplicated across globals.css's .theme-* classes - those
 // classes are now driven live from here instead of being toggled statically.
-export type PaletteName = "blue" | "green" | "red" | "yellow";
+export type PaletteName = "blue" | "green" | "red" | "yellow" | "orange" | "teal";
 export type ThemeName = PaletteName | "contact";
 
 type Palette = {
@@ -17,6 +17,8 @@ export const THEMES: Record<PaletteName, Palette> = {
   green: { accent: "#10b981", background: "#04100c", cardBg: "#071712", border: "#0d2a21", inputBg: "#051a14" },
   red: { accent: "#ef4444", background: "#100404", cardBg: "#170707", border: "#2c0d0d", inputBg: "#1c0a0a" },
   yellow: { accent: "#eab308", background: "#120d02", cardBg: "#1a1305", border: "#2e2308", inputBg: "#1a1305" },
+  orange: { accent: "#f97316", background: "#130904", cardBg: "#1c0f07", border: "#331a0a", inputBg: "#1c0f07" },
+  teal: { accent: "#14b8a6", background: "#04100f", cardBg: "#071614", border: "#0d2a27", inputBg: "#051a18" },
 };
 
 // The "contact" theme keeps its own gradient background (see .theme-contact
@@ -27,7 +29,9 @@ export const ROUTE_THEME: Record<string, PaletteName> = {
   "/": "blue",
   "/projects": "green",
   "/tools": "yellow",
+  "/faq": "orange",
   "/about": "red",
+  "/pricing": "teal",
 };
 
 export const DEFAULT_PALETTE: PaletteName = "blue";
@@ -40,7 +44,7 @@ export function accentForPath(pathname: string): string {
   return THEMES[ROUTE_THEME[pathname] ?? DEFAULT_PALETTE].accent;
 }
 
-// A symmetric ease-in-out curve — velocity ramps up then back down like a
+// A symmetric ease-in-out curve - velocity ramps up then back down like a
 // bell curve, rather than the linear pace of a default CSS transition.
 export const bellEase: [number, number, number, number] = [0.65, 0, 0.35, 1];
 

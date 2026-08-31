@@ -45,7 +45,7 @@ export default function Tools() {
           <p className="text-narrative mb-4">
             <Typewriter as="span">
               A working directory of the tooling I build and reach for on client
-              work &mdash; kept lean, kept sharp, and expanded here one entry at a time.
+              work - kept lean, kept sharp, and expanded here one entry at a time.
             </Typewriter>
           </p>
           <p className="text-xs font-bold uppercase tracking-widest text-muted">

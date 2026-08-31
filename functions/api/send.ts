@@ -90,9 +90,9 @@ export const onRequestPost: PagesFunction<CloudflareEnv> = async (context) => {
       [body.firstName, body.lastName].filter(Boolean).join(" ") || ""
     }.
     
-${body.subject ? `Subject: ${body.subject}\n\n` : ""}I appreciate you reaching out. This is a confirmation that I received your message — I will review it and get back to you as soon as possible.
+${body.subject ? `Subject: ${body.subject}\n\n` : ""}I appreciate you reaching out. This is a confirmation that I received your message - I will review it and get back to you as soon as possible.
 
-${body.message ? `Message preview:\n${body.message}\n\n` : ""}— Corbin`;
+${body.message ? `Message preview:\n${body.message}\n\n` : ""}- Corbin`;
 
     // Send confirmation email to the visitor
     const confirmationPromise = resend.emails.send({

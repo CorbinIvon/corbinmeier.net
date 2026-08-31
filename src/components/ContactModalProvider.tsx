@@ -262,14 +262,14 @@ export default function ContactModalProvider({ children }: { children: ReactNode
                         {form.subject.toLowerCase() === "strategic partnership" ? (
                           <div className="space-y-4 text-sm text-muted leading-relaxed mb-6">
                             <p>
-                              I design and build custom, high-performance websites for local businesses — quoted fairly to fit your project and budget, not a one-size-fits-all price tag.
+                              I design and build custom, high-performance websites for local businesses - quoted fairly to fit your project and budget, not a one-size-fits-all price tag.
                             </p>
                             <div className="border border-border bg-background/50 rounded-lg p-4 font-mono text-[11px] leading-relaxed">
                               <p className="font-bold text-[var(--accent)] mb-2">{">"} How pricing actually works</p>
                               <ul className="space-y-2 list-disc pl-4">
-                                <li>Every quote is custom — final cost depends on scope, timeline, and features, not a fixed rate.</li>
+                                <li>Every quote is custom - final cost depends on scope, timeline, and features, not a fixed rate.</li>
                                 <li>A simple static site with a contact form costs nothing to host on my end (Cloudflare Pages); your only ongoing cost is the domain.</li>
-                                <li>Add a database — for bookings, logins, or online orders — and that's when a monthly fee applies, scaled to what you actually use.</li>
+                                <li>Add a database - for bookings, logins, or online orders - and that's when a monthly fee applies, scaled to what you actually use.</li>
                                 <li>As a reference point, small no-database sites often start around $750, but I'd rather talk through your project than quote a number in the dark.</li>
                               </ul>
                             </div>

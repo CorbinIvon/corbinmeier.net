@@ -11,7 +11,7 @@ export const about: AboutContent = {
     {
       heading: "Origins",
       paragraphs: [
-        "My path in technology began when I received my first computer in 2010, which led to my deep dive into computer applications, leading to Chico State University in 2016. While the curriculum focused heavily on theory and advanced mathematics, I found myself increasingly drawn to the practical application of these concepts—the act of building real-world systems that solve tangible problems.",
+        "My path in technology began when I received my first computer in 2010, which led to my deep dive into computer applications, leading to Chico State University in 2016. While the curriculum focused heavily on theory and advanced mathematics, I found myself increasingly drawn to the practical application of these concepts-the act of building real-world systems that solve tangible problems.",
       ],
     },
     {
@@ -30,7 +30,7 @@ export const about: AboutContent = {
     {
       heading: "Partnership",
       paragraphs: [
-        "In a world of \"do-it-yourself\" platforms, I offer something different: a partnership. Interfacing with a human is always more efficient than struggling with a new tool. Think of me as your digital contractor—someone who takes the complexity off your plate so you can focus on what you do best.",
+        "In a world of \"do-it-yourself\" platforms, I offer something different: a partnership. Interfacing with a human is always more efficient than struggling with a new tool. Think of me as your digital contractor-someone who takes the complexity off your plate so you can focus on what you do best.",
       ],
     },
     {
@@ -45,7 +45,7 @@ export const about: AboutContent = {
     heading: "Strategic Partnership",
     headingClassName: "text-h3 font-serif mb-4 italic text-accent",
     paragraphs: [
-      "I design and build custom, high-performance websites for local businesses — quoted fairly to fit your project and budget, with",
+      "I design and build custom, high-performance websites for local businesses - quoted fairly to fit your project and budget, with",
       "for simple static sites (only pay for your domain)."
     ],
     boldFragment: "no hosting fees",

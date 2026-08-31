@@ -317,21 +317,6 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
                           <div>
                             <span className="text-muted">Date:</span> <span className="text-accent">{project.date || project.year}</span>
                           </div>
-                          {project.status ? (
-                            <div>
-                              <span className="text-muted">Status:</span>{" "}
-                              <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[8px] font-bold uppercase tracking-wider border border-amber-500/20">
-                                {project.status}
-                              </span>
-                            </div>
-                          ) : project.wip && (
-                            <div>
-                              <span className="text-muted">Status:</span>{" "}
-                              <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[8px] font-bold uppercase tracking-wider border border-amber-500/20">
-                                UnderConstruction
-                              </span>
-                            </div>
-                          )}
                           <div className="pt-2 border-t border-border/30">
                             <span className="text-muted block mb-1">Desc:</span>
                             <p className="text-muted leading-relaxed">{project.description}</p>
@@ -522,7 +507,7 @@ export default function ProjectModalProvider({ children }: { children: ReactNode
               <div className="absolute bottom-0 left-0 right-0 p-8 flex justify-center items-center gap-2 text-white/40 font-mono text-xs tracking-widest uppercase">
                 {activeIndex + 1} / {totalSlides}
                 {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)]?.label && (
-                  <span className="text-white/70">— {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].label}</span>
+                  <span className="text-white/70">- {project.images[activeIndex - (hasBeforeAfter ? 1 : 0)].label}</span>
                 )}
               </div>
             </motion.div>

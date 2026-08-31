@@ -24,6 +24,6 @@ export const contact: ContactContent = {
     missingFields: "Please fill out at least your name, email, and the subject.",
     missingTurnstile: "Please complete the security check.",
     genericError: "Failed to send message",
-    success: "Message sent — thank you! A confirmation was emailed.",
+    success: "Message sent - thank you! A confirmation was emailed.",
   },
 };

@@ -8,9 +8,9 @@ import ProjectCard from "./ProjectCard";
 import { useProjectModal } from "./ProjectModalContext";
 
 export default function FeaturedProjects() {
-  const selectedSlugs = ["addressdb", "amazing-grace-media", "living-water-jet-boat-tours"];
+  const selectedSlugs = ["addressdb", "early-byrd-services", "living-water-jet-boat-tours"];
   const featured = selectedSlugs
-    .map(slug => projects.find((p) => p.slug === slug))
+    .map(slug => projects.find((p) => p.slug === slug && !p.hidden))
     .filter((p): p is typeof projects[number] => !!p);
   const { open } = useProjectModal();
 

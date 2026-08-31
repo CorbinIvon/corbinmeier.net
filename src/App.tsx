@@ -13,6 +13,8 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Projects from "@/pages/Projects";
 import Tools from "@/pages/Tools";
+import Faq from "@/pages/Faq";
+import Pricing from "@/pages/Pricing";
 import AiSetup from "@/pages/AiSetup";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
@@ -62,6 +64,8 @@ function App() {
           <Route path="/contact" element={<ContactRouteRedirect />} />
           <Route path="/projects" element={<SiteLayout><Projects /></SiteLayout>} />
           <Route path="/tools" element={<SiteLayout><Tools /></SiteLayout>} />
+          <Route path="/faq" element={<SiteLayout><Faq /></SiteLayout>} />
+          <Route path="/pricing" element={<SiteLayout><Pricing /></SiteLayout>} />
           <Route path="/ai-setup" element={<SiteLayout><AiSetup /></SiteLayout>} />
           <Route path="/privacy-policy" element={<SiteLayout><PrivacyPolicy /></SiteLayout>} />
           <Route path="/terms-of-service" element={<SiteLayout><TermsOfService /></SiteLayout>} />

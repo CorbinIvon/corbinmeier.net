@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "seo",
+    "title": "SEO",
+    "logPath": "./faq/seo.log",
+    "description": "Search visibility isn't a switch you flip once. Here's what actually moves the needle, engine by engine.",
+    "entries": [
+      {
+        "id": "what-is-seo",
+        "logId": "001",
+        "question": "What is SEO?",
+        "date": "2026-08-23",
+        "tag": "Fundamentals",
+        "answer": "<p>SEO stands for <strong>Search Engine Optimization</strong> - the practice of shaping a website so search engines can find it, understand it, and rank it favorably for the terms people actually search. In practice that covers three things: technical health (page speed, mobile-friendliness, whether the site can be crawled at all), content quality (does the page genuinely answer the query), and authority signals (links and mentions from other trustworthy sites).</p><p>It isn't a project with a finish line - it's a maintenance discipline. Rankings shift as competitors publish new content, as algorithms update, and as a site ages without attention, so what ranks well today has to be revisited as the landscape changes.</p><p>It's also not one unified target. Optimization is <em>search-engine specific</em> - Google, Bing, and platform-native search tools (like the one built into GoDaddy's website builder) each run their own ranking logic, crawl behavior, and quality signals. A page tuned only for Google's preferences can under-perform elsewhere. The general rule holds across all of them, though: the higher your optimization score against a given engine's rules, the more likely your site is to surface in that engine's results.</p>",
+        "stat": null,
+        "sources": [
+          { "label": "Google Search Central - SEO Starter Guide", "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide" },
+          { "label": "Bing Webmaster Guidelines", "url": "https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a" },
+          { "label": "Moz - Beginner's Guide to SEO", "url": "https://moz.com/beginners-guide-to-seo" }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "mobile-vs-desktop",
+    "title": "Mobile vs. Desktop",
+    "logPath": "./faq/mobile-vs-desktop.log",
+    "description": "How visitors actually reach your site, and why designing for the smaller screen first isn't optional anymore.",
+    "entries": [
+      {
+        "id": "mobile-traffic-share",
+        "logId": "001",
+        "question": "How much of my traffic is coming from mobile?",
+        "date": "2026-08-23",
+        "tag": "Trending Up",
+        "answer": "<p>Mobile devices account for roughly <strong>65% of all web traffic</strong>, and that share continues to grow. For most client sites, that means the majority of first impressions happen on a phone screen, not a desktop monitor.</p><p>That has real design consequences: navigation, load speed, tap targets, and layout all need to be built mobile-first, with desktop treated as the expanded view rather than the default. A site that only looks polished on a wide monitor is optimizing for the minority of its own visitors.</p>",
+        "stat": { "value": "65%", "label": "of web traffic is mobile - and growing" },
+        "sources": []
+      }
+    ]
+  }
+]

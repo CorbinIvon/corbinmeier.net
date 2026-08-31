@@ -16,7 +16,7 @@ type State = { failed: boolean };
  *
  * React unmounts the entire tree on an uncaught render/effect error, so
  * without a boundary anywhere above it a single throw empties #root and the
- * page becomes a bare background color with no text — the symptom reported in
+ * page becomes a bare background color with no text - the symptom reported in
  * issue #7. Wrapping the decorative layers means an engine-specific failure
  * costs an animation, not the site.
  */

@@ -49,3 +49,6 @@ next-env.d.ts
 .project_map.txt
 .tags
 dist/
+
+# local-only legal/business document bundles - not web code
+docs/*.zip

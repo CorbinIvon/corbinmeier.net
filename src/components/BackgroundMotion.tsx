@@ -13,7 +13,7 @@ export default function BackgroundMotion() {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-      {/* Soft gradient blobs — desktop only. Three scroll-animated 100-150px
+      {/* Soft gradient blobs - desktop only. Three scroll-animated 100-150px
           blur layers at phone DPR overrun iOS Safari's compositing budget and
           blank the page; see useCoarsePointer. */}
       {!isCoarsePointer && (
@@ -33,7 +33,7 @@ export default function BackgroundMotion() {
         </>
       )}
 
-      {/* Subtle grid pattern — same viewport-anchored grid as the homepage
+      {/* Subtle grid pattern - same viewport-anchored grid as the homepage
           hero (blueprint-bg), so it's continuous across every page. */}
       <div className="absolute inset-0 opacity-40 blueprint-bg" />
     </div>

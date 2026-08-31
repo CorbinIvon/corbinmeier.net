@@ -26,7 +26,7 @@ export const aiSetup: AiSetupContent = {
   stackHeadingPre: "The",
   stackHeadingAccent: "Hermes",
   stackBody:
-    "I leverage Hostinger's high-performance VPS infrastructure to provision a robust environment capable of running the latest open-source LLMs. This isn't just a chatbot—it's a private foundation for your business intelligence.",
+    "I leverage Hostinger's high-performance VPS infrastructure to provision a robust environment capable of running the latest open-source LLMs. This isn't just a chatbot-it's a private foundation for your business intelligence.",
   checklist: [
     { text: "Optimized Linux VPS provisioning via Hostinger." },
     { text: "Deployment of the Hermes environment and supporting models." },

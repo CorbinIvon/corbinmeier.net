@@ -11,6 +11,7 @@ export interface NavItem {
 export interface HomePricingDetails {
   summary: string;
   points: string[];
+  cta: CtaLink;
 }
 
 export interface HomeHeroContent {
@@ -43,6 +44,62 @@ export interface ServicesSectionContent {
   headingAccent: string;
   intro: string;
   items: ServiceItem[];
+}
+
+/** A single à-la-carte feature on the pricing menu. `recurring` and
+ *  `prerequisite` are null when the feature carries no monthly cost or stands
+ *  on its own. `responsibility` is the point of the menu, not a footnote: it
+ *  states in plain terms what the price actually buys. */
+export interface PricingLineItem {
+  id: string;
+  name: string;
+  upfront: string;
+  recurring: string | null;
+  prerequisite: string | null;
+  responsibility: string;
+}
+
+export interface PricingGroup {
+  id: string;
+  title: string;
+  blurb: string;
+  items: PricingLineItem[];
+}
+
+/** The two things nearly everything else builds on, called out ahead of the
+ *  menu so the entry cost is never buried in a table. */
+export interface PricingCornerstone {
+  id: string;
+  name: string;
+  upfront: string;
+  recurring: string;
+  summary: string;
+  includes: string[];
+}
+
+export interface PricingNotice {
+  title: string;
+  body: string;
+}
+
+export interface PricingContent {
+  eyebrow: string;
+  headingPre: string;
+  headingAccent: string;
+  intro: string;
+  ballpark: string;
+  cornerstonesHeading: string;
+  cornerstones: PricingCornerstone[];
+  menuHeadingPre: string;
+  menuHeadingAccent: string;
+  menuIntro: string;
+  groups: PricingGroup[];
+  noticesHeading: string;
+  notices: PricingNotice[];
+  ctaHeadingPre: string;
+  ctaHeadingAccent: string;
+  ctaBody: string;
+  ctaLabel: string;
 }
 
 export interface EducationContent {

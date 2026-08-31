@@ -13,8 +13,8 @@ const CSS_VARS = {
 // Drives the site's global palette (background, accent, card, border, input)
 // as live CSS custom properties on <html>, tweening every themed color from
 // the previous page's palette to the new one along a bell-curve ease instead
-// of snapping instantly. Any element referencing these vars — nav, cards,
-// glows, borders — transitions automatically.
+// of snapping instantly. Any element referencing these vars - nav, cards,
+// glows, borders - transitions automatically.
 export function useThemeTransition(theme: ThemeName) {
   const palette = paletteForTheme(theme);
 
@@ -38,7 +38,7 @@ export function useThemeTransition(theme: ThemeName) {
 
     // The tween is decoration; the palette it lands on is not. If color
     // interpolation is unavailable on some engine, snap straight to the target
-    // rather than let the throw escape the effect — an uncaught error here
+    // rather than let the throw escape the effect - an uncaught error here
     // unmounts the whole tree and empties #root (issue #7).
     let controls;
     try {

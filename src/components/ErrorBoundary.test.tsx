@@ -32,7 +32,7 @@ describe("ErrorBoundary", () => {
     );
 
     // The regression this guards: before the boundary existed, a throw here
-    // unmounted the whole tree and left an empty #root — the blank iOS Safari
+    // unmounted the whole tree and left an empty #root - the blank iOS Safari
     // page in issue #7. Sibling content must survive.
     expect(screen.getByText("page content")).toBeInTheDocument();
   });

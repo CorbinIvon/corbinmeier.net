@@ -27,8 +27,7 @@ export type Project = {
   body?: string;
   images?: { src: string; label?: string }[];
   archived?: boolean;
-  wip?: boolean;
-  status?: string;
+  hidden?: boolean;
   extension?: string;
   beforeAfter?: {
     before: {
@@ -141,18 +140,7 @@ export default function ProjectCard({
 
         <div className="flex-1 pt-6 flex flex-col">
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] font-mono text-accent font-bold uppercase tracking-[0.2em]">{project.date || project.year}</span>
-              {project.status ? (
-                <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[8px] font-bold uppercase tracking-wider border border-amber-500/20">
-                  {project.status}
-                </span>
-              ) : project.wip && (
-                <span className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-500 text-[8px] font-bold uppercase tracking-wider border border-amber-500/20">
-                  UnderConstruction
-                </span>
-              )}
-            </div>
+            <span className="text-[10px] font-mono text-accent font-bold uppercase tracking-[0.2em]">{project.date || project.year}</span>
             <div className="flex gap-2">
               {project.skills?.slice(0, 3).map(skill => (
                 <span key={skill} className="px-2.5 py-1 rounded-md bg-muted/5 text-[9px] font-bold uppercase tracking-wider text-muted-foreground border border-border/50">

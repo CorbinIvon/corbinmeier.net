@@ -24,7 +24,7 @@ export default function PageShell({
   return (
     <div className={cn("relative min-h-screen pt-16 lg:pt-6 pb-10", className)}>
       {/* Purely ambient, and the layer most likely to hit an engine-specific
-          compositing bug — so it fails to nothing rather than to a blank page. */}
+          compositing bug - so it fails to nothing rather than to a blank page. */}
       <ErrorBoundary label="BackgroundMotion">
         <BackgroundMotion />
       </ErrorBoundary>

@@ -6,6 +6,8 @@ import { CyberCodeTerminalLine, Typewriter } from "@/components/cybercode/CyberC
 import { motion, Variants } from "framer-motion";
 
 export default function Projects() {
+  const visibleProjects = projects.filter((p) => !("hidden" in p && p.hidden));
+
   const container: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -26,7 +28,7 @@ export default function Projects() {
     <PageShell theme="green">
       <SeoHead
         title="Projects | Corbin Meier"
-        description="A deep dive into the systems, applications, and digital experiences built by Corbin Meier — each project solved through meticulous engineering and user-centric design."
+        description="A deep dive into the systems, applications, and digital experiences built by Corbin Meier - each project solved through meticulous engineering and user-centric design."
         path="/projects"
       />
       <motion.main
@@ -51,13 +53,13 @@ export default function Projects() {
           </p>
           <p className="text-xs font-bold uppercase tracking-widest text-muted">
             <Typewriter as="span">
-              {projects.length} {projects.length === 1 ? "Project" : "Projects"}
+              {visibleProjects.length} {visibleProjects.length === 1 ? "Project" : "Projects"}
             </Typewriter>
           </p>
         </motion.header>
 
         <motion.section variants={item} className="w-full">
-          <ProjectFilters projects={projects} />
+          <ProjectFilters projects={visibleProjects} />
         </motion.section>
       </motion.main>
     </PageShell>

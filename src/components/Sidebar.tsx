@@ -9,7 +9,7 @@ import { CyberCodeButton } from "@/components/cybercode/CyberCodeUIKit";
 import { useAnimatedAccent } from "@/hooks/useAnimatedAccent";
 import { bellEase } from "@/lib/theme";
 
-const ICONS = [Home, FileCode2, Wrench, FileCode2];
+const ICONS = [Home, FileCode2, Wrench, Wrench];
 
 export default function Sidebar() {
   const { pathname } = useLocation();

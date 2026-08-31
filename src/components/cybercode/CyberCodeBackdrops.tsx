@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
  * Full-viewport decorative backdrops for the CyberCode UI Kit: a matrix-rain
  * canvas, a linked-particle field, and a custom cursor. Each is self-managed
  * (mounts its own canvas, cleans up its own listeners/rAF loop) and safe to
- * drop anywhere in the tree — position with the `className` prop (defaults
+ * drop anywhere in the tree - position with the `className` prop (defaults
  * assume a `fixed inset-0` layer behind page content).
  */
 

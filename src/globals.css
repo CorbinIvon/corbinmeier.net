@@ -3,7 +3,7 @@
 @theme {
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  /* Display/heading font — kept as "font-serif" so existing className usage
+  /* Display/heading font - kept as "font-serif" so existing className usage
      across the site doesn't need renaming; now points at Geist Mono per the
      "Steady Console" style guide instead of DM Serif Display. */
   --font-serif: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -19,7 +19,7 @@
 }
 
 :root {
-  /* "The Steady Console" — dark-navy terminal theme, see docs/style_guide.md. Dark-only. */
+  /* "The Steady Console" - dark-navy terminal theme, see docs/style_guide.md. Dark-only. */
   --background: #0a0e17;
   --foreground: #c9d1d9;
   --primary: #c9d1d9;
@@ -45,7 +45,7 @@
 }
 
 /* Per-page palettes (blue/green/red/yellow) are no longer static CSS
-   classes — src/hooks/useThemeTransition.ts tweens --accent, --background,
+   classes - src/hooks/useThemeTransition.ts tweens --accent, --background,
    --card-bg, --border and --input-bg directly on <html> as inline styles so
    the whole site can animate between them on navigation. See src/lib/theme.ts
    for the canonical palette values. */
@@ -98,7 +98,7 @@ html.theme-contact, html.theme-contact body {
 }
 
 @layer components {
-  /* Standard heading scale — use these instead of ad hoc text-*xl sizes so
+  /* Standard heading scale - use these instead of ad hoc text-*xl sizes so
      headings stay consistent across every page. .text-display is reserved
      for the homepage hero only. */
   .text-display {
@@ -131,7 +131,7 @@ html.theme-contact, html.theme-contact body {
 
   /* Fixed attachment ties the grid to the viewport instead of each element's
      own box, so the pattern lines up continuously across every section that
-     uses this class instead of resetting per-section. Desktop only — see the
+     uses this class instead of resetting per-section. Desktop only - see the
      .theme-contact note above for why iOS Safari is excluded. The grid sits on
      a full-viewport fixed layer anyway, so touch devices lose nothing. */
   @media (hover: hover) and (pointer: fine) {
@@ -144,7 +144,7 @@ html.theme-contact, html.theme-contact body {
     @apply w-full px-6 sm:px-10 py-10 sm:py-16;
   }
 
-  /* Horizontal-only variant of .section-container — for a page's single
+  /* Horizontal-only variant of .section-container - for a page's single
      <main> wrapper, where the page root div already supplies top/bottom
      spacing. Using .section-container there would stack a second, redundant
      vertical padding on top of it and push content down further than

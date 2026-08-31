@@ -4,11 +4,13 @@ export const site: SiteContent = {
   brandName: "Corbin Meier",
   navItems: [
     { name: "Projects", href: "/projects" },
+    { name: "Pricing", href: "/pricing" },
     { name: "Tools", href: "/tools" },
+    { name: "FAQ", href: "/faq" },
     { name: "About", href: "/about" },
   ],
   contactCtaLabel: "Contact",
-  missionStatement: "Outperforming standard CMS platforms — solutions for every business.",
+  missionStatement: "Outperforming standard CMS platforms - solutions for every business.",
   footerTagline:
     "Providing high-performance, custom-engineered digital infrastructure for local businesses with a zero up-front hosting model.",
   footerSocial: {

@@ -11,8 +11,6 @@
     ],
     "public-url": "https://living-water-jet-boats.pages.dev/",
     "original-url": "https://livingwaterjetboats.com/",
-    "status": "Awaiting DNS Connection",
-    "wip": true,
     "description": "A rapid-turnaround site delivered within 24 hours after months of no progress from a prior arrangement.",
     "body": "<p>The client requested a site three months prior with nothing to show for it. After they asked me to put something together, I delivered a complete site within 24 hours. It is now awaiting the client's DNS connection to go live.</p>",
     "images": [
@@ -53,8 +51,6 @@
       "Sales Tooling",
       "Internal Tools"
     ],
-    "status": "WIP",
-    "wip": true,
     "description": "An internal tool built to assist with sales and outreach, designed to be universally deployable.",
     "body": "<p>addressdb is a tool created to help and assist with sales and outreach. The vision is a universal tool that can be easily deployed and accessed by any company.</p>",
     "images": [
@@ -114,7 +110,6 @@
       "Cloudflare Pages"
     ],
     "public-url": "https://earlybyrd.services/",
-    "status": "Complete, ongoing",
     "description": "A custom site for a landscaping and property preservation company.",
     "body": "<p>Early Byrd Services is a landscaping and property preservation company that reached out for a custom site. The result is a standard, easy-on-the-eyes site that clearly conveys their services.</p>",
     "images": [
@@ -132,6 +127,7 @@
   },
   {
     "title": "BOLD Remedies",
+    "hidden": true,
     "slug": "bold-remedies",
     "year": 2026,
     "extension": "tsx",
@@ -143,8 +139,6 @@
       "Booking"
     ],
     "public-url": "https://bold-with-cheyenne.pages.dev/",
-    "status": "WIP",
-    "wip": true,
     "description": "A new site for a home-grown remedies startup offering products, classes, and appointment booking with built-in e-commerce.",
     "body": "<p>BOLD Remedies is a startup selling home-grown remedies, running classes, and booking appointments. This project builds their first web presence from scratch, with a built-in e-commerce function to support product sales alongside their service offerings.</p>",
     "images": [
@@ -156,6 +150,7 @@
   },
   {
     "title": "Kinney Attorney at Law",
+    "hidden": true,
     "slug": "kinney-attorney-at-law",
     "year": 2026,
     "extension": "tsx",
@@ -166,8 +161,6 @@
     ],
     "public-url": "https://vankinney-com.pages.dev/",
     "original-url": "https://vankinney.com/",
-    "status": "WIP",
-    "wip": true,
     "description": "A modern makeover for a Redding attorney continuing her retired father's practice.",
     "body": "<p>A Redding attorney is carrying on her retired father's law practice, and this project brings her site up to modern standards while respecting the practice's established reputation.</p>",
     "images": [
@@ -184,6 +177,7 @@
   },
   {
     "title": "Community Alliance Network",
+    "hidden": true,
     "slug": "community-alliance-network",
     "year": 2026,
     "extension": "tsx",
@@ -194,7 +188,6 @@
     ],
     "public-url": "https://wecan-team.pages.dev",
     "original-url": "https://wecan.team/",
-    "status": "Dropped",
     "archived": true,
     "description": "A professional custom update for a Redding, CA community fundraiser and events organization.",
     "body": "<p>Community Alliance Network organizes fundraisers and community-building events in the Redding, CA area. This project delivered a professional custom update to their existing site, with a members implementation I was particularly proud of, before the engagement was dropped.</p>",
@@ -241,7 +234,6 @@
       "Cloudflare Pages"
     ],
     "public-url": "https://easycleanups.com",
-    "status": "Complete, Features WIP",
     "description": "A custom solution for a Redding, CA construction demolition company that Squarespace couldn't support.",
     "body": "<p>Easy Cleanups is a Redding, CA construction demolition company whose needs outgrew what Squarespace's intuitive-but-limited tooling could provide. The core site is complete, with additional features still in progress.</p>",
     "images": [
@@ -262,6 +254,7 @@
   },
   {
     "title": "Hause of Wilson",
+    "hidden": true,
     "slug": "hause-of-wilson",
     "year": 2026,
     "extension": "tsx",
@@ -273,8 +266,6 @@
     ],
     "public-url": "https://hauseofwilson-com.pages.dev/",
     "original-url": "https://www.hauseofwilson.com/",
-    "status": "Near Completion, Feedback Needed",
-    "wip": true,
     "description": "A complete remake with management tooling in mind for a shows and events host.",
     "body": "<p>Hause of Wilson hosts shows and other events. This project is a complete remake of their site, built with management in mind so the team can maintain content going forward.</p>",
     "images": [
@@ -295,6 +286,7 @@
   },
   {
     "title": "530 Garage LLC",
+    "hidden": true,
     "slug": "530-garage-llc",
     "year": 2026,
     "extension": "tsx",
@@ -308,7 +300,6 @@
     ],
     "public-url": "https://530garagellc-com.pages.dev/",
     "original-url": "https://www.530garagellc.com/",
-    "status": "Feedback Phase",
     "description": "A makeover for a Redding, CA mechanic shop, adding automations and advanced booking with potential e-commerce.",
     "body": "<p>A full makeover of a local mechanic shop's outdated site. The new build introduces automations and an advanced appointment booking flow, with a potential e-commerce application for parts or services under consideration.</p>",
     "images": [
@@ -325,6 +316,7 @@
   },
   {
     "title": "DJ Mojo Entertainment",
+    "hidden": true,
     "slug": "dj-mojo-entertainment",
     "year": 2026,
     "extension": "tsx",
@@ -335,7 +327,6 @@
     ],
     "public-url": "https://djmojoentertainment-com.pages.dev/",
     "original-url": "https://www.djmojoentertainment.com/",
-    "status": "Dropped",
     "archived": true,
     "description": "A slight overhaul for a San Francisco DJ specializing in corporate events, weddings, clubs, and bars.",
     "body": "<p>A light-touch enhancement of an existing DJ entertainment site, preserving the original vision while refining the layout. This project was ultimately dropped before completion.</p>",
@@ -362,7 +353,6 @@
       "Cloudflare Pages"
     ],
     "public-url": "https://norcalaccountingprofessionals.com/",
-    "status": "Complete",
     "description": "An overhaul migrating an accounting firm off Squarespace for a cleaner, standout site.",
     "body": "<p>Originally hosted on Squarespace, this accounting firm's site suffered from CMS limitations and slow update cycles, prompting them to outsource the project. The rebuild delivers a cleaner design that stands out from typical CMS templates.</p>",
     "images": [
@@ -390,7 +380,6 @@
       "Custom Integration"
     ],
     "public-url": "https://litfromwithin.life/",
-    "status": "Complete, ongoing",
     "description": "A custom mind-body booking integration built to replace an unsatisfying off-the-shelf system.",
     "body": "<p>The client wasn't happy with their existing mind-body integration and booking service. They wanted something more custom and built directly into their systems, so that's exactly what was delivered.</p>",
     "images": [
@@ -432,7 +421,6 @@
       "Cloudflare Pages"
     ],
     "public-url": "https://parkconstruction.homes/",
-    "status": "Complete",
     "description": "A specialized overhaul for a Redding, CA deck construction company.",
     "body": "<p>A Redding, CA deck construction company needed a specialized touch to stand out from generic CMS-platform competitors. The rebuild gives them a distinctive, custom presence.</p>",
     "images": [
@@ -473,6 +461,7 @@
   },
   {
     "title": "Slade Brown Insurance",
+    "hidden": true,
     "slug": "slade-brown-insurance",
     "year": 2026,
     "extension": "tsx",
@@ -483,8 +472,6 @@
     ],
     "public-url": "https://sladebrown-com.pages.dev/",
     "original-url": "https://sladebrown.com/",
-    "status": "WIP",
-    "wip": true,
     "description": "A near 1:1 clone rebuild for an insurance broker.",
     "body": "<p>A close recreation of an insurance broker's site, rebuilt on the standard React + Vite + Cloudflare Pages stack for improved performance and easier future maintenance.</p>",
     "images": [
@@ -511,7 +498,6 @@
       "Site Management"
     ],
     "public-url": "https://www.michaels-inc.com/",
-    "status": "Complete",
     "description": "Ongoing site management for a Redding, CA furnishings store previously on Squarespace.",
     "body": "<p>Michael's Office Furnishings is a Redding, CA furnishings store whose Squarespace management had become too burdensome. I have since taken over their site management entirely.</p>",
     "images": [
@@ -532,6 +518,7 @@
   },
   {
     "title": "Simply Results PT",
+    "hidden": true,
     "slug": "simply-results-pt",
     "year": 2026,
     "extension": "tsx",
@@ -543,10 +530,8 @@
     ],
     "public-url": "https://simplyresultspt-com.pages.dev",
     "original-url": "https://simplyresultspt.com/",
-    "status": "WIP",
-    "wip": true,
     "description": "A near 1:1 clone rebuild for a physical therapy provider, integrating client-provided third-party services without handling protected health data directly.",
-    "body": "<p>Simply Results PT is a health provider site rebuilt as a near-exact recreation on the standard React + Vite + Cloudflare Pages stack. Since I do not hold HIPAA credentials, no protected health data is stored or processed on my end—instead, the site integrates third-party services that the provider supplies and hosts themselves, keeping compliance responsibility where it belongs.</p><p>Because the client hosts the underlying databases and services, this integration work is provided at no additional charge.</p>",
+    "body": "<p>Simply Results PT is a health provider site rebuilt as a near-exact recreation on the standard React + Vite + Cloudflare Pages stack. Since I do not hold HIPAA credentials, no protected health data is stored or processed on my end-instead, the site integrates third-party services that the provider supplies and hosts themselves, keeping compliance responsibility where it belongs.</p><p>Because the client hosts the underlying databases and services, this integration work is provided at no additional charge.</p>",
     "images": [
       {
         "src": "/clients/simply-results-pt/new/screencapture-simplyresultspt-com-pages-dev-2026-08-01-19_37_16.png",
@@ -561,6 +546,7 @@
   },
   {
     "title": "Amanda Grace Videos",
+    "hidden": true,
     "slug": "amanda-grace-videos",
     "year": 2026,
     "extension": "tsx",
@@ -571,8 +557,6 @@
     ],
     "public-url": "https://amandagracevideos-com.pages.dev/",
     "original-url": "https://amandagracevideos.com/",
-    "status": "WIP",
-    "wip": true,
     "description": "A near 1:1 clone rebuild for a Chico, CA videographer specializing in weddings and graduations.",
     "body": "<p>A faithful recreation of a videographer's portfolio site serving the Chico, CA area, covering weddings and graduation ceremonies. The rebuild preserves the original's visual identity while moving it onto a faster, more maintainable custom stack.</p>",
     "images": [
@@ -609,6 +593,7 @@
   },
   {
     "title": "Amazing Grace Media",
+    "hidden": true,
     "slug": "amazing-grace-media",
     "year": 2026,
     "extension": "tsx",
@@ -620,7 +605,6 @@
     ],
     "public-url": "https://amzinggracemedia-com.pages.dev/",
     "original-url": "https://amzinggracemedia.com",
-    "status": "WIP",
     "description": "A high-performance videographer portfolio replacing a bloated Wix site.",
     "body": "<p>A videographer's work demands a platform as sharp as their lens. This project involved migrating a media-heavy portfolio from Wix to a custom React + Vite architecture. By stripping away the computational bloat and pervasive script errors inherent in the original platform, I achieved near-instantaneous load times and a fluid scrolling experience that lets the cinematography take center stage.</p><p>The transition to Cloudflare Pages ensured global edge delivery, providing a rock-solid, high-bandwidth experience for potential clients regardless of their location.</p>",
     "images": [
@@ -657,7 +641,6 @@
     ],
     "public-url": "https://example-livingwateradventures-com.pages.dev/",
     "original-url": "https://livingwateradventures.com/",
-    "status": "Dropped",
     "archived": true,
     "description": "An unsolicited clone recreation built after stumbling across the original site.",
     "body": "<p>A spontaneous project born from coming across the wrong link and deciding to clone and re-create the site anyway. The result speaks for itself.</p>",
@@ -718,7 +701,7 @@
     ],
     "public-url": "https://cremation-simplicity.com/",
     "description": "A custom, high-performance rebuild for Cremation Simplicity, part of a wider modernization effort for a network of funeral home properties.",
-    "body": "<p>I rebuilt Cremation Simplicity's site, migrating it from a restrictive, high-premium Squarespace plan to a custom, high-performance React + Vite framework. This transition not only provides a significantly more premium aesthetic but also delivers substantial operational efficiency, saving the business between $240 and $1,200 annually in hosting fees.</p><p>A critical technical objective was achieving granular control over the UI that out-of-the-box templates couldn't provide. A prime example is the 'Available 24/7' Call Now button integrated directly into the site header—a high-converting feature essential for the industry that Squarespace's rigid template system could not accommodate. This build is part of a broader migration roadmap covering other properties in the same network, including Blair's Cremation, McNary's Woodland, and Chapel by the Sea.</p>",
+    "body": "<p>I rebuilt Cremation Simplicity's site, migrating it from a restrictive, high-premium Squarespace plan to a custom, high-performance React + Vite framework. This transition not only provides a significantly more premium aesthetic but also delivers substantial operational efficiency, saving the business between $240 and $1,200 annually in hosting fees.</p><p>A critical technical objective was achieving granular control over the UI that out-of-the-box templates couldn't provide. A prime example is the 'Available 24/7' Call Now button integrated directly into the site header-a high-converting feature essential for the industry that Squarespace's rigid template system could not accommodate. This build is part of a broader migration roadmap covering other properties in the same network, including Blair's Cremation, McNary's Woodland, and Chapel by the Sea.</p>",
     "images": [
       {
         "src": "/clients/cremation-simplicity/original/screencapture-web-archive-org-web-20250825053042-https-www-cremation-simplicity-com-2026-08-01-17_20_15.png",
@@ -745,6 +728,7 @@
   },
   {
     "title": "Atlas Energy Consulting",
+    "hidden": true,
     "slug": "atlas-energy-consulting",
     "year": 2026,
     "extension": "tsx",
@@ -863,6 +847,7 @@
   },
   {
     "title": "Envee Hair Studio",
+    "hidden": true,
     "slug": "envee-hair-studio",
     "year": 2026,
     "extension": "tsx",
@@ -875,7 +860,7 @@
     "public-url": "https://enveehairstudio-com.pages.dev/",
     "original-url": "https://enveehairstudio.com",
     "description": "A high-fidelity site migration completed in a single day after a previous developer failed to deliver.",
-    "body": "<p>This project was a critical rescue mission. Nichole already had a functioning site, but a third-party developer offered to recreate it with the promise of modernization. After months of waiting with no progress to show, the third party eventually dropped the ball, leaving Nichole to revert to her original, outdated setup in frustration.</p><p>Leveraging my streamlined React + Vite framework, I was able to step in and deliver a high-fidelity modernization—a complete recreation of the desired design—in just a single day of work. The focus was on capturing the boutique's aesthetic while implementing modern performance optimizations, proving that high-quality delivery doesn't require months of development time.</p>",
+    "body": "<p>This project was a critical rescue mission. Nichole already had a functioning site, but a third-party developer offered to recreate it with the promise of modernization. After months of waiting with no progress to show, the third party eventually dropped the ball, leaving Nichole to revert to her original, outdated setup in frustration.</p><p>Leveraging my streamlined React + Vite framework, I was able to step in and deliver a high-fidelity modernization-a complete recreation of the desired design-in just a single day of work. The focus was on capturing the boutique's aesthetic while implementing modern performance optimizations, proving that high-quality delivery doesn't require months of development time.</p>",
     "images": [
       {
         "src": "/clients/envee-hair-studio/new/screencapture-enveehairstudio-com-pages-dev-2026-08-01-19_35_55.png",
@@ -900,6 +885,7 @@
   },
   {
     "title": "Johnsons Turboclean",
+    "hidden": true,
     "slug": "johnsons-turboclean",
     "year": 2026,
     "extension": "tsx",
@@ -911,7 +897,6 @@
     ],
     "public-url": "https://johnsonsturboclean-com.pages.dev/",
     "original-url": "https://johnsonsturboclean.com",
-    "status": "WIP",
     "description": "Professionalizing a DIY effort into a cohesive, high-performance brand portal.",
     "body": "<p>A potential client reached out to bridge the gap between their manual DIY efforts and a professional digital presence. This project focuses on building a cohesive brand identity from the ground up, paired with a modern web experience that reflects the precision of their services.</p><p>The new architecture moves away from consumer-grade builders to a custom professional stack, ensuring that as the business scales, the website remains a robust and reliable asset.</p>",
     "images": [
@@ -944,7 +929,6 @@
       "Vanilla CSS"
     ],
     "public-url": "https://chuck-the-painter.com",
-    "status": "Complete, ongoing",
     "description": "Professional painter's business website featuring a clean, static design and a functional contact form.",
     "body": "<p>A high-performance business website for a professional painting service. Built with React and Vite, the site is deployed as static assets on Cloudflare Pages for maximum speed and reliability. It includes a custom contact form integrated with Cloudflare Pages Functions for lead generation.</p><p>Digital confidence is the cornerstone of local business growth. For this project, I transformed a word-of-mouth operation into a searchable digital powerhouse. The new site focuses on high-visibility project showcases and aggressive SEO optimization.</p><p>In its first month of operation, the site successfully handled over 16,000 requests from 1,500 unique visitors, with a 40% cache hit rate. By implementing clean, bot-friendly markup and structured data, the site is now actively crawled, steadily climbing the ranks to connect Chuck with new potential clients.</p>",
     "images": [
@@ -975,7 +959,6 @@
       "Cloudflare Pages"
     ],
     "public-url": "https://chicobusinessnetwork.org",
-    "status": "Complete, ongoing",
     "description": "A budget-conscious site for a non-compete business networking group in Chico, CA.",
     "body": "<p>Chico Business Network Group is a business get-together featuring a non-compete membership. They had no prior site, so this project assembled a basic site on a budget covering the group's mission statement and objectives.</p>",
     "images": [
@@ -1103,7 +1086,6 @@
     "description": "A mobile app currently in development for both Android and iOS. Work in progress.",
     "body": "<p>Night&Day is a cross-platform Flutter app designed for seamless experiences on iOS and Android. Current work includes authentication, local state syncing, and responsive UI tuned for mobile interactions.</p>",
     "images": [],
-    "wip": true,
     "date": "2024-07-11"
   },
   {
@@ -1148,7 +1130,7 @@
     ],
     "public-url": "https://github.com/CorbinIvon/toaster",
     "description": "Windows Toast and notification system enabling LAN messenger between devices for quick local notifications.",
-    "body": "<p>A small utility that sends Windows toast notifications across a LAN. Designed for quick local messaging without a centralized server—great for internal team alerts or small office broadcasts.</p>",
+    "body": "<p>A small utility that sends Windows toast notifications across a LAN. Designed for quick local messaging without a centralized server-great for internal team alerts or small office broadcasts.</p>",
     "images": [
       {
         "src": "https://github.com/CorbinIvon/toaster/assets/20233488/ca8a8c67-9aa0-4dbe-91b6-cb2f077f842a"

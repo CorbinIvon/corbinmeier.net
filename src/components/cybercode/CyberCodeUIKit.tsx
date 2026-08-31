@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import { useRevealOnScroll } from "./useCyberCodeEffects";
 
 /**
- * CyberCode UI Kit — neon terminal/IDE-flavored primitives: windows, code
+ * CyberCode UI Kit - neon terminal/IDE-flavored primitives: windows, code
  * blocks, stat cards, skill bars, project cards, form fields, and buttons.
  * Every accent-driven color reads from CSS custom properties set per
  * instance, so multiple accents can coexist on one page. Pair with
@@ -22,9 +22,9 @@ import { useRevealOnScroll } from "./useCyberCodeEffects";
  */
 
 /**
- * Only two channels: "primary" (Signal Blue, the site's sole accent — used
+ * Only two channels: "primary" (Signal Blue, the site's sole accent - used
  * for nearly everything) and "danger" (Alert Red, reserved for genuine error
- * states only — see docs/style_guide.md). Both read from the global theme
+ * states only - see docs/style_guide.md). Both read from the global theme
  * tokens in globals.css, so a future palette change propagates automatically
  * instead of drifting out of sync with a second hardcoded palette.
  */
@@ -60,7 +60,7 @@ function accentVars(accent: CyberAccent): CSSProperties {
 }
 
 /* ------------------------------------------------------------------------ */
-/* Global keyframes — mount once near the app root                          */
+/* Global keyframes - mount once near the app root                          */
 /* ------------------------------------------------------------------------ */
 
 /** Injects the @keyframes used by glitch/blink/float utilities below. Mount once, e.g. in App.tsx. */
@@ -77,12 +77,12 @@ export function CyberCodeStyles() {
 }
 
 /* ------------------------------------------------------------------------ */
-/* Window chrome — macOS-style traffic-light header                        */
+/* Window chrome - macOS-style traffic-light header                        */
 /* ------------------------------------------------------------------------ */
 
 /**
  * Traffic-light dot cluster sitting directly on a bordered panel's top edge,
- * like a terminal window titlebar. Place on a `relative` ancestor — the
+ * like a terminal window titlebar. Place on a `relative` ancestor - the
  * parent supplies its own border, which the dots sit on top of.
  */
 export function CyberCodeSectionLabel({ className }: { className?: string }) {
@@ -264,7 +264,7 @@ export function CyberCodeGlitchHeading({
 }
 
 /* ------------------------------------------------------------------------ */
-/* Code editor block — tabs + line numbers + code content                   */
+/* Code editor block - tabs + line numbers + code content                   */
 /* ------------------------------------------------------------------------ */
 
 export function CyberCodeEditorWindow({
@@ -362,7 +362,7 @@ export function CyberCodeStatCard({
 }
 
 /* ------------------------------------------------------------------------ */
-/* Skill bar — animates fill into view on scroll                            */
+/* Skill bar - animates fill into view on scroll                            */
 /* ------------------------------------------------------------------------ */
 
 export function CyberCodeSkillBar({
@@ -392,7 +392,7 @@ export function CyberCodeSkillBar({
 }
 
 /* ------------------------------------------------------------------------ */
-/* Project card — header/body/footer slots                                  */
+/* Project card - header/body/footer slots                                  */
 /* ------------------------------------------------------------------------ */
 
 export function CyberCodeProjectCard({
@@ -536,7 +536,7 @@ export function CyberCodeLinkButton({
 }
 
 /* ------------------------------------------------------------------------ */
-/* Form field — CLI-style prompt + input/textarea                           */
+/* Form field - CLI-style prompt + input/textarea                           */
 /* ------------------------------------------------------------------------ */
 
 type FormFieldBase = {
@@ -575,7 +575,7 @@ export function CyberCodeFormField({
 }
 
 /* ------------------------------------------------------------------------ */
-/* Social link — circular icon with hover tooltip                           */
+/* Social link - circular icon with hover tooltip                           */
 /* ------------------------------------------------------------------------ */
 
 export function CyberCodeSocialLink({
@@ -609,7 +609,7 @@ export function CyberCodeSocialLink({
 }
 
 /* ------------------------------------------------------------------------ */
-/* Status pill — pulsing dot + label                                        */
+/* Status pill - pulsing dot + label                                        */
 /* ------------------------------------------------------------------------ */
 
 export function CyberCodeStatusPill({
@@ -638,7 +638,7 @@ export function CyberCodeStatusPill({
 }
 
 /* ------------------------------------------------------------------------ */
-/* Feature link card — icon + title + subtitle + arrow                      */
+/* Feature link card - icon + title + subtitle + arrow                      */
 /* ------------------------------------------------------------------------ */
 
 export function CyberCodeFeatureLinkCard({
