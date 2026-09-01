@@ -9,9 +9,9 @@ export const homeHero: HomeHeroContent = {
   pricingDetails: {
     summary: "How pricing actually works",
     points: [
-      "Builds start at $700, paid once. Most established businesses land on the $1,200 tier.",
+      "Builds start at $1,400, paid once. Most established businesses land on the $2,400 tier.",
       "There is no required monthly. I can set every account up in your name, hand you the logins, and step away.",
-      "If you would rather not think about it, I stay on and maintain the site from $50 a month, priced against what you want me looking after.",
+      "If you would rather not think about it, I stay on and maintain the site from $100 a month, priced against what you want me looking after.",
       "Everything past the build is chosen line by line, so you are never paying for a feature you did not ask for.",
       "Published prices are ballpark figures. Every scope is different, and the real number comes out of a conversation.",
     ],

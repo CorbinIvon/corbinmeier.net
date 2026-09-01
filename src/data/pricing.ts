@@ -16,7 +16,7 @@ export const pricing: PricingContent = {
     {
       id: "starter",
       name: "Starter",
-      build: "$700",
+      build: "$1,400",
       tagline: "A real presence, quickly",
       summary:
         "A small custom site for a business that needs to be found, look credible, and be easy to contact. Hand-coded rather than assembled from a template, and fast on a phone.",
@@ -30,7 +30,7 @@ export const pricing: PricingContent = {
     {
       id: "foundation",
       name: "Foundation",
-      build: "$1,200",
+      build: "$2,400",
       tagline: "The one most businesses want",
       summary:
         "Room to actually tell your story: services, background, proof, and the legal pages a business site is expected to have. The usual starting point for an established local business.",
@@ -45,10 +45,10 @@ export const pricing: PricingContent = {
     {
       id: "growth",
       name: "Growth",
-      build: "$2,100",
+      build: "$4,200",
       tagline: "You update it yourself",
       summary:
-        "Foundation plus the machinery to run the site without calling me. A private admin area, a familiar editor, and somewhere to put large photos and video. Bought separately these run $2,600.",
+        "Foundation plus the machinery to run the site without calling me. A private admin area, a familiar editor, and somewhere to put large photos and video. Bought separately these run $5,200.",
       includes: [
         "Private admin area, one owner account",
         "Write and format content like a word processor",
@@ -78,9 +78,9 @@ export const pricing: PricingContent = {
     {
       id: "maintained",
       name: "I maintain it",
-      price: "$50 - $250/mo",
+      price: "$100 - $500/mo",
       summary:
-        "I stay on as an administrator and keep the site healthy. The rate is set per project against what I am actually responsible for: $50 covers a straightforward site, and it climbs from there as that list grows. You see the list, agreed in writing, before you agree to a number.",
+        "I stay on as an administrator and keep the site healthy. The rate is set per project against what I am actually responsible for: $100 covers a straightforward site, and it climbs from there as that list grows. You see the list, agreed in writing, before you agree to a number.",
       points: [
         "Content and copy changes handled as they come up",
         "Security patches and dependency updates applied for you",
@@ -106,7 +106,7 @@ export const pricing: PricingContent = {
           id: "database",
           name: "Database Tier",
           upfront: "$0",
-          recurring: "$15 - $100/mo usage",
+          recurring: "$30 - $200/mo usage",
           prerequisites: [],
           responsibility:
             "The memory behind your site. The moment it needs to remember someone, whether that is an account, a booking, an order, or an uploaded photo, it needs this. There is no build fee for it, so the monthly is the whole cost, and it moves with real usage rather than a flat guess. Paid straight to the platform if you self-manage.",
@@ -114,7 +114,7 @@ export const pricing: PricingContent = {
         {
           id: "rate-limiting",
           name: "Usage Limits & Abuse Protection",
-          upfront: "$300",
+          upfront: "$600",
           recurring: null,
           prerequisites: ["database"],
           responsibility:
@@ -130,7 +130,7 @@ export const pricing: PricingContent = {
         {
           id: "reviews",
           name: "Reviews & Testimonials",
-          upfront: "$75",
+          upfront: "$150",
           recurring: null,
           prerequisites: [],
           responsibility:
@@ -139,8 +139,8 @@ export const pricing: PricingContent = {
         {
           id: "local-seo",
           name: "Local SEO & Search Visibility",
-          upfront: "$350",
-          recurring: "$150/mo optional",
+          upfront: "$700",
+          recurring: "$300/mo optional",
           prerequisites: [],
           responsibility:
             "Everything on the website side of being found locally: your site marked up so search engines understand where you are and what you do, your details made consistent, and the standard practices applied at launch. Done once, at build. I do not claim or verify your Google Business Profile, because Google requires a video walkthrough of your premises that only you can record, and I do not post to it either. The optional monthly buys three hours of ongoing competitor checks, auditing, and verification.",
@@ -148,16 +148,16 @@ export const pricing: PricingContent = {
         {
           id: "mailing-list",
           name: "Mailing List & Lead Capture",
-          upfront: "$200",
-          recurring: "$5 - $30/mo",
+          upfront: "$400",
+          recurring: "$10 - $60/mo",
           prerequisites: [],
           responsibility:
-            "Sign-up forms that screen out bots before they reach you, so your list stays real people and your mail does not get flagged as spam. The monthly covers the delivery service: $5 up to 3,000 emails a month, $30 above that.",
+            "Sign-up forms that screen out bots before they reach you, so your list stays real people and your mail does not get flagged as spam. The monthly covers the delivery service: $10 up to 3,000 emails a month, $60 above that.",
         },
         {
           id: "countdown",
           name: "Countdown Timers & Timelines",
-          upfront: "$200",
+          upfront: "$400",
           recurring: null,
           prerequisites: [],
           responsibility:
@@ -166,7 +166,7 @@ export const pricing: PricingContent = {
         {
           id: "gallery",
           name: "Interactive Media Gallery",
-          upfront: "$275",
+          upfront: "$550",
           recurring: null,
           prerequisites: [],
           responsibility:
@@ -175,7 +175,7 @@ export const pricing: PricingContent = {
         {
           id: "estimator",
           name: "Custom Inquiry & Estimator Forms",
-          upfront: "$350",
+          upfront: "$700",
           recurring: null,
           prerequisites: [],
           responsibility:
@@ -191,7 +191,7 @@ export const pricing: PricingContent = {
         {
           id: "blog",
           name: "Blog / Article Publishing",
-          upfront: "$450",
+          upfront: "$900",
           recurring: null,
           prerequisites: ["admin-single", "database"],
           responsibility:
@@ -200,7 +200,7 @@ export const pricing: PricingContent = {
         {
           id: "wysiwyg",
           name: "Rich Text Editor",
-          upfront: "$400",
+          upfront: "$800",
           recurring: null,
           prerequisites: ["admin-single"],
           responsibility:
@@ -209,11 +209,11 @@ export const pricing: PricingContent = {
         {
           id: "uploader",
           name: "Media Uploader",
-          upfront: "$400",
-          recurring: "from $5/mo",
+          upfront: "$800",
+          recurring: "from $10/mo",
           prerequisites: ["admin-single", "database"],
           responsibility:
-            "Large photo and video uploads go straight to secure storage rather than through the website, which keeps your pages fast and your upload limits generous. The monthly is the storage bill and it grows with how much you keep there, so it starts at $5 and rises as the library does. Included in Growth.",
+            "Large photo and video uploads go straight to secure storage rather than through the website, which keeps your pages fast and your upload limits generous. The monthly is the storage bill and it grows with how much you keep there, so it starts at $10 and rises as the library does. Included in Growth.",
         },
       ],
     },
@@ -225,7 +225,7 @@ export const pricing: PricingContent = {
         {
           id: "admin-single",
           name: "Single-User Admin Portal",
-          upfront: "$600",
+          upfront: "$1,200",
           recurring: null,
           prerequisites: ["database"],
           responsibility:
@@ -234,8 +234,8 @@ export const pricing: PricingContent = {
         {
           id: "admin-multi",
           name: "Multi-User / SaaS Admin Portal",
-          upfront: "$2,100",
-          recurring: "$100/mo",
+          upfront: "$4,200",
+          recurring: "$200/mo",
           prerequisites: ["database"],
           responsibility:
             "Multiple staff accounts with different permission levels, where each person sees only their own data and only the areas you have granted them. Multi-factor authentication on every account.",
@@ -243,8 +243,8 @@ export const pricing: PricingContent = {
         {
           id: "otp",
           name: "Passwordless Login",
-          upfront: "$1,100",
-          recurring: "$5 - $30/mo",
+          upfront: "$2,200",
+          recurring: "$10 - $60/mo",
           prerequisites: ["database"],
           responsibility:
             "Users sign in with a one-time code instead of a password, so there is nothing to forget, reset, or leak. Email codes run on the same tiers as the mailing list. Codes by text message are available too, but they need a Twilio account opened in your name, and Twilio bills you directly for the messages.",
@@ -259,8 +259,8 @@ export const pricing: PricingContent = {
         {
           id: "checkout",
           name: "Secure Checkout",
-          upfront: "$1,200",
-          recurring: "$15/mo",
+          upfront: "$2,400",
+          recurring: "$30/mo",
           prerequisites: ["database"],
           responsibility:
             "The payment machinery itself, and on its own it is enough to charge for an invoice, a deposit, or a donation with no product range in sight. It handles the card form, the receipt, the record of who has paid and who has not, and the payout landing in your bank. Money never sits with me. Everything else in this group is built on top of it.",
@@ -268,7 +268,7 @@ export const pricing: PricingContent = {
         {
           id: "catalog",
           name: "Product Catalog & Cart",
-          upfront: "$600",
+          upfront: "$1,200",
           recurring: null,
           prerequisites: ["checkout"],
           responsibility:
@@ -277,8 +277,8 @@ export const pricing: PricingContent = {
         {
           id: "ticketing",
           name: "Digital Ticketing",
-          upfront: "$900",
-          recurring: "$15/mo",
+          upfront: "$1,800",
+          recurring: "$30/mo",
           prerequisites: ["checkout", "admin-single"],
           responsibility:
             "Someone buys a ticket and automatically receives a unique digital pass by email, ready to be checked at the door.",
@@ -286,8 +286,8 @@ export const pricing: PricingContent = {
         {
           id: "identity",
           name: "ID Verification",
-          upfront: "$900",
-          recurring: "$25/mo + usage",
+          upfront: "$1,800",
+          recurring: "$50/mo + usage",
           prerequisites: ["database"],
           responsibility:
             "Confirms a customer is who they claim to be. The sensitive ID documents are handled by the verification provider and are never stored on your site.",
@@ -295,7 +295,7 @@ export const pricing: PricingContent = {
         {
           id: "crowdfunding",
           name: "Crowdfunding & Goal Tracker",
-          upfront: "$600",
+          upfront: "$1,200",
           recurring: null,
           prerequisites: ["checkout"],
           responsibility:
@@ -311,8 +311,8 @@ export const pricing: PricingContent = {
         {
           id: "booking",
           name: "Booking & Scheduling",
-          upfront: "$900",
-          recurring: "$25/mo",
+          upfront: "$1,800",
+          recurring: "$50/mo",
           prerequisites: ["admin-single", "database"],
           responsibility:
             "Live availability that accounts for what is already reserved, blocks out holidays and time off, and sends confirmation and change notices automatically.",
@@ -320,7 +320,7 @@ export const pricing: PricingContent = {
         {
           id: "integrations",
           name: "Vendor Integration (each)",
-          upfront: "$150",
+          upfront: "$300",
           recurring: null,
           prerequisites: [],
           responsibility:
@@ -329,7 +329,7 @@ export const pricing: PricingContent = {
         {
           id: "leaderboards",
           name: "Live Leaderboards & Rankings",
-          upfront: "$450",
+          upfront: "$900",
           recurring: null,
           prerequisites: ["database"],
           responsibility:

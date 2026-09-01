@@ -51,8 +51,8 @@ function PriceChips({ upfront, recurring }: Pick<PricingLineItem, "upfront" | "r
 
 /** Prerequisites are listed with their own prices because the card's headline
  *  number is not what the feature actually costs to reach: the Rich Text
- *  Editor reads as $400 until you notice it cannot exist without a $600 admin
- *  portal underneath it. */
+ *  Editor reads as $800 until you notice it cannot exist without a $1,200
+ *  admin portal underneath it. */
 function Prerequisites({ ids }: { ids: string[] }) {
   const required = ids
     .map((id) => itemsById.get(id))
@@ -101,7 +101,7 @@ export default function Pricing() {
     <PageShell theme="teal">
       <SeoHead
         title="Pricing | Corbin Meier"
-        description="Custom websites from $700, built once and owned outright. Three build tiers, maintenance you can opt out of entirely, and an à-la-carte menu with every cost and responsibility stated up front."
+        description="Custom websites from $1,400, built once and owned outright. Three build tiers, maintenance you can opt out of entirely, and an à-la-carte menu with every cost and responsibility stated up front."
         path="/pricing"
       />
 
