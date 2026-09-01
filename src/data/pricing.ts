@@ -78,9 +78,9 @@ export const pricing: PricingContent = {
     {
       id: "maintained",
       name: "I maintain it",
-      price: "$100 - $500/mo",
+      price: "$150 - $500/mo",
       summary:
-        "I stay on as an administrator and keep the site healthy. The rate is set per project against what I am actually responsible for: $100 covers a straightforward site, and it climbs from there as that list grows. You see the list, agreed in writing, before you agree to a number.",
+        "I stay on as an administrator and keep the site healthy. The rate is set per project against what I am actually responsible for: $150 covers a straightforward site, and it climbs from there as that list grows. You see the list, agreed in writing, before you agree to a number.",
       points: [
         "Content and copy changes handled as they come up",
         "Security patches and dependency updates applied for you",
